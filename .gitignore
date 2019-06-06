@@ -15,6 +15,7 @@ node_modules
 /scripts
 /src/environment.js
 /src/environment.ts
+/font-awesome
 /publish
 secret.ts
 .chrome
