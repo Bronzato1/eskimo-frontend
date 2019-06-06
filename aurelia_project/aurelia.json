@@ -57,9 +57,60 @@
             "env": "dev"
           },
           {
+            "name": "aurelia-dialog",
+            "path": "../node_modules/aurelia-dialog/dist/amd",
+            "main": "aurelia-dialog",
+            "resources": ["resources/*.js"]
+          },
+          {
             "name": "font-awesome",
             "path": "../node_modules/font-awesome/",
             "main": "css/font-awesome.min.css"
+          },
+          { 
+            "name": "moment", 
+            "path": "../node_modules/moment", 
+            "main": "moment",
+            "resources": ["locale/fr.js"]
+          },
+          {
+            "name": "eonasdan-bootstrap-datetimepicker",
+            "path": "../node_modules/eonasdan-bootstrap-datetimepicker/build",
+            "main": "js/bootstrap-datetimepicker.min",
+            "resources": [
+              "css/bootstrap-datetimepicker.min.css"
+            ]
+          },
+          {
+            "name": "aurelia-bootstrap-datetimepicker",
+            "path": "../node_modules/aurelia-bootstrap-datetimepicker/dist/amd",
+            "main": "index",
+            "resources": [
+              "**/*.{css,html}"
+            ]
+          },
+          {
+            "name": "froala-editor",
+            "path": "../node_modules/froala-editor",
+            "main": "js/froala_editor.min",
+            "resources": [
+              "./js/**/*.{js}",
+              "./css/**/*.{css}"
+            ]
+          },
+          {
+            "name": "aurelia-froala-editor",
+            "path": "../node_modules/aurelia-froala-editor/dist/amd",
+            "main": "index",
+            "resources": [
+              "froala-editor.js",
+              "froala-editor.html"
+            ],
+            "deps": [
+              "jquery",
+              "froala-editor",
+              "font-awesome"
+            ]
           },
           {
             "name": "bootstrap",
@@ -83,6 +134,7 @@
                 "**/*.{scss}"
             ]
           },
+          "downloadjs",
           "rrssb",
           "text",
           "jquery"

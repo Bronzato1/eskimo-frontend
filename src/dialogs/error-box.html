@@ -1,0 +1,29 @@
+<template>
+  <ux-dialog class="errorBox">
+
+      <ux-dialog-header>
+      </ux-dialog-header>
+
+      <ux-dialog-body>
+          <div class="row">
+              <div class="col l4">
+                  <i class="large material-icons white-text">error</i>
+              </div>
+              <div class="row">
+                  <div class="col l8">
+                      <h5 class="white-text bold-text" t="[html]${inputParams.title}"></h5>
+                  </div>
+                  <div class="col l8">
+                      <div class="message white-text" t="[html]${inputParams.message}"></div>
+                  </div>
+              </div>
+          </div>
+      </ux-dialog-body>
+
+      <ux-dialog-footer>
+          <button repeat.for="button of inputParams.buttons" click.trigger="$parent.buttonClicked(button)" autofocus.bind="inputParams.autofocusButton==button">${button}</button>
+      </ux-dialog-footer>
+
+  </ux-dialog>
+</template>
+

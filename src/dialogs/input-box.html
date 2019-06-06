@@ -1,0 +1,33 @@
+<template>
+  <ux-dialog class="questionBox">
+
+      <ux-dialog-header>
+          <div class="row">
+              <div class="col l2">
+                  <i class="medium material-icons white-text">${inputParams.icon}</i>
+              </div>
+              <div class="col l10">
+                  <h5 class="white-text bold-text"  t="[html]${inputParams.title}"></h5>
+              </div>
+          </div>
+
+      </ux-dialog-header>
+
+      <ux-dialog-body>
+          <div class="row">
+                  <div class="col l12 white">
+                      
+                      <md-input t="[label]${inputParams.message}" value.bind="input & validate" ref="inputField"></md-input>
+                  </div>
+          </div>
+      </ux-dialog-body>
+
+      <ux-dialog-footer>
+          <button click.trigger="selectOption()" t="menu.addnew"></button>
+          <button click.trigger="controller.cancel()" t="menu.cancel"></button>
+
+      </ux-dialog-footer>
+
+  </ux-dialog>
+</template>
+
