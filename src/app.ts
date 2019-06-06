@@ -5,18 +5,18 @@ export class App {
         config.addPipelineStep('postcomplete', PostCompleteStep);
         config.map([
             { route: '', redirect: 'index' },
-            { route: 'index', name: 'index', moduleId: 'pages/index' },
-            { route: 'index2', name: 'index2', moduleId: 'pages/index2' },
-            { route: 'index3', name: 'index3', moduleId: 'pages/index3' },
-            { route: 'about', name: 'about', moduleId: 'pages/about' },
-            { route: 'about2', name: 'about2', moduleId: 'pages/about2' },
-            { route: 'author', name: 'author', moduleId: 'pages/author' },
-            { route: 'blog', name: 'blog', moduleId: 'pages/blog' },
-            { route: 'blog2', name: 'blog2', moduleId: 'pages/blog2' },
-            { route: 'blog3', name: 'blog3', moduleId: 'pages/blog3' },
-            { route: 'singlePost', name: 'singlePost', moduleId: 'pages/single-post' },
-            { route: 'category', name: 'category', moduleId: 'pages/category' },
-            { route: 'otherFeatures', name: 'otherFeatures', moduleId: 'pages/other-features' },
+            { route: 'index', name: 'index', moduleId: 'pages/test/index' },
+            { route: 'index2', name: 'index2', moduleId: 'pages/test/index2' },
+            { route: 'index3', name: 'index3', moduleId: 'pages/test/index3' },
+            { route: 'about', name: 'about', moduleId: 'pages/test/about' },
+            { route: 'about2', name: 'about2', moduleId: 'pages/test/about2' },
+            { route: 'author', name: 'author', moduleId: 'pages/test/author' },
+            { route: 'blog', name: 'blog', moduleId: 'pages/test/blog' },
+            { route: 'blog2', name: 'blog2', moduleId: 'pages/test/blog2' },
+            { route: 'blog3', name: 'blog3', moduleId: 'pages/test/blog3' },
+            { route: 'singlePost', name: 'singlePost', moduleId: 'pages/test/single-post' },
+            { route: 'category', name: 'category', moduleId: 'pages/test/category' },
+            { route: 'otherFeatures', name: 'otherFeatures', moduleId: 'pages/test/other-features' },
             { route: 'search', name: 'search', moduleId: 'pages/search' }
         ]);
         this.router = router;
