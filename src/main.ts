@@ -1,15 +1,49 @@
 import {Aurelia} from 'aurelia-framework'
 import environment from './environment';
-import 'slick-carousel';
+
+// Bootstrap
+import 'bootstrap/css/bootstrap.css';
 import 'bootstrap';
+
+// Froala
+import 'froala-editor/css/froala_editor.pkgd.min.css';
+import 'froala-editor/css/froala_style.min.css';
+import 'froala-editor/css/plugins/code_view.min.css';
+import 'froala-editor/js/froala_editor.pkgd.min';
+import 'froala-editor/js/plugins/code_view.min';
+import 'froala-editor/js/plugins/code_beautifier.min';
+
+// Datepicker
+import 'eonasdan-bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css';
+import 'aurelia-bootstrap-datetimepicker/bootstrap-datetimepicker-bs4.css';
+
+// Moment
+import 'moment/locale/fr';
+
+// Slick-carousel
+import 'slick-carousel';
 
 export function configure(aurelia: Aurelia) {
   aurelia.use
     .standardConfiguration()
     .feature('resources')
+    .plugin('aurelia-dialog')
+    .plugin('aurelia-bootstrap-datetimepicker', (config) => {
+        config.extra.bootstrapVersion = 4;
+        config.extra.buttonClass = 'btn btn-outline-secondary';
+        config.options.keyBinds = null;
+      })
+      .plugin('aurelia-froala-editor', config => {
+        config.options({
+          charCounterCount: false
+        })
+      })
     .globalResources([
         'resources/elements/scriptinjector', 
         'resources/elements/reading-position',
+        'resources/elements/topicons',
+        'resources/elements/slide-panel',
+        'resources/elements/fullscreen-search', 
         'resources/elements/goto-top',
         'resources/elements/rrssb',
         'resources/elements/footer-panel'

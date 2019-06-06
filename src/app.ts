@@ -17,7 +17,8 @@ export class App {
             { route: 'singlePost', name: 'singlePost', moduleId: 'pages/test/single-post' },
             { route: 'category', name: 'category', moduleId: 'pages/test/category' },
             { route: 'otherFeatures', name: 'otherFeatures', moduleId: 'pages/test/other-features' },
-            { route: 'search', name: 'search', moduleId: 'pages/search' }
+            { route: 'search', name: 'search', moduleId: 'pages/test/search' },
+            { route: 'testFroala', name: 'testFroala', moduleId: 'pages/test/test-froala' }
         ]);
         this.router = router;
     }
@@ -40,7 +41,9 @@ class PostCompleteStep {
 
         /* CALCULATE PAGE TITLE NEGATIVE MARGIN */
         var adjustPageTitle = function () {
-            var distance = $('#eskimo-main-container > .container').offset().left - 295;
+            var coord = $('#eskimo-main-container > .container').offset();
+            if (!coord) return;
+            var distance = coord.left - 295;
             $('#eskimo-main-container').find('.eskimo-page-title').css('margin-right', -distance);
             $('#eskimo-main-container').find('.eskimo-page-title').css('padding-right', distance);
             $('#eskimo-main-container').find('.eskimo-page-title').css('opacity', 1);
