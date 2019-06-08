@@ -1,0 +1,22 @@
+<template>
+        <require from="./tags-input.css"></require>
+        <div class="input" click.delegate="onClick()">
+      
+          <div repeat.for="tag of tags" 
+            keypress.delegate="onTagKey(tag, $event)"
+            class="tag-input ${tag.editing ? 'editing': ''}">
+      
+            <div class="inner-input text-monospace" contenteditable="true"
+              textcontent.two-way="tag.value"
+              focus.bind="tag.focus"
+              click.delegate="onTagClick(tag, 'edit')"
+              blur.trigger="onTagBlur(tag, $event)">
+            </div>
+            <span class="close-input" 
+              show.bind="!tag.editing" 
+              click.delegate="onTagClick(tag, 'delete')"><span class="fa fa-times fa-sm"></span></span>
+          </div>
+        </div>
+      
+      </template>
+      
