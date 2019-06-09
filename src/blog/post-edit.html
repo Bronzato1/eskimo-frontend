@@ -22,7 +22,7 @@
                         <div class="col-sm-12">
                             <div class="input-group">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text">Titre du billet</span>
+                                    <span class="input-group-text" style="min-width: 137px;">Titre du billet</span>
                                 </div>
                                 <input type="text" class="form-control" value.bind="post.title"
                                     placeholder="Le titre de votre billet">
@@ -34,7 +34,7 @@
                         <div class="col-sm-8">
                             <div class="input-group">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text">Mots-clés</span>
+                                    <span class="input-group-text" style="min-width: 137px;">Les mots-clés</span>
                                 </div>
                                 <tags-input tags.bind="post.tagNames" on-added.call="onTagAdded(tagName)"
                                     on-deleted.call="onTagDeleted(tagName)"
