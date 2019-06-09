@@ -5,6 +5,16 @@ import environment from './environment';
 import 'bootstrap/css/bootstrap.css';
 import 'bootstrap';
 
+// Codemirror
+import 'codemirror/addon/runmode/runmode';
+import 'codemirror/lib/codemirror.css';
+import 'codemirror/theme/ambiance.css';
+import 'codemirror/theme/paraiso-dark.css';
+import 'codemirror/mode/xml/xml';
+import 'codemirror/mode/javascript/javascript';
+import 'codemirror/mode/clike/clike';
+import 'codemirror/mode/css/css';
+
 // Froala
 import 'froala-editor/css/froala_editor.pkgd.min.css';
 import 'froala-editor/css/froala_style.min.css';

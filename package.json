@@ -18,6 +18,7 @@
     "aurelia-froala-editor": "^2.9.3",
     "bluebird": "^3.5.2",
     "bootstrap": "^4.3.1",
+    "codemirror": "^5.46.0",
     "downloadjs": "^1.4.7",
     "font-awesome": "^4.7.0",
     "jquery": "^3.3.1",

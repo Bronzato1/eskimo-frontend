@@ -7,6 +7,7 @@ import { Box } from "../dialogs/box";
 import environment from 'environment';
 import secret from 'secret';
 import * as moment from "moment";
+import * as CodeMirror from 'codemirror';
 import * as $ from 'jquery';
 
 @inject(PostGateway, Router, Box, DialogService)
@@ -32,6 +33,7 @@ export class PostEdit {
     imageManagerLoadURL: 'http://localhost:5000/api/froala/LoadImages',
     imageManagerDeleteURL: 'http://localhost:5000/api/froala/DeleteImage',
     imageManagerDeleteMethod: 'POST',
+    codeMirror: CodeMirror,
     htmlUntouched: true,
     toolbarButtons: ['fullscreen', 'bold', 'italic', 'underline', 'strikeThrough', '|', 'fontFamily', 'fontSize', 'color', 'inlineClass', 'inlineStyle', 'paragraphStyle', 'lineHeight', '|', 'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', 'insertLink', 'insertImage', 'insertVideo', 'embedly', 'insertFile', 'insertTable', '|', 'emoticons', 'fontAwesome', 'insertHR', 'selectAll', 'clearFormatting', '|', 'html', '|', 'undo', 'redo', 'colorizeCode'],
     codeBeautifierOptions: {

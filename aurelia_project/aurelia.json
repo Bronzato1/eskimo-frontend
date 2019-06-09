@@ -125,6 +125,18 @@
             ]
           },
           {
+            "name": "codemirror",
+            "path": "../node_modules/codemirror",
+            "main": "lib/codemirror",
+            "resources": [
+              "./lib/**/*.{js}",
+              "./lib/**/*.{css}",
+              "./mode/**/*.{js}",
+              "./addon/**/*.{js}",
+              "./theme/**/*.{js}"
+            ]
+          },
+          {
             "name": "slick-carousel",
             "path": "../node_modules/slick-carousel/slick",
             "main": "slick",
