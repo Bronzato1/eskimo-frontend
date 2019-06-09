@@ -30,7 +30,7 @@ export function configure(aurelia: Aurelia) {
     .plugin('aurelia-dialog')
     .plugin('aurelia-bootstrap-datetimepicker', (config) => {
         config.extra.bootstrapVersion = 4;
-        config.extra.buttonClass = 'btn btn-outline-secondary';
+        config.extra.buttonClass = 'btn btn-date-picker';
         config.options.keyBinds = null;
       })
       .plugin('aurelia-froala-editor', config => {

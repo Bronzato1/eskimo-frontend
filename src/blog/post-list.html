@@ -1,49 +1,66 @@
 <template>
-        <require from="../global/header"></require>
-      
-        <header>
-          <div slot="injected">
-            <form class="form-inline">
-              <button type="button" class="btn btn-warning mr-2" click.trigger="deleteSelectedPosts()" if.bind="selectedPosts.length>0"><span class="fa fa-times fa-lg mr-2"></span>Supprimer ${selectedPosts.length} ${ selectedPosts.length==1 ? 'billet' : 'billets' }</button>
-              <button type="button" class="btn btn-warning mr-2" click.trigger="exportSelectedPosts()" if.bind="selectedPosts.length>0"><span class="fa fa-download fa-lg mr-2"></span>Exporter ${selectedPosts.length} ${ selectedPosts.length==1 ? 'billet' : 'billets' }</button>
-              <button type="button" class="btn btn-link text-dark" click.trigger="createNewPost()"><span class="fa fa-plus fa-2x"></span></button>
-              <button type="button" class="btn btn-link text-dark" click.trigger="importData()"><span class="fa fa-upload fa-2x  mr-4"></span></button>
-              <input id="fileChooser"  type="file" name="images" accept=".zip" files.bind="zipFile" style="position: absolute; left: 100px; top: -100px;">
-              <div class="input-group" style="width: 140px;">
-                <input type="text" class="form-control" value.bind="filter & debounce" placeholder="Filtrer la liste">
-                <div class="input-group-append" if.bind="filter">
-                  <button class="btn btn-outline-secondary" type="button" click.delegate="filter = ''">
-                    <i class="fa fa-times"></i>
-                    <span class="sr-only" t="contacts.clear"></span>
-                  </button>
+
+    <!-- SITE WRAPPER -->
+    <div id="eskimo-site-wrapper">
+        <!-- MAIN CONTAINER -->
+        <main id="eskimo-main-container" class="no-padding mt-2">
+
+            <form>
+                <button type="button" class="btn btn-link text-dark" click.trigger="createNewPost()"><span
+                        class="fa fa-plus fa-2x"></span></button>
+                <button type="button" class="btn btn-link text-dark" click.trigger="importData()"><span
+                        class="fa fa-upload fa-2x  mr-4"></span></button>
+                <input id="fileChooser" type="file" name="images" accept=".zip" files.bind="zipFile"
+                    style="position: absolute; left: 100px; top: -100px;">
+                <div class="input-group pull-right mr-2" style="width: 140px;">
+                    <input type="text" class="form-control" value.bind="filter & debounce"
+                        placeholder="Filtrer la liste">
+                    <div class="input-group-append" if.bind="filter">
+                        <button class="btn btn-warning" type="button" click.delegate="filter = ''">
+                            <i class="fa fa-times"></i>
+                            <span class="sr-only" t="contacts.clear"></span>
+                        </button>
+                    </div>
                 </div>
-              </div>
+                <button type="button" class="btn btn-turquoise pull-right mr-2" click.trigger="deleteSelectedPosts()"
+                    if.bind="selectedPosts.length>0"><span class="fa fa-times fa-lg mr-2"></span>Supprimer
+                    ${selectedPosts.length} ${ selectedPosts.length==1 ? 'billet' : 'billets' }</button>
+                <button type="button" class="btn btn-turquoise pull-right mr-2" click.trigger="exportSelectedPosts()"
+                    if.bind="selectedPosts.length>0"><span class="fa fa-download fa-lg mr-2"></span>Exporter
+                    ${selectedPosts.length} ${ selectedPosts.length==1 ? 'billet' : 'billets' }</button>
             </form>
-          </div>
-        </header>
-      
-        <section class="au-animate">
-          <group-list items.bind="posts | filterBy:filter:'title'" group-by="yearMonth" order-by="yearMonthDay">
-            <template replace-part="item">
-              <div class="container">
-                <div class="row">
-                  <div class="col">
-                    <input type="checkbox" value="true" checked.bind="isChecked" change.delegate="checkChange($event.target.checked, group.key, group.items)" id="gridCheck${id}" class="mr-3 align-middle" style="transform: scale(2);">
-                    <span class="badge badge-warning text-monospace mt-1 mr-1 align-top" repeat.for="tag of tags">
-                        ${tag.name}
-                    </span>
-                    <a route-href="route: post-detail; params.bind: { id: id }" class="text-dark">
-                        <span>${title}</span> 
-                    </a>
-                    <span class="text-dark pull-right">${creation | dateFormat: 'DD/MM'}</span>
-                    <a route-href="route: post-view; params.bind: { id: id }" class="text-light pull-right mr-2"><span class="fa fa-eye fa-lg"></span></a>
-                    <a href="#" class="text-light pull-right mr-2"><span class="fa fa-times fa-lg"></span></a>
-                  </div>
-                </div>
-              </div>
-              <div>
-            </template>
-          </group-list>
-        </section>
-      </template>
-      
+
+            <section class="au-animate">
+                <group-list items.bind="posts | filterBy:filter:'title'" group-by="yearMonth" order-by="yearMonthDay">
+                    <template replace-part="item">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col">
+                                    <input type="checkbox" value="true" checked.bind="isChecked"
+                                        change.delegate="checkChange($event.target.checked, group.key, group.items)"
+                                        id="gridCheck${id}" class="mr-3 align-middle" style="transform: scale(2);">
+                                    <span class="badge badge-turquoise text-monospace mt-1 mr-1 align-top"
+                                        repeat.for="tag of tags">
+                                        ${tag.name}
+                                    </span>
+                                    <a route-href="route: postEdit; params.bind: { id: id }" class="text-dark">
+                                        <span>${title}</span>
+                                    </a>
+                                    <span class="creation-date-col text-dark pull-right">${creation | dateFormat: 'DD/MM'}</span>
+                                    <a route-href="route: postView; params.bind: { id: id }"
+                                        class="text-light text-blue-hover pull-right mr-2">
+                                        <span class="fa fa-eye fa-lg"></span></a>
+                                    <a href="#" class="text-light text-red-hover pull-right mr-2">
+                                        <span class="fa fa-times fa-lg"></span></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                    </template>
+                </group-list>
+            </section>
+
+        </main>
+    </div>
+
+</template>

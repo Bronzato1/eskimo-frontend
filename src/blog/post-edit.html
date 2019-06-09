@@ -1,3 +1,74 @@
 <template>
-    
+
+    <require from="environment"></require>
+
+    <!-- SITE WRAPPER -->
+    <div id="eskimo-site-wrapper" class="mt-2">
+
+        <button type="button" click.delegate="showPostList()" class="btn btn-turquoise pull-right mr-3">
+            <span class="fa fa-list fa-lg mr-2"></span>Afficher la liste</button>
+
+        <button type="submit" ref="button" form="postForm" class="btn btn-turquoise pull-right mr-2">
+            <span class="fa fa-save fa-lg mr-2"></span>Enregistrer</button>
+
+        <div class="clearfix"></div>
+
+        <section class="container au-animate mt-2">
+            <form id="postForm" submit.trigger="savePost()">
+
+                <div class="form-group">
+
+                    <div class="row  mb-2">
+                        <div class="col-sm-12">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Titre du billet</span>
+                                </div>
+                                <input type="text" class="form-control" value.bind="post.title"
+                                    placeholder="Le titre de votre billet">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mb-2">
+                        <div class="col-sm-8">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Mots-clés</span>
+                                </div>
+                                <tags-input tags.bind="post.tagNames" on-added.call="onTagAdded(tagName)"
+                                    on-deleted.call="onTagDeleted(tagName)"
+                                    on-changed.call="onTagChanged(tagOldName, tagNewName)" style="margin-right: -50px;">
+                                </tags-input>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="input-group" style="flex-wrap: nowrap;">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" sstyle="padding-right: 70px;">Date de
+                                        création</span>
+                                </div>
+                                <abp-datetime-picker element.bind="datepicker" model.bind="post.creation"
+                                    options.bind="{ format: 'DD/MM/YYYY', locale: 'fr' }" icon-base="font-awesome"
+                                    with-date-icon="true" style="width: 173px;"></abp-datetime-picker>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- MAIN CONTAINER -->
+                    <main id="eskimo-main-container">
+
+                        <!-- POST CONTENT -->
+                        <div class="eskimo-page-content">
+                            <froala-editor value.two-way="post.content" config.bind="froalaConfig"
+                                event-handlers.bind="froalaEvents"></froala-editor>
+                        </div>
+
+                    </main>
+                </div>
+            </form>
+        </section>
+
+    </div>
+
 </template>

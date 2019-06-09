@@ -1,45 +1,61 @@
-import { Post } from './../../post/models';
-import { inject, customElement, bindable, bindingMode } from 'aurelia-framework';
-import { EventAggregator } from 'aurelia-event-aggregator';
-
-@inject(EventAggregator)
-@customElement('group-list')
-export class GroupList {
-  constructor(eventAggregator: EventAggregator) {
-    this.eventAggregator = eventAggregator;
+tags-input {
+    position: relative;
+    display: flex;
+    flex: 1;
+    overflow: visible;
+    cursor: text;
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    /* border-radius: 4px;  */
+    padding: 1px; 
+    min-height: 30px;
   }
-  @bindable items: Post[];
-  @bindable groupBy;
-  @bindable orderBy;
-  private eventAggregator: EventAggregator;
-  private checkedGroupKeys = [];
-  private subscriber;
-  private attached() {
-    var self = this;
-    this.subscriber = this.eventAggregator.subscribe('checkChange', response => {
-      var groupKey = response.groupKey;
-      var groupItems = response.groupItems;
-      var cptrCheckedItemsInGroup: number = groupItems.filter(x => x.isChecked).length;
-      var cptrTotalItemsInGroup: number = groupItems.length;
-      var pos = self.checkedGroupKeys.indexOf(groupKey);
-
-      if (cptrCheckedItemsInGroup == cptrTotalItemsInGroup) 
-      {
-        if (pos == -1) self.checkedGroupKeys.push(groupKey); 
-      }
-      else 
-      {
-        if (pos > -1) self.checkedGroupKeys.splice(pos, 1);
-      }
-    });
+  
+  .tag {
+    display: inline-block;
+    position: relative;
+    font-weight: lighter;
+    color: #495057;
+    border-radius: 4px;
+    padding: 1px 4px;
+    margin: 2px;
+    color: white;
+    background-color: #51cbce;
+    white-space: nowrap;
   }
-  private detached() {
-    this.subscriber.dispose();
+  
+  .tag.editing {
+      background: transparent;
+      color: #000;
+      font-weight: normal;
   }
-  private checkAllChanged(group, value) {
-    var groupItems = group.items;
-    groupItems.forEach(element => {
-      element.isChecked = value;
-    });
+  
+  .tag.editing .inner {
+    max-width: 100%;
   }
-}
+  
+  
+  .tag .inner-input {
+    margin: 0;
+    padding-left: 2px;
+    padding-bottom: 2px;
+    display: inline-block;
+    min-width: 15px;
+    max-width: 94%;
+    vertical-align: middle;
+  }
+  
+  .tag .inner-input:focus {
+    outline: none;  
+  }
+  
+  .tag .close-input {
+    display: inline-block;
+    padding-left: 2px;
+    padding-right: 4px;
+  }
+  
+  .tag .close-input:hover {
+    cursor: pointer;
+  }
+  
