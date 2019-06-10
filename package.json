@@ -16,6 +16,7 @@
     "aurelia-dialog": "^2.0.0-rc.6",
     "aurelia-fetch-client": "^1.8.2",
     "aurelia-froala-editor": "^2.9.3",
+    "aurelia-i18n": "^3.0.0-beta.7",
     "bluebird": "^3.5.2",
     "bootstrap": "^4.3.1",
     "codemirror": "^5.46.0",
@@ -31,6 +32,7 @@
   "peerDependencies": {},
   "devDependencies": {
     "@types/bluebird": "^3.5.27",
+    "@types/i18next": "^12.1.0",
     "@types/jquery": "^3.3.29",
     "@types/node": "^10.14.8",
     "aurelia-cli": "^1.0.0-beta.9",
