@@ -14,20 +14,20 @@
                 <!-- MENU -->
                 <nav id="eskimo-main-menu" class="menu-main-menu-container">
                     <ul class="eskimo-menu-ul">
-                        <li><a href="#">Home</a>
+                        <li><a href="#" t="sidebar.home"></a>
                             <ul class="sub-menu">
                                 <li><a route-href="route:index">Demo 1</a></li>
                                 <li><a route-href="route:index2">Demo 2</a></li>
                                 <li><a route-href="route:index3">Demo 3</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">About Me</a>
+                        <li><a href="#" t="sidebar.about"></a>
                             <ul class="sub-menu">
                                 <li><a route-href="route:about">Demo 1</a></li>
                                 <li><a route-href="route:about2">Demo 2</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">Blog</a>
+                        <li><a href="#" t="sidebar.blog"></a>
                             <ul class="sub-menu">
                                 <li><a route-href="route:blog">Full Width</a></li>
                                 <li><a route-href="route:blog2">2 Column</a></li>
@@ -45,8 +45,18 @@
                     </ul>
                 </nav>
             </div>
+            <!-- LANGUAGE SELECTION -->
+            <div id="eskimo-language-cell" class="mt-auto w-100">
+                <div id="eskimo-language-inner">
+                    <ul class="eskimo-language-icons">
+                        <li><a href="#" click.trigger="switchToFrench()">FR</a></li>
+                        <li><a href="#" click.trigger="switchToEnglish()">EN</a></li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
             <!-- SOCIAL MEDIA ICONS -->
-            <div id="eskimo-social-cell" class="mt-auto w-100">
+            <div id="eskimo-social-cell" class="w-100">
                 <div id="eskimo-social-inner">
                     <ul class="eskimo-social-icons">
                         <li><a href="#"><i class="fa fa-facebook-f"></i></a></li>

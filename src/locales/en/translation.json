@@ -1,0 +1,10 @@
+{
+    "sidebar": {
+        "home": "Home",
+        "about": "About me",
+        "blog": "Blog"
+    },
+    "postList": {
+        "filterList": "Filter the list"
+    }
+}

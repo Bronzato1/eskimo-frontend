@@ -2416,6 +2416,42 @@ video {
     color: #fff;
 }
 
+/* =============== LANGUAGE SELECTION ================ */
+
+#eskimo-language-inner {
+    padding: 0px 0px 10px 0px;
+    border-top: none;
+    position: relative;
+}
+
+.eskimo-language-icons {
+    list-style: none;
+    margin: 0;
+    padding: 0 0 0 40px;
+    display: inline-block;
+    vertical-align: bottom;
+}
+
+.eskimo-language-icons li {
+    display: inline-block;
+    text-align: center;
+    line-height: 1;
+    margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: "Merriweather Sans", "Helvetica", Arial, sans-serif;
+}
+
+.eskimo-language-icons li a {
+    color: black;
+    display: block;
+    border-right:none;
+    padding: 0 25px 0 0;
+    width:auto;
+    height:55px;
+    line-height: 55px;
+}
+
 /* ================= SOCIAL ICONS ================== */
 
 #eskimo-social-inner {
@@ -4169,6 +4205,7 @@ p.form-submit {
     #eskimo-menu-toggle {
         display: block;
     }
+    #eskimo-language-cell,
     #eskimo-social-cell,
     #eskimo-main-menu {
         display: none;
@@ -4176,12 +4213,18 @@ p.form-submit {
     .eskimo-menu-ul ul li {
         padding: 1rem 0 0 0;
     }
+    .eskimo-language-icons li a,
     .eskimo-social-icons li a {
         height:50px;
         line-height: 50px;
     }
+    #eskimo-language-inner,
     #eskimo-social-inner {
         padding: 25px 40px;
+    }
+    .eskimo-language-icons {
+        float:left;
+        padding-left:0px;
     }
     .eskimo-social-icons {
         float:right;
@@ -4380,6 +4423,9 @@ p.form-submit {
         right: 20px;
     }
     .eskimo-menu-ul li {
+        padding: 20px;
+    }
+    #eskimo-language-inner {
         padding: 20px;
     }
     #eskimo-social-inner {

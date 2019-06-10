@@ -1,0 +1,10 @@
+{
+    "sidebar": {
+        "home": "Accueil",
+        "about": "A propos",
+        "blog": "Blog"
+    },
+    "postList": {
+        "filterList": "Filtrer la liste"
+    }
+}

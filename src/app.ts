@@ -66,7 +66,7 @@ class PostCompleteStep {
         /* MOBILE MENU */
         var adjustMenuForMobiles = function () {
             $("#eskimo-menu-toggle").on('click', function () {
-                $("#eskimo-social-cell,#eskimo-main-menu").toggle();
+                $("#eskimo-language-cell,#eskimo-social-cell,#eskimo-main-menu").toggle();
             });
         };
 

@@ -1,4 +1,5 @@
-import {Aurelia} from 'aurelia-framework'
+import { Aurelia } from 'aurelia-framework'
+import { I18N, Backend, TCustomAttribute } from 'aurelia-i18n';
 import environment from './environment';
 
 // Bootstrap
@@ -34,36 +35,56 @@ import 'moment/locale/fr';
 import 'slick-carousel';
 
 export function configure(aurelia: Aurelia) {
-  aurelia.use
-    .standardConfiguration()
-    .feature('resources')
-    .plugin('aurelia-dialog')
-    .plugin('aurelia-bootstrap-datetimepicker', (config) => {
-        config.extra.bootstrapVersion = 4;
-        config.extra.buttonClass = 'btn btn-date-picker';
-        config.options.keyBinds = null;
-      })
-      .plugin('aurelia-froala-editor', config => {
-        config.options({
-          charCounterCount: false
+    aurelia.use
+        .standardConfiguration()
+        .feature('resources')
+        .plugin('aurelia-dialog')
+        .plugin('aurelia-bootstrap-datetimepicker', (config) => {
+            config.extra.bootstrapVersion = 4;
+            config.extra.buttonClass = 'btn btn-date-picker';
+            config.options.keyBinds = null;
         })
-      })
-    .globalResources([
-        'resources/elements/scriptinjector', 
-        'resources/elements/reading-position',
-        'resources/elements/topicons',
-        'resources/elements/slide-panel',
-        'resources/elements/fullscreen-search', 
-        'resources/elements/goto-top',
-        'resources/elements/rrssb',
-        'resources/elements/footer-panel'
-    ]);
+        .plugin('aurelia-froala-editor', config => {
+            config.options({
+                charCounterCount: false
+            })
+        })
+        .plugin('aurelia-i18n', (instance) => {
+            let aliases = ['t', 'i18n'];
+            // add aliases for 't' attribute
+            TCustomAttribute.configureAliases(aliases);
 
-  aurelia.use.developmentLogging(environment.debug ? 'debug' : 'warn');
+            // register backend plugin
+            instance.i18next.use(Backend.with(aurelia.loader));
 
-  if (environment.testing) {
-    aurelia.use.plugin('aurelia-testing');
-  }
+            // adapt options to your needs (see http://i18next.com/docs/options/)
+            // make sure to return the promise of the setup method, in order to guarantee proper loading
+            return instance.setup({
+                backend: {                                  // <-- configure backend settings
+                    loadPath: './locales/{{lng}}/{{ns}}.json', // <-- XHR settings for where to get the files from
+                },
+                attributes: aliases,
+                lng: 'en',
+                fallbackLng: 'fr',
+                debug: false
+            });
+        })
+        .globalResources([
+            'resources/elements/scriptinjector',
+            'resources/elements/reading-position',
+            'resources/elements/topicons',
+            'resources/elements/slide-panel',
+            'resources/elements/fullscreen-search',
+            'resources/elements/goto-top',
+            'resources/elements/rrssb',
+            'resources/elements/footer-panel'
+        ]);
 
-  return aurelia.start().then(() => aurelia.setRoot());
+    aurelia.use.developmentLogging(environment.debug ? 'debug' : 'warn');
+
+    if (environment.testing) {
+        aurelia.use.plugin('aurelia-testing');
+    }
+
+    return aurelia.start().then(() => aurelia.setRoot());
 }

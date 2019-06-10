@@ -1,4 +1,12 @@
+import { I18N } from 'aurelia-i18n';
+
 export class Sidebar {
+    constructor(i18n) {
+        this.i18n = i18n;
+        this.i18n.setLocale('fr');
+    }
+    static inject = [I18N];
+    private i18n: I18N;
     private attached() {
         $(document).ready(() => {
             /* MAIN MENU */
@@ -21,5 +29,11 @@ export class Sidebar {
                 }
             });
         });
+    }
+    private switchToFrench() {
+        this.i18n.setLocale('fr');
+    }
+    private switchToEnglish() {
+        this.i18n.setLocale('en');
     }
 }

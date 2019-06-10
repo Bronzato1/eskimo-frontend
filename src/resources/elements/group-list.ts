@@ -1,4 +1,4 @@
-import { Post } from './../../blog/post-models';
+import { Post } from './../../blog/blog-models';
 import { inject, customElement, bindable, bindingMode } from 'aurelia-framework';
 import { EventAggregator } from 'aurelia-event-aggregator';
 

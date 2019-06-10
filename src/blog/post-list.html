@@ -14,7 +14,7 @@
                         style="position: absolute; left: 100px; top: -100px;">
                     <div class="input-group pull-right" style="width: 140px;">
                         <input type="text" class="form-control" value.bind="filter & debounce"
-                            placeholder="Filtrer la liste">
+                            t="[placeholder]postList.filterList">
                         <div class="input-group-append" if.bind="filter">
                             <button class="btn btn-turquoise" type="button" click.delegate="filter = ''">
                                 <i class="fa fa-times"></i>
@@ -66,5 +66,9 @@
 
         </main>
     </div>
+
+
+
+
 
 </template>
