@@ -1,7 +1,7 @@
-import { PostGateway } from "./post-gateway";
+import { PostGateway } from "./blog-gateway";
 import { inject, bindable } from "aurelia-framework";
 import { Router } from "aurelia-router";
-import { Post } from "./post-models";
+import { Post } from "./blog-models";
 
 @inject(PostGateway, Router)
 export class PostView {

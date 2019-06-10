@@ -21,7 +21,8 @@ export class App {
             { route: 'testFroala', name: 'testFroala', moduleId: 'pages/test/test-froala' },
             { route: 'postList', name: 'postList', moduleId: 'blog/post-list' },
             { route: 'postEdit', name: 'postEdit', moduleId: 'blog/post-edit' },
-            { route: 'postView', name: 'postView', moduleId: 'blog/post-view' }
+            { route: 'postView', name: 'postView', moduleId: 'blog/post-view' },
+            { route: 'settings', name: 'settings', moduleId: 'blog/settings' }
         ]);
         this.router = router;
     }

@@ -1,7 +1,7 @@
 import {inject} from 'aurelia-framework';
 import {HttpClient, json} from 'aurelia-fetch-client';
 import { Box } from '../dialogs/box';
-import {Post} from './post-models';
+import {Post} from './blog-models';
 import * as download from 'downloadjs';
 import environment from 'environment';
 import moment = require('moment');
@@ -19,7 +19,7 @@ export class PostGateway {
     });
   }
   getAll(): Promise<Post[]> {
-    return this.httpClient.fetch(`api/post/`)
+    return this.httpClient.fetch(`api/blog/`)
       .then(response => response.json())
       .then(dto => 
         { 
@@ -27,12 +27,12 @@ export class PostGateway {
         });
   }
   getById(id): Promise<Post> {
-    return this.httpClient.fetch(`api/post/${id}`)
+    return this.httpClient.fetch(`api/blog/${id}`)
       .then(response => response.json())
       .then(Post.fromObject);
   }
   updateById(id, post: Post): Promise<void> {
-    return this.httpClient.fetch(`api/post/${id}`, { method: 'put', body: json(post) })
+    return this.httpClient.fetch(`api/blog/${id}`, { method: 'put', body: json(post) })
     .then(saved => 
       { 
         console.log('Result ' + saved.status + ': ' + saved.statusText);
@@ -45,7 +45,7 @@ export class PostGateway {
       });
   }
   createById(post: Post): Promise<void | Post> {
-    return this.httpClient.fetch(`api/post`, {
+    return this.httpClient.fetch(`api/blog`, {
       method: 'post',
       body: json(post)
     })
@@ -57,7 +57,7 @@ export class PostGateway {
       });
   }
   deleteById(id): Promise<void> {
-    return this.httpClient.fetch(`api/post/${id}`, {
+    return this.httpClient.fetch(`api/blog/${id}`, {
       method: 'delete'
     })
     .then((response: Response) => 
@@ -74,14 +74,14 @@ export class PostGateway {
       postId: postId,
       tagName: tagName
     }
-    return this.httpClient.fetch(`api/post/tagAdded`, { method: 'POST', body: json(data) });
+    return this.httpClient.fetch(`api/blog/tagAdded`, { method: 'POST', body: json(data) });
   }
   tagDeleted(postId, tagName) {
     var data = {
       postId: postId,
       tagName: tagName
     }
-    return this.httpClient.fetch(`api/post/tagDeleted`, { method: 'POST', body: json(data) });
+    return this.httpClient.fetch(`api/blog/tagDeleted`, { method: 'POST', body: json(data) });
   }
   tagChanged(postId, tagOldName, tagNewName) {
     var data = {
@@ -89,10 +89,10 @@ export class PostGateway {
       tagOldName: tagOldName,
       tagNewName: tagNewName
     }
-    return this.httpClient.fetch(`api/post/tagChanged`, { method: 'POST', body: json(data) });
+    return this.httpClient.fetch(`api/blog/tagChanged`, { method: 'POST', body: json(data) });
   }
   downloadZip(ids) {
-    return this.httpClient.fetch(`api/post/downloadZip`, { method: 'POST', body: json(ids) })
+    return this.httpClient.fetch(`api/blog/downloadZip`, { method: 'POST', body: json(ids) })
     .then((response: Response) => response.blob())
     .then((blob: Blob) => 
     {
@@ -104,7 +104,7 @@ export class PostGateway {
   uploadZip(file) {
     let formData = new FormData();
     formData.append('file', file[0]);
-    this.httpClient.fetch(`api/post/uploadZip`, { method: 'POST', body: formData })
+    this.httpClient.fetch(`api/blog/uploadZip`, { method: 'POST', body: formData })
     .then(response => response.json())
     .then(data => {
       this.box.showNotification('Importation de ' + data.count + ' éléments', 'Confirmation', 'Ok');
@@ -112,7 +112,7 @@ export class PostGateway {
     .catch(error => console.log(error));
   }
   clearAllData() {
-    return this.httpClient.fetch(`api/post/clearAllData`)
+    return this.httpClient.fetch(`api/blog/clearAllData`)
     .then(response => response.json())
     .then(data => 
     {

@@ -1,7 +1,7 @@
 import {inject} from "aurelia-framework";
 import {Router} from "aurelia-router";
-import {PostGateway} from "./post-gateway";
-import {Post} from "./post-models";
+import {PostGateway} from "./blog-gateway";
+import {Post} from "./blog-models";
 import {Box} from "../dialogs/box";
 import { EventAggregator } from 'aurelia-event-aggregator';
 import * as moment from "moment";
@@ -59,11 +59,8 @@ export class PostList {
         this.postGateway.clearAllData();
     });
   }
-  private showPostDetail(postId) {
-      this.router.navigateToRoute('post-detail', {id: postId});
-  }
   private createNewPost() {
-      this.router.navigateToRoute('post-detail');
+      this.router.navigateToRoute('postEdit');
   }
   private deletePost(post: Post) {
     var message = 'Voulez-vous vraiment supprimer l\'élément ?';

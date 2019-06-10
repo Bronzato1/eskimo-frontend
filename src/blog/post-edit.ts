@@ -1,8 +1,8 @@
-import { PostGateway } from "./post-gateway";
+import { PostGateway } from "./blog-gateway";
 import { inject, bindable } from "aurelia-framework";
 import { DialogService } from 'aurelia-dialog';
 import { Router } from "aurelia-router";
-import { Post } from "./post-models";
+import { Post } from "./blog-models";
 import { Box } from "../dialogs/box";
 import environment from 'environment';
 import secret from 'secret';
