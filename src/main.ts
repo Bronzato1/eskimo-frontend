@@ -30,6 +30,7 @@ import 'aurelia-bootstrap-datetimepicker/bootstrap-datetimepicker-bs4.css';
 
 // Moment
 import 'moment/locale/fr';
+import 'moment/locale/en-gb';
 
 // Slick-carousel
 import 'slick-carousel';

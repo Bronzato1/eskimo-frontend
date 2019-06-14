@@ -1,0 +1,74 @@
+<template>
+
+    <require from="environment"></require>
+
+    <!-- SITE WRAPPER -->
+    <div id="eskimo-site-wrapper" class="mt-2">
+
+        <button type="button" click.delegate="showCategoryList()" class="btn btn-turquoise pull-right mr-3">
+            <span class="fa fa-list fa-lg mr-2"></span>
+            <span t="categoryEdit.showList"></span>
+        </button>
+
+        <button type="submit" ref="button" form="categoryForm" class="btn btn-turquoise pull-right mr-2">
+            <span class="fa fa-save fa-lg mr-2"></span>
+            <span t="categoryEdit.save"></span>
+        </button>
+
+        <div class="clearfix"></div>
+
+        <section class="container au-animate mt-2">
+            <form id="categoryForm" submit.trigger="saveCategory()">
+
+                <div class="form-group">
+
+                    <div class="row  mb-2">
+                        <div class="col-sm-12">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" style="min-width: 155px;"
+                                        t="categoryEdit.frenchName"></span>
+                                </div>
+                                <input type="text" class="form-control" value.bind="category.frenchName"
+                                    t="[placeholder]categoryEdit.requiredField">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row  mb-2">
+                        <div class="col-sm-12">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" style="min-width: 155px;"
+                                        t="categoryEdit.englishName"></span>
+                                </div>
+                                <input type="text" class="form-control" value.bind="category.englishName"
+                                    t="[placeholder]categoryEdit.requiredField">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row  mb-2">
+                        <div class="col-sm-4">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" style="min-width: 155px;"
+                                        t="categoryEdit.color"></span>
+                                </div>
+                                <select value.bind="category.color">
+                                    <option model.bind="null" t="categoryEdit.choose"></option>
+                                    <option repeat.for="color of colors"
+                                        model.bind="color.code">
+                                        ${ (currentLanguage=='fr') ? color.frenchName : color.englishName }
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </section>
+
+    </div>
+
+</template>

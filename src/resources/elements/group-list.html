@@ -1,25 +1,27 @@
 <template>
-        <div repeat.for="group of items | groupBy:groupBy | orderBy:'key'" class="mmb-3">
-          <div class="card-header bg-light border-top }">
+    <div repeat.for="group of items | groupBy:groupBy | orderBy:'key'">
+        <div class="card-header bg-light border-top }">
             <div class="container">
-              <div class="row">
-                <div class="col">
-                    <input type="checkbox" model.bind="group.key" checked.bind="checkedGroupKeys" change.delegate="checkAllChanged(group, $event.target.checked)" class="mr-3 align-middle" style="transform: scale(2);">
-                    ${ group.items.length } ${ group.items.length == 1 ? 'billet' : 'billets' }
+                <div class="row">
+                    <div class="col">
+                        <input type="checkbox" model.bind="group.key" checked.bind="checkedGroupKeys"
+                            change.delegate="checkAllChanged(group, $event.target.checked)" class="mr-3 align-middle"
+                            style="transform: scale(2);">
+                        <span t="${label}" t-params.bind="{count: group.items.length}"></span>
+                    </div>
+                    <div class="col text-right" if.bind="group.key">
+                        ${ group.key | dateFormat: 'MMMM YYYY' : currentLanguage | uppercaseFirstLetter}
+                    </div>
                 </div>
-                <div class="col text-right">
-                    ${group.key | dateFormat: 'MMMM YYYY' | uppercaseFirstLetter}
-                </div>
-              </div>
             </div>
-          </div>
-          <ul class="list-group list-group-flush">
-            <li repeat.for="item of group.items | orderBy:orderBy" class="text-primary list-group-item ${ item.isChecked ? 'bg-light' : '' }">
-              <template with.bind="item">
-                <template replaceable part="item">${$this}</template>
-              </template>
-            </li>
-          </ul>
         </div>
-      </template>
-      
+        <ul class="list-group list-group-flush">
+            <li repeat.for="item of group.items | orderBy:orderBy"
+                class="text-primary list-group-item ${ item.isChecked ? 'bg-light' : '' }">
+                <template with.bind="item">
+                    <template replaceable part="item">${$this}</template>
+                </template>
+            </li>
+        </ul>
+    </div>
+</template>

@@ -5,6 +5,48 @@
         "blog": "Blog"
     },
     "postList": {
-        "filterList": "Filtrer la liste"
+        "filterList": "Filtrer la liste",
+        "post": "{{count}} billet",
+        "post_plural": "{{count}} billets",
+        "delete": "Supprimer {{count}} billet",
+        "delete_plural": "Supprimer {{count}} billets",
+        "export": "Exporter {{count}} billet",
+        "export_plural": "Exporter {{count}} billets",
+        "add": "Ajouter",
+        "import": "Importer"
+    },
+    "postView": {
+        "by": "Par",
+        "in": "Dans",
+        "readingTime": "{{minutes}} min de lecture"
+    },
+    "postEdit": {
+        "save": "Enregistrer",
+        "showList": "Afficher la liste",
+        "choose": "Choisir",
+        "postTitle": "Titre du billet",
+        "category": "Catégorie",
+        "keywords": "Les mots clés",
+        "creationDate": "Date de création",
+        "readingTime": "Temps de lecture",
+        "requiredField": "Champ obligatoire",
+        "min": "min"
+    },
+    "categoryList": {
+        "filterList": "Filtrer la liste",
+        "category": "{{count}} catégorie",
+        "category_plural": "{{count}} catégories",
+        "delete": "Supprimer {{count}} catégorie",
+        "delete_plural": "Supprimer {{count}} catégories",
+        "add": "Ajouter"
+    },
+    "categoryEdit": {
+        "save": "Enregistrer",
+        "showList": "Afficher la liste",
+        "choose": "Choisir",
+        "frenchName": "Nom en français",
+        "englishName": "Nom en anglais",
+        "color": "Couleur",
+        "requiredField": "Champ obligatoire"
     }
 }

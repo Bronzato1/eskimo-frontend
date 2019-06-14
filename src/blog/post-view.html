@@ -19,13 +19,19 @@
                     <h1><span>${post.title}</span></h1>
                     <div class="eskimo-page-title-meta">
                         <div class="eskimo-author-meta">
-                            By <a class="author-meta" href="author.html">Egemenerd</a>
+                            <label t="postView.by"></label>
+                            <a class="author-meta" route-href="route:author">Thierry</a>
                         </div>
                         <div class="eskimo-cat-meta">
-                            In <a href="category.html">Lifestyle</a>
+                            <label t="postView.in"></label>
+                            <a route-href="route:category">${ (currentLanguage=='fr') ? post.category.frenchName :
+                                post.category.englishName }</a>
                         </div>
-                        <div class="eskimo-date-meta">May 25, 2018</div>
-                        <div class="eskimo-reading-meta">3 min read</div>
+                        <div class="eskimo-date-meta">${post.creation| dateFormat: 'DD MMMM YYYY' : currentLanguage }
+                        </div>
+                        <div class="eskimo-reading-meta">
+                            <label t="postView.readingTime" t-params.bind="{minutes: post.readingTime}"></label>
+                        </div>
                     </div>
                 </div>
                 <!-- FEATURED IMAGE -->
@@ -35,6 +41,15 @@
                 <!-- POST CONTENT -->
                 <div class="eskimo-page-content" innerhtml.bind="post.content">
                 </div>
+                <div class="clearfix"></div>
+                <!-- TAGS -->
+                <div class="eskimo-meta-tags">
+                    <span class="badge badge-default" repeat.for="tag of post.tags">
+                        <a route-href="route:tag">${tag.name}</a>
+                    </span>
+                </div>
+                <!-- SOCIAL SHARING -->
+                <rrssb></rrssb>
             </div>
         </main>
     </div>

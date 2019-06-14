@@ -16,13 +16,15 @@ export class App {
             { route: 'blog3', name: 'blog3', moduleId: 'pages/test/blog3' },
             { route: 'singlePost', name: 'singlePost', moduleId: 'pages/test/single-post' },
             { route: 'category', name: 'category', moduleId: 'pages/test/category' },
+            { route: 'tag', name: 'tag', moduleId: 'pages/test/tag' },
             { route: 'otherFeatures', name: 'otherFeatures', moduleId: 'pages/test/other-features' },
             { route: 'search', name: 'search', moduleId: 'pages/test/search' },
             { route: 'testFroala', name: 'testFroala', moduleId: 'pages/test/test-froala' },
             { route: 'postList', name: 'postList', moduleId: 'blog/post-list' },
             { route: 'postEdit', name: 'postEdit', moduleId: 'blog/post-edit' },
             { route: 'postView', name: 'postView', moduleId: 'blog/post-view' },
-            { route: 'settings', name: 'settings', moduleId: 'blog/settings' }
+            { route: 'categoryList', name: 'categoryList', moduleId: 'blog/category-list' },
+            { route: 'categoryEdit', name: 'categoryEdit', moduleId: 'blog/category-edit' }
         ]);
         this.router = router;
     }

@@ -677,7 +677,8 @@ a.text-danger:hover {
 
 .custom-select {
     padding: 0.5rem 1.75rem 0.5rem .75rem;
-    height: calc(3rem + 2px);
+    height: calc(2.5rem + 3px);
+    border-radius: 0px;
 }
 
 /* ================= BUTTONS ================== */
@@ -1521,6 +1522,7 @@ input[type="password"]:not(.form-control),
 input[type="url"]:not(.form-control),
 input[type="tel"]:not(.form-control),
 textarea,
+select,
 .form-control {
     background-color: #FFFFFF;
     border: 1px solid rgba(0, 0, 0, 0.1);
@@ -1919,6 +1921,26 @@ textarea.form-control {
 
 .badge-default {
     background-color: #333;
+}
+
+.badge-blue {
+    background-color: blue;
+}
+
+.badge-red {
+    background-color: red;
+}
+
+.badge-green {
+    background-color: green;
+}
+
+.badge-blueviolet {
+    background-color: blueviolet;
+}
+
+.badge-chartreuse {
+    background-color: chartreuse;
 }
 
 /* ================= TABS ================== */
@@ -4521,4 +4543,18 @@ span.creation-date-col {
 .badge.badge-turquoise {
     color: white;
     background-color: #51cbce;
+}
+
+.reading-time {
+    height: auto;
+    border-right: none;
+    text-align: right;
+    padding: 0 2px 0 5px;
+}
+.minutes-to-read {
+    background-color: transparent;
+    color: lightgray;
+    border-left: none;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 5px;
 }

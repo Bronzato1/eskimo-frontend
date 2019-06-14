@@ -1,16 +1,19 @@
-import { PostGateway } from "./blog-gateway";
-import { inject, bindable } from "aurelia-framework";
-import { Router } from "aurelia-router";
-import { Post } from "./blog-models";
+import {PostGateway} from "../models/post-gateway";
+import {autoinject, bindable} from "aurelia-framework";
+import {I18N} from 'aurelia-i18n';
+import {Router} from "aurelia-router";
+import {Post} from "../models/post-models";
 
-@inject(PostGateway, Router)
+@autoinject()
 export class PostView {
-  constructor(postGateway: PostGateway, router: Router) {
+  constructor(postGateway: PostGateway, router: Router, i18n: I18N) {
     this.postGateway = postGateway;
     this.router = router;
+    this.i18n = i18n;
   }
   private postGateway: PostGateway;
   private router: Router;
+  private i18n: I18N;
   private post: Post;
   private activate(params, config) {
     var self = this;
@@ -26,9 +29,12 @@ export class PostView {
       return loadThePost();
 
     async function loadThePost() {
-      var post = await self.postGateway.getById(params.id);
+      var post = await self.postGateway.getPost(params.id);
       self.post = post;
       config.navModel.setTitle(post.title);
     }
+  }
+  private get currentLanguage() {
+      return this.i18n.getLocale();
   }
 }

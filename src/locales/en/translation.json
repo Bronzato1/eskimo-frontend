@@ -5,6 +5,48 @@
         "blog": "Blog"
     },
     "postList": {
-        "filterList": "Filter the list"
+        "filterList": "Filter the list",
+        "post": "{{count}} post",
+        "post_plural": "{{count}} posts",
+        "delete": "Delete {{count}} post",
+        "delete_plural": "Delete {{count}} posts",
+        "export": "Export {{count}} post",
+        "export_plural": "Export {{count}} posts",
+        "add": "Add",
+        "import": "Import"
+    },
+    "postView": {
+        "by": "By",
+        "in": "In",
+        "readingTime": "{{minutes}} min read"
+    },
+    "postEdit": {
+        "save": "Save",
+        "showList": "ShowList",
+        "choose": "Choose",
+        "postTitle": "Post title",
+        "category": "Category",
+        "keywords": "Keywords",
+        "creationDate": "Creation date",
+        "readingTime": "Reading time",
+        "requiredField": "Required field",
+        "min": "min"
+    },
+    "categoryList": {
+        "filterList": "Filter the list",
+        "category": "{{count}} category",
+        "category_plural": "{{count}} categories",
+        "delete": "Delete {{count}} category",
+        "delete_plural": "Delete {{count}} categories",
+        "add": "Add"
+    },
+    "categoryEdit": {
+        "save": "Save",
+        "showList": "Show list",
+        "choose": "Choose",
+        "frenchName": "French name",
+        "englishName": "English name",
+        "color": "Color",
+        "requiredField": "Required field"
     }
 }

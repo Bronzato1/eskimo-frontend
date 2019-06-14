@@ -1,0 +1,75 @@
+<template>
+
+    <!-- SITE WRAPPER -->
+    <div id="eskimo-site-wrapper">
+        <!-- MAIN CONTAINER -->
+        <main id="eskimo-main-container" class="no-padding">
+            <div class="container mt-3 mb-3">
+                <form>
+                    <button type="button" class="btn btn-turquoise" click.trigger="createNewCategory()">
+                        <span class="fa fa-plus fa-lg mr-2"></span>
+                        <span t="categoryList.add"></span>
+                    </button>
+                    <div class="input-group pull-right" style="width: 140px;">
+                        <input type="text" class="form-control" value.bind="filter & debounce"
+                            t="[placeholder]postList.filterList">
+                        <div class="input-group-append" if.bind="filter">
+                            <button class="btn btn-turquoise" type="button" click.delegate="filter = ''">
+                                <i class="fa fa-times"></i>
+                                <span class="sr-only" t="contacts.clear"></span>
+                            </button>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-turquoise pull-right mr-2"
+                        click.trigger="deleteSelectedCategories()" if.bind="selectedCategories.length>0">
+                        <span class="fa fa-times fa-lg mr-2"></span><span t="categoryList.delete"
+                            t-params.bind="{count: selectedCategories.length}"></span>
+                    </button>
+                </form>
+            </div>
+
+            <section class="au-animate">
+                <group-list items.bind="categories | filterBy:filter:'frenchName':'englishName'" group-by=""
+                    label="categoryList.category" order-by="yearMonthDay">
+                    <template replace-part="item">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col col-sm-3">
+                                    <!-- 1 CASE A COCHER POUR SELECTION -->
+                                    <input type="checkbox" value="true" checked.bind="isChecked"
+                                        change.delegate="checkChange($event.target.checked, group.key, group.items)"
+                                        id="gridCheck${id}" class="mr-3 align-middle" style="transform: scale(2);">
+                                    <!-- LE NOM DE LA CATEGORIE EN FRANCAIS -->
+                                    <a route-href="route: categoryEdit; params.bind: { id: id }" class="text-dark">
+                                        <span>${frenchName}</span>
+                                    </a>
+                                </div>
+                                <div class="col col-sm-auto">
+                                    |
+                                </div>
+                                <div class="col col-sm-3">
+                                    <!-- LE NOM DE LA CATEGORIE EN ANGLAIS -->
+                                    <a route-href="route: categoryEdit; params.bind: { id: id }" class="text-dark">
+                                        <span>${englishName}</span>
+                                    </a>
+                                </div>
+                                <div class="col col-sm-auto">
+                                        |
+                                    </div>
+                                    <div class="col col-sm-3">
+                                        <!-- LE CODE COULEUR -->
+                                        <a route-href="route: categoryEdit; params.bind: { id: id }" class="text-dark">
+                                            <span>${color}</span>
+                                        </a>
+                                    </div>
+                            </div>
+                        </div>
+                        <div>
+                    </template>
+                </group-list>
+            </section>
+
+        </main>
+    </div>
+
+</template>
