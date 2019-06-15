@@ -4558,3 +4558,18 @@ span.creation-date-col {
     border: 1px solid rgba(0, 0, 0, 0.1);
     padding: 5px;
 }
+
+.questionBox,
+.notificationBox {
+    border-radius: 0;
+    max-width: 580px;
+}
+
+ux-dialog-overlay.active {
+    background-color: black;
+    opacity: .5;
+}
+
+.modal-header .close:hover {
+    opacity: 1 !important;
+}

@@ -148,7 +148,7 @@ export class PostEdit {
 
         async function saveThePost(self: PostEdit) {
             var fct: any;
-            var msgSaved = 'Les données ont été enregistrées';
+            var msgSaved = 'Les données ont été enregistrées avec succès dans la base de donnée.';
             var msgError = 'Une erreur s\'est produite';
             var title = 'Confirmation';
             var buttonOk = 'Ok';
