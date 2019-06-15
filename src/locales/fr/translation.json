@@ -23,6 +23,7 @@
     "postEdit": {
         "save": "Enregistrer",
         "showList": "Afficher la liste",
+        "preview": "Apperçu",
         "choose": "Choisir",
         "postTitle": "Titre du billet",
         "category": "Catégorie",
@@ -30,7 +31,9 @@
         "creationDate": "Date de création",
         "readingTime": "Temps de lecture",
         "requiredField": "Champ obligatoire",
-        "min": "min"
+        "min": "min",
+        "image": "Image d'entête",
+        "browse": "Parcourir"
     },
     "categoryList": {
         "filterList": "Filtrer la liste",

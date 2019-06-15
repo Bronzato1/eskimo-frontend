@@ -35,6 +35,7 @@ export class PostEdit {
     private post: Post;
     private categories = [];
     private i18n: I18N;
+    private selectedFiles: any;
     private froalaConfig = {
         key: secret.froalaKey,
         toolbarInline: true,
@@ -65,16 +66,12 @@ export class PostEdit {
     private activate(params, config) {
         var self = this;
 
-        // return self.postGateway.getById(params.id).then(post => 
-        //   {
-        //     self.post = post;
-        //     config.navModel.setTitle(post.title);
-        //   });
-
         loadCategories();
 
         if (params && params.id)
-            return loadThePost();
+            return loadThePost()
+        else
+            this.post = new Post();
 
         async function loadCategories() {
             var categories = await self.categoryGateway.getAllCategories();
@@ -137,11 +134,16 @@ export class PostEdit {
             })
     }
     private attached() {
+        var self = this;
         $(document).ready(() => {
             $('[autofocus]').focus();
+            $('#fileChooser').change(function () {
+                self.uploadImage();
+            });
         });
     }
     private savePost() {
+
         saveThePost(this);
 
         async function saveThePost(self: PostEdit) {
@@ -156,13 +158,18 @@ export class PostEdit {
             else
                 fct = self.postGateway.createPost(self.post);
 
-            await fct.then(() => self.box.showNotification(msgSaved, title, buttonOk)
-                .whenClosed(() => self.router.navigate('postList')))
+            await fct.then((dto) => {
+                self.post.id = dto.id; // utile pour la gestion des tags 
+                self.box.showNotification(msgSaved, title, buttonOk);
+            })
                 .catch(() => self.box.showError(msgError, title, [buttonOk]));
         }
     }
     private showPostList() {
         this.router.navigateToRoute('postList');
+    }
+    private viewPost() {
+        this.router.navigateToRoute('postView', { id: this.post.id });
     }
     private datepickerChanged() {
         this.datepicker.events.onHide = (e) => console.log('onHide');
@@ -172,9 +179,11 @@ export class PostEdit {
         this.datepicker.events.onUpdate = (e) => console.log('onUpdate');
     }
     private onTagCreated(tagName) {
-        var postId = this.post.id;
-        var tag: Tag = { id: 0, name: tagName, postItemId: postId };
-        this.tagGateway.createTag(tag);
+        if (this.post.id) {
+            var postId = this.post.id;
+            var tag: Tag = { id: 0, name: tagName, postItemId: postId };
+            this.tagGateway.createTag(tag);
+        }
     }
     private onTagDeleted(tagName) {
         var postId = this.post.id;
@@ -183,6 +192,15 @@ export class PostEdit {
     private onTagUpdated(tagOldName, tagNewName) {
         var postId = this.post.id;
         this.tagGateway.tagUpdated(postId, tagOldName, tagNewName);
+    }
+    private uploadImage() {
+        if (!this.selectedFiles) {
+            $("#fileChooser").click();
+            return;
+        }
+        this.postGateway.uploadImage(this.selectedFiles[0]).then(link => {
+            this.post.image = link;
+        });
     }
     private get currentLanguage() {
         return this.i18n.getLocale();

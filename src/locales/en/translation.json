@@ -23,6 +23,7 @@
     "postEdit": {
         "save": "Save",
         "showList": "ShowList",
+        "preview": "Preview",
         "choose": "Choose",
         "postTitle": "Post title",
         "category": "Category",
@@ -30,7 +31,9 @@
         "creationDate": "Creation date",
         "readingTime": "Reading time",
         "requiredField": "Required field",
-        "min": "min"
+        "min": "min",
+        "image": "Head image",
+        "browse": "Browse"
     },
     "categoryList": {
         "filterList": "Filter the list",

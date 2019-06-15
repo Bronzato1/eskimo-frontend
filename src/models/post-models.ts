@@ -4,6 +4,7 @@ import {Tag} from './tag-models';
 export class Post {
 
     public id: number;
+    public image: string;
     public title: string;
     public content: string;
     public creation: Date;
@@ -11,13 +12,13 @@ export class Post {
     public isChecked: Boolean;
     public categoryId: number;
     public tags: Array<Tag>;
-    public tagNames: string[];
+    public tagNames: string[] = [];
 
     static fromObject(src) {
         var tmpObj: Post = Object.assign(new Post(), src);
         tmpObj.creation = moment.utc(src.creation).toDate();
         tmpObj.isChecked = false;
-        tmpObj.tagNames = tmpObj.tags && tmpObj.tags.map(x => x.name);
+        tmpObj.tagNames = src.tags && src.tags.map(x => x.name) || [];
         return tmpObj;
     }
 

@@ -4,7 +4,6 @@
 
     <!-- SITE WRAPPER -->
     <div id="eskimo-site-wrapper" class="mt-2">
-
         <!-- 1 BOUTON POUR AFFICHER LA LISTE DES BILLETS -->
         <button type="button" click.delegate="showPostList()" class="btn btn-turquoise pull-right mr-3">
             <span class="fa fa-list fa-lg mr-2"></span>
@@ -15,6 +14,18 @@
             <span class="fa fa-save fa-lg mr-2"></span>
             <span t="postEdit.save"></span>
         </button>
+        <!-- 1 BOUTON POUR AVOIR UN APPERCU DU BILLET -->
+        <button type="button" click.delegate="viewPost()" class="btn btn-turquoise pull-right mr-2">
+            <span class="fa fa-eye fa-lg mr-2"></span>
+            <span t="postEdit.preview"></span>
+        </button>
+        <!-- 1 BOUTON POUR CHARGER UNE IMAGE -->
+        <button type="button" click.trigger="uploadImage()" class="btn btn-turquoise pull-right mr-2"><span
+                class="fa fa-upload fa-lg  mr-2"></span>
+            <span>Image</span>
+        </button>
+        <input id="fileChooser" type="file" name="images" files.bind="selectedFiles"
+            style="position: absolute; left: 100px; top: -500px;">
 
         <div class="clearfix"></div>
 
@@ -39,7 +50,7 @@
                             <div class="input-group">
                                 <!-- ZONE DE LISTE POUR LE CHOIX DE LA CATEGORIE -->
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text" style="min-width: 155px;"
+                                    <span class="input-group-text" style="min-width: 162px;"
                                         t="postEdit.category"></span>
                                 </div>
                                 <select value.bind="post.categoryId">
@@ -55,14 +66,14 @@
                     <div class="row mb-2">
                         <div class="col-sm-8">
                             <!-- ZONE DE TEXTE POUR L'AJOUT, MODIFICATION, SUPPRESSION DES TAGS -->
-                            <div class="input-group">
+                            <div class="input-group" show.bind="post.id>0">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" style="min-width: 160px;"
                                         t="postEdit.keywords"></span>
                                 </div>
-                                <tags-input tags.bind="post.tagNames" on-added.call="onTagCreated(tagName)"
-                                    on-deleted.call="onTagDeleted(tagName)"
-                                    on-changed.call="onTagUpdated(tagOldName, tagNewName)" style="margin-right: -50px;">
+                                <tags-input tags.bind="post.tagNames" style="margin-right: -50px;"
+                                    on-added.call="onTagCreated(tagName)" on-deleted.call="onTagDeleted(tagName)"
+                                    on-changed.call="onTagUpdated(tagOldName, tagNewName)">
                                 </tags-input>
                             </div>
                         </div>
@@ -70,7 +81,7 @@
                             <!-- ZONE DE TEXTE POUR L'EDITION DE LA DATE DE CREATION -->
                             <div class="input-group" style="flex-wrap: nowrap;">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text" style="min-width: 155px;"
+                                    <span class="input-group-text" style="min-width: 162px;"
                                         t="postEdit.creationDate"></span>
                                 </div>
                                 <abp-datetime-picker element.bind="datepicker" model.bind="post.creation"
@@ -81,25 +92,31 @@
                     </div>
 
                     <div class="row mb-2">
-                        <div class="col-sm-3">
+                        <div class="col-sm-8">
+
+                        </div>
+                        <div class="col-sm-4">
                             <!-- ZONE DE TEXTE POUR L'EDITION DU TEMPS DE LECTURE -->
                             <div class="input-group">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text" style="min-width: 160px;"
+                                    <span class="input-group-text" style="min-width: 162px;"
                                         t="postEdit.readingTime"></span>
                                 </div>
                                 <input type="text" class="form-control reading-time" value.bind="post.readingTime">
                                 <div class="input-group-append">
-                                        <span class="input-group-text minutes-to-read"
-                                            t="postEdit.min"></span> 
-                                    </div>
+                                    <span class="input-group-text minutes-to-read" t="postEdit.min"></span>
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- MAIN CONTAINER -->
                     <main id="eskimo-main-container">
-
+                        <!-- FEATURED IMAGE -->
+                        <div class="eskimo-featured-img">
+                            <img src="http://localhost:5000/${post.image}" alt="" />
+                            <!-- <img src="images/1200x600.png" alt="" /> -->
+                        </div>
                         <!-- POST CONTENT -->
                         <div class="eskimo-page-content">
                             <froala-editor value.two-way="post.content" config.bind="froalaConfig"

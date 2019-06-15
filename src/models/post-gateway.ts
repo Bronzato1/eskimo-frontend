@@ -26,7 +26,10 @@ export class PostGateway {
             body: json(post)
         })
             .then(response => response.json())
-            .then(Post.fromObject)
+            .then(dto => {
+                var post = Post.fromObject(dto);
+                return Promise.resolve(post);
+            })
             .catch(error => {
                 console.log('Result ' + error.status + ': ' + error.statusText);
             });
@@ -43,11 +46,15 @@ export class PostGateway {
             .then(response => response.json())
             .then(Post.fromObject);
     }
-    updatePost(id, post: Post): Promise<void> {
-        return this.httpClient.fetch(`api/post/${id}`, { method: 'put', body: json(post) })
-            .then(saved => {
-                console.log('Result ' + saved.status + ': ' + saved.statusText);
-                return Promise.resolve();
+    updatePost(id, post: Post): Promise<void | Post> {
+        return this.httpClient.fetch(`api/post/${id}`, {
+            method: 'put',
+            body: json(post)
+        })
+            .then(response => response.json())
+            .then(dto => {
+                var post = Post.fromObject(dto);
+                return Promise.resolve(post);
             })
             .catch(error => {
                 console.log('Result ' + error.status + ': ' + error.statusText);
@@ -83,6 +90,17 @@ export class PostGateway {
                 this.box.showNotification('Importation de ' + data.count + ' éléments', 'Confirmation', 'Ok');
             })
             .catch(error => console.log(error));
+    }
+    uploadImage(file): Promise<string> {
+        let formData = new FormData();
+        formData.append('file', file);
+        return this.httpClient.fetch(`api/froala/UploadImage`, {
+            method: 'post',
+            body: formData
+        }).then(response => response.json())
+            .then(data => {
+                return data.link;
+            });
     }
     clearAllPosts() {
         return this.httpClient.fetch(`api/post/clearAllPosts`)
