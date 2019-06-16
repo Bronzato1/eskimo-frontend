@@ -7,6 +7,7 @@ import { Category } from './category-models';
 import * as download from 'downloadjs';
 import environment from 'environment';
 import moment = require('moment');
+import { stringify } from 'querystring';
 
 @autoinject()
 export class PostGateway {
@@ -72,8 +73,8 @@ export class PostGateway {
                 console.log('Result ' + error.status + ': ' + error.statusText);
             });
     }
-    downloadZip(ids) {
-        return this.httpClient.fetch(`api/post/downloadZip`, { method: 'POST', body: json(ids) })
+    exportZip(ids) {
+        return this.httpClient.fetch(`api/post/exportZip`, { method: 'POST', body: json(ids) })
             .then((response: Response) => response.blob())
             .then((blob: Blob) => {
                 var ymd: string = moment(new Date()).format('YYYY-MM-DD').toString();
@@ -81,13 +82,16 @@ export class PostGateway {
                 download(blob, fileName, 'application/octetstream');
             })
     }
-    uploadZip(file) {
+    importZip(file) {
         let formData = new FormData();
         formData.append('file', file[0]);
-        this.httpClient.fetch(`api/post/uploadZip`, { method: 'POST', body: formData })
+        this.httpClient.fetch(`api/post/importZip`, { method: 'POST', body: formData })
             .then(response => response.json())
             .then(data => {
-                this.box.showNotification('Importation de ' + data.count + ' éléments', 'Confirmation', 'Ok');
+                var message = 'Importation réussie de ' + data.countSucceed + ' éléments sur ' +  (data.countSucceed + data.countError) + '.';
+                if (data.countError>0)
+                message = message + '<br/><br/><u>Erreurs:</u><br/>' + data.errors.join('</br>');
+                this.box.showNotification(message, 'Confirmation', 'Ok');
             })
             .catch(error => console.log(error));
     }

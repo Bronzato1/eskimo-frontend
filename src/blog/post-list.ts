@@ -41,14 +41,14 @@ export class PostList {
     }
     private exportSelectedPosts() {
         var ids = this.selectedPosts.map(x => x.id);
-        this.postGateway.downloadZip(ids);
+        this.postGateway.exportZip(ids);
     }
     private importData() {
         if (!this.zipFile) {
             $("#fileChooser").click();
             return;
         }
-        this.postGateway.uploadZip(this.zipFile);
+        this.postGateway.importZip(this.zipFile);
     }
     private clearAllPosts() {
         var message = 'Cette opération est irréversible. Etes-vous sur ?';
