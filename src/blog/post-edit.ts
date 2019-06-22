@@ -39,6 +39,7 @@ export class PostEdit {
     private categories = [];
     private i18n: I18N;
     private selectedFiles: any;
+    private handlerQuickSaveFct;
     private froalaConfig = {
         key: secret.froalaKey,
         toolbarInline: true,
@@ -78,8 +79,7 @@ export class PostEdit {
                 self.post = post;
                 config.navModel.setTitle('Billet: ' + post.title);
             }
-            else 
-            {
+            else {
                 // CREATE
                 self.post = await new Post();
                 config.navModel.setTitle('Nouveau billet');
@@ -163,14 +163,26 @@ export class PostEdit {
     }
     private attached() {
         var self = this;
+
         $(document).ready(() => {
             $('[autofocus]').focus();
             $('#fileChooser').change(function () {
                 self.uploadImage();
             });
+            document.addEventListener("keydown", this.handlerQuickSaveFct);
         });
+
+        this.handlerQuickSaveFct = function handlerQuickSaveFct(zEvent) {
+            // <CTRL> <SHIFT> <S> ----> sauver et rester sur la page
+            if (zEvent.ctrlKey && zEvent.shiftKey && zEvent.key === "S") {
+                self.savePost(true);
+            }
+        }
     }
-    private savePost() {
+    private detached() {
+        document.removeEventListener("keydown", this.handlerQuickSaveFct, false);
+    }
+    private savePost(stayHere: Boolean = false) {
         this.validationController.validate()
             .then((result) => {
                 if (result.valid)
@@ -191,7 +203,11 @@ export class PostEdit {
 
             await fct.then((dto) => {
                 self.post.id = dto.id; // utile pour la gestion des tags 
-                self.box.showNotification(msgSaved, title, buttonOk);
+                self.box.showNotification(msgSaved, title, buttonOk)
+                    .whenClosed(() => {
+                        if (!stayHere)
+                            self.router.navigate('postList');
+                    });
             })
                 .catch(() => self.box.showError(msgError, title, [buttonOk]));
         }
