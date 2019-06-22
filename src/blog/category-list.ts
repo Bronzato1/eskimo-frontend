@@ -4,8 +4,6 @@ import {CategoryGateway} from "../models/category-gateway";
 import {Category} from "../models/category-models";
 import {Box} from "../dialogs/box";
 import { EventAggregator } from 'aurelia-event-aggregator';
-import * as moment from "moment";
-import 'moment/locale/fr'
 
 @autoinject()
 export class CategoryList {

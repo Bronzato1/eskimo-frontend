@@ -5,8 +5,6 @@ import { Post } from "../models/post-models";
 import { Box } from "../dialogs/box";
 import { EventAggregator } from 'aurelia-event-aggregator';
 import { I18N } from 'aurelia-i18n';
-import * as moment from "moment";
-import 'moment/locale/fr'
 
 @autoinject()
 export class PostList {
