@@ -5,10 +5,27 @@ export class App {
         config.addPipelineStep('postcomplete', PostCompleteStep);
         config.map([
             { route: '', redirect: 'index' },
-            { route: 'index', name: 'index', moduleId: 'pages/test/index' },
+
+            // H O M E
+
+            { route: 'index', name: 'index', moduleId: 'home/index' },
+
+            // A B O U T
+
+            { route: 'about', name: 'about', moduleId: 'about/about' },
+
+            // B L O G
+
+            { route: 'postList', name: 'postList', moduleId: 'blog/post-list' },
+            { route: 'postEdit', name: 'postEdit', moduleId: 'blog/post-edit' },
+            { route: 'postView', name: 'postView', moduleId: 'blog/post-view' },
+            { route: 'categoryList', name: 'categoryList', moduleId: 'blog/category-list' },
+            { route: 'categoryEdit', name: 'categoryEdit', moduleId: 'blog/category-edit' },
+
+            // T E S T
+
             { route: 'index2', name: 'index2', moduleId: 'pages/test/index2' },
             { route: 'index3', name: 'index3', moduleId: 'pages/test/index3' },
-            { route: 'about', name: 'about', moduleId: 'pages/test/about' },
             { route: 'about2', name: 'about2', moduleId: 'pages/test/about2' },
             { route: 'author', name: 'author', moduleId: 'pages/test/author' },
             { route: 'blog', name: 'blog', moduleId: 'pages/test/blog' },
@@ -19,12 +36,7 @@ export class App {
             { route: 'tag', name: 'tag', moduleId: 'pages/test/tag' },
             { route: 'otherFeatures', name: 'otherFeatures', moduleId: 'pages/test/other-features' },
             { route: 'search', name: 'search', moduleId: 'pages/test/search' },
-            { route: 'testFroala', name: 'testFroala', moduleId: 'pages/test/test-froala' },
-            { route: 'postList', name: 'postList', moduleId: 'blog/post-list' },
-            { route: 'postEdit', name: 'postEdit', moduleId: 'blog/post-edit' },
-            { route: 'postView', name: 'postView', moduleId: 'blog/post-view' },
-            { route: 'categoryList', name: 'categoryList', moduleId: 'blog/category-list' },
-            { route: 'categoryEdit', name: 'categoryEdit', moduleId: 'blog/category-edit' }
+            { route: 'testFroala', name: 'testFroala', moduleId: 'pages/test/test-froala' }
         ]);
         this.router = router;
     }

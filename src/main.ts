@@ -40,6 +40,7 @@ export function configure(aurelia: Aurelia) {
         .standardConfiguration()
         .feature('resources')
         .plugin('aurelia-dialog')
+        .plugin('aurelia-validation')
         .plugin('aurelia-bootstrap-datetimepicker', (config) => {
             config.extra.bootstrapVersion = 4;
             config.extra.buttonClass = 'btn btn-date-picker';

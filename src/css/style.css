@@ -1591,6 +1591,11 @@ textarea:not(.form-control):focus,
     color: #6bd098;
 }
 
+.has-error .form-control {
+    border: 1px solid #f5593d;
+    color: #f5593d;
+}
+
 .has-danger .form-control {
     background-color: #FFC0A4;
     border: 1px solid #f5593d;
@@ -1699,6 +1704,7 @@ textarea.form-control {
 
 .form-group {
     position: relative;
+    margin-bottom: 0;
 }
 
 .form-group-no-border .form-control,
@@ -4518,7 +4524,7 @@ span.creation-date-col {
   }
 
 .btn-date-picker {
-    background-color: white;
+    background-color: transparent;
     color: lightgray;
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-left: none;
@@ -4545,18 +4551,22 @@ span.creation-date-col {
     background-color: #51cbce;
 }
 
-.reading-time {
+.reading-time-input {
     height: auto;
     border-right: none;
     text-align: right;
-    padding: 0 2px 0 5px;
+    padding: 0 10px 0 5px;
 }
-.minutes-to-read {
+
+.reading-time-span {
     background-color: transparent;
     color: lightgray;
     border-left: none;
     border: 1px solid rgba(0, 0, 0, 0.1);
     padding: 5px;
+    width: 50px; 
+    height: 2.88em; 
+    border-left: 2px solid rgba(0, 0, 0, 0.1);
 }
 
 .questionBox,

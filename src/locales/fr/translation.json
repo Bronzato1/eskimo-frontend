@@ -2,7 +2,8 @@
     "sidebar": {
         "home": "Accueil",
         "about": "A propos",
-        "blog": "Blog"
+        "blog": "Blog",
+        "test": "Test"
     },
     "postList": {
         "filterList": "Filtrer la liste",

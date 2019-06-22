@@ -14,18 +14,9 @@
                 <!-- MENU -->
                 <nav id="eskimo-main-menu" class="menu-main-menu-container">
                     <ul class="eskimo-menu-ul">
-                        <li><a href="#" t="sidebar.home"></a>
-                            <ul class="sub-menu">
-                                <li><a route-href="route:index">Demo 1</a></li>
-                                <li><a route-href="route:index2">Demo 2</a></li>
-                                <li><a route-href="route:index3">Demo 3</a></li>
-                            </ul>
+                        <li><a route-href="route:index" t="sidebar.home"></a>
                         </li>
-                        <li><a href="#" t="sidebar.about"></a>
-                            <ul class="sub-menu">
-                                <li><a route-href="route:about">Demo 1</a></li>
-                                <li><a route-href="route:about2">Demo 2</a></li>
-                            </ul>
+                        <li><a route-href="route:about" t="sidebar.about"></a>
                         </li>
                         <li><a href="#" t="sidebar.blog"></a>
                             <ul class="sub-menu">
@@ -33,15 +24,21 @@
                                 <li><a route-href="route:blog2">2 Column</a></li>
                                 <li><a route-href="route:blog3">3 Column</a></li>
                                 <li><a route-href="route:singlePost">Single Post</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Admin</a>
-                            <ul class="sub-menu">
                                 <li><a route-href="route:postList">Liste des billets</a></li>
                                 <li><a route-href="route:categoryList">Liste des catégories</a></li>
                             </ul>
                         </li>
-                        <li><a route-href="route:otherFeatures">Other Features</a></li>
+                        <li>
+                            <a href="#" t="sidebar.test"></a>
+                            <ul class="sub-menu">
+                                    <li><a route-href="route:index2">Home / Demo 2</a></li>
+                                    <li><a route-href="route:index3">Home / Demo 3</a></li>
+                                    <li><a route-href="route:about2">About / Demo 2</a></li>
+                                    <li><a route-href="route:category">Category</a></li>
+                                    <li><a route-href="route:tag">Tag</a></li>
+                                <li><a route-href="route:otherFeatures">Other Features</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </nav>
             </div>

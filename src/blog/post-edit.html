@@ -15,7 +15,8 @@
             <span t="postEdit.save"></span>
         </button>
         <!-- 1 BOUTON POUR AVOIR UN APPERCU DU BILLET -->
-        <button type="button" click.delegate="viewPost()" class="btn btn-turquoise pull-right mr-2">
+        <button type="button" click.delegate="viewPost()" class="btn btn-turquoise pull-right mr-2"
+            show.bind="post.id>0">
             <span class="fa fa-eye fa-lg mr-2"></span>
             <span t="postEdit.preview"></span>
         </button>
@@ -32,33 +33,39 @@
         <section class="container au-animate mt-2">
             <form id="postForm" submit.trigger="savePost()">
 
-                <div class="form-group">
+                <div class="form-groupppppp">
 
                     <div class="row  mb-2">
                         <div class="col-sm-8">
                             <!-- ZONE DE TEXTE POUR L'EDITION DU TITRE -->
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" style="min-width: 160px;"
-                                        t="postEdit.postTitle"></span>
+                            <div class="form-group" validation-errors.bind="titleErrors"
+                                class.bind="titleErrors.length ? 'has-error' : ''">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" style="min-width: 160px;"
+                                            t="postEdit.postTitle"></span>
+                                    </div>
+                                    <input type="text" class="form-control" value.bind="post.title & validate"
+                                        style="margin-right: -50px;" placeholder="Le titre de votre billet">
                                 </div>
-                                <input type="text" class="form-control" value.bind="post.title"
-                                    style="margin-right: -50px;" placeholder="Le titre de votre billet">
                             </div>
                         </div>
                         <div class="col-sm-4">
-                            <div class="input-group">
-                                <!-- ZONE DE LISTE POUR LE CHOIX DE LA CATEGORIE -->
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" style="min-width: 162px;"
-                                        t="postEdit.category"></span>
+                            <!-- ZONE DE LISTE POUR LE CHOIX DE LA CATEGORIE -->
+                            <div class="form-group" validation-errors.bind="categoryErrors"
+                                class.bind="categoryErrors.length ? 'has-error' : ''">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" style="min-width: 162px;"
+                                            t="postEdit.category"></span>
+                                    </div>
+                                    <select value.bind="post.categoryId & validate" class="form-control">
+                                        <option model.bind="null" t="postEdit.choose"></option>
+                                        <option repeat.for="category of categories" model.bind="category.id">
+                                            ${ (currentLanguage=='fr') ? category.frenchName : category.englishName }
+                                        </option>
+                                    </select>
                                 </div>
-                                <select value.bind="post.categoryId">
-                                    <option model.bind="null" t="postEdit.choose"></option>
-                                    <option repeat.for="category of categories" model.bind="category.id">
-                                        ${ (currentLanguage=='fr') ? category.frenchName : category.englishName }
-                                    </option>
-                                </select>
                             </div>
                         </div>
                     </div>
@@ -79,14 +86,17 @@
                         </div>
                         <div class="col-sm-4">
                             <!-- ZONE DE TEXTE POUR L'EDITION DE LA DATE DE CREATION -->
-                            <div class="input-group" style="flex-wrap: nowrap;">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" style="min-width: 162px;"
-                                        t="postEdit.creationDate"></span>
+                            <div class="form-group" validation-errors.bind="creationErrors"
+                                class.bind="creationErrors.length ? 'has-error' : ''">
+                                <div class="input-group" style="flex-wrap: nowrap;">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" style="min-width: 162px;"
+                                            t="postEdit.creationDate"></span>
+                                    </div>
+                                    <abp-datetime-picker element.bind="datepicker" model.bind="post.creation & validate"
+                                        options.bind="{ format: 'DD/MM/YYYY', locale: 'fr' }" icon-base="font-awesome"
+                                        with-date-icon="true" style="width: 173px;"></abp-datetime-picker>
                                 </div>
-                                <abp-datetime-picker element.bind="datepicker" model.bind="post.creation"
-                                    options.bind="{ format: 'DD/MM/YYYY', locale: 'fr' }" icon-base="font-awesome"
-                                    with-date-icon="true" style="width: 173px;"></abp-datetime-picker>
                             </div>
                         </div>
                     </div>
@@ -97,14 +107,18 @@
                         </div>
                         <div class="col-sm-4">
                             <!-- ZONE DE TEXTE POUR L'EDITION DU TEMPS DE LECTURE -->
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" style="min-width: 162px;"
-                                        t="postEdit.readingTime"></span>
-                                </div>
-                                <input type="text" class="form-control reading-time" value.bind="post.readingTime">
-                                <div class="input-group-append">
-                                    <span class="input-group-text minutes-to-read" t="postEdit.min"></span>
+                            <div class="form-group" validation-errors.bind="readingTimeErrors"
+                                class.bind="readingTimeErrors.length ? 'has-error' : ''">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" style="min-width: 162px;"
+                                            t="postEdit.readingTime"></span>
+                                    </div>
+                                    <input type="text" class="form-control reading-time-input"
+                                        value.bind="post.readingTime & validate">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text reading-time-span" t="postEdit.min"></span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -113,9 +127,8 @@
                     <!-- MAIN CONTAINER -->
                     <main id="eskimo-main-container">
                         <!-- FEATURED IMAGE -->
-                        <div class="eskimo-featured-img">
+                        <div class="eskimo-featured-img" if.bind="post.image!=null">
                             <img src="http://localhost:5000/${post.image}" alt="" />
-                            <!-- <img src="images/1200x600.png" alt="" /> -->
                         </div>
                         <!-- POST CONTENT -->
                         <div class="eskimo-page-content">

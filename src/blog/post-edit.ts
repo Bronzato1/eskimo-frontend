@@ -2,6 +2,7 @@ import { TagGateway } from '../models/tag-gateway';
 import { PostGateway } from "../models/post-gateway";
 import { CategoryGateway } from "../models/category-gateway";
 import { autoinject, bindable } from "aurelia-framework";
+import { ValidationRules, ValidationController, ValidationControllerFactory, } from "aurelia-validation";
 import { DialogService } from 'aurelia-dialog';
 import { Router } from "aurelia-router";
 import { Post } from "../models/post-models";
@@ -17,7 +18,7 @@ import * as $ from 'jquery';
 @autoinject()
 export class PostEdit {
     @bindable datepicker;
-    constructor(postGateway: PostGateway, tagGateway: TagGateway, categoryGateway: CategoryGateway, router: Router, box: Box, dialogService: DialogService, i18n: I18N) {
+    constructor(postGateway: PostGateway, tagGateway: TagGateway, categoryGateway: CategoryGateway, router: Router, box: Box, dialogService: DialogService, i18n: I18N, validationController: ValidationControllerFactory) {
         this.postGateway = postGateway;
         this.tagGateway = tagGateway;
         this.categoryGateway = categoryGateway;
@@ -25,6 +26,7 @@ export class PostEdit {
         this.box = box;
         this.dialogService = dialogService
         this.i18n = i18n;
+        this.validationController = validationController.createForCurrentScope();
     }
     private postGateway: PostGateway;
     private tagGateway: TagGateway;
@@ -32,6 +34,7 @@ export class PostEdit {
     private router: Router;
     private box: Box;
     private dialogService: DialogService;
+    private validationController: any;
     private post: Post;
     private categories = [];
     private i18n: I18N;
@@ -66,29 +69,54 @@ export class PostEdit {
     private activate(params, config) {
         var self = this;
 
-        loadCategories();
+        return loadOrCreatheThePost().then(loadCategories).then(manageValidationRules);
 
-        if (params && params.id)
-            return loadThePost()
-        else
-            this.post = new Post();
+        async function loadOrCreatheThePost() {
+            if (params && params.id) {
+                // LOAD
+                var post = await self.postGateway.getPost(params.id);
+                self.post = post;
+                config.navModel.setTitle('Billet: ' + post.title);
+            }
+            else 
+            {
+                // CREATE
+                self.post = await new Post();
+                config.navModel.setTitle('Nouveau billet');
+            }
+            return Promise.resolve(true);
+        }
 
         async function loadCategories() {
             var categories = await self.categoryGateway.getAllCategories();
             self.categories = categories;
         }
 
-        async function loadThePost() {
-            var post = await self.postGateway.getPost(params.id);
-            self.post = post;
-            config.navModel.setTitle(post.title);
+        async function manageValidationRules() {
+            ValidationRules.customRule(
+                'validDate',
+                (value, obj) => {
+                    var d = new Date(value);
+                    return value === null || value === undefined || value === '' || !isNaN(d.getTime());
+                },
+                `\${$displayName} must be a Date.`
+            );
+
+            ValidationRules
+                .ensure((x: Post) => x.title).required()
+                .ensure((x: Post) => x.categoryId).required()
+                .ensure((x: Post) => x.creation).required().then().satisfiesRule('validDate')
+                .ensure((x: Post) => x.readingTime).required().matches(new RegExp('^[0-9]*$'))
+                .on(self.post);
+
+            await self.validationController.addObject(self.post);
         }
     }
     private imageUploaded(e, editor, response) {
         // Parse response to get image url.
         var resp = JSON.parse(response);
         var img_url = environment.backendUrl + resp.link;
-
+        console.log(img_url);
         // Insert image.
         editor.image.insert(img_url, false, null, editor.image.get(), response);
         return false;
@@ -143,8 +171,11 @@ export class PostEdit {
         });
     }
     private savePost() {
-
-        saveThePost(this);
+        this.validationController.validate()
+            .then((result) => {
+                if (result.valid)
+                    saveThePost(this);
+            });
 
         async function saveThePost(self: PostEdit) {
             var fct: any;

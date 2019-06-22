@@ -67,6 +67,11 @@
             "path": "../node_modules/font-awesome/",
             "main": "css/font-awesome.min.css"
           },
+          {
+            "name": "aurelia-validation",
+            "path": "../node_modules/aurelia-validation/dist/amd",
+            "main": "aurelia-validation"
+          },
           { 
             "name": "moment", 
             "path": "../node_modules/moment", 
