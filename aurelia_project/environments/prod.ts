@@ -1,4 +1,5 @@
 export default {
   debug: false,
-  testing: false,backendUrl: 'https://eskimoapp.azurewebsites.net/'
+  testing: false,
+  backendUrl: 'https://eskimoapp.azurewebsites.net/'
 };

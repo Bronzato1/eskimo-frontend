@@ -17,14 +17,14 @@ Voir ici: https://code.visualstudio.com/tutorials/static-website/create-storage
 - copier le rép images dans le rép publish
 - copier le rép javascript dans le rép publish
 - copier les fichiers index.html et favicon.ico dans le rép publish
-- ensuite clic droit sur le répertoire publish et choisir Deploy to static website > ushuaia
+- ensuite clic droit sur le répertoire publish et choisir Deploy to static website > eskimoo
 
 
 | Type                | Nom           |           |                |
 |---------------------|---------------|-----------|----------------|
-| Groupe de ressource | ushuaiaGroup  |           |                |
-| App service         | ushuaiaApp    | backend   | Web App        |
-| Compte de stockage  | ushuaia       | frontend  | Static Website |
+| Groupe de ressource | eskimoGroup   |           |                |
+| App service         | eskimoApp     | backend   | Web App        |
+| Compte de stockage  | eskimoo       | frontend  | Static Website |
 
 
 

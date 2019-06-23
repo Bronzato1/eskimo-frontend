@@ -40,14 +40,17 @@ export class PostEdit {
     private i18n: I18N;
     private selectedFiles: any;
     private handlerQuickSaveFct;
+    private get environment() {
+        return environment;
+    }
     private froalaConfig = {
         key: secret.froalaKey,
         toolbarInline: true,
         charCounterCount: false,
-        imageUploadURL: 'http://localhost:5000/api/froala/UploadImage',
-        fileUploadURL: 'http://localhost:5000/api/froala/UploadFile',
-        imageManagerLoadURL: 'http://localhost:5000/api/froala/LoadImages',
-        imageManagerDeleteURL: 'http://localhost:5000/api/froala/DeleteImage',
+        imageUploadURL: environment.backendUrl + 'api/froala/UploadImage',
+        fileUploadURL:  environment.backendUrl + 'api/froala/UploadFile',
+        imageManagerLoadURL: environment.backendUrl + 'api/froala/LoadImages',
+        imageManagerDeleteURL: environment.backendUrl + 'api/froala/DeleteImage',
         imageManagerDeleteMethod: 'POST',
         codeMirror: CodeMirror,
         htmlUntouched: true,
@@ -246,7 +249,7 @@ export class PostEdit {
             return;
         }
         this.postGateway.uploadImage(this.selectedFiles[0]).then(link => {
-            this.post.image = link;
+            this.post.image = environment.backendUrl + link;
         });
     }
     private get currentLanguage() {
