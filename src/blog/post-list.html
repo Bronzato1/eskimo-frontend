@@ -40,7 +40,7 @@
             </div>
 
             <section class="au-animate">
-                <group-list items.bind="posts | filterBy:filter:'title'" group-by="yearMonth" order-by="yearMonthDay"
+                <group-list items.bind="posts | filterBy:filter:'frenchTitle'" group-by="yearMonth" order-by="yearMonthDay"
                     label="postList.post">
                     <template replace-part="item">
                         <div class="container">
@@ -61,7 +61,7 @@
                                     </span>
                                     <!-- LE TITRE DU BILLET CLIQUABLE -->
                                     <a route-href="route: postEdit; params.bind: { id: id }" class="text-dark">
-                                        <span>${title}</span>
+                                        <span>${frenchTitle}</span>
                                     </a>
                                     <!-- LA DATE DE CREATION -->
                                     <span class="creation-date-col text-dark pull-right">

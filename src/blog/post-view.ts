@@ -31,7 +31,7 @@ export class PostView {
     async function loadThePost() {
       var post = await self.postGateway.getPost(params.id);
       self.post = post;
-      config.navModel.setTitle(post.title);
+      config.navModel.setTitle(post.frenchTitle);
     }
   }
   private get currentLanguage() {

@@ -16,7 +16,7 @@
                 <div class="clearfix"></div>
                 <!-- PAGE TITLE -->
                 <div class="eskimo-page-title">
-                    <h1><span>${post.title}</span></h1>
+                    <h1><span>${ (currentLanguage=='fr') ? post.frenchTitle : post.englishTitle}</span></h1>
                     <div class="eskimo-page-title-meta">
                         <div class="eskimo-author-meta">
                             <label t="postView.by"></label>
@@ -40,7 +40,7 @@
                     <!-- <img src="images/1200x600.png" alt="" /> -->
                 </div>
                 <!-- POST CONTENT -->
-                <div class="eskimo-page-content" innerhtml.bind="post.content">
+                <div class="eskimo-page-content" innerhtml.bind="(currentLanguage=='fr') ? post.frenchContent : post.englishContent">
                 </div>
                 <div class="clearfix"></div>
                 <!-- TAGS -->

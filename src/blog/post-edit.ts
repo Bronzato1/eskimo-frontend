@@ -40,12 +40,13 @@ export class PostEdit {
     private i18n: I18N;
     private selectedFiles: any;
     private handlerQuickSaveFct;
+    private currentLng: string = 'fr';
     private get environment() {
         return environment;
     }
     private froalaConfig = {
         key: secret.froalaKey,
-        toolbarInline: true,
+        toolbarInline: false,
         charCounterCount: false,
         imageUploadURL: environment.backendUrl + 'api/froala/UploadImage',
         fileUploadURL:  environment.backendUrl + 'api/froala/UploadFile',
@@ -54,7 +55,8 @@ export class PostEdit {
         imageManagerDeleteMethod: 'POST',
         codeMirror: CodeMirror,
         htmlUntouched: true,
-        toolbarButtons: ['fullscreen', 'bold', 'italic', 'underline', 'strikeThrough', '|', 'fontFamily', 'fontSize', 'color', 'inlineClass', 'inlineStyle', 'paragraphStyle', 'lineHeight', '|', 'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', 'insertLink', 'insertImage', 'insertVideo', 'embedly', 'insertFile', 'insertTable', '|', 'emoticons', 'fontAwesome', 'insertHR', 'selectAll', 'clearFormatting', '|', 'html', '|', 'undo', 'redo', 'colorizeCode'],
+        //toolbarButtons: ['fullscreen', 'bold', 'italic', 'underline', 'strikeThrough', '|', 'fontFamily', 'fontSize', 'color', 'inlineClass', 'inlineStyle', 'paragraphStyle', 'lineHeight', '|', 'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', 'insertLink', 'insertImage', 'insertVideo', 'embedly', 'insertFile', 'insertTable', '|', 'emoticons', 'fontAwesome', 'insertHR', 'selectAll', 'clearFormatting', '|', 'html', '|', 'undo', 'redo', 'colorizeCode'],
+        toolbarButtons: ['fullscreen', 'bold', 'italic', 'underline', 'strikeThrough', '|', 'fontFamily', 'fontSize', 'color', 'inlineClass', 'inlineStyle', 'paragraphStyle', '|', 'paragraphFormat', 'align', 'formatOL', 'formatUL', 'quote', 'insertLink', 'insertImage', '|', 'insertHR', '|', 'html', '|', 'undo', 'redo', 'colorizeCode'],
         codeBeautifierOptions: {
             end_with_newline: true,
             indent_inner_html: true,
@@ -80,7 +82,7 @@ export class PostEdit {
                 // LOAD
                 var post = await self.postGateway.getPost(params.id);
                 self.post = post;
-                config.navModel.setTitle('Billet: ' + post.title);
+                config.navModel.setTitle('Billet: ' + post.frenchTitle);
             }
             else {
                 // CREATE
@@ -106,7 +108,8 @@ export class PostEdit {
             );
 
             ValidationRules
-                .ensure((x: Post) => x.title).required()
+                .ensure((x: Post) => x.frenchTitle).required()
+                .ensure((x: Post) => x.englishTitle).required()
                 .ensure((x: Post) => x.categoryId).required()
                 .ensure((x: Post) => x.creation).required().then().satisfiesRule('validDate')
                 .ensure((x: Post) => x.readingTime).required().matches(new RegExp('^[0-9]*$'))
@@ -228,10 +231,17 @@ export class PostEdit {
         this.datepicker.events.onError = (e) => console.log('onError');
         this.datepicker.events.onUpdate = (e) => console.log('onUpdate');
     }
-    private onTagCreated(tagName) {
+    private onFrenchTagCreated(tagName) {
         if (this.post.id) {
             var postId = this.post.id;
-            var tag: Tag = { id: 0, name: tagName, postItemId: postId };
+            var tag: Tag = { id: 0, name: tagName, postItemId: postId, language: 'fr' };
+            this.tagGateway.createTag(tag);
+        }
+    }
+    private onEnglishTagCreated(tagName) {
+        if (this.post.id) {
+            var postId = this.post.id;
+            var tag: Tag = { id: 0, name: tagName, postItemId: postId, language: 'en' };
             this.tagGateway.createTag(tag);
         }
     }
@@ -254,5 +264,8 @@ export class PostEdit {
     }
     private get currentLanguage() {
         return this.i18n.getLocale();
+    }
+    private setCurrentLng(lng) {
+        this.currentLng = lng;
     }
 }

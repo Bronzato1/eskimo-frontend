@@ -5,25 +5,29 @@ export class Post {
 
     public id: number;
     public image: string;
-    public title: string;
-    public content: string;
+    public frenchTitle: string;
+    public englishTitle: string;
+    public frenchContent: string;
+    public englishContent: string;
     public creation: Date;
     public readingTime: number;
     public isChecked: Boolean;
     public categoryId: number;
     public tags: Array<Tag>;
-    public tagNames: string[] = [];
+    public tagNamesForFrench: string[] = [];
+    public tagNamesForEnglish: string[] = [];
 
     static fromObject(src) {
         var tmpObj: Post = Object.assign(new Post(), src);
         tmpObj.creation = moment.utc(src.creation).toDate();
         tmpObj.isChecked = false;
-        tmpObj.tagNames = src.tags && src.tags.map(x => x.name) || [];
+        tmpObj.tagNamesForFrench = src.tags && src.tags.filter((x: Tag) => x.language == 'fr').map((x: Tag) => x.name) || [];
+        tmpObj.tagNamesForEnglish = src.tags && src.tags.filter((x: Tag) => x.language == 'en').map((x: Tag) => x.name) || [];
         return tmpObj;
     }
 
     get firstLetter() {
-        const name = this.title;
+        const name = this.frenchTitle;
         return name ? name[0].toUpperCase() : '?';
     }
 

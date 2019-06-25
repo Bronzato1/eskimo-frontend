@@ -6,6 +6,7 @@ export class Tag {
         return tmpObj;
     }
     public id: number;
+    public language: string;
     public name: string;
     public postItemId: number;
 }
