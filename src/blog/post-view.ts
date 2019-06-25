@@ -3,6 +3,7 @@ import {autoinject, bindable} from "aurelia-framework";
 import {I18N} from 'aurelia-i18n';
 import {Router} from "aurelia-router";
 import {Post} from "../models/post-models";
+import { Tag } from "../models/tag-models";
 
 @autoinject()
 export class PostView {
@@ -37,4 +38,7 @@ export class PostView {
   private get currentLanguage() {
       return this.i18n.getLocale();
   }
+  private filtered(tags: Tag[], currentLanguage) {
+    return tags.filter(x => x.language==currentLanguage);
+}
 }

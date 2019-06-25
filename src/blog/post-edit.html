@@ -45,7 +45,7 @@
                         </div>
                         <div>
                             <!-- FRENCH -->
-                            <div if.bind="currentLng=='fr'">
+                            <div show.bind="currentLng=='fr'">
                                 <!-- ZONE DE TEXTE POUR L'EDITION DU TITRE FRANCAIS -->
                                 <div class="form-group mb-1" validation-errors.bind="frenchTitleErrors"
                                     class.bind="frenchTitleErrors.length ? 'has-error' : ''">
@@ -124,9 +124,9 @@
                                     event-handlers.bind="froalaEvents"></froala-editor>
                             </div>
                             <!-- ENGLISH -->
-                            <div if.bind="currentLng=='en'">
+                            <div show.bind="currentLng=='en'">
                                 <!-- ZONE DE TEXTE POUR L'EDITION DU TITRE ANGLAIS -->
-                                <div class="form-group mb-1" validation-errors.bind="frenchTitleErrors"
+                                <div class="form-group mb-1" validation-errors.bind="englishTitleErrors"
                                     class.bind="englishTitleErrors.length ? 'has-error' : ''">
                                     <div class="input-group">
                                         <div class="input-group-prepend">

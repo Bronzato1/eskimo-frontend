@@ -2,6 +2,7 @@ import { autoinject } from "aurelia-framework";
 import { Router } from "aurelia-router";
 import { PostGateway } from "../models/post-gateway";
 import { Post } from "../models/post-models";
+import { Tag } from "../models/tag-models";
 import { Box } from "../dialogs/box";
 import { EventAggregator } from 'aurelia-event-aggregator';
 import { I18N } from 'aurelia-i18n';
@@ -112,5 +113,8 @@ export class PostList {
     }
     private get currentLanguage() {
         return this.i18n.getLocale();
+    }
+    private filtered(tags: Tag[], currentLanguage) {
+        return tags.filter(x => x.language==currentLanguage);
     }
 }

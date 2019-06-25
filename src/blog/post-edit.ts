@@ -251,7 +251,8 @@ export class PostEdit {
     }
     private onTagUpdated(tagOldName, tagNewName) {
         var postId = this.post.id;
-        this.tagGateway.tagUpdated(postId, tagOldName, tagNewName);
+        var language = this.i18n.getLocale();
+        this.tagGateway.tagUpdated(postId, tagOldName, tagNewName, language);
     }
     private uploadImage() {
         if (!this.selectedFiles) {

@@ -29,11 +29,12 @@ export class TagGateway {
                 console.log('Result ' + error.status + ': ' + error.statusText);
             });
     }
-    tagUpdated(postId, tagOldName, tagNewName) {
+    tagUpdated(postId, tagOldName, tagNewName, language) {
         var data = {
             postId: postId,
             tagOldName: tagOldName,
-            tagNewName: tagNewName
+            tagNewName: tagNewName,
+            language: language
         }
         return this.httpClient.fetch(`api/tag/updateTag`, { method: 'POST', body: json(data) });
     }
