@@ -2550,7 +2550,7 @@ video {
 #eskimo-main-container {
     position: relative;
     display: block;
-    padding: 120px 95px;
+    padding: 80px 95px; /* REPOSITIONNEMENT 120px 95px; */
     overflow-x: hidden;
 }
 
@@ -4152,13 +4152,15 @@ p.form-submit {
         padding: 1.5rem;
     }
     .eskimo-top-icons {
+        display: none;
+        /* REAJUSTEMENT
         position: relative;
         top: auto;
         right: auto;
         left: auto;
         float: right;
         margin-bottom: 40px;
-        border:none;
+        border:none; */
     }
     .eskimo-top-icons li {
         display: inline-block;
@@ -4177,7 +4179,7 @@ p.form-submit {
         padding: 40px;
     }
     #eskimo-main-container {
-        padding: 60px 45px;
+        padding: 60px 45px;  /* REPOSITIONNEMENT 60px 45px; */
     }
     #eskimo-footer {
         padding: 0 45px;
@@ -4225,13 +4227,20 @@ p.form-submit {
         right: auto;
         width: 100%;
         height: 100%;
-        margin-bottom: 60px;
+        /* REAJUSTEMENT margin-bottom: 60px; */
     }
     #eskimo-site-wrapper {
         padding-left: 0px;
     }
+    #eskimo-logo-cell {
+        display: none;
+    }
     #eskimo-menu-toggle {
         display: block;
+    }
+    #eskimo-menu-toggle .eskimo-logo {
+        margin: unset;
+        width: 50%;
     }
     #eskimo-language-cell,
     #eskimo-social-cell,
@@ -4276,7 +4285,7 @@ p.form-submit {
         font-size: 1.9rem;
     }
     #eskimo-main-container {
-        padding: 60px 0px;
+        padding: 0px; /* REAJUSTEMENT 60px 0px; */
     }
     .card-horizontal .card-body {
         display: flex;
@@ -4371,8 +4380,13 @@ p.form-submit {
         font-size: 100%;
     }
     #eskimo-sidebar {
-        margin-bottom: 40px;
+        /* REAJUSTEMENT margin-bottom: 40px; */
     }
+
+    #eskimo-sidebar .eskimo-logo-link {
+        padding: 0px;
+    }
+
     .card-horizontal-right {
         height: 250px
     }

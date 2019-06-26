@@ -42,7 +42,15 @@ export class App {
     }
     private router: Router;
     attached() {
-
+        $(document).ready(function () {
+            /* ADJUST MENU FOR MOBILES */
+            $("#eskimo-menu-toggle").on('click', function (e) {
+                $("#eskimo-language-cell,#eskimo-social-cell,#eskimo-main-menu").toggle();
+            });
+        });
+    }
+    detached() {
+        $("#eskimo-menu-toggle").off("click");
     }
 }
 
@@ -54,16 +62,19 @@ class PostCompleteStep {
 
     private customScripts() {
 
+        /* MOBILE MENU HIDING AT EVERY PAGE LOADING */
+        $("#eskimo-language-cell,#eskimo-social-cell,#eskimo-main-menu").hide();
+
         /* SCROLL TOP AT EVERY PAGE LOADING */
         $("html,body").scrollTop(0);
 
         /* CALCULATE PAGE TITLE NEGATIVE MARGIN */
         var adjustPageTitle = function () {
-            var coord = $('#eskimo-main-container > .container').offset();
-            if (!coord) return;
-            var distance = coord.left - 295;
-            $('#eskimo-main-container').find('.eskimo-page-title').css('margin-right', -distance);
-            $('#eskimo-main-container').find('.eskimo-page-title').css('padding-right', distance);
+            // var coord = $('#eskimo-main-container > .container').offset();
+            // if (!coord) return;
+            // var distance = coord.left - 295;
+            // $('#eskimo-main-container').find('.eskimo-page-title').css('margin-right', -distance);
+            // $('#eskimo-main-container').find('.eskimo-page-title').css('padding-right', distance);
             $('#eskimo-main-container').find('.eskimo-page-title').css('opacity', 1);
         };
 
@@ -77,16 +88,7 @@ class PostCompleteStep {
             });
         };
 
-        /* MOBILE MENU */
-        var adjustMenuForMobiles = function () {
-            $("#eskimo-menu-toggle").on('click', function () {
-                $("#eskimo-language-cell,#eskimo-social-cell,#eskimo-main-menu").toggle();
-            });
-        };
-
         $(document).ready(function () {
-
-            adjustMenuForMobiles();
             adjustPageTitle();
             cardImages();
             $('#eskimo-main-menu').find('.eskimo-menu-ul > li:has(ul) > a').addClass("eskimo-menu-down");
