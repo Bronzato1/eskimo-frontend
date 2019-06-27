@@ -2216,11 +2216,13 @@ video {
 
 #eskimo-menu-toggle {
     display: none;
-    position: relative;
+    position: absolute; /* AJUSTEMENT relative; */
+    right: 30px;
+    top: 5px;
     margin: 0;
-    padding: 20px 40px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    font-size: 1.45rem;
+    /* padding: 20px 40px; */
+    /* border-bottom: 1px solid rgba(0, 0, 0, 0.05); */
+    font-size: 2rem;
     font-weight: 700;
     cursor: pointer;
 }
@@ -2228,9 +2230,9 @@ video {
 #eskimo-menu-toggle:after {
     font-family: 'FontAwesome';
     content: "\f0c9";
-    position: absolute;
+    /* position: absolute;
     top: 20px;
-    right: 40px;
+    right: 40px; */
     font-weight: normal;
 }
 
@@ -2383,6 +2385,14 @@ video {
     -webkit-transform: scale(1.2);
     -ms-transform: scale(1.2);
     -moz-transform: scale(1.2);
+}
+
+#eskimo-logo-mobile {
+    display: none;
+}
+
+#eskimo-search-mobile {
+    display: none;
 }
 
 /* ================= SLIDING PANEL ================== */
@@ -4235,6 +4245,17 @@ p.form-submit {
     #eskimo-logo-cell {
         display: none;
     }
+    #eskimo-logo-mobile {
+        display: inline-block;
+        padding: 10px 10px 10px 20px;
+        width: 40%;
+    }
+    #eskimo-search-mobile {
+        display: block;
+        position: absolute; 
+        top: 20px;
+        right: 100px;
+    }
     #eskimo-menu-toggle {
         display: block;
     }
@@ -4459,10 +4480,10 @@ p.form-submit {
         padding:2rem !important;
     }
     #eskimo-menu-toggle {
-        padding: 20px;
+        /* padding: 20px; */
     }
     #eskimo-menu-toggle:after {
-        right: 20px;
+        /* right: 20px; */
     }
     .eskimo-menu-ul li {
         padding: 20px;

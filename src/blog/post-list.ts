@@ -24,7 +24,7 @@ export class PostList {
     private zipFile: any;
     private i18n: I18N;
     private activate() {
-        return this.postGateway.getAllPosts()
+        return this.postGateway.getPosts()
             .then(posts => {
                 this.posts.splice(0);
                 this.posts.push.apply(this.posts, posts);

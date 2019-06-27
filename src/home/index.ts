@@ -15,7 +15,7 @@ export class Index {
     private i18n: I18N;
     private activate() {
         var self = this;
-        return this.postGateway.getAllPosts().then((posts) => {
+        return this.postGateway.getPostsWithPagination(1).then((posts) => {
             self.posts.splice(0);
             self.posts.push.apply(self.posts, posts);
         });

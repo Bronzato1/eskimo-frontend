@@ -1,7 +1,9 @@
 import { I18N } from 'aurelia-i18n';
+import { autoinject } from 'aurelia-framework';
 
+@autoinject()
 export class Sidebar {
-    constructor(i18n) {
+    constructor(i18n: I18N) {
         this.i18n = i18n;
         this.i18n.setLocale('fr');
     }

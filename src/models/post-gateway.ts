@@ -35,8 +35,15 @@ export class PostGateway {
                 console.log('Result ' + error.status + ': ' + error.statusText);
             });
     }
-    getAllPosts(): Promise<Post[]> {
+    getPosts(): Promise<Post[]> {
         return this.httpClient.fetch(`api/post/`)
+            .then(response => response.json())
+            .then(dto => {
+                return dto.map(Post.fromObject);
+            });
+    }
+    getPostsWithPagination(page: number): Promise<Post[]> {
+        return this.httpClient.fetch(`api/post/getPostsWithPagination/${page}`)
             .then(response => response.json())
             .then(dto => {
                 return dto.map(Post.fromObject);

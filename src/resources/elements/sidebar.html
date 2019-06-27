@@ -1,7 +1,7 @@
 <template>
     <div id="eskimo-sidebar">
         <div id="eskimo-sidebar-wrapper" class="d-flex align-items-start flex-column h-100 w-100">
-            <!-- LOGO -->
+            <!-- LOGO ( BIG SCREEN ) -->
             <div id="eskimo-logo-cell" class="w-100">
                 <a class="eskimo-logo-link" route-href="route:index">
                     <img src="images/logo.png" class="eskimo-logo" alt="eskimo" />
@@ -9,9 +9,19 @@
             </div>
             <!-- MENU CONTAINER -->
             <div id="eskimo-sidebar-cell" class="w-100">
+                <!-- LOGO ( SMALL SCREEN ) -->
+                <div id="eskimo-logo-mobile">
+                    <a route-href="route: index">
+                        <img src="images/logo.png" class="eskimo-logo" alt="eskimo" />
+                    </a>
+                </div>
+                <!-- MOBILE SEARCH BUTTON -->
+                <div id="eskimo-search-mobile">
+                    <a id="eskimo-open-search-mobile" href="#" style="color: #444;"><i class="fa fa-2x fa-search"></i></a>
+                </div>
                 <!-- MOBILE MENU BUTTON -->
                 <div id="eskimo-menu-toggle">
-                    <img src="images/logo.png" router.href="route:home" class="eskimo-logo" alt="eskimo" />
+
                 </div>
                 <!-- MENU -->
                 <nav id="eskimo-main-menu" class="menu-main-menu-container">
@@ -33,11 +43,11 @@
                         <li>
                             <a href="#" t="sidebar.test"></a>
                             <ul class="sub-menu">
-                                    <li><a route-href="route:index2">Home / Demo 2</a></li>
-                                    <li><a route-href="route:index3">Home / Demo 3</a></li>
-                                    <li><a route-href="route:about2">About / Demo 2</a></li>
-                                    <li><a route-href="route:category">Category</a></li>
-                                    <li><a route-href="route:tag">Tag</a></li>
+                                <li><a route-href="route:index2">Home / Demo 2</a></li>
+                                <li><a route-href="route:index3">Home / Demo 3</a></li>
+                                <li><a route-href="route:about2">About / Demo 2</a></li>
+                                <li><a route-href="route:category">Category</a></li>
+                                <li><a route-href="route:tag">Tag</a></li>
                                 <li><a route-href="route:otherFeatures">Other Features</a></li>
                             </ul>
                         </li>
