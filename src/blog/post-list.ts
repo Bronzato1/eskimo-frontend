@@ -115,6 +115,26 @@ export class PostList {
         return this.i18n.getLocale();
     }
     private filtered(tags: Tag[], currentLanguage) {
-        return tags.filter(x => x.language==currentLanguage);
+        return tags.filter(x => x.language == currentLanguage);
+    }
+    private switchFavorite(post: Post) {
+
+        var promise: Promise<Boolean>;
+
+        if (post.favorite)
+            promise = this.postGateway.removePostFromFavorite(post.id)
+        else
+            promise = this.postGateway.addPostToFavorite(post.id);
+
+        promise.then(value => {
+            if (value == true) {
+                // success
+                post.favorite = !post.favorite;
+            }
+            else {
+                // error
+                alert('Error!');
+            }
+        });
     }
 }

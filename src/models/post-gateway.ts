@@ -49,6 +49,13 @@ export class PostGateway {
                 return dto.map(Post.fromObject);
             });
     }
+    getPostsInFavorites(): Promise<Post[]> {
+        return this.httpClient.fetch(`api/post/getPostsInFavorites`)
+            .then(response => response.json())
+            .then(dto => {
+                return dto.map(Post.fromObject);
+            });
+    }
     getPost(id): Promise<Post> {
         return this.httpClient.fetch(`api/post/${id}`)
             .then(response => response.json())
@@ -95,9 +102,9 @@ export class PostGateway {
         this.httpClient.fetch(`api/post/importZip`, { method: 'POST', body: formData })
             .then(response => response.json())
             .then(data => {
-                var message = 'Importation réussie de ' + data.countSucceed + ' éléments sur ' +  (data.countSucceed + data.countError) + '.';
-                if (data.countError>0)
-                message = message + '<br/><br/><u>Erreurs:</u><br/>' + data.errors.join('</br>');
+                var message = 'Importation réussie de ' + data.countSucceed + ' éléments sur ' + (data.countSucceed + data.countError) + '.';
+                if (data.countError > 0)
+                    message = message + '<br/><br/><u>Erreurs:</u><br/>' + data.errors.join('</br>');
                 this.box.showNotification(message, 'Confirmation', 'Ok');
             })
             .catch(error => console.log(error));
@@ -123,5 +130,15 @@ export class PostGateway {
                 console.log('Result ' + error.status + ': ' + error.statusText);
                 console.log('Message ' + error.message);
             });
+    }
+    addPostToFavorite(id): Promise<Boolean> {
+        return this.httpClient.fetch(`api/post/addPostToFavorite/${id}`, { method: 'POST' })
+            .then((response: Response) => { return true; })
+            .catch((response: Response) => { return false; });
+    }
+    removePostFromFavorite(id): Promise<Boolean> {
+        return this.httpClient.fetch(`api/post/removePostFromFavorite/${id}`, { method: 'POST' })
+            .then((repsonse: Response) => { return true; })
+            .catch((response: Response) => { return false; });
     }
 }

@@ -17,114 +17,40 @@
                 <!-- SLIDER -->
                 <div class="eskimo-carousel-container eskimo-bg-loader">
                     <div id="eskimo-post-slider" class="eskimo-slider">
-                        <!-- SLIDE 1 -->
-                        <div>
-                            <a class="eskimo-slider-img" href="single-post.html"></a>
-                            <ul class="eskimo-slider-image-meta eskimo-image-meta-post">
-                                <li><a href="single-post.html"><span class="badge badge-default">May 28, 2018</span></a>
-                                </li>
-                                <li><a href="category.html"><span class="badge badge-default">Food &amp;
-                                            Drink</span></a></li>
-                            </ul>
-                            <div class="clearfix"></div>
-                            <img src="images/1200x600.png" alt="Ketchup Flavored Ice Cream!" />
-                            <div class="eskimo-slider-desc">
-                                <div class="eskimo-slider-desc-inner">
-                                    <h2 class="card-title">Ketchup Flavored Ice Cream!</h2>
-                                    <p>Mandaremus illum possumus ullamco e qui de nisi enim anim. Si nulla si nisi,
-                                        veniam litteris sed excepteur ne ut amet deserunt tempor nam expetendis de enim
-                                        mandaremus. Ita ea minim esse cillum ut eram arbitror ullamco. Tamen ad
-                                        expetendis ab ipsum proident</p>
+                        <!-- FAVORITE SLIDES -->
+                        <template repeat.for="post of favoritePosts" containerless>
+                            <div>
+                                <a class="eskimo-slider-img"
+                                    route-href="route: postView; params.bind: { id: post.id }"></a>
+                                <ul class="eskimo-slider-image-meta eskimo-image-meta-post">
+                                    <li><a route-href="route: postView; params.bind: { id: post.id }">
+                                            <span class="badge badge-default">
+                                                ${ post.creation | dateFormat: 'DD MMMM YYYY' : currentLanguage }
+                                            </span></a>
+                                    </li>
+                                    <li><a route-href="route: category">
+                                            <span class="badge badge-default">
+                                                ${ post.category.frenchName }
+                                            </span>
+                                        </a></li>
+                                </ul>
+                                <div class="clearfix"></div>
+                                <img src="${ post.image }" alt="" />
+                                <div class="eskimo-slider-desc">
+                                    <div class="eskimo-slider-desc-inner">
+                                        <h2 class="card-title">${ post.frenchTitle }</h2>
+                                        <p innerhtml.bind="( currentLanguage=='fr') ? 
+                                            excerpt(post.frenchContent) : 
+                                            excerpt(post.englishContent)">
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- SLIDE 2 -->
-                        <div>
-                            <a class="eskimo-slider-img" href="single-post.html"></a>
-                            <ul class="eskimo-slider-image-meta eskimo-image-meta-post">
-                                <li><a href="single-post.html"><span class="badge badge-default">May 27, 2018</span></a>
-                                </li>
-                                <li><a href="category.html"><span class="badge badge-default">Lifestyle</span></a></li>
-                            </ul>
-                            <div class="clearfix"></div>
-                            <img src="images/1200x600.png" alt="Hair You've Always Dreamed Of" />
-                            <div class="eskimo-slider-desc">
-                                <div class="eskimo-slider-desc-inner">
-                                    <h2 class="card-title">Hair You've Always Dreamed Of</h2>
-                                    <p>Ex si esse deserunt, et dolore occaecat, singulis tamen e possumus voluptatibus,
-                                        varias cernantur si aute quid. Noster vidisse iis exquisitaque, deserunt te
-                                        irure. Ubi illum nostrud fidelissimae id occaecat duis probant. Occaecat hic
-                                        quorum aliquip se</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- SLIDE 3 -->
-                        <div>
-                            <a class="eskimo-slider-img" href="single-post.html"></a>
-                            <ul class="eskimo-slider-image-meta eskimo-image-meta-post">
-                                <li><a href="single-post.html"><span class="badge badge-default">May 25, 2018</span></a>
-                                </li>
-                                <li><a href="category.html"><span class="badge badge-default">Lifestyle</span></a></li>
-                                <li><a href="category.html"><span class="badge badge-default">Travel</span></a></li>
-                            </ul>
-                            <div class="clearfix"></div>
-                            <img src="images/1200x600.png" alt="15 Of The World's Best Carnivals" />
-                            <div class="eskimo-slider-desc">
-                                <div class="eskimo-slider-desc-inner">
-                                    <h2 class="card-title">15 Of The World's Best Carnivals</h2>
-                                    <p>Aliquip e duis. Se labore ullamco excepteur iis ullamco sint duis laboris amet
-                                        sed ita occaecat de cernantur quo fore coniunctione voluptate enim senserit. Si
-                                        ut nulla laboris, an eiusmod e incididunt. Non varias enim duis singulis, a
-                                        quorum cupidatat. Voluptate summis</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- SLIDE 4 -->
-                        <div>
-                            <a class="eskimo-slider-img" href="single-post.html"></a>
-                            <ul class="eskimo-slider-image-meta eskimo-image-meta-post">
-                                <li><a href="single-post.html"><span class="badge badge-default">May 25, 2018</span></a>
-                                </li>
-                                <li><a href="category.html"><span class="badge badge-default">Lifestyle</span></a></li>
-                            </ul>
-                            <div class="clearfix"></div>
-                            <img src="images/1200x600.png" alt="5 Ways to a Healthy Lifestyle" />
-                            <div class="eskimo-slider-desc">
-                                <div class="eskimo-slider-desc-inner">
-                                    <h2 class="card-title">5 Ways to a Healthy Lifestyle</h2>
-                                    <p>Mandaremus veniam ab cupidatat exquisitaque, e quae laboris domesticarum, non
-                                        sint mentitum fabulas de anim proident transferrem, ita aliqua imitarentur in in
-                                        labore illum eram offendit, nisi fidelissimae possumus noster ullamco se eiusmod
-                                        multos ex</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- SLIDE 5 -->
-                        <div>
-                            <a class="eskimo-slider-img" href="single-post.html"></a>
-                            <ul class="eskimo-slider-image-meta eskimo-image-meta-post">
-                                <li><a href="single-post.html"><span class="badge badge-default">May 23, 2018</span></a>
-                                </li>
-                                <li><a href="category.html"><span class="badge badge-default">Food &amp;
-                                            Drink</span></a></li>
-                                <li><a href="category.html"><span class="badge badge-default">Travel</span></a></li>
-                            </ul>
-                            <div class="clearfix"></div>
-                            <img src="images/1200x600.png" alt="Best Breakfast In The World" />
-                            <div class="eskimo-slider-desc">
-                                <div class="eskimo-slider-desc-inner">
-                                    <h2 class="card-title">Best Breakfast In The World</h2>
-                                    <p>Fabulas relinqueret aut quamquam. Lorem possumus pariatur ut quibusdam
-                                        transferrem an tempor. E consequat nam senserit, aliquip tamen est commodo
-                                        illustriora. An cillum sunt ut quamquam. Laboris culpa occaecat, quo fugiat
-                                        dolore varias consequat</p>
-                                </div>
-                            </div>
-                        </div>
+                        </template>
                     </div>
                 </div>
                 <!-- BLOG POSTS -->
-                <template repeat.for="post of posts" containerless>
+                <template repeat.for="post of allPosts" containerless>
                     <div class="card card-horizontal">
                         <div class="card-body">
                             <div class="card-horizontal-left">
@@ -144,8 +70,9 @@
                                     </a>
                                 </h3>
                                 <div class="card-excerpt">
-                                    <p
-                                        innerhtml.bind="( currentLanguage=='fr') ? excerpt(post.frenchContent) : excerpt(post.englishContent)">
+                                    <p innerhtml.bind="( currentLanguage=='fr') ? 
+                                        excerpt(post.frenchContent) : 
+                                        excerpt(post.englishContent)">
                                     </p>
                                 </div>
                                 <div class="card-horizontal-meta">

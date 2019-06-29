@@ -65,7 +65,7 @@ class PostCompleteStep {
         /* MOBILE MENU HIDING AT EVERY PAGE LOADING */
         $("#eskimo-language-cell,#eskimo-social-cell,#eskimo-main-menu").hide();
 
-        /* SCROLL TOP AT EVERY PAGE LOADING */
+        /* SCROLL TOP AT EVERY PAGE LOADING */  
         $("html,body").scrollTop(0);
 
         /* CALCULATE PAGE TITLE NEGATIVE MARGIN */

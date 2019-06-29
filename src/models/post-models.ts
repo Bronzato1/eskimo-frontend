@@ -11,6 +11,7 @@ export class Post {
     public englishContent: string;
     public creation: Date;
     public readingTime: number;
+    public favorite: boolean;
     public isChecked: Boolean;
     public categoryId: number;
     public tags: Array<Tag>;

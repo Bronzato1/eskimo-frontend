@@ -40,8 +40,9 @@
             </div>
 
             <section class="au-animate">
-                <group-list items.bind="posts | filterBy:filter: (currentLanguage=='fr') ? 'frenchTitle' : 'englishTitle'" group-by="yearMonth" order-by="yearMonthDay"
-                    label="postList.post">
+                <group-list
+                    items.bind="posts | filterBy:filter: (currentLanguage=='fr') ? 'frenchTitle' : 'englishTitle'"
+                    group-by="yearMonth" order-by="yearMonthDay" label="postList.post">
                     <template replace-part="item">
                         <div class="container">
                             <div class="row">
@@ -59,20 +60,31 @@
                                         repeat.for="tag of filtered(tags, currentLanguage)">
                                         ${tag.name}
                                     </span>
-                                    <!-- LE TITRE DU BILLET CLIQUABLE -->
-                                    <a route-href="route: postEdit; params.bind: { id: id }" class="text-dark">
-                                        <span>${ (currentLanguage=='fr') ? frenchTitle : englishTitle }</span>
-                                    </a>
-                                    <!-- LA DATE DE CREATION -->
-                                    <span class="creation-date-col text-dark pull-right">
-                                        ${creation | dateFormat: 'DD/MM' : currentLanguage}</span>
-                                    <!-- 1 BOUTON POUR VOIR LE BILLET -->
-                                    <a route-href="route: postView; params.bind: { id: id }"
-                                        class="text-light text-blue-hover pull-right mr-2">
-                                        <span class="fa fa-eye fa-lg"></span></a>
-                                    <!-- 1 BOUTON POUR SUPPRIMER LE BILLET -->
-                                    <a href="#" class="text-light text-red-hover pull-right mr-2">
-                                        <span class="fa fa-times fa-lg"></span></a>
+                                    <!-- LE TITRE DU BILLET -->
+                                    <span class="text-dark">
+                                        ${ (currentLanguage=='fr') ? frenchTitle : englishTitle }
+                                    </span>
+
+                                    <div class="floatingBar">
+                                        <!-- LA DATE DE CREATION -->
+                                        <span class="creation-date-col text-dark pull-right">
+                                            ${creation | dateFormat: 'DD/MM' : currentLanguage}</span>
+                                        <!-- 1 BOUTON POUR AJOUTER AUX FAVORIS -->
+                                        <a href="#" click.trigger="switchFavorite($this)"
+                                            class="${ (favorite) ? 'btn-favorite-on' : 'btn-favorite-off' } pull-right mr-2">
+                                            <span class="fa fa-star fa-2x"></span></a>
+                                        <!-- 1 BOUTON POUR VOIR LE BILLET -->
+                                        <a route-href="route: postView; params.bind: { id: id }"
+                                            class="btn-view pull-right mr-2">
+                                            <span class="fa fa-asterisk fa-2x"></span></a>
+                                        <!-- 1 BOUTON POUR SUPPRIMER LE BILLET -->
+                                        <a href="#" class="btn-delete pull-right mr-2">
+                                            <span class="fa fa-times fa-2x"></span></a>
+                                        <!-- 1 BOUTON POUR EDITER LE BILLET -->
+                                        <a route-href="route: postEdit; params.bind: { id: id }"
+                                            class="btn-edit pull-right mr-2">
+                                            <span class="fa fa-pencil fa-2x"></span></a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
