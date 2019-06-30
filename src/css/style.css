@@ -40,7 +40,7 @@ MEDIA QUERIES
 
 /* ================= GOOGLE FONT ================== */
 
-@import url('https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700|Merriweather:400,400i,700,700i&subset=latin-ext');
+@import url('https://fonts.googleapis.com/css?family=Merriweather+Sans&display=swap');
 
 /* ================= GENERAL STYLES ================== */
 
@@ -2680,6 +2680,7 @@ video {
 
 .eskimo-featured-img {
     margin-bottom: 60px;
+    background-color: #543729;
 }
 
 .eskimo-featured-img img {
@@ -2951,7 +2952,7 @@ video {
     background-repeat: no-repeat;
     background-position: center center;
     overflow: hidden;
-    background-color: rgba(0, 0, 0, 0.02);
+    background-color: #543729;
 }
 
 .card-horizontal-right a {
@@ -3831,6 +3832,7 @@ p.form-submit {
     -webkit-box-shadow: 0 30px 50px 0 rgba(1, 1, 1, .2);
     box-shadow: 0 30px 50px 0 rgba(1, 1, 1, .2);
     margin-bottom:100px;
+    background-color: #543729;
 }
 
 .eskimo-slider-img {
@@ -3875,7 +3877,7 @@ p.form-submit {
 
 .eskimo-slider-desc-inner {
     position: relative;
-    background-color: #fff;
+    background-color: #ef5734;
     padding: 2.5rem;
 }
 
@@ -4556,8 +4558,8 @@ a.light-shadow {
     position: absolute;
     top: 0px;
     right: -10px;
-    padding-left: 10px;
-    padding-right: 40px;
+    padding: 7px 40px 4px 10px; 
+    margin-top: -8px;
     background-color: white;
 }
 

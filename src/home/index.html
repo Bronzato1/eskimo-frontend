@@ -96,9 +96,10 @@
                         </div>
                     </div>
                 </template>
-                <!-- VIEW ALL BUTTON -->
-                <div class="eskimo-view-more">
-                    <a class="btn btn-default" href="blog.html">VIEW ALL POSTS</a>
+
+                <!-- VIEW MORE BUTTON -->
+                <div class="eskimo-view-more" if.bind="loadedPages<totalPages">
+                    <a class="btn btn-default" href="#" click.trigger="loadMorePosts()" t="index.viewMorePosts"></a>
                 </div>
 
                 <!-- DIVIDER -->

@@ -11,32 +11,37 @@ export class Index {
     }
     private allPosts: Array<Post> = [];
     private favoritePosts: Array<Post> = [];
+    private loadedPages: number;
+    private totalPages: number;
     private postGateway: PostGateway;
     private i18n: I18N;
     private activate() {
-
-        var self = this;
-        var promise1 = loadPostsWithPagination();
-        var promise2 = loadPostsInFavorites();
-
-        return Promise.all([promise1, promise2]);
-
-        function loadPostsWithPagination(): Promise<void | Post[]> {
-            return self.postGateway.getPostsWithPagination(1).then((posts) => {
-                self.allPosts.splice(0);
-                self.allPosts.push.apply(self.allPosts, posts);
-            });
-        }
-        function loadPostsInFavorites(): Promise<void | Post[]> {
-            return self.postGateway.getPostsInFavorites().then((posts) => {
-                self.favoritePosts.splice(0);
-                self.favoritePosts.push.apply(self.favoritePosts, posts);
-            });
-        }
+        this.loadedPages = 1;
+        var promise1 = this.loadPostsByPage();
+        var promise2 = this.loadPostsInFavorites();
+        var promise3 = this.getTotalPostPages();
+        return Promise.all([promise1, promise2, promise3]);
     }
     private attached() {
         var self = this;
         $(document).ready(() => {
+        });
+    }
+    private loadPostsByPage(): Promise<void | Post[]> {
+        return this.postGateway.getPostsByPage(this.loadedPages).then((posts) => {
+            this.allPosts.push.apply(this.allPosts, posts);
+            setTimeout(this.adjustHorizontalCardImages, 100);
+        });
+    }
+    private loadPostsInFavorites(): Promise<void | Post[]> {
+        return this.postGateway.getPostsInFavorites().then((posts) => {
+            this.favoritePosts.splice(0);
+            this.favoritePosts.push.apply(this.favoritePosts, posts);
+        });
+    }
+    private getTotalPostPages(): Promise<void | number> {
+        return this.postGateway.getTotalPostPages().then((tot) => {
+            this.totalPages = tot;
         });
     }
     private get currentLanguage() {
@@ -54,5 +59,18 @@ export class Index {
         temporalDivElement.innerHTML = html;
         // Retrieve the text property of the element (cross-browser support)
         return temporalDivElement.textContent || temporalDivElement.innerText || "";
+    }
+    private loadMorePosts() {
+        this.loadedPages++;
+        this.loadPostsByPage();
+    }
+    private adjustHorizontalCardImages() {
+        /* HORIZONTAL CARD IMAGES */
+        $('body').find(".card-horizontal-right").each(function () {
+            if ($(this).attr('data-img')) {
+                var card_img = $(this).data('img');
+                $(this).css('background-image', 'url("' + card_img + '")');
+            }
+        });
     }
 }

@@ -5,6 +5,9 @@
         "blog": "Blog",
         "test": "Test"
     },
+    "index": {
+        "viewMorePosts": "View more posts"
+    },
     "postList": {
         "filterList": "Filter the list",
         "post": "{{count}} post",

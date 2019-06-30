@@ -78,19 +78,8 @@ class PostCompleteStep {
             $('#eskimo-main-container').find('.eskimo-page-title').css('opacity', 1);
         };
 
-        /* HORIZONTAL CARD IMAGES */
-        var cardImages = function () {
-            $('body').find(".card-horizontal-right").each(function () {
-                if ($(this).attr('data-img')) {
-                    var card_img = $(this).data('img');
-                    $(this).css('background-image', 'url("' + card_img + '")');
-                }
-            });
-        };
-
         $(document).ready(function () {
             adjustPageTitle();
-            cardImages();
             $('#eskimo-main-menu').find('.eskimo-menu-ul > li:has(ul) > a').addClass("eskimo-menu-down");
             $('body').find('select').addClass('custom-select');
             $('body').find('.eskimo-masonry-grid').css('opacity', '1');

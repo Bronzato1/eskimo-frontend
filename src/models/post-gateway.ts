@@ -21,20 +21,6 @@ export class PostGateway {
                 .withBaseUrl(environment.backendUrl);
         });
     }
-    createPost(post: Post): Promise<void | Post> {
-        return this.httpClient.fetch(`api/post`, {
-            method: 'post',
-            body: json(post)
-        })
-            .then(response => response.json())
-            .then(dto => {
-                var post = Post.fromObject(dto);
-                return Promise.resolve(post);
-            })
-            .catch(error => {
-                console.log('Result ' + error.status + ': ' + error.statusText);
-            });
-    }
     getPosts(): Promise<Post[]> {
         return this.httpClient.fetch(`api/post/`)
             .then(response => response.json())
@@ -42,8 +28,8 @@ export class PostGateway {
                 return dto.map(Post.fromObject);
             });
     }
-    getPostsWithPagination(page: number): Promise<Post[]> {
-        return this.httpClient.fetch(`api/post/getPostsWithPagination/${page}`)
+    getPostsByPage(page: number): Promise<Post[]> {
+        return this.httpClient.fetch(`api/post/getPostsByPage?page=${page}`)
             .then(response => response.json())
             .then(dto => {
                 return dto.map(Post.fromObject);
@@ -61,6 +47,13 @@ export class PostGateway {
             .then(response => response.json())
             .then(Post.fromObject);
     }
+    getTotalPostPages(): Promise<number> {
+        return this.httpClient.fetch(`api/post/getTotalPostPages`)
+            .then(response => response.json())
+            .then(val => {
+                return Promise.resolve(val);
+            });
+    }
     updatePost(id, post: Post): Promise<void | Post> {
         return this.httpClient.fetch(`api/post/${id}`, {
             method: 'put',
@@ -74,17 +67,6 @@ export class PostGateway {
             .catch(error => {
                 console.log('Result ' + error.status + ': ' + error.statusText);
                 return Promise.reject();
-            });
-    }
-    deletePost(id): Promise<void> {
-        return this.httpClient.fetch(`api/post/${id}`, {
-            method: 'delete'
-        })
-            .then((response: Response) => {
-                console.log('Result ' + response.status + ': ' + response.statusText);
-            })
-            .catch(error => {
-                console.log('Result ' + error.status + ': ' + error.statusText);
             });
     }
     exportZip(ids) {
@@ -140,5 +122,30 @@ export class PostGateway {
         return this.httpClient.fetch(`api/post/removePostFromFavorite/${id}`, { method: 'POST' })
             .then((repsonse: Response) => { return true; })
             .catch((response: Response) => { return false; });
+    }
+    createPost(post: Post): Promise<void | Post> {
+        return this.httpClient.fetch(`api/post`, {
+            method: 'post',
+            body: json(post)
+        })
+            .then(response => response.json())
+            .then(dto => {
+                var post = Post.fromObject(dto);
+                return Promise.resolve(post);
+            })
+            .catch(error => {
+                console.log('Result ' + error.status + ': ' + error.statusText);
+            });
+    }
+    deletePost(id): Promise<void> {
+        return this.httpClient.fetch(`api/post/${id}`, {
+            method: 'delete'
+        })
+            .then((response: Response) => {
+                console.log('Result ' + response.status + ': ' + response.statusText);
+            })
+            .catch(error => {
+                console.log('Result ' + error.status + ': ' + error.statusText);
+            });
     }
 }
