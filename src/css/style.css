@@ -267,6 +267,13 @@ blockquote {
     margin-bottom: 3rem;
 }
 
+/* blockquote inside the froala component */
+.fr-view blockquote {
+    border-left: 4px solid #ef5734;
+    padding-left: 1.5rem;
+    color: inherit;
+}
+
 .fa {
     font-weight: normal !important;
 }

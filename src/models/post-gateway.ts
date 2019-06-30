@@ -91,10 +91,10 @@ export class PostGateway {
             })
             .catch(error => console.log(error));
     }
-    uploadImage(file): Promise<string> {
+    uploadImageResize1200x600(file): Promise<string> {
         let formData = new FormData();
         formData.append('file', file);
-        return this.httpClient.fetch(`api/froala/UploadImage`, {
+        return this.httpClient.fetch(`api/froala/UploadImageResize1200x600`, {
             method: 'post',
             body: formData
         }).then(response => response.json())
