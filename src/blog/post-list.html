@@ -6,11 +6,11 @@
         <main id="eskimo-main-container" class="no-padding">
             <div class="container mt-3 mb-3">
                 <form>
-                    <button type="button" class="btn btn-turquoise mr-2" click.trigger="createNewPost()">
+                    <button type="button" class="btn btn-eskimo mr-2" click.trigger="createNewPost()">
                         <span class="fa fa-plus fa-lg mr-2"></span>
                         <span t="postList.add"></span>
                     </button>
-                    <button type="button" class="btn btn-turquoise mr-2" click.trigger="importData()">
+                    <button type="button" class="btn btn-eskimo mr-2" click.trigger="importData()">
                         <span class="fa fa-upload fa-lg mr-2"></span>
                         <span t="postList.import"></span>
                     </button>
@@ -20,18 +20,18 @@
                         <input type="text" class="form-control" value.bind="filter & debounce"
                             t="[placeholder]postList.filterList">
                         <div class="input-group-append" if.bind="filter">
-                            <button class="btn btn-turquoise" type="button" click.delegate="filter = ''">
+                            <button class="btn btn-eskimo" type="button" click.delegate="filter = ''">
                                 <i class="fa fa-times"></i>
                                 <span class="sr-only" t="contacts.clear"></span>
                             </button>
                         </div>
                     </div>
-                    <button type="button" class="btn btn-turquoise pull-right mr-2"
+                    <button type="button" class="btn btn-eskimo pull-right mr-2"
                         click.trigger="deleteSelectedPosts()" if.bind="selectedPosts.length>0">
                         <span class="fa fa-times fa-lg mr-2"></span>
                         <span t="postList.delete" t-params.bind="{count: selectedPosts.length}"></span>
                     </button>
-                    <button type="button" class="btn btn-turquoise pull-right mr-2"
+                    <button type="button" class="btn btn-eskimo pull-right mr-2"
                         click.trigger="exportSelectedPosts()" if.bind="selectedPosts.length>0">
                         <span class="fa fa-download fa-lg mr-2"></span>
                         <span t="postList.export" t-params.bind="{count: selectedPosts.length}"></span>
@@ -56,7 +56,7 @@
                                         ${ (currentLanguage=='fr') ? category.frenchName : category.englishName }
                                     </span>
                                     <!-- 1 BADGE POUR CHAQUE TAGS -->
-                                    <span class="badge badge-turquoise text-monospace mt-1 mr-1 align-top"
+                                    <span class="badge badge-eskimo text-monospace mt-1 mr-1 align-top"
                                         repeat.for="tag of filtered(tags, currentLanguage)">
                                         ${tag.name}
                                     </span>

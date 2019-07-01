@@ -185,7 +185,7 @@ a {
 
 a:hover,
 a:focus {
-    color: #2ba9cd;
+    color: #ffcc2f;
     text-decoration: none;
 }
 
@@ -830,9 +830,9 @@ input[type="button"]:not(.btn):hover,
 .btn-primary:active,
 .btn-primary.active,
 .show > .btn-primary.dropdown-toggle {
-    background-color: #34b5b8 !important;
+    background-color: #ef5734 !important;
     color: #FFFFFF;
-    border-color: #34b5b8 !important;
+    border-color: #ef5734 !important;
 }
 
 .btn-primary .caret {
@@ -849,7 +849,7 @@ input[type="button"]:not(.btn):hover,
 .btn-primary.btn-link.active,
 .open > .btn-primary.btn-link.dropdown-toggle {
     background-color: transparent;
-    color: #34b5b8;
+    color: #ef5734;
 }
 
 .btn-primary .caret {
@@ -910,9 +910,9 @@ input[type="button"]:not(.btn):hover,
 .btn-info:active,
 .btn-info.active,
 .show > .btn-info.dropdown-toggle {
-    background-color: #2ba9cd !important;
+    background-color: #ffcc2f !important;
     color: #FFFFFF;
-    border-color: #2ba9cd !important;
+    border-color: #ffcc2f !important;
 }
 
 .btn-info .caret {
@@ -929,7 +929,7 @@ input[type="button"]:not(.btn):hover,
 .btn-info.btn-link.active,
 .open > .btn-info.btn-link.dropdown-toggle {
     background-color: transparent;
-    color: #2ba9cd;
+    color: #ffcc2f;
 }
 
 .btn-info.btn-link .caret {
@@ -2691,6 +2691,7 @@ video {
 }
 
 .eskimo-featured-img img {
+    min-height: 250px;
     max-width: 100%;
     margin: 0;
     display: block;
@@ -4548,6 +4549,9 @@ p.form-submit {
     .eskimo-footer-wrapper {
         padding: 40px 0px;
     }
+    .eskimo-slider .slick-slide img {
+        min-height: 250px;
+    }
 }
 
 /* BLOG POST LIST & EDIT */
@@ -4633,16 +4637,16 @@ span.creation-date-col {
     border-left: none;
 }
 
-.btn.btn-turquoise {
+.btn.btn-eskimo {
     background-color: #ef5734;
     border: 2px solid #ef5734;
 }
-.btn.btn-turquoise:hover {
-    background-color: #47adaf;
-    border: 2px solid #47adaf;
+.btn.btn-eskimo:hover {
+    background-color: #ffcc2f;
+    border: 2px solid #ffcc2f;
 }
 
-.badge.badge-turquoise {
+.badge.badge-eskimo {
     color: white;
     background-color: #ef5734;
 }

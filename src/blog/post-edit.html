@@ -5,23 +5,23 @@
     <!-- SITE WRAPPER -->
     <div id="eskimo-site-wrapper" class="mt-2">
         <!-- 1 BOUTON POUR AFFICHER LA LISTE DES BILLETS -->
-        <button type="button" click.delegate="showPostList()" class="btn btn-turquoise pull-right mr-3">
+        <button type="button" click.delegate="showPostList()" class="btn btn-eskimo pull-right mr-3">
             <span class="fa fa-list fa-lg mr-2"></span>
             <span t="postEdit.showList"></span>
         </button>
         <!-- 1 BOUTON POUR ENREGISTRER LES MODIFICATIONS -->
-        <button type="submit" ref="button" form="postForm" class="btn btn-turquoise pull-right mr-2">
+        <button type="submit" ref="button" form="postForm" class="btn btn-eskimo pull-right mr-2">
             <span class="fa fa-save fa-lg mr-2"></span>
             <span t="postEdit.save"></span>
         </button>
         <!-- 1 BOUTON POUR AVOIR UN APPERCU DU BILLET -->
-        <button type="button" click.delegate="viewPost()" class="btn btn-turquoise pull-right mr-2"
+        <button type="button" click.delegate="viewPost()" class="btn btn-eskimo pull-right mr-2"
             show.bind="post.id>0">
             <span class="fa fa-eye fa-lg mr-2"></span>
             <span t="postEdit.preview"></span>
         </button>
         <!-- 1 BOUTON POUR CHARGER UNE IMAGE -->
-        <button type="button" click.trigger="uploadImage()" class="btn btn-turquoise pull-right mr-2"><span
+        <button type="button" click.trigger="uploadImage()" class="btn btn-eskimo pull-right mr-2"><span
                 class="fa fa-upload fa-lg  mr-2"></span>
             <span>Image</span>
         </button>

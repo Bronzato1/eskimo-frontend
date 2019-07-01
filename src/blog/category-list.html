@@ -6,7 +6,7 @@
         <main id="eskimo-main-container" class="no-padding">
             <div class="container mt-3 mb-3">
                 <form>
-                    <button type="button" class="btn btn-turquoise" click.trigger="createNewCategory()">
+                    <button type="button" class="btn btn-eskimo" click.trigger="createNewCategory()">
                         <span class="fa fa-plus fa-lg mr-2"></span>
                         <span t="categoryList.add"></span>
                     </button>
@@ -14,13 +14,13 @@
                         <input type="text" class="form-control" value.bind="filter & debounce"
                             t="[placeholder]postList.filterList">
                         <div class="input-group-append" if.bind="filter">
-                            <button class="btn btn-turquoise" type="button" click.delegate="filter = ''">
+                            <button class="btn btn-eskimo" type="button" click.delegate="filter = ''">
                                 <i class="fa fa-times"></i>
                                 <span class="sr-only" t="contacts.clear"></span>
                             </button>
                         </div>
                     </div>
-                    <button type="button" class="btn btn-turquoise pull-right mr-2"
+                    <button type="button" class="btn btn-eskimo pull-right mr-2"
                         click.trigger="deleteSelectedCategories()" if.bind="selectedCategories.length>0">
                         <span class="fa fa-times fa-lg mr-2"></span><span t="categoryList.delete"
                             t-params.bind="{count: selectedCategories.length}"></span>
