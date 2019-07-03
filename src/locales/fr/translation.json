@@ -2,10 +2,24 @@
     "sidebar": {
         "home": "Accueil",
         "about": "A propos",
-        "blog": "Blog",
-        "test": "Test"
+        "whoAmI": "Qui suis-je ?",
+        "experience": "Expérience",
+        "portfolio": "Portfolio",
+        "downloadMyResume": "Télécharger mon CV",
+        "theBlog": "Le blog",
+        "adminAccess": "Accès admin"
+    },
+    "slidePanel": {
+        "title": "Développeur full stack",
+        "description": "J'ai toujours recherché des opportunités et des défis qui ont du sens pour moi. J'ai de l'expérience dans la création d'applications Web mais aussi d'applications Windows. Contactez-moi si vous avez des questions !",
+        "contactMe": "Contactez-moi",
+        "recentPosts": "Articles récents",
+        "categories": "Catégories",
+        "tags": "Mots-clés"
     },
     "index": {
+        "by": "Par",
+        "readingTime": "{{minutes}} min de lecture",
         "viewMorePosts": "Voir plus de billets"
     },
     "postList": {
@@ -55,5 +69,8 @@
         "englishName": "Nom en anglais",
         "color": "Couleur",
         "requiredField": "Champ obligatoire"
+    },
+    "about": {
+        "aboutMe": "<p>Je m'appelle Thierry. J'ai acquis une solide expérience dans la création d'applications web mais aussi de logiciels s'exécutant sous Windows. Je suis situé en Belgique. J'ai été au service de clients de ..., travaillant sur toute sorte de projects, depuis les sites web d'entreprise jusqu'aux applications web sophistiquées. Durant ces 20 ans d'expérience professionnelle, j'ai acquis beaucoup de compétences et de savoir faire, peu importe la nature du travail. </p><p>La plupart du temps, je travaille à distance. Que cela soit en parfaite autonomie ou intégré dans des équipes, je m'assure de toujours rester au courant des projets et des objectifs fixés tout en communiquant efficacement avec l'équipe. </p><p>Il parait qu'il faut 10 ans pour devenir expert dans un domaine. Eh bien, je programme depuis bien plus longtemps que cela mais la technologie évolue constamment et tellement vite que même un expert reste constamment dans le challenge. Et j'aime ça ! Ma passion est d'explorer et de faire naître de nouvelles idées. J'essaie toujours d'être inventif et d'ajouter de nouvelles technologies à mes compétences. Cela signifie que je peux proposer une offre de services qui répondra à un large éventail d'applications. Depuis les sites statiques jusqu'aux applications de type SPA et API, je peux répondre à toute demande. Pour un apperçu de mes compétences, consultez le lien ci-dessous. Voir mes compétences. Envoyez-moi un message si vous souhaitez en savoir plus.</p>"
     }
 }

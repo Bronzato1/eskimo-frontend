@@ -55,7 +55,7 @@
                         <div class="card-body">
                             <div class="card-horizontal-left">
                                 <div class="card-category">
-                                    <a href="category.html">
+                                    <a route-href="route: category">
                                         ${ (currentLanguage=='fr') ?
                                         post.category.frenchName :
                                         post.category.englishName }
@@ -77,7 +77,8 @@
                                 </div>
                                 <div class="card-horizontal-meta">
                                     <div class="eskimo-author-meta">
-                                        By <a class="author-meta" route-href="route:author">Thierry</a>
+                                        <span t="index.by"></span> <a class="author-meta"
+                                            route-href="route:author">Thierry</a>
                                     </div>
                                     <div class="eskimo-date-meta">
                                         <a href="single-post.html">
@@ -85,13 +86,14 @@
                                         </a>
                                     </div>
                                     <div class="eskimo-reading-meta">
-                                        ${ post.readingTime }
-                                        ${ (currentLanguage=='fr') ? 'min de lecture' : 'min read' }
+                                        <label t="index.readingTime"
+                                            t-params.bind="{minutes: post.readingTime}"></label>
                                     </div>
                                 </div>
                             </div>
                             <div class="card-horizontal-right" data-img="${ post.image }">
-                                <a class="card-featured-img" route-href="route: postView; params.bind: { id: post.id }"></a>
+                                <a class="card-featured-img"
+                                    route-href="route: postView; params.bind: { id: post.id }"></a>
                             </div>
                         </div>
                     </div>

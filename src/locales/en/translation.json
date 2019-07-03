@@ -2,10 +2,24 @@
     "sidebar": {
         "home": "Home",
         "about": "About me",
-        "blog": "Blog",
-        "test": "Test"
+        "whoAmI": "Who am I ?",
+        "experience": "Experience",
+        "portfolio": "Portfolio",
+        "downloadMyResume": "Download my resume",
+        "theBlog": "The blog",
+        "adminAccess": "Admin access"
+    },
+    "slidePanel": {
+        "title": "Full stack developer",
+        "description": "I've always sought out opportunities and challenges that are meaningful to me. I have experience building web applications but also Windows applications. Contact me if you have any questions !",
+        "contactMe": "Contact me",
+        "recentPosts": "Recent posts",
+        "categories": "Categories",
+        "tags": "Tags"
     },
     "index": {
+        "by": "By",
+        "readingTime": "{{minutes}} min read",
         "viewMorePosts": "View more posts"
     },
     "postList": {
@@ -55,5 +69,8 @@
         "englishName": "English name",
         "color": "Color",
         "requiredField": "Required field"
+    },
+    "about": {
+        "aboutMe": "<p>I’m Thierry. I have experience building web applications but also Windows applications. I'm from Belgium. I’ve served clients from ..., working on everything from corporate websites to sophisticated web applications. Over my two decades of professional experience, I’ve picked up a lot of skills and know-how so that you can always trust that I’ll use the right tool for the job, delivering powerful, affordable and secure software, no matter the nature of the job.</p><p>Much of the work I do, I do remotely. From independent work to groups of about ten developers, I’ve always managed to stay on top of projects and communicate with a distributed team.</p><p>They say it takes ten years to become a master in any skill. Well, I’ve been programming for longer than that but the field changes so much and so quickly that even a master may remain constantly challenged. I love that! My passion is in exploring and playing with new ideas. I’m always trying to be inventive with solutions, and always adding new technologies to my capabilities. This means I can provide a huge offering of services that will suit any scale of application. From static sites to API driven single page applications, I’ve got it covered. For an almost comprehensive overview of my skills, check out the link below. View my skills. Drop me a line if you’d like to talk more about what I can offer you.</p>"
     }
 }

@@ -4,23 +4,23 @@ export class App {
     configureRouter(config: RouterConfiguration, router: Router) {
         config.addPipelineStep('postcomplete', PostCompleteStep);
         config.map([
-            { route: '', redirect: 'index' },
 
-            // H O M E
-
-            { route: 'index', name: 'index', moduleId: 'home/index' },
-
-            // A B O U T
-
-            { route: 'about', name: 'about', moduleId: 'about/about' },
+            { route: '', redirect: 'blog' },
 
             // B L O G
 
+            { route: 'blog', name: 'blog', moduleId: 'blog/blog' },
             { route: 'postList', name: 'postList', moduleId: 'blog/post-list' },
             { route: 'postEdit', name: 'postEdit', moduleId: 'blog/post-edit' },
             { route: 'postView', name: 'postView', moduleId: 'blog/post-view' },
             { route: 'categoryList', name: 'categoryList', moduleId: 'blog/category-list' },
             { route: 'categoryEdit', name: 'categoryEdit', moduleId: 'blog/category-edit' },
+
+            // A B O U T
+
+            { route: 'about', name: 'about', moduleId: 'about/about' },
+            { route: 'cv', name: 'cv', moduleId: 'about/cv' },
+
 
             // T E S T
 
@@ -28,7 +28,6 @@ export class App {
             { route: 'index3', name: 'index3', moduleId: 'pages/test/index3' },
             { route: 'about2', name: 'about2', moduleId: 'pages/test/about2' },
             { route: 'author', name: 'author', moduleId: 'pages/test/author' },
-            { route: 'blog', name: 'blog', moduleId: 'pages/test/blog' },
             { route: 'blog2', name: 'blog2', moduleId: 'pages/test/blog2' },
             { route: 'blog3', name: 'blog3', moduleId: 'pages/test/blog3' },
             { route: 'singlePost', name: 'singlePost', moduleId: 'pages/test/single-post' },
@@ -65,8 +64,13 @@ class PostCompleteStep {
         /* MOBILE MENU HIDING AT EVERY PAGE LOADING */
         $("#eskimo-language-cell,#eskimo-social-cell,#eskimo-main-menu").hide();
 
-        /* SCROLL TOP AT EVERY PAGE LOADING */  
-        $("html,body").scrollTop(0);
+        /* SCROLL TOP AT EVERY PAGE LOADING */
+        var ignore = window.sessionStorage.getItem('ignoreScrollTop');
+        if (ignore) {
+            window.sessionStorage.removeItem('ignoreScrollTop');
+        } else {
+            $("html,body").scrollTop(0);
+        }
 
         /* CALCULATE PAGE TITLE NEGATIVE MARGIN */
         var adjustPageTitle = function () {

@@ -1,14 +1,17 @@
 import { I18N } from 'aurelia-i18n';
-import { autoinject } from 'aurelia-framework';
+import { autoinject, Container } from 'aurelia-framework';
+import { Router } from 'aurelia-router';
 
 @autoinject()
 export class Sidebar {
     constructor(i18n: I18N) {
         this.i18n = i18n;
         this.i18n.setLocale('fr');
+        this.router = Container.instance.get(Router);
     }
     static inject = [I18N];
     private i18n: I18N;
+    private router: Router;
     private attached() {
         $(document).ready(() => {
             /* MAIN MENU */
@@ -37,5 +40,8 @@ export class Sidebar {
     }
     private switchToEnglish() {
         this.i18n.setLocale('en');
+    }
+    private smoothScroll(id) {
+        this.router.navigateToRoute('about', { id: id});
     }
 }
