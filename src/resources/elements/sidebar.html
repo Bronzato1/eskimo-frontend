@@ -42,14 +42,12 @@
                         <li>
                             <a href="#" t="sidebar.about"></a>
                             <ul class="sub-menu">
-                                <!-- <li><a route-href="route:about"><span t="sidebar.whoAmI"></span></a></li>
+                                <li><a route-href="route:about; params.bind: { id: 'whoami' }"><span t="sidebar.whoAmI"></span></a></li>
+                                <li><a route-href="route:about; params.bind: { id: 'skills' }"><span t="sidebar.skills"></span></a></li>
                                 <li><a route-href="route:about; params.bind: { id: 'experience' }"><span t="sidebar.experience"></span></a></li>
-                                <li><a route-href="route:about; params.bind: { id: 'portfolio' }"><span t="sidebar.portfolio"></span></a></li> -->
-                                
-                                <li><a href="#" click.trigger="smoothScroll('whoami')"><span t="sidebar.whoAmI"></span></a></li>
-                                <li><a href="#" click.trigger="smoothScroll('experience')"><span t="sidebar.experience"></span></a></li>
-                                <li><a href="#" click.trigger="smoothScroll('portfolio')"><span t="sidebar.portfolio"></span></a></li>
-                                <li><a route-href="route:cv"><span t="sidebar.downloadMyResume"></span></a></li>
+                                <li><a route-href="route:about; params.bind: { id: 'references' }"><span t="sidebar.references"></span></a></li>
+                                <li><a route-href="route:about; params.bind: { id: 'download' }"><span t="sidebar.download"></span></a></li>
+                                <li><a route-href="route:about; params.bind: { id: 'contact' }"><span t="sidebar.contact"></span></a></li>
                             </ul>
                         </li>
                         <li>

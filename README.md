@@ -1,13 +1,3 @@
-### Pour compiler & exécuter le projet en mode développement
-
-* Compilation `au build`
-* Exécution `au run`
-* Démarrage du débugger `F5`
-
------------
-
-Voir ici: https://code.visualstudio.com/tutorials/static-website/create-storage
-
 ### Pour compiler le projet pour la production (Azure)
 
 - supprimer et recréer le rép publish
@@ -26,5 +16,24 @@ Voir ici: https://code.visualstudio.com/tutorials/static-website/create-storage
 | App service         | eskimoApp     | backend   | Web App        |
 | Compte de stockage  | eskimoo       | frontend  | Static Website |
 
+### Pour héberger un site statique sous Azure
 
+- Storage accounts / Add
+- Resource Group: AzurBlogging
+- Storage account name: azurblogging
+- Location West Europe
+- Performance: Standard
+- Account kind: StorageV2 (general purpose V2)
+- Replication: Locally-redundant storage (LRS)
+- Access tier (default): Hot
+- Security transfert required: Enabled
+- Allow access from: All networks
+- Blob soft delete: Disabled
+- Hierarchical namespace: Disabled
+- (wait creation completed)
+- (clic on it when available)
+- Choose Static website in sidebar
+- Static website: Enabled
+- Index document name: index.html
+- Index document path: index.html
 

@@ -1728,7 +1728,7 @@ textarea.form-control {
 }
 
 .form-control.form-fixed-height {
-    height: 195px;
+    height: 160px;
 }
 
 .ajax-success,
@@ -3332,7 +3332,7 @@ p.form-submit {
     font-size: 0.875rem;
 }
 
-.eskimo-categories ul li span {
+.eskimo-categories ul li span:last-child {
     text-align: center;
     display: inline-block;
     position: absolute;
@@ -4682,4 +4682,17 @@ ux-dialog-overlay.active {
 
 .modal-header .close:hover {
     opacity: 1 !important;
+}
+
+.avatar-img {
+    width: 100%;
+}
+
+.flag-img {
+    position: relative;
+    top: -300px;
+    right: -15px;
+    width: 15px;
+    margin-right: inherit !important;
+    margin-bottom: -300px;
 }

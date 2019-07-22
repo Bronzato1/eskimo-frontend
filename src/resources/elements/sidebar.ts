@@ -41,7 +41,4 @@ export class Sidebar {
     private switchToEnglish() {
         this.i18n.setLocale('en');
     }
-    private smoothScroll(id) {
-        this.router.navigateToRoute('about', { id: id});
-    }
 }

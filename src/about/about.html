@@ -8,7 +8,7 @@
     <slide-panel></slide-panel>
     <!-- FULL SCREEN SEARCH -->
     <fullscreen-search></fullscreen-search>
-    <div  id="whoami"></div>
+    <div id="whoami"></div>
     <!-- SITE WRAPPER -->
     <div id="eskimo-site-wrapper">
         <!-- MAIN CONTAINER -->
@@ -23,193 +23,707 @@
                 <!-- ABOUT ME -->
                 <div class="row">
                     <div class="col-12 col-lg-7 order-2 order-lg-1">
-                        <div innerhtml.bind="aboutMe"></div>
+                        <div t="[html]about.aboutContent"></div>
+                        <!-- DIVIDER -->
+                        <hr />
+                        <h2 id="skills" t="about.skills"></h2>
+                        <div t="[html]about.skillsContent"></div>
+                        <h5 class="mt-3 mb-1">Backend</h5>
+
                         <div class="progress">
-                            <div class="progress-bar bg-success" style="width: 100%" role="progressbar"
-                                aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"><span>PHP</span> 100%</div>
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar bg-info" style="width: 85%" role="progressbar" aria-valuenow="85"
-                                aria-valuemin="0" aria-valuemax="100"><span>WordPress</span> 85%</div>
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar bg-warning" style="width: 65%" role="progressbar"
-                                aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"><span>Javascript</span> 65%
+                            <div class="progress-bar bg-info" style="width: 100%" role="progressbar">
+                                <span>ASP.NET MVC</span>
                             </div>
                         </div>
+
                         <div class="progress">
-                            <div class="progress-bar bg-danger" style="width: 50%" role="progressbar" aria-valuenow="50"
-                                aria-valuemin="0" aria-valuemax="100"><span>ASP</span> 50%</div>
+                            <div class="progress-bar bg-info" style="width: 100%" role="progressbar">
+                                <span>ASP.NET CORE</span>
+                            </div>
                         </div>
+
+                        <div class="progress">
+                            <div class="progress-bar bg-info" style="width: 100%" role="progressbar">
+                                <span>C#.NET • C-SHARP</span>
+                            </div>
+                        </div>
+
+                        <button type="button" class="btn btn-link btn-more" data-toggle="collapse"
+                            href="#collapseBackend" role="button" click.trigger="animateProgressBars()">
+                            <span class="fa fa-plus-circle fa-lg" aria-hidden="true"></span>
+                        </button>
+
+                        <div class="collapse" id="collapseBackend">
+
+                            <div class="progress">
+                                <div class="progress-bar bg-info" style="width: 60%" role="progressbar"
+                                    aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"><span>VB.NET •
+                                        VISUAL-BASIC</span>
+                                </div>
+                            </div>
+
+                            <div class="progress">
+                                <div class="progress-bar bg-info" style="width: 30%" role="progressbar">
+                                    <span>WEB API</span>
+                                </div>
+                            </div>
+
+                            <div class="progress">
+                                <div class="progress-bar bg-info" style="width: 70%" role="progressbar">
+                                    <span>VISUAL-STUDIO 2005 > 2019</span>
+                                </div>
+                            </div>
+
+                            <div class="progress">
+                                <div class="progress-bar bg-info" style="width: 40%" role="progressbar">
+                                    <span>VISUAL-STUDIO CODE</span>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <h5 class="mt-3 mb-1">Frontend</h5>
+
+                        <div class="progress">
+                            <div class="progress-bar bg-warning" style="width: 100%" role="progressbar">
+                                <span>Javascript</span>
+                            </div>
+                        </div>
+
+                        <div class="progress">
+                            <div class="progress-bar bg-warning" style="width: 100%" role="progressbar">
+                                <span>Typescript</span>
+                            </div>
+                        </div>
+
+                        <div class="progress">
+                            <div class="progress-bar bg-warning" style="width: 100%" role="progressbar">
+                                <span>HTML/CSS</span>
+                            </div>
+                        </div>
+
+                        <button type="button" class="btn btn-link btn-more" data-toggle="collapse"
+                            href="#collapseFrontend" role="button" click.trigger="animateProgressBars()">
+                            <span class="fa fa-plus-circle fa-lg" aria-hidden="true"></span>
+                        </button>
+
+                        <div class="collapse" id="collapseFrontend">
+
+                            <div class="progress">
+                                <div class="progress-bar bg-warning" style="width: 40%" role="progressbar">
+                                    <span>JQUERY</span>
+                                </div>
+                            </div>
+
+                            <div class="progress">
+                                <div class="progress-bar bg-warning" style="width: 30%" role="progressbar">
+                                    <span>BOOTSTRAP</span>
+                                </div>
+                            </div>
+
+                            <div class="progress">
+                                <div class="progress-bar bg-warning" style="width: 65%" role="progressbar">
+                                    <span>DURANDAL</span>
+                                </div>
+                            </div>
+
+                            <div class="progress">
+                                <div class="progress-bar bg-warning" style="width: 60%" role="progressbar">
+                                    <span>KNOCKOUT</span>
+                                </div>
+                            </div>
+
+                            <div class="progress">
+                                <div class="progress-bar bg-warning" style="width: 55%" role="progressbar">
+                                    <span>AURELIA</span>
+                                </div>
+                            </div>
+
+                            <div class="progress">
+                                <div class="progress-bar bg-warning" style="width: 70%" role="progressbar">
+                                    <span>MATERIALIZE</span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <h5 class="mt-3 mb-1" t="about.other"></h5>
+
+                        <div class="progress">
+                            <div class="progress-bar bg-danger" style="width: 100%" role="progressbar">
+                                <span>Microsoft Sql Server</span>
+                            </div>
+                        </div>
+
+                        <div class="progress">
+                            <div class="progress-bar bg-danger" style="width: 100%" role="progressbar">
+                                <span>TEAM FOUNDATION SERVER</span>
+                            </div>
+                        </div>
+
+                        <div class="progress">
+                            <div class="progress-bar bg-danger" style="width: 100%" role="progressbar">
+                                <span>GIT / GITHUB</span>
+                            </div>
+                        </div>
+
+                        <button type="button" class="btn btn-link btn-more" data-toggle="collapse" href="#collapseOther"
+                            role="button" click.trigger="animateProgressBars()">
+                            <span class="fa fa-plus-circle fa-lg" aria-hidden="true"></span>
+                        </button>
+
+                        <div class="collapse" id="collapseOther">
+
+                            <div class="progress">
+                                <div class="progress-bar bg-danger" style="width: 80%" role="progressbar">
+                                    <span>MS Access</span>
+                                </div>
+                            </div>
+
+                            <div class="progress">
+                                <div class="progress-bar bg-danger" style="width: 45%" role="progressbar">
+                                    <span>Macros VBA/VBSCRIPT</span>
+                                </div>
+                            </div>
+
+                            <div class="progress">
+                                <div class="progress-bar bg-danger" style="width: 35%" role="progressbar">
+                                    <span>CRYSTAL REPORTS</span>
+                                </div>
+                            </div>
+
+                            <div class="progress">
+                                <div class="progress-bar bg-danger" style="width: 65%" role="progressbar">
+                                    <span>ADOBE PHOTOSHOP</span>
+                                </div>
+                            </div>
+
+                            <div class="progress">
+                                <div class="progress-bar bg-danger" style="width: 70%" role="progressbar">
+                                    <span>ADOBE XD CC</span>
+                                </div>
+                            </div>
+
+                            <div class="progress">
+                                <div class="progress-bar bg-danger" style="width: 40%" role="progressbar">
+                                    <span>MICROSOFT AZURE</span>
+                                </div>
+                            </div>
+
+                        </div>
+
                     </div>
                     <div class="col-12 col-lg-5 order-1 order-lg-2 mb-5 mb-lg-0">
-                        <img src="images/avatar-600x600.jpg" alt="Jane Doe"
-                            class="img-fluid mx-auto d-block eskimo-img-shadow" />
+                        <img src="images/avatar-600x600.jpg" alt="Thierry"
+                            class="img-fluid mx-auto d-block eskimo-img-shadow avatar-img" />
+                        <img src="images/be-flag-600x30.png" alt="be" class="img-fluid mx-auto d-block flag-img" />
                     </div>
                 </div>
                 <!-- DIVIDER -->
                 <hr />
                 <!-- TABS -->
-                <h2 id="experience">EXPERIENCE &amp; EDUCATION</h2>
+                <h2 id="experience" t="about.experience"></h2>
                 <!-- ACCORDION -->
                 <div id="mp-accordion-1" data-children=".mp-accordion-item" class="mp-accordion">
                     <!-- ACCORDION ITEM 1 -->
                     <div class="mp-accordion-item">
                         <a class="mp-accordion-title" data-toggle="collapse" data-parent="#mp-accordion-1"
-                            href="#mp-accordion-item-1" aria-expanded="false" aria-controls="mp-accordion-item-1">2014
-                            to Present</a>
-                        <div id="mp-accordion-item-1" class="collapse show" role="tabpanel">
+                            href="#mp-accordion-item-1" aria-expanded="false" aria-controls="mp-accordion-item-1">
+                            2005 ► 2019 / Full Stack .Net Developer / transport company / anonymous required</a>
+                        <div id="mp-accordion-item-1" class="collapse" role="tabpanel">
                             <div class="mp-accordion-content">
-                                <h5>Senior Developer - Google Inc</h5>
-                                Senserit sed commodo. Ubi nescius a iudicem, non veniam si amet a tempor ad fabulas id
-                                ipsum excepteur relinqueret non fore commodo quibusdam, incidi imitaren do mentitum. Et
-                                enim offendit ingeniis. Dolor probant senserit si mandaremus do nulla laborum, hic aute
-                                iudicem expetendis id cupidatat tamen iudicem proident ut eram arbitror aut veniam enim,
-                                nostrud. Ex velit arbitror possumus, labore proident consequat, non aute cillum o
-                                fabulas ut probant ubi consequat. Excepteur ea probant, expetendis quid proident sed
-                                nostrud.
+                                <h5 class="mt-2 mb-0" t="about.experience11Title">Gaffe</h5>
+                                <ul>
+                                    <li t="about.experience11Content"></li>
+                                    <li>
+                                        <span class="badge badge-info">c#</span>
+                                        <span class="badge badge-info">ASP.NET MVC</span>
+                                        <span class="badge badge-info">WEB API</span>
+                                        <span class="badge badge-warning">HTML/CSS</span>
+                                        <span class="badge badge-warning">AURELIA</span>
+                                        <span class="badge badge-warning">MATERIALIZE</span>
+                                        <span class="badge badge-warning">TYPESCRIPT</span>
+                                        <span class="badge badge-danger">SQL SERVER</span>
+                                    </li>
+                                </ul>
+                                <h5 class="mt-2 mb-0" t="about.experience12Title">Transportboek</h5>
+                                <ul>
+                                    <li t="about.experience12Content"></li>
+                                    <li>
+                                        <span class="badge badge-info">c#</span>
+                                        <span class="badge badge-info">ASP.NET MVC</span>
+                                        <span class="badge badge-info">WEB API</span>
+                                        <span class="badge badge-warning">HTML/CSS</span>
+                                        <span class="badge badge-warning">DURANDAL</span>
+                                        <span class="badge badge-warning">KNOCKOUT</span>
+                                        <span class="badge badge-warning">TYPESCRIPT</span>
+                                        <span class="badge badge-danger">SQL SERVER</span>
+                                    </li>
+                                </ul>
+                                <h5 class="mt-2 mb-0" t="about.experience13Title">Paris</h5>
+                                <ul>
+                                    <li t="about.experience13Content"></li>
+                                    <li>
+                                        <span class="badge badge-info">c#</span>
+                                        <span class="badge badge-info">ASP.NET MVC</span>
+                                        <span class="badge badge-info">WEB API</span>
+                                        <span class="badge badge-warning">HTML/CSS</span>
+                                        <span class="badge badge-warning">AURELIA</span>
+                                        <span class="badge badge-warning">MATERIALIZE</span>
+                                        <span class="badge badge-warning">TYPESCRIPT</span>
+                                        <span class="badge badge-danger">SQL SERVER</span>
+                                    </li>
+                                </ul>
+
                             </div>
                         </div>
                     </div>
                     <!-- ACCORDION ITEM 2 -->
                     <div class="mp-accordion-item">
                         <a class="mp-accordion-title collapsed" data-toggle="collapse" data-parent="#mp-accordion-1"
-                            href="#mp-accordion-item-2" aria-expanded="false" aria-controls="mp-accordion-item-2">2014 -
-                            2010</a>
+                            href="#mp-accordion-item-2" aria-expanded="false" aria-controls="mp-accordion-item-2">
+                            2010 / Software developper / Comité Olympique et Interféféral Belge / COIB</a>
                         <div id="mp-accordion-item-2" class="collapse" role="tabpanel">
                             <div class="mp-accordion-content">
-                                <h5>Art Director - Designs Ltd</h5>
-                                Senserit sed commodo. Ubi nescius a iudicem, non veniam si amet a tempor ad fabulas id
-                                ipsum excepteur relinqueret non fore commodo quibusdam, incidi imitaren do mentitum. Et
-                                enim offendit ingeniis. Dolor probant senserit si mandaremus do nulla laborum, hic aute
-                                iudicem expetendis id cupidatat tamen iudicem proident ut eram arbitror aut veniam enim,
-                                nostrud. Ex velit arbitror possumus, labore proident consequat, non aute cillum o
-                                fabulas ut probant ubi consequat. Excepteur ea probant, expetendis quid proident sed
-                                nostrud.
+                                <h5 class="mt-2 mb-0" t="about.experience21Title">Sims</h5>
+                                <ul>
+                                    <li t="about.experience21Content"></li>
+                                    <li>
+                                        <span class="badge badge-danger">SQL SERVER</span>
+                                        <span class="badge badge-danger">MS ACCESS</span>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </div>
                     <!-- ACCORDION ITEM 3 -->
                     <div class="mp-accordion-item">
                         <a class="mp-accordion-title collapsed" data-toggle="collapse" data-parent="#mp-accordion-1"
-                            href="#mp-accordion-item-3" aria-expanded="false" aria-controls="mp-accordion-item-3">2010 -
-                            2008</a>
+                            href="#mp-accordion-item-3" aria-expanded="false" aria-controls="mp-accordion-item-3">
+                            2010 / .NET Software Developer / Baxter</a>
                         <div id="mp-accordion-item-3" class="collapse" role="tabpanel">
                             <div class="mp-accordion-content">
-                                <h5>Web Designer - Freelance</h5>
-                                Senserit sed commodo. Ubi nescius a iudicem, non veniam si amet a tempor ad fabulas id
-                                ipsum excepteur relinqueret non fore commodo quibusdam, incidi imitaren do mentitum. Et
-                                enim offendit ingeniis. Dolor probant senserit si mandaremus do nulla laborum, hic aute
-                                iudicem expetendis id cupidatat tamen iudicem proident ut eram arbitror aut veniam enim,
-                                nostrud. Ex velit arbitror possumus, labore proident consequat, non aute cillum o
-                                fabulas ut probant ubi consequat. Excepteur ea probant, expetendis quid proident sed
-                                nostrud.
+                                <h5 class="mt-2 mb-0" t="about.experience31Title">Environnement Hygiène Sécurité</h5>
+                                <ul>
+                                    <li t="about.experience31Content"></li>
+                                    <li>
+                                        <span class="badge badge-info">VB.NET</span>
+                                        <span class="badge badge-danger">SQL SERVER</span>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </div>
                     <!-- ACCORDION ITEM 4 -->
                     <div class="mp-accordion-item">
                         <a class="mp-accordion-title collapsed" data-toggle="collapse" data-parent="#mp-accordion-1"
-                            href="#mp-accordion-item-4" aria-expanded="false" aria-controls="mp-accordion-item-4">2008 -
-                            2004</a>
+                            href="#mp-accordion-item-4" aria-expanded="false" aria-controls="mp-accordion-item-4">
+                            2010 / Excel VBA developer / Akzo Nobel</a>
                         <div id="mp-accordion-item-4" class="collapse" role="tabpanel">
                             <div class="mp-accordion-content">
-                                <h5>University - Cambridge</h5>
-                                Senserit sed commodo. Ubi nescius a iudicem, non veniam si amet a tempor ad fabulas id
-                                ipsum excepteur relinqueret non fore commodo quibusdam, incidi imitaren do mentitum. Et
-                                enim offendit ingeniis. Dolor probant senserit si mandaremus do nulla laborum, hic aute
-                                iudicem expetendis id cupidatat tamen iudicem proident ut eram arbitror aut veniam enim,
-                                nostrud. Ex velit arbitror possumus, labore proident consequat, non aute cillum o
-                                fabulas ut probant ubi consequat. Excepteur ea probant, expetendis quid proident sed
-                                nostrud.
+                                <h5 class="mt-2 mb-0" t="about.experience41Title">Logiciel de gestion des ordres de
+                                    fabrication</h5>
+                                <ul>
+                                    <li t="about.experience41Content"></li>
+                                    <li>
+                                        <span class="badge badge-danger">EXCEL VBA</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ACCORDION ITEM 5 -->
+                    <div class="mp-accordion-item">
+                        <a class="mp-accordion-title collapsed" data-toggle="collapse" data-parent="#mp-accordion-1"
+                            href="#mp-accordion-item-5" aria-expanded="false" aria-controls="mp-accordion-item-5">
+                            2009 ► 2010 / Excel VBA developer / Glaxo Smith Kline / GSK</a>
+                        <div id="mp-accordion-item-5" class="collapse" role="tabpanel">
+                            <div class="mp-accordion-content">
+                                <h5 class="mt-2 mb-0" t="about.experience51Title">Bio Stat</h5>
+                                <ul>
+                                    <li t="about.experience51Content"></li>
+                                    <li>
+                                        <span class="badge badge-danger">MS ACCESS</span>
+                                    </li>
+                                </ul>
+                                <h5 class="mt-2 mb-0" t="about.experience52Title">Tratt Scan</h5>
+                                <ul>
+                                    <li t="about.experience52Content"></li>
+                                    <li>
+                                        <span class="badge badge-info">C#</span>
+                                        <span class="badge badge-danger">BARCODE READER</span>
+                                    </li>
+                                </ul>
+                                <h5 class="mt-2 mb-0" t="about.experience53Title">Planning Milieu</h5>
+                                <ul>
+                                    <li t="about.experience53Content"></li>
+                                    <li>
+                                        <span class="badge badge-danger">EXCEL VBA</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ACCORDION ITEM 6 -->
+                    <div class="mp-accordion-item">
+                        <a class="mp-accordion-title collapsed" data-toggle="collapse" data-parent="#mp-accordion-1"
+                            href="#mp-accordion-item-6" aria-expanded="false" aria-controls="mp-accordion-item-6">
+                            2000 ► 2009 / VB.NET developer / Fortis Insurance Belgium / FIB</a>
+                        <div id="mp-accordion-item-6" class="collapse" role="tabpanel">
+                            <div class="mp-accordion-content">
+                                <h5 class="mt-2 mb-0" t="about.experience61Title">Fiches Fiscales</h5>
+                                <ul>
+                                    <li t="about.experience61Content"></li>
+                                    <li>
+                                        <span class="badge badge-danger">VISUAL-BASIC</span>
+                                    </li>
+                                </ul>
+                                <h5 class="mt-2 mb-0" t="about.experience62Title">Validation des paiements en ligne</h5>
+                                <ul>
+                                    <li t="about.experience62Content"></li>
+                                    <li>
+                                        <span class="badge badge-danger">ASP.NET</span>
+                                        <span class="badge badge-danger">INTERNET INFORMATION SERVICES/span>
+                                    </li>
+                                </ul>
+                                <h5 class="mt-2 mb-0" t="about.experience63Title">International Ledger</h5>
+                                <ul>
+                                    <li t="about.experience63Content"></li>
+                                    <li>
+                                        <span class="badge badge-danger">VISUAL-BASIC</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ACCORDION ITEM 7 -->
+                    <div class="mp-accordion-item">
+                        <a class="mp-accordion-title collapsed" data-toggle="collapse" data-parent="#mp-accordion-1"
+                            href="#mp-accordion-item-7" aria-expanded="false" aria-controls="mp-accordion-item-7">
+                            1999 / VBA developer / T-Plan</a>
+                        <div id="mp-accordion-item-7" class="collapse" role="tabpanel">
+                            <div class="mp-accordion-content">
+                                <h5 class="mt-2 mb-0" t="about.experience71Title">Logiciel SIG</h5>
+                                <ul>
+                                    <li t="about.experience71Content"></li>
+                                    <li>
+                                        <span class="badge badge-danger">SQL SERVER</span>
+                                        <span class="badge badge-danger">ACCESS</span>
+                                        <span class="badge badge-danger">MAPINFO</span>
+                                        <span class="badge badge-danger">AUTOCAD</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ACCORDION ITEM 8 -->
+                    <div class="mp-accordion-item">
+                        <a class="mp-accordion-title collapsed" data-toggle="collapse" data-parent="#mp-accordion-1"
+                            href="#mp-accordion-item-8" aria-expanded="false" aria-controls="mp-accordion-item-8">
+                            1999 / VB6 developer / Tott Systems</a>
+                        <div id="mp-accordion-item-8" class="collapse" role="tabpanel">
+                            <div class="mp-accordion-content">
+                                <h5 class="mt-2 mb-0" t="about.experience81Title">Logiciel de support type helpdesk</h5>
+                                <ul>
+                                    <li t="about.experience81Content"></li>
+                                    <li>
+                                        <span class="badge badge-danger">VISUAL-BASIC</span>
+                                        <span class="badge badge-danger">SQL SERVER</span>
+                                        <span class="badge badge-danger">CRYSTAL REPORTS</span>
+                                    </li>
+                                </ul>
+                                <h5 class="mt-2 mb-0" t="about.experience82Title">Logicel de gestion pour le transport
+                                    de fret</h5>
+                                <ul>
+                                    <li t="about.experience82Content"></li>
+                                    <li>
+                                        <span class="badge badge-danger">VISUAL-BASIC</span>
+                                        <span class="badge badge-danger">MS ACCESS</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ACCORDION ITEM 9 -->
+                    <div class="mp-accordion-item">
+                        <a class="mp-accordion-title collapsed" data-toggle="collapse" data-parent="#mp-accordion-1"
+                            href="#mp-accordion-item-9" aria-expanded="false" aria-controls="mp-accordion-item-9">
+                            1999 / VBA developer / Sopres</a>
+                        <div id="mp-accordion-item-9" class="collapse" role="tabpanel">
+                            <div class="mp-accordion-content">
+                                <h5 class="mt-2 mb-0" t="about.experience91Title">Logiciel d'emailing</h5>
+                                <ul>
+                                    <li t="about.experience91Content"></li>
+                                    <li>
+                                        <span class="badge badge-danger">VISUAL-BASIC</span>
+                                        <span class="badge badge-danger">MS ACCESS</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ACCORDION ITEM 10 -->
+                    <div class="mp-accordion-item">
+                        <a class="mp-accordion-title collapsed" data-toggle="collapse" data-parent="#mp-accordion-1"
+                            href="#mp-accordion-item-10" aria-expanded="false" aria-controls="mp-accordion-item-10">
+                            1998 / VBA developer / Kraft Jacobs Suchard / KJS</a>
+                        <div id="mp-accordion-item-10" class="collapse" role="tabpanel">
+                            <div class="mp-accordion-content">
+                                <h5 class="mt-2 mb-0" t="about.experience100Title">Plugin Outlook</h5>
+                                <ul>
+                                    <li t="about.experience100Content"></li>
+                                    <li>
+                                        <span class="badge badge-danger">OUTLOOK</span>
+                                        <span class="badge badge-danger">MACROS VBA/VBSCRIPT</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ACCORDION ITEM 11 -->
+                    <div class="mp-accordion-item">
+                        <a class="mp-accordion-title collapsed" data-toggle="collapse" data-parent="#mp-accordion-1"
+                            href="#mp-accordion-item-11" aria-expanded="false" aria-controls="mp-accordion-item-11">
+                            1998 ► 1998 / Excel VBA developer / Coca-Cola</a>
+                        <div id="mp-accordion-item-11" class="collapse" role="tabpanel">
+                            <div class="mp-accordion-content">
+                                <h5 class="mt-2 mb-0" t="about.experience111Title">Macros Excel</h5>
+                                <ul>
+                                    <li t="about.experience111Content"></li>
+                                    <li>
+                                        <span class="badge badge-danger">MS EXCEL</span>
+                                        <span class="badge badge-danger">MACROS VBA/VBSCRIPT</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ACCORDION ITEM 12 -->
+                    <div class="mp-accordion-item">
+                        <a class="mp-accordion-title collapsed" data-toggle="collapse" data-parent="#mp-accordion-1"
+                            href="#mp-accordion-item-12" aria-expanded="false" aria-controls="mp-accordion-item-12">
+                            1997 ► 1998 / Software developer / JPass International</a>
+                        <div id="mp-accordion-item-12" class="collapse" role="tabpanel">
+                            <div class="mp-accordion-content">
+                                <h5 class="mt-2 mb-0" t="about.experience121Title">Logiciel de gestion pour délégués
+                                    commerciaux</h5>
+                                <ul>
+                                    <li t="about.experience121Content"></li>
+                                    <li>
+                                        <span class="badge badge-danger">VISUAL-BASIC</span>
+                                        <span class="badge badge-danger">MS ACCESS</span>
+                                    </li>
+                                </ul>
+                                <h5 class="mt-2 mb-0" t="about.experience122Title">Logiciel Polux</h5>
+                                <ul>
+                                    <li t="about.experience122Content"></li>
+                                    <li>
+                                        <span class="badge badge-danger">POWERBUILDER</span>
+                                        <span class="badge badge-danger">OMNIS</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ACCORDION ITEM 13 -->
+                    <div class="mp-accordion-item">
+                        <a class="mp-accordion-title collapsed" data-toggle="collapse" data-parent="#mp-accordion-1"
+                            href="#mp-accordion-item-13" aria-expanded="false" aria-controls="mp-accordion-item-13">
+                            1996 / Software developer / Cotrase</a>
+                        <div id="mp-accordion-item-13" class="collapse" role="tabpanel">
+                            <div class="mp-accordion-content">
+                                <h5 class="mt-2 mb-0" t="about.experience131Title">Gestion de stock</h5>
+                                <ul>
+                                    <li t="about.experience131Content"></li>
+                                    <li>
+                                        <span class="badge badge-danger">VISUAL-BASIC</span>
+                                        <span class="badge badge-danger">MS ACCESS</span>
+                                    </li>
+                                </ul>
+                                <h5 class="mt-2 mb-0" t="about.experience132Title">Gestion de prospects</h5>
+                                <ul>
+                                    <li t="about.experience132Content"></li>
+                                    <li>
+                                        <span class="badge badge-danger">VISUAL-BASIC</span>
+                                        <span class="badge badge-danger">MS ACCESS</span>
+                                    </li>
+                                </ul>
+
                             </div>
                         </div>
                     </div>
                 </div>
+                <h2 id="references" class="mt-5" t="about.references"></h2>
+                <p>
+                    <span class="badge badge-warning">Fortis Insurance Belgium</span>
+                    <span class="badge badge-default">Sigma Coatings</span>
+                    <span class="badge badge-info">Kraft Jacobs Suchard</span>
+                    <span class="badge badge-default">Texaco</span>
+                    <span class="badge badge-secondary">Art & Media</span>
+                    <span class="badge badge-success">Labima</span>
+                    <span class="badge badge-info">Schenk</span>
+                    <span class="badge badge-danger">Alter Ego Services</span>
+                    <span class="badge badge-info">Coca Cola</span>
+                    <span class="badge badge-danger">JPass International</span>
+                    <span class="badge badge-danger">Brunel</span>
+                    <span class="badge badge-danger">Cotrase</span>
+                    <span class="badge badge-warning">Crédit Général</span>
+                    <span class="badge badge-danger">Tott Systems</span>
+                    <span class="badge badge-danger">Bizliner</span>
+                    <span class="badge badge-secondary">C.O.I.B.</span>
+                    <span class="badge badge-success">Glaxo Smith Kline</span>
+                    <span class="badge badge-default">Akzo Nobel</span>
+                    <span class="badge badge-warning">BNP Paribas Fortis</span>
+                    <span class="badge badge-danger">Vision IT Group</span>
+                    <span class="badge badge-success">Baxter</span>
+                </p>
+                <p>
+                    <span class="badge badge-warning">&nbsp;</span> <span t="about.ref01"></span>
+                    &nbsp;&nbsp;
+                    <span class="badge badge-default">&nbsp;</span> <span t="about.ref02"></span>
+                    &nbsp;&nbsp;
+                    <span class="badge badge-info">&nbsp;</span> <span t="about.ref03"></span>
+                    &nbsp;&nbsp;
+                    <span class="badge badge-success">&nbsp;</span> <span t="about.ref04"></span>
+                    &nbsp;&nbsp;
+                    <span class="badge badge-secondary">&nbsp;</span> <span t="about.ref05"></span>
+                    &nbsp;&nbsp;
+                    <span class="badge badge-danger">&nbsp;</span> <span t="about.ref06"></span>
+                </p>
                 <!-- DIVIDER -->
                 <hr />
-                <h2 id="portfolio">PORTFOLIO</h2>
-                <p>Possumus e aute sed se litteris in aliquip, a tamen quem qui pariatur ex pariatur nam nulla possumus,
-                    magna do nostrud non quid qui cernantur eram aliqua e illum labore proident consequat.</p>
-
-                <!-- IMAGE GALLERY -->
-                <div class="eskimo-masonry-grid eskimo-gallery">
-                    <div class="eskimo-three-columns" data-columns>
-                        <!-- GALLERY ITEM 1 -->
-                        <div class="eskimo-gallery-item">
-                            <a href="#" data-featherlight="images/1400x1000.png" class="eskimo-lightbox">
-                                <img src="images/900x600.png" alt="" />
-                            </a>
+                <h2 id="download" t="about.download"></h2>
+                <div class="eskimo-masonry-grid">
+                    <div class="eskimo-two-columns" data-columns>
+                        <!-- CV EN -->
+                        <div class="card-masonry">
+                            <div class="card">
+                                <div class="card-border no-thumb">
+                                    <div class="card-body">
+                                        <div class="eskimo-categories eskimo-widget">
+                                            <h5 class="eskimo-title-with-border"><span>Curriculum Vitae</span></h5>
+                                            <ul>
+                                                <li>
+                                                    <span t='about.language'></span>
+                                                    <span class="badge badge-pill badge-default">ENGLISH</span>
+                                                </li>
+                                                <li>
+                                                    <span t='about.lastUpdate'></span>
+                                                    <span class="badge badge-pill badge-default">15/07/2019</span>
+                                                </li>
+                                                <li>
+                                                    <span t='about.fileFormat'></span>
+                                                    <span class="badge badge-pill badge-default">PDF</span>
+                                                </li>
+                                                <li>
+                                                    <span t='about.pageNumber'></span>
+                                                    <span class="badge badge-pill badge-default">3</span>
+                                                </li>
+                                                <li>
+                                                    <div class="card-category">
+                                                        <a href="#" click.trigger="downloadcv('EN')">
+                                                            <i class="fa fa-download"></i>
+                                                            <label class="text-uppercase"
+                                                                t='about.downloadEnglishVersion'></span>
+                                                        </a>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <!-- GALLERY ITEM 2 -->
-                        <div class="eskimo-gallery-item">
-                            <a href="#" data-featherlight="images/1400x1000.png" class="eskimo-lightbox">
-                                <img src="images/900x600.png" alt="" />
-                            </a>
-                        </div>
-                        <!-- GALLERY ITEM 3 -->
-                        <div class="eskimo-gallery-item">
-                            <a href="#" data-featherlight="images/1400x1000.png" class="eskimo-lightbox">
-                                <img src="images/900x600.png" alt="" />
-                            </a>
-                        </div>
-                        <!-- GALLERY ITEM 4 -->
-                        <div class="eskimo-gallery-item">
-                            <a href="#" data-featherlight="images/1400x1000.png" class="eskimo-lightbox">
-                                <img src="images/900x600.png" alt="" />
-                            </a>
-                        </div>
-                        <!-- GALLERY ITEM 5 -->
-                        <div class="eskimo-gallery-item">
-                            <a href="#" data-featherlight="images/1400x1000.png" class="eskimo-lightbox">
-                                <img src="images/900x600.png" alt="" />
-                            </a>
-                        </div>
-                        <!-- GALLERY ITEM 6 -->
-                        <div class="eskimo-gallery-item">
-                            <a href="#" data-featherlight="images/1400x1000.png" class="eskimo-lightbox">
-                                <img src="images/900x600.png" alt="" />
-                            </a>
+                        <!-- CV FR -->
+                        <div class="card-masonry">
+                            <div class="card">
+                                <div class="card-border no-thumb">
+                                    <div class="card-body">
+                                        <div class="eskimo-categories eskimo-widget">
+                                            <h5 class="eskimo-title-with-border"><span>Curriculum Vitae</span></h5>
+                                            <ul>
+                                                <li>
+                                                    <span t='about.language'></span>
+                                                    <span class="badge badge-pill badge-default">FRENCH</span>
+                                                </li>
+                                                <li>
+                                                    <span t='about.lastUpdate'></span>
+                                                    <span class="badge badge-pill badge-default">15/07/2019</span>
+                                                </li>
+                                                <li>
+                                                    <span t='about.fileFormat'></span>
+                                                    <span class="badge badge-pill badge-default">PDF</span>
+                                                </li>
+                                                <li>
+                                                    <span t='about.pageNumber'></span>
+                                                    <span class="badge badge-pill badge-default">3</span>
+                                                </li>
+                                                <li>
+                                                    <div class="card-category">
+                                                        <a href="#" click.trigger="downloadcv('FR')">
+                                                            <i class="fa fa-download"></i>
+                                                            <label class="text-uppercase"
+                                                                t='about.downloadFrenchVersion'></span>
+                                                        </a>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- DIVIDER -->
-            <hr />
-            <h2>CONTACT ME</h2>
-            <p>Possumus e aute sed se litteris in aliquip, a tamen quem qui pariatur ex pariatur nam nulla possumus,
-                magna do nostrud non quid qui cernantur eram aliqua e illum labore proident consequat.</p>
-            <!-- CONTACT FORM -->
-            <form id="ajax-form" action="mailer.php" method="post">
-                <div class="row">
-                    <div class="col-12 col-lg-6">
-                        <p>
-                            <label>Your Name</label><br />
-                            <input type="text" name="sendername" id="sendername" class="form-control"
-                                required="required" maxlength="50" />
-                        </p>
-                        <p>
-                            <label>Your Email</label><br />
-                            <input type="email" name="senderemail" id="senderemail" class="form-control"
-                                required="required" maxlength="50" />
-                        </p>
-                        <p>
-                            <label>Phone Number</label><br />
-                            <input type="text" name="senderphone" id="senderphone" class="form-control"
-                                maxlength="50" />
-                        </p>
+                <h2 id="contact" t="about.contact"></h2>
+                <p t="about.twentyFourHoursResponse"></p>
+                <!-- CONTACT FORM -->
+                <form id="ajax-form" action="mailer.php" method="post">
+                    <div class="row">
+                        <div class="col-12 col-lg-6">
+                            <p validation-errors.bind="sendernameError"
+                                class.bind="sendernameError.length ? 'has-error' : ''">
+                                <label t='about.yourName'></label><br />
+                                <input type="text" name="sendername" id="sendername" value.bind="sendername & validate"
+                                    class="form-control" required="required" maxlength="50" />
+                            </p>
+                            <p validation-errors.bind="senderemailError"
+                            class.bind="senderemailError.length ? 'has-error' : ''">
+                                <label t='about.yourEmail'></label><br />
+                                <input type="email" name="senderemail" id="senderemail" value.bind='senderemail & validate'
+                                    class="form-control" required="required" maxlength="50" />
+                            </p>
+                            <p>
+                                <label t='about.phoneNumber'></label><br />
+                                <input type="text" name="senderphone" id="senderphone" value.bind='senderphone'
+                                    class="form-control" maxlength="50" />
+                            </p>
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <p validation-errors.bind="sendermessageError"
+                            class.bind="sendermessageError.length ? 'has-error' : ''">
+                                <label t='about.yourMessage'></label><br />
+                                <textarea name="sendermessage" id="sendermessage" value.bind='sendermessage & validate'
+                                    required="required" class="form-control form-fixed-height"></textarea>
+                            </p>
+                            <button id="sendbutton" type="submit" class="btn btn-lg w-100" click.trigger="sendMessage()"
+                                t='about.sendMessage'></button>
+                        </div>
                     </div>
-                    <div class="col-12 col-lg-6">
-                        <p>
-                            <label>Your Message</label><br />
-                            <textarea name="sendermessage" id="sendermessage" required="required"
-                                class="form-control form-fixed-height"></textarea>
-                        </p>
-                        <button id="sendbutton" type="submit" class="btn btn-lg w-100">Send Message</button>
-                    </div>
+                </form>
+                <!-- ALERT SUCCESS -->
+                <div show.bind="contactMailSent==true" class="alert alert-success mt-5">
+                    <div class="close" data-dismiss="alert" click.trigger="resetMailAlert($event)">&times;</div>
+                    <h6 t="about.confirmationTitle"></h6>
+                    <p t="about.confirmationMessage"></p>
                 </div>
-            </form>
-            <div id="form-messages"></div>
+                <!-- ALERT DANGER -->
+                <div show.bind="contactMailSent==false" class="alert alert-danger mt-5">
+                    <div class="close" data-dismiss="alert" click.trigger="resetMailAlert($event)">&times;</div>
+                    <h6 t="about.errorTitle"></h6>
+                    <p t="about.errorMessage"></p>
+                </div>
         </main>
         <!-- FOOTER -->
         <footer-panel></footer-panel>
