@@ -1,5 +1,5 @@
 export default {
   debug: false,
   testing: false,
-  backendUrl: 'https://azurblogging.azurewebsites.net/'
+  backendUrl: 'https://frenchcoder.azurewebsites.net/'
 };

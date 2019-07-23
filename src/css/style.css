@@ -40,6 +40,7 @@ MEDIA QUERIES
 
 /* ================= GOOGLE FONT ================== */
 
+@import url("https://fonts.googleapis.com/css?family=Concert+One&display=swap");
 @import url('https://fonts.googleapis.com/css?family=Merriweather+Sans&display=swap');
 
 /* ================= GENERAL STYLES ================== */
@@ -83,7 +84,6 @@ body {
 .card-date,
 .badge,
 .card-category,
-.eskimo-menu-ul,
 .eskimo-page-title-meta,
 #eskimo-sidebar .eskimo-logo-link,
 .btn,
@@ -106,6 +106,10 @@ button,
     font-family: "Merriweather Sans", "Helvetica", Arial, sans-serif;
 }
 
+.eskimo-menu-ul {
+    font-family: "Concert One", "Helvetica", Arial, sans-serif;
+}
+
 .eskimo-pager,
 .eskimo-page-links,
 .eskimo-top-icons li a span,
@@ -126,11 +130,11 @@ h6,
 .h5,
 .h6,
 .card-title {
-    font-family: "Merriweather Sans", "Helvetica", Arial, sans-serif;
+    font-family: "Concert One", "Helvetica", Arial, sans-serif;
     margin-bottom: 2rem;
     font-weight: 700;
     line-height: 1.3;
-    color: #543729;
+    color: #c12026;
 }
 
 h1,
@@ -177,7 +181,7 @@ p {
 }
 
 a {
-    color: #ef5734;
+    color: #ffcb0c;
     -webkit-transition: color 0.2s linear;
     -moz-transition: color 0.2s linear;
     transition: color 0.2s linear;
@@ -259,7 +263,7 @@ table:not([class]) td {
 
 blockquote {
     font-style: italic;
-    border-left: 4px solid #ef5734;
+    border-left: 4px solid #ffcb0c;
     padding-left: 1.5rem;
     margin-left: -1.5rem;
     font-size: 120%;
@@ -269,7 +273,7 @@ blockquote {
 
 /* blockquote inside the froala component */
 .fr-view blockquote {
-    border-left: 4px solid #ef5734;
+    border-left: 4px solid #ffcb0c;
     padding-left: 1.5rem;
     color: inherit;
 }
@@ -315,7 +319,7 @@ blockquote {
     content: "";
     height: 3px;
     width: 100%;
-    background: #ef5734;
+    background: #ffcb0c;
     left: 0;
     bottom: -3px;
     position: absolute;
@@ -341,7 +345,7 @@ blockquote {
     animation: eskimo-bg-loader 1s linear infinite;
     z-index: 9999999999;
     content: "";
-    border-top-color: #543729;
+    border-top-color: #c12026;
 }
 
 @-webkit-keyframes eskimo-bg-loader {
@@ -424,7 +428,7 @@ blockquote {
     width: 50px;
     height: 50px;
     text-align: center;
-    background: #543729;
+    background: #c12026;
     line-height: 50px;
     border-radius: 100%;
     padding: 0;
@@ -437,7 +441,7 @@ blockquote {
 }
 
 #eskimo-close-search:hover {
-    background: #ef5734;
+    background: #ffcb0c;
 }
 
 #eskimo-close-search .fa {
@@ -468,7 +472,7 @@ progress {
     appearance: none;
     border: none;
     background-color: transparent;
-    color: #ef5734;
+    color: #ffcb0c;
     z-index: 9999;
 }
 
@@ -477,11 +481,11 @@ progress::-webkit-progress-bar {
 }
 
 progress::-webkit-progress-value {
-    background-color: #ef5734;
+    background-color: #ffcb0c;
 }
 
 progress::-moz-progress-bar {
-    background-color: #ef5734;
+    background-color: #ffcb0c;
 }
 
 .eskimo-progress-container {
@@ -495,7 +499,7 @@ progress::-moz-progress-bar {
 }
 
 .eskimo-progress-bar {
-    background-color: #ef5734;
+    background-color: #ffcb0c;
     width: 50%;
     display: block;
     height: inherit;
@@ -584,7 +588,7 @@ progress::-moz-progress-bar {
 
 .card-title,
 .card-title a {
-    color: #543729;
+    color: #c12026;
     text-decoration: none;
 }
 
@@ -603,7 +607,7 @@ a.text-light:hover {
 .text-primary,
 a.text-primary,
 a.text-primary:hover {
-    color: #ef5734 !important;
+    color: #ffcb0c !important;
 }
 
 .text-info,
@@ -701,8 +705,8 @@ input[type="button"]:not(.btn):not(.slick-arrow),
     line-height: 1.75;
     cursor: pointer;
     text-transform: uppercase;
-    background-color: #543729;
-    border: 2px solid #543729;
+    background-color: #c12026;
+    border: 2px solid #c12026;
     color: #FFFFFF;
     opacity: 1;
     -webkit-transition: all 150ms linear;
@@ -802,8 +806,8 @@ input[type="button"]:not(.btn):hover,
 }
 
 .btn-default {
-    background-color: #543729;
-    border-color: #543729;
+    background-color: #c12026;
+    border-color: #c12026;
     color: #FFFFFF;
     opacity: 1;
 }
@@ -819,8 +823,8 @@ input[type="button"]:not(.btn):hover,
 }
 
 .btn-primary {
-    background-color: #ef5734;
-    border-color: #ef5734;
+    background-color: #ffcb0c;
+    border-color: #ffcb0c;
     color: #FFFFFF;
     opacity: 1;
 }
@@ -830,9 +834,9 @@ input[type="button"]:not(.btn):hover,
 .btn-primary:active,
 .btn-primary.active,
 .show > .btn-primary.dropdown-toggle {
-    background-color: #ef5734 !important;
+    background-color: #ffcb0c !important;
     color: #FFFFFF;
-    border-color: #ef5734 !important;
+    border-color: #ffcb0c !important;
 }
 
 .btn-primary .caret {
@@ -840,7 +844,7 @@ input[type="button"]:not(.btn):hover,
 }
 
 .btn-primary.btn-link {
-    color: #ef5734;
+    color: #ffcb0c;
 }
 
 .btn-primary.btn-link:hover,
@@ -849,7 +853,7 @@ input[type="button"]:not(.btn):hover,
 .btn-primary.btn-link.active,
 .open > .btn-primary.btn-link.dropdown-toggle {
     background-color: transparent;
-    color: #ef5734;
+    color: #ffcb0c;
 }
 
 .btn-primary .caret {
@@ -1080,8 +1084,8 @@ fieldset[disabled] .btn-outline-default.active {
 }
 
 .btn-outline-primary {
-    border-color: #ef5734 !important;
-    color: #ef5734;
+    border-color: #ffcb0c !important;
+    color: #ffcb0c;
     opacity: 1;
 }
 
@@ -1090,9 +1094,9 @@ fieldset[disabled] .btn-outline-default.active {
 .btn-outline-primary:active,
 .btn-outline-primary.active,
 .open > .btn-outline-primary.dropdown-toggle {
-    background-color: #ef5734 !important;
+    background-color: #ffcb0c !important;
     color: #fff;
-    border-color: #ef5734 !important;
+    border-color: #ffcb0c !important;
 }
 
 .btn-outline-primary:hover .caret,
@@ -1132,7 +1136,7 @@ fieldset[disabled] .btn-outline-primary.focus,
 fieldset[disabled] .btn-outline-primary:active,
 fieldset[disabled] .btn-outline-primary.active {
     background-color: transparent;
-    border-color: #ef5734 !important;
+    border-color: #ffcb0c !important;
 }
 
 .btn-outline-success {
@@ -1806,7 +1810,7 @@ textarea.form-control {
 
 .progress-bar,
 .progress-bar-primary {
-    background-color: #ef5734;
+    background-color: #ffcb0c;
 }
 
 .progress-bar-info {
@@ -1913,7 +1917,7 @@ textarea.form-control {
 }
 
 .badge-primary {
-    background-color: #ef5734;
+    background-color: #ffcb0c;
 }
 
 .badge-info {
@@ -1933,7 +1937,7 @@ textarea.form-control {
 }
 
 .badge-default {
-    background-color: #543729;
+    background-color: #c12026;
 }
 
 .badge-blue {
@@ -2012,9 +2016,9 @@ textarea.form-control {
 .pagination > .page-item > .page-link,
 .pagination > .page-item > span {
     background-color: transparent;
-    border: 2px solid #543729;
+    border: 2px solid #c12026;
     border-radius: 20px;
-    color: #543729;
+    color: #c12026;
     height: 40px;
     margin: 0 2px;
     min-width: 40px;
@@ -2034,15 +2038,15 @@ textarea.form-control {
 .pagination > .page-item > a:hover,
 .pagination > .page-item > a:focus,
 .pagination > .page-item > a:active {
-    background-color: #543729;
-    border-color: #543729;
+    background-color: #c12026;
+    border-color: #c12026;
     color: #FFFFFF;
 }
 
 .pagination > .page-item.active .page-link {
-    background-color: #543729;
+    background-color: #c12026;
     color: #fff;
-    border-color: #543729;
+    border-color: #c12026;
     pointer-events: none;
 }
 
@@ -2114,7 +2118,7 @@ video {
     top:0;
     right: 30px;
     z-index: 99999;
-    background:#543729;
+    background:#c12026;
     border:1px solid rgba(255,255,255,0.05);
     border:none;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
@@ -2148,7 +2152,7 @@ video {
 }
 
 .eskimo-top-icons li a span {
-    background-color: #ef5734;
+    background-color: #ffcb0c;
     line-height: 20px;
     height: 18px;
     min-width: 18px;
@@ -2203,7 +2207,7 @@ video {
     display: block;
     padding: 60px 40px;
     font-size: 3rem;
-    color: #543729;
+    color: #c12026;
     font-weight: 700;
     line-height: 1;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
@@ -2237,7 +2241,7 @@ video {
 #eskimo-menu-toggle:after {
     font-family: 'FontAwesome';
     content: "\f0c9";
-    color: #543729;
+    color: #c12026;
     /* position: absolute;
     top: 20px;
     right: 40px; */
@@ -2249,9 +2253,9 @@ video {
     padding: 0px;
     list-style: none;
     font-weight: 700;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     text-transform: uppercase;
-    line-height: 1.4;
+    line-height: 1;
 }
 
 .eskimo-menu-ul li {
@@ -2274,14 +2278,14 @@ video {
     display: block;
     outline: none;
     text-decoration: none;
-    color: #543729;
+    color: #c12026;
     padding: 0;
 }
 
 .eskimo-menu-ul li a:hover,
 .eskimo-menu-ul li a.eskimo-menu-up {
     outline: none;
-    color: #ef5734;
+    color: #ffcb0c;
 }
 
 .eskimo-menu-ul > li > ul {
@@ -2343,23 +2347,23 @@ video {
 }
 
 .eskimo-menu-ul > li > a:hover:after {
-    background: #ef5734;
+    background: #ffcb0c;
     transform: rotate(90deg);
 }
 
 .eskimo-menu-ul > li > a:hover:before {
-    background: #ef5734;
+    background: #ffcb0c;
     transform: rotate(180deg);
 }
 
 .eskimo-menu-ul > li > a.eskimo-menu-up:before {
     transform: rotate(-45deg);
-    background: #ef5734;
+    background: #ffcb0c;
 }
 
 .eskimo-menu-ul > li > a.eskimo-menu-up:after {
     transform: rotate(45deg);
-    background: #ef5734;
+    background: #ffcb0c;
 }
 
 .eskimo-menu-ul > li > a:not([class]):before,
@@ -2388,7 +2392,7 @@ video {
 }
 
 .eskimo-menu-ul > li > ul > li a:hover:before {
-    background: #ef5734;
+    background: #ffcb0c;
     transform: scale(1.2);
     -webkit-transform: scale(1.2);
     -ms-transform: scale(1.2);
@@ -2485,7 +2489,8 @@ video {
     margin: 0;
     font-size: 16px;
     font-weight: bold;
-    font-family: "Merriweather Sans", "Helvetica", Arial, sans-serif;
+    /* font-family: "Merriweather Sans", "Helvetica", Arial, sans-serif; */
+    font-family: "Concert One", "Helvetica", Arial, sans-serif;
 }
 
 .eskimo-language-icons li a {
@@ -2511,7 +2516,7 @@ video {
     margin: 0;
     padding: 0 0 0 40px;
     display: inline-block;
-    background: #ef5734;
+    background: #ffcb0c;
     vertical-align: bottom;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
@@ -2574,7 +2579,7 @@ video {
 
 .eskimo-page-title {
     margin-bottom: 60px;
-    background:#543729;
+    background:#c12026;
     padding:3rem 0 3rem 60px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     -webkit-transition: opacity 0.2s ease-in-out;
@@ -2611,7 +2616,7 @@ video {
     content: "";
     height: 4px;
     width: 100%;
-    background: #ef5734;
+    background: #ffcb0c;
     left: 0;
     bottom: -4px;
     position: absolute;
@@ -2646,7 +2651,7 @@ video {
 .eskimo-page-title-meta {
     text-transform: uppercase;
     font-weight: 700;
-    color: #543729;
+    color: #c12026;
     display: block;
     margin-top: 15px;
 }
@@ -2660,7 +2665,7 @@ video {
 }
 
 .eskimo-page-title-meta a:hover {
-    color: #ef5734;
+    color: #ffcb0c;
 }
 
 .eskimo-author-meta:after,
@@ -2687,7 +2692,7 @@ video {
 
 .eskimo-featured-img {
     margin-bottom: 60px;
-    background-color: #543729;
+    background-color: #c12026;
 }
 
 .eskimo-featured-img img {
@@ -2711,7 +2716,7 @@ video {
     table-layout: fixed;
     height: 100%;
     margin-top: 60px;
-    background:#543729;
+    background:#c12026;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
@@ -2756,7 +2761,7 @@ video {
 }
 
 .eskimo-post-nav-link a:hover {
-    color: #ef5734;
+    color: #ffcb0c;
 }
 
 .eskimo-post-nav-table > .eskimo-post-nav {
@@ -2765,7 +2770,7 @@ video {
     vertical-align: middle;
     width: 50px;
     padding: 0px;
-    background-color: #543729;
+    background-color: #c12026;
     text-align: center;
     color: #fff;
     -webkit-transition: all 0.2s ease-in-out;
@@ -2892,7 +2897,7 @@ video {
 }
 
 .card .card-footer a:hover {
-    color: #ef5734;
+    color: #ffcb0c;
 }
 
 .card .card-footer div {
@@ -2904,7 +2909,7 @@ video {
     text-transform: uppercase;
     font-weight: 700;
     line-height: 1.5;
-    color: #ef5734;
+    color: #ffcb0c;
 }
 
 .card.card-horizontal {
@@ -2960,7 +2965,7 @@ video {
     background-repeat: no-repeat;
     background-position: center center;
     overflow: hidden;
-    background-color: #543729;
+    background-color: #c12026;
 }
 
 .card-horizontal-right a {
@@ -2998,7 +3003,7 @@ video {
 }
 
 .card-horizontal-meta a:hover {
-    color: #ef5734;
+    color: #ffcb0c;
 }
 
 .card-small .card-title {
@@ -3228,7 +3233,7 @@ p.form-submit {
 }
 
 .eskimo-widget a:not(.btn):hover {
-    color: #ef5734;
+    color: #ffcb0c;
 }
 
 .eskimo-widget:last-child {
@@ -3246,7 +3251,7 @@ p.form-submit {
 
 .eskimo-recent-entries ul li a:hover,
 .eskimo-categories ul li a:hover {
-    color: #ef5734;
+    color: #ffcb0c;
 }
 
 .eskimo-recent-entries ul,
@@ -3369,7 +3374,7 @@ p.form-submit {
 
 .eskimo-tag-cloud a:hover {
     text-decoration: none;
-    color: #ef5734;
+    color: #ffcb0c;
 }
 
 .eskimo-tag-cloud a span {
@@ -3427,7 +3432,7 @@ p.form-submit {
     width: 50px;
     height: 50px;
     text-align: center;
-    background: #543729;
+    background: #c12026;
     color: #fff;
     line-height: 50px;
     padding: 0;
@@ -3562,7 +3567,7 @@ p.form-submit {
 }
 
 .eskimo-post-list a:hover {
-    color: #ef5734;
+    color: #ffcb0c;
 }
 
 .eskimo-post-list-info .fa,
@@ -3650,11 +3655,11 @@ p.form-submit {
     right: 0px;
     z-index: 9;
     padding-right: 60px;
-    background-color: #543729;
+    background-color: #c12026;
 }
 
 .eskimo-carousel-view-more a {
-    background-color: #543729;
+    background-color: #c12026;
     color: #fff;
     line-height: 30px;
     display: inline-block;
@@ -3745,13 +3750,13 @@ p.form-submit {
     cursor: pointer;
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
-    color: #543729 !important;
+    color: #c12026 !important;
 }
 
 .eskimo-carousel .slick-prev,
 .eskimo-carousel .slick-next {
     top: 15px;
-    background-color: #543729;
+    background-color: #c12026;
     width: 30px;
     height: 30px;
     border-radius: 0px !important;
@@ -3801,7 +3806,7 @@ p.form-submit {
     animation: eskimo-bg-loader 1s linear infinite;
     z-index: 9999999999;
     content: "";
-    border-top-color: #543729;
+    border-top-color: #c12026;
 }
 
 @-webkit-keyframes eskimo-bg-loader {
@@ -3840,7 +3845,7 @@ p.form-submit {
     -webkit-box-shadow: 0 30px 50px 0 rgba(1, 1, 1, .2);
     box-shadow: 0 30px 50px 0 rgba(1, 1, 1, .2);
     margin-bottom:100px;
-    background-color: #543729;
+    background-color: #c12026;
 }
 
 .eskimo-slider-img {
@@ -3885,7 +3890,7 @@ p.form-submit {
 
 .eskimo-slider-desc-inner {
     position: relative;
-    background-color: #ef5734;
+    background-color: #ffcb0c;
     padding: 2.5rem;
 }
 
@@ -3923,7 +3928,7 @@ p.form-submit {
 .eskimo-slider .slick-next {
     top: 20px;
     color: #fff;
-    background-color: #543729;
+    background-color: #c12026;
     width: 46px;
     height: 46px;
     border-radius: 0px !important;
@@ -4638,8 +4643,8 @@ span.creation-date-col {
 }
 
 .btn.btn-eskimo {
-    background-color: #ef5734;
-    border: 2px solid #ef5734;
+    background-color: #ffcb0c;
+    border: 2px solid #ffcb0c;
 }
 .btn.btn-eskimo:hover {
     background-color: #ffcc2f;
@@ -4648,7 +4653,7 @@ span.creation-date-col {
 
 .badge.badge-eskimo {
     color: white;
-    background-color: #ef5734;
+    background-color: #ffcb0c;
 }
 
 .reading-time-input {

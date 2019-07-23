@@ -19,8 +19,8 @@
 ### Pour héberger un site statique sous Azure
 
 - Storage accounts / Add
-- Resource Group: AzurBlogging
-- Storage account name: azurblogging
+- Resource Group: FrenchCoder
+- Storage account name: frenchcoder
 - Location West Europe
 - Performance: Standard
 - Account kind: StorageV2 (general purpose V2)
@@ -36,4 +36,10 @@
 - Static website: Enabled
 - Index document name: index.html
 - Index document path: index.html
+- Choose Configuration in sidebar
+- Secure transfer required: Disabled (http://www.... permis)
+
+### Pour associer un nom de domaine spécifique à l'hébergement Azure
+
+>> https://www.youtube.com/watch?v=G_gDYlRBAZw&t=497s
 
