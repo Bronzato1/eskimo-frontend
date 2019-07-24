@@ -4,7 +4,7 @@ import { PostGateway } from 'models/post-gateway';
 import { I18N } from 'aurelia-i18n';
 
 @autoinject()
-export class Blog {
+export class Posts {
     constructor(postGateway: PostGateway, i18n: I18N) {
         this.postGateway = postGateway;
         this.i18n = i18n;

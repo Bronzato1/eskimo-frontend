@@ -101,7 +101,7 @@ export class About {
     private downloadcv(lng: string) {
         var link = document.createElement("a");
         link.download = 'name.pdf';
-        link.href = environment.backendUrl + 'uploads/cv-Thierry-Langie-' + lng + '.pdf';
+        link.href = environment.backendUrl + 'uploads/cv-' + lng + '.pdf';
         link.target = '_blank';
         link.click();
     }

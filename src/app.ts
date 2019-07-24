@@ -5,11 +5,11 @@ export class App {
         config.addPipelineStep('postcomplete', PostCompleteStep);
         config.map([
 
-            { route: '', redirect: 'blog' },
+            { route: '', redirect: 'posts' },
 
             // B L O G
 
-            { route: 'blog', name: 'blog', moduleId: 'blog/blog' },
+            { route: 'posts',    name: 'posts',    moduleId: 'blog/posts' },
             { route: 'postList', name: 'postList', moduleId: 'blog/post-list' },
             { route: 'postEdit', name: 'postEdit', moduleId: 'blog/post-edit' },
             { route: 'postView', name: 'postView', moduleId: 'blog/post-view' },
