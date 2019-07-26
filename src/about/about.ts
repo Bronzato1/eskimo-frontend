@@ -1,5 +1,5 @@
 import { I18N } from 'aurelia-i18n';
-import { inject, autoinject } from 'aurelia-framework';
+import { inject, autoinject, observable } from 'aurelia-framework';
 import { Router, activationStrategy } from 'aurelia-router';
 import { MailGateway } from './../models/mail-gateway';
 import { ValidationRules, ValidationController, ValidationControllerFactory, } from "aurelia-validation";
@@ -14,6 +14,11 @@ export class About {
         this.mailGateway = mailGateway;
         this.validationController = validationController.createForCurrentScope();
     }
+    @observable
+    private pincode: string = '';
+    private pincodes: number[] = [1369, 2468];
+    private pincodeValid;
+    private showDownloads: boolean;
     private i18n: I18N;
     private router: Router;
     private id: string;
@@ -126,5 +131,11 @@ export class About {
         e.preventDefault();
         e.stopPropagation();
         return false;
+    }
+    private pincodeChanged(e) {
+        var self = this;
+        this.pincodeValid = (this.pincode.length == 4) ? this.pincodes.includes(+this.pincode) : undefined;
+        if (this.pincodeValid)
+            window.setTimeout(function () { self.showDownloads = true; }, 2000);
     }
 }

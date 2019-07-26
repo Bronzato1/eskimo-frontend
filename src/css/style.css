@@ -3613,7 +3613,7 @@ p.form-submit {
 }
 
 .mp-accordion-title span {
-    margin-right: 0.5rem
+    margin-right: 0.5rem;
 }
 
 .mp-accordion-title:after {
@@ -3634,7 +3634,7 @@ p.form-submit {
 }
 
 .mp-accordion-content {
-    padding: 0rem 2rem 2.5rem 2rem;
+    padding: 0rem 2rem 0rem 2rem;
 }
 
 .mp-accordion-content p:last-child {
@@ -4130,6 +4130,15 @@ p.form-submit {
     display:block;
 }
 
+/* ========================================================== */
+
+#validate-pin {
+    font-size: 90px;
+    max-height: 52px;
+    width:180px;
+    max-width:180px;
+}
+
 /* ================= MASONRY MEDIA QUERIES ================== */
 
 @media screen and (min-width: 1400px) {
@@ -4557,6 +4566,10 @@ p.form-submit {
     .eskimo-slider .slick-slide img {
         min-height: 250px;
     }
+    #validate-pin {
+        width:250px;
+        max-width:250px;
+    }
 }
 
 /* BLOG POST LIST & EDIT */
@@ -4700,4 +4713,8 @@ ux-dialog-overlay.active {
     width: 15px;
     margin-right: inherit !important;
     margin-bottom: -300px;
+}
+
+#mp-accordion-x ul li span.btn {
+    margin: 3px 0;
 }
