@@ -1,7 +1,7 @@
 import { autoinject } from 'aurelia-framework';
 import { HttpClient, json } from 'aurelia-fetch-client';
 import { Box } from '../dialogs/box';
-import { Category } from './category-models';
+import { Category } from '../models/category-models';
 import * as download from 'downloadjs';
 import environment from 'environment';
 import moment = require('moment');

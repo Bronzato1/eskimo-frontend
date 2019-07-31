@@ -1,3 +1,4 @@
+import { Authentication } from './../../services/authentication';
 import { I18N } from 'aurelia-i18n';
 import { autoinject, Container } from 'aurelia-framework';
 import { Router } from 'aurelia-router';
@@ -8,10 +9,15 @@ export class Sidebar {
         this.i18n = i18n;
         this.i18n.setLocale('fr');
         this.router = Container.instance.get(Router);
+        this.authentication = Container.instance.get(Authentication);
     }
     static inject = [I18N];
     private i18n: I18N;
     private router: Router;
+    private authentication: Authentication;
+    private get currentUser() {
+        return this.authentication.currentUser;
+    }
     private attached() {
         $(document).ready(() => {
             /* MAIN MENU */

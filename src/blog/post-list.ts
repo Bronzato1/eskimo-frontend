@@ -1,6 +1,6 @@
 import { autoinject } from "aurelia-framework";
 import { Router } from "aurelia-router";
-import { PostGateway } from "../models/post-gateway";
+import { PostGateway } from "../gateways/post-gateway";
 import { Post } from "../models/post-models";
 import { Tag } from "../models/tag-models";
 import { Box } from "../dialogs/box";

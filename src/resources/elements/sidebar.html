@@ -50,7 +50,7 @@
                                 <li><a route-href="route:about; params.bind: { id: 'contact' }"><span t="sidebar.contact"></span></a></li>
                             </ul>
                         </li>
-                        <li>
+                        <li show.bind="currentUser!=null">
                             <a href="#" t="sidebar.adminAccess"></a>
                             <ul class="sub-menu">
                                 <li><a route-href="route:postList">Liste des billets</a></li>

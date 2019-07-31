@@ -1,4 +1,4 @@
-import {CategoryGateway} from "../models/category-gateway";
+import {CategoryGateway} from "../gateways/category-gateway";
 import {autoinject, bindable} from "aurelia-framework";
 import {DialogService} from 'aurelia-dialog';
 import {Router} from "aurelia-router";

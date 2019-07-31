@@ -1,4 +1,4 @@
-import {PostGateway} from "../models/post-gateway";
+import {PostGateway} from "../gateways/post-gateway";
 import {autoinject, bindable} from "aurelia-framework";
 import {I18N} from 'aurelia-i18n';
 import {Router} from "aurelia-router";

@@ -15,15 +15,19 @@
             <span t="postEdit.save"></span>
         </button>
         <!-- 1 BOUTON POUR AVOIR UN APPERCU DU BILLET -->
-        <button type="button" click.delegate="viewPost()" class="btn btn-eskimo pull-right mr-2"
-            show.bind="post.id>0">
+        <button type="button" click.delegate="viewPost()" class="btn btn-eskimo pull-right mr-2" show.bind="post.id>0">
             <span class="fa fa-eye fa-lg mr-2"></span>
             <span t="postEdit.preview"></span>
         </button>
         <!-- 1 BOUTON POUR CHARGER UNE IMAGE -->
-        <button type="button" click.trigger="uploadImage()" class="btn btn-eskimo pull-right mr-2"><span
-                class="fa fa-upload fa-lg  mr-2"></span>
+        <button type="button" click.trigger="uploadImage()" class="btn btn-eskimo pull-right mr-2">
+            <span class="fa fa-upload fa-lg  mr-2"></span>
             <span>Image</span>
+        </button>
+        <!-- 1 BOUTON POUR TRADUIRE -->
+        <button type="button" click.trigger="translate()" class="btn btn-eskimo pull-right mr-2">
+            <span class="fa fa-upload fa-lg  mr-2"></span>
+            <span>Translate</span>
         </button>
         <input id="fileChooser" type="file" name="images" files.bind="selectedFiles"
             style="position: absolute; left: 100px; top: -500px;">
@@ -40,8 +44,10 @@
                     <!-- POST CONTENT -->
                     <div class="eskimo-page-content">
                         <div class="mb-3">
-                            <a href="#" click.trigger="setCurrentLng('fr')" class="btn ${ (currentLng=='fr') ? 'btn-primary':'btn-outline-primary'} btn-lg">FRANCAIS</a>
-                            <a href="#" click.trigger="setCurrentLng('en')" class="btn ${ (currentLng=='en') ? 'btn-primary':'btn-outline-primary'} btn-lg">ANGLAIS</a>
+                            <a href="#" click.trigger="setCurrentLng('fr')"
+                                class="btn ${ (currentLng=='fr') ? 'btn-primary':'btn-outline-primary'} btn-lg">FRANCAIS</a>
+                            <a href="#" click.trigger="setCurrentLng('en')"
+                                class="btn ${ (currentLng=='en') ? 'btn-primary':'btn-outline-primary'} btn-lg">ANGLAIS</a>
                         </div>
                         <div>
                             <!-- FRENCH -->
@@ -80,7 +86,8 @@
                                             <span class="input-group-text" style="min-width: 160px;"
                                                 t="postEdit.category"></span>
                                         </div>
-                                        <select value.bind="post.categoryId & validate" class="form-control custom-select"
+                                        <select value.bind="post.categoryId & validate"
+                                            class="form-control custom-select"
                                             style="max-width: 250px; border-left: 1px solid rgba(0, 0, 0, 0.3);">
                                             <option model.bind="null" t="postEdit.choose"></option>
                                             <option repeat.for="category of categories" model.bind="category.id">
@@ -160,7 +167,8 @@
                                             <span class="input-group-text" style="min-width: 160px;"
                                                 t="postEdit.category"></span>
                                         </div>
-                                        <select value.bind="post.categoryId & validate" class="form-control custom-select"
+                                        <select value.bind="post.categoryId & validate"
+                                            class="form-control custom-select"
                                             style="max-width: 250px; border-left: 1px solid rgba(0, 0, 0, 0.3);">
                                             <option model.bind="null" t="postEdit.choose"></option>
                                             <option repeat.for="category of categories" model.bind="category.id">

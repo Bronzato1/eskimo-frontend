@@ -1,7 +1,7 @@
 import { I18N } from 'aurelia-i18n';
 import { inject, autoinject, observable } from 'aurelia-framework';
 import { Router, activationStrategy } from 'aurelia-router';
-import { MailGateway } from './../models/mail-gateway';
+import { MailGateway } from '../gateways/mail-gateway';
 import { ValidationRules, ValidationController, ValidationControllerFactory, } from "aurelia-validation";
 import * as salvattore from 'salvattore';
 import environment from 'environment';
@@ -46,6 +46,7 @@ export class About {
         this.smoothScroll();
 
         $(document).ready(function () {
+            (<any>$('[data-toggle="tooltip"]')).tooltip();
             $('.btn-more').on('click', function () {
                 $(this).hide();
             });

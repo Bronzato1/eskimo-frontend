@@ -1,6 +1,6 @@
 import {autoinject} from "aurelia-framework";
 import {Router} from "aurelia-router";
-import {CategoryGateway} from "../models/category-gateway";
+import {CategoryGateway} from "../gateways/category-gateway";
 import {Category} from "../models/category-models";
 import {Box} from "../dialogs/box";
 import { EventAggregator } from 'aurelia-event-aggregator';

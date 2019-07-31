@@ -26,4 +26,14 @@ export class MailGateway {
                 return data.success && Promise.resolve(data.success);
             });
     }
+    signup(email): Promise<boolean> {
+        var data = {
+            email: email
+        }
+        return this.httpClient.fetch('api/mail/signup', { method: 'POST', body: json(data) })
+            .then((response: Response) => response.json())
+            .then((data) => {
+                return data.success && Promise.resolve(data.success);
+            });
+    }
 }

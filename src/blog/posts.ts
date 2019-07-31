@@ -1,6 +1,6 @@
 import { autoinject } from 'aurelia-dependency-injection';
 import { Post } from 'models/post-models';
-import { PostGateway } from 'models/post-gateway';
+import { PostGateway } from 'gateways/post-gateway';
 import { I18N } from 'aurelia-i18n';
 
 @autoinject()

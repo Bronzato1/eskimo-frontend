@@ -1,6 +1,7 @@
-import { TagGateway } from '../models/tag-gateway';
-import { PostGateway } from "../models/post-gateway";
-import { CategoryGateway } from "../models/category-gateway";
+import { Translator } from './../services/translator';
+import { TagGateway } from '../gateways/tag-gateway';
+import { PostGateway } from "../gateways/post-gateway";
+import { CategoryGateway } from "../gateways/category-gateway";
 import { autoinject, bindable } from "aurelia-framework";
 import { ValidationRules, ValidationController, ValidationControllerFactory, } from "aurelia-validation";
 import { DialogService } from 'aurelia-dialog';
@@ -18,7 +19,7 @@ import * as $ from 'jquery';
 @autoinject()
 export class PostEdit {
     @bindable datepicker;
-    constructor(postGateway: PostGateway, tagGateway: TagGateway, categoryGateway: CategoryGateway, router: Router, box: Box, dialogService: DialogService, i18n: I18N, validationController: ValidationControllerFactory) {
+    constructor(postGateway: PostGateway, tagGateway: TagGateway, categoryGateway: CategoryGateway, router: Router, box: Box, dialogService: DialogService, i18n: I18N, validationController: ValidationControllerFactory, translator: Translator) {
         this.postGateway = postGateway;
         this.tagGateway = tagGateway;
         this.categoryGateway = categoryGateway;
@@ -27,12 +28,14 @@ export class PostEdit {
         this.dialogService = dialogService
         this.i18n = i18n;
         this.validationController = validationController.createForCurrentScope();
+        this.translator = translator;
     }
     private postGateway: PostGateway;
     private tagGateway: TagGateway;
     private categoryGateway: CategoryGateway;
     private router: Router;
     private box: Box;
+    private translator: Translator;
     private dialogService: DialogService;
     private validationController: any;
     private post: Post;
@@ -268,5 +271,13 @@ export class PostEdit {
     }
     private setCurrentLng(lng) {
         this.currentLng = lng;
+    }
+    private translate() {
+        this.translator.translate('fr', 'en', this.post.frenchContent).then((data) => {
+            debugger;
+            this.post.englishContent = data;
+        }).catch((error) => {
+            debugger;
+        });
     }
 }

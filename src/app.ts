@@ -21,6 +21,10 @@ export class App {
             { route: 'about', name: 'about', moduleId: 'about/about' },
             { route: 'cv', name: 'cv', moduleId: 'about/cv' },
 
+            // A U T H E N T I C A T I O N
+
+            { route: 'login', name: 'login', moduleId: 'login/login' },
+            { route: 'logout', name: 'logout', moduleId: 'logout/logout' },
 
             // T E S T
 

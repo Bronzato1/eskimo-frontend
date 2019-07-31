@@ -50,7 +50,7 @@
 
                         <button type="button" class="btn btn-link btn-more" data-toggle="collapse"
                             href="#collapseBackend" role="button" click.trigger="animateProgressBars()">
-                            <span class="fa fa-plus-circle fa-lg" aria-hidden="true"></span>
+                            <span class="fa fa-plus-circle fa-lg" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="4 de plus"></span>
                         </button>
 
                         <div class="collapse" id="collapseBackend">
@@ -105,7 +105,7 @@
 
                         <button type="button" class="btn btn-link btn-more" data-toggle="collapse"
                             href="#collapseFrontend" role="button" click.trigger="animateProgressBars()">
-                            <span class="fa fa-plus-circle fa-lg" aria-hidden="true"></span>
+                            <span class="fa fa-plus-circle fa-lg" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="6 de plus"></span>
                         </button>
 
                         <div class="collapse" id="collapseFrontend">
@@ -170,7 +170,7 @@
 
                         <button type="button" class="btn btn-link btn-more" data-toggle="collapse" href="#collapseOther"
                             role="button" click.trigger="animateProgressBars()">
-                            <span class="fa fa-plus-circle fa-lg" aria-hidden="true"></span>
+                            <span class="fa fa-plus-circle fa-lg" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="6 de plus"></span>
                         </button>
 
                         <div class="collapse" id="collapseOther">
@@ -296,35 +296,35 @@
                     </div>
                     <!-- ACCORDION ITEM 1c -->
                     <div class="mp-accordion-item">
-                            <a class="mp-accordion-title collapsed" data-toggle="collapse" data-parent="#mp-accordion-x"
-                                href="#mp-accordion-item-1c" aria-expanded="false" aria-controls="mp-accordion-item-1c">
-                                <i class="fa fa-calendar"></i>
-                                <span>2015</span>
-                                <span class="badge badge-default">Anonymous</span>
-                                <span t="about.experience13Title"></span>
-                            </a>
-                            <div id="mp-accordion-item-1c" class="collapse" role="tabpanel">
-                                <div class="mp-accordion-content">
-                                    <ul class="list-unstyled">
-                                        <li>
-                                            <i class="fa fa-industry"></i>
-                                            Anonymous
-                                        </li>
-                                        <li>
-                                            <i class="fa fa-window-maximize"></i>
-                                            <span t="about.experience13Content"></span>
-                                        </li>
-                                        <li>
-                                            <span class="btn btn-outline-success btn-sm">c#</span>
-                                            <span class="btn btn-outline-default btn-sm">ASP.NET MVC</span>
-                                            <span class="btn btn-outline-primary btn-sm">WEB API</span>
-                                            <span class="btn btn-outline-info btn-sm">HTML/CSS</span>
-                                            <span class="btn btn-outline-primary btn-sm">SQL SERVER</span>
-                                        </li>
-                                    </ul>
-                                </div>
+                        <a class="mp-accordion-title collapsed" data-toggle="collapse" data-parent="#mp-accordion-x"
+                            href="#mp-accordion-item-1c" aria-expanded="false" aria-controls="mp-accordion-item-1c">
+                            <i class="fa fa-calendar"></i>
+                            <span>2015</span>
+                            <span class="badge badge-default">Anonymous</span>
+                            <span t="about.experience13Title"></span>
+                        </a>
+                        <div id="mp-accordion-item-1c" class="collapse" role="tabpanel">
+                            <div class="mp-accordion-content">
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <i class="fa fa-industry"></i>
+                                        Anonymous
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-window-maximize"></i>
+                                        <span t="about.experience13Content"></span>
+                                    </li>
+                                    <li>
+                                        <span class="btn btn-outline-success btn-sm">c#</span>
+                                        <span class="btn btn-outline-default btn-sm">ASP.NET MVC</span>
+                                        <span class="btn btn-outline-primary btn-sm">WEB API</span>
+                                        <span class="btn btn-outline-info btn-sm">HTML/CSS</span>
+                                        <span class="btn btn-outline-primary btn-sm">SQL SERVER</span>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
+                    </div>
                     <!-- ACCORDION ITEM 1d -->
                     <div class="mp-accordion-item">
                         <a class="mp-accordion-title collapsed" data-toggle="collapse" data-parent="#mp-accordion-x"
@@ -359,8 +359,10 @@
                             </div>
                         </div>
                     </div>
-                    <!-- ACCORDION ITEM 1e -->
-                    <div class="mp-accordion-item">
+                    <!-- COLLAPSED ELEMENTS -->
+                    <div class="collapse" id="collapseExperience">
+                        <!-- ACCORDION ITEM 1e -->
+                        <div class="mp-accordion-item">
                             <a class="mp-accordion-title collapsed" data-toggle="collapse" data-parent="#mp-accordion-x"
                                 href="#mp-accordion-item-1e" aria-expanded="false" aria-controls="mp-accordion-item-1e">
                                 <i class="fa fa-calendar"></i>
@@ -390,275 +392,276 @@
                                 </div>
                             </div>
                         </div>
-                    <!-- ACCORDION ITEM 2 -->
-                    <div class="mp-accordion-item">
-                        <a class="mp-accordion-title collapsed" data-toggle="collapse" data-parent="#mp-accordion-x"
-                            href="#mp-accordion-item-2" aria-expanded="false" aria-controls="mp-accordion-item-2">
-                            <i class="fa fa-calendar"></i>
-                            <span>2010</span>
-                            <span class="badge badge-secondary">Comité Olympique</span>
-                            <span t="about.experience21Title"></span>
-                        </a>
-                        <div id="mp-accordion-item-2" class="collapse" role="tabpanel">
-                            <div class="mp-accordion-content">
-                                <ul class="list-unstyled">
-                                    <li>
-                                        <i class="fa fa-external-link"></i>
-                                        <a href="https://teambelgium.be" target="new" style="color:black">
-                                            Comilé Olympique Interfédéral Belge
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-window-maximize"></i>
-                                        <span t="about.experience21Content"></span>
-                                    </li>
-                                    <li>
-                                        <span class="btn btn-outline-info btn-sm">SQL SERVER</span>
-                                        <span class="btn btn-outline-success btn-sm">MS ACCESS</span>
-                                    </li>
-                                </ul>
+                        <!-- ACCORDION ITEM 2 -->
+                        <div class="mp-accordion-item">
+                            <a class="mp-accordion-title collapsed" data-toggle="collapse" data-parent="#mp-accordion-x"
+                                href="#mp-accordion-item-2" aria-expanded="false" aria-controls="mp-accordion-item-2">
+                                <i class="fa fa-calendar"></i>
+                                <span>2010</span>
+                                <span class="badge badge-secondary">Comité Olympique</span>
+                                <span t="about.experience21Title"></span>
+                            </a>
+                            <div id="mp-accordion-item-2" class="collapse" role="tabpanel">
+                                <div class="mp-accordion-content">
+                                    <ul class="list-unstyled">
+                                        <li>
+                                            <i class="fa fa-external-link"></i>
+                                            <a href="https://teambelgium.be" target="new" style="color:black">
+                                                Comilé Olympique Interfédéral Belge
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-window-maximize"></i>
+                                            <span t="about.experience21Content"></span>
+                                        </li>
+                                        <li>
+                                            <span class="btn btn-outline-info btn-sm">SQL SERVER</span>
+                                            <span class="btn btn-outline-success btn-sm">MS ACCESS</span>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- ACCORDION ITEM 3 -->
-                    <div class="mp-accordion-item">
-                        <a class="mp-accordion-title collapsed" data-toggle="collapse" data-parent="#mp-accordion-x"
-                            href="#mp-accordion-item-3" aria-expanded="false" aria-controls="mp-accordion-item-3">
-                            <i class="fa fa-calendar"></i>
-                            <span>2010</span>
-                            <span class="badge badge-success">Baxter</span>
-                            <span t="about.experience31Title"></span>
-                        </a>
-                        <div id="mp-accordion-item-3" class="collapse" role="tabpanel">
-                            <div class="mp-accordion-content">
-                                <ul class="list-unstyled">
-                                    <li>
-                                        <i class="fa fa-external-link"></i>
-                                        <a href="http://www.baxter.be/" target="new" style="color:black">
-                                            Baxter
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-window-maximize"></i>
-                                        <span t="about.experience31Content"></span>
-                                    </li>
-                                    <li>
-                                        <span class="btn btn-outline-success btn-sm">VB.NET</span>
-                                        <span class="btn btn-outline-info btn-sm">SQL SERVER</span>
-                                    </li>
-                                </ul>
+                        <!-- ACCORDION ITEM 3 -->
+                        <div class="mp-accordion-item">
+                            <a class="mp-accordion-title collapsed" data-toggle="collapse" data-parent="#mp-accordion-x"
+                                href="#mp-accordion-item-3" aria-expanded="false" aria-controls="mp-accordion-item-3">
+                                <i class="fa fa-calendar"></i>
+                                <span>2010</span>
+                                <span class="badge badge-success">Baxter</span>
+                                <span t="about.experience31Title"></span>
+                            </a>
+                            <div id="mp-accordion-item-3" class="collapse" role="tabpanel">
+                                <div class="mp-accordion-content">
+                                    <ul class="list-unstyled">
+                                        <li>
+                                            <i class="fa fa-external-link"></i>
+                                            <a href="http://www.baxter.be/" target="new" style="color:black">
+                                                Baxter
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-window-maximize"></i>
+                                            <span t="about.experience31Content"></span>
+                                        </li>
+                                        <li>
+                                            <span class="btn btn-outline-success btn-sm">VB.NET</span>
+                                            <span class="btn btn-outline-info btn-sm">SQL SERVER</span>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- ACCORDION ITEM 4 -->
-                    <div class="mp-accordion-item">
-                        <a class="mp-accordion-title collapsed" data-toggle="collapse" data-parent="#mp-accordion-x"
-                            href="#mp-accordion-item-4" aria-expanded="false" aria-controls="mp-accordion-item-4">
-                            <i class="fa fa-calendar"></i>
-                            <span>2010</span>
-                            <span class="badge badge-default">Akzo Nobel</span>
-                            <span t="about.experience41Title"></span>
-                        </a>
-                        <div id="mp-accordion-item-4" class="collapse" role="tabpanel">
-                            <div class="mp-accordion-content">
-                                <ul class="list-unstyled">
-                                    <li>
-                                        <i class="fa fa-external-link"></i>
-                                        <a href="https://www.akzonobel.com/" target="new" style="color:black">
-                                            Akzo Nobel
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-window-maximize"></i>
-                                        <span t="about.experience41Content"></span>
-                                    </li>
-                                    <li>
-                                        <span class="btn btn-outline-success btn-sm">EXCEL</span>
-                                        <span class="btn btn-outline-default btn-sm">VBA</span>
-                                    </li>
-                                </ul>
+                        <!-- ACCORDION ITEM 4 -->
+                        <div class="mp-accordion-item">
+                            <a class="mp-accordion-title collapsed" data-toggle="collapse" data-parent="#mp-accordion-x"
+                                href="#mp-accordion-item-4" aria-expanded="false" aria-controls="mp-accordion-item-4">
+                                <i class="fa fa-calendar"></i>
+                                <span>2010</span>
+                                <span class="badge badge-default">Akzo Nobel</span>
+                                <span t="about.experience41Title"></span>
+                            </a>
+                            <div id="mp-accordion-item-4" class="collapse" role="tabpanel">
+                                <div class="mp-accordion-content">
+                                    <ul class="list-unstyled">
+                                        <li>
+                                            <i class="fa fa-external-link"></i>
+                                            <a href="https://www.akzonobel.com/" target="new" style="color:black">
+                                                Akzo Nobel
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-window-maximize"></i>
+                                            <span t="about.experience41Content"></span>
+                                        </li>
+                                        <li>
+                                            <span class="btn btn-outline-success btn-sm">EXCEL</span>
+                                            <span class="btn btn-outline-default btn-sm">VBA</span>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- ACCORDION ITEM 5a -->
-                    <div class="mp-accordion-item">
-                        <a class="mp-accordion-title collapsed" data-toggle="collapse" data-parent="#mp-accordion-x"
-                            href="#mp-accordion-item-5a" aria-expanded="false" aria-controls="mp-accordion-item-5a">
-                            <i class="fa fa-calendar"></i>
-                            <span>2009</span>
-                            <span class="badge badge-success">Glaxo Smith Kline</span>
-                            <span t="about.experience51Title"></span>
-                        </a>
-                        <div id="mp-accordion-item-5a" class="collapse" role="tabpanel">
-                            <div class="mp-accordion-content">
-                                <ul class="list-unstyled">
-                                    <li>
-                                        <i class="fa fa-external-link"></i>
-                                        <a href="https://be.gsk.com/" target="new" style="color:black">
-                                            Glaxo Smith Kline
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-window-maximize"></i>
-                                        <span t="about.experience51Content"></span>
-                                    </li>
-                                    <li>
-                                        <span class="btn btn-outline-success btn-sm">MS ACCESS</span>
-                                    </li>
-                                </ul>
+                        <!-- ACCORDION ITEM 5a -->
+                        <div class="mp-accordion-item">
+                            <a class="mp-accordion-title collapsed" data-toggle="collapse" data-parent="#mp-accordion-x"
+                                href="#mp-accordion-item-5a" aria-expanded="false" aria-controls="mp-accordion-item-5a">
+                                <i class="fa fa-calendar"></i>
+                                <span>2009</span>
+                                <span class="badge badge-success">Glaxo Smith Kline</span>
+                                <span t="about.experience51Title"></span>
+                            </a>
+                            <div id="mp-accordion-item-5a" class="collapse" role="tabpanel">
+                                <div class="mp-accordion-content">
+                                    <ul class="list-unstyled">
+                                        <li>
+                                            <i class="fa fa-external-link"></i>
+                                            <a href="https://be.gsk.com/" target="new" style="color:black">
+                                                Glaxo Smith Kline
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-window-maximize"></i>
+                                            <span t="about.experience51Content"></span>
+                                        </li>
+                                        <li>
+                                            <span class="btn btn-outline-success btn-sm">MS ACCESS</span>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- ACCORDION ITEM 5b -->
-                    <div class="mp-accordion-item">
-                        <a class="mp-accordion-title collapsed" data-toggle="collapse" data-parent="#mp-accordion-x"
-                            href="#mp-accordion-item-5b" aria-expanded="false" aria-controls="mp-accordion-item-5b">
-                            <i class="fa fa-calendar"></i>
-                            <span>2009</span>
-                            <span class="badge badge-success">Glaxo Smith Kline</span>
-                            <span t="about.experience52Title"></span>
-                        </a>
-                        <div id="mp-accordion-item-5b" class="collapse" role="tabpanel">
-                            <div class="mp-accordion-content">
-                                <ul class="list-unstyled">
-                                    <li>
-                                        <i class="fa fa-external-link"></i>
-                                        <a href="https://be.gsk.com/" target="new" style="color:black">
-                                            Glaxo Smith Kline
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-window-maximize"></i>
-                                        <span t="about.experience52Content"></span>
-                                    </li>
-                                    <li>
-                                        <span class="btn btn-outline-success btn-sm">C#</span>
-                                        <span class="btn btn-outline-warning btn-sm">BAR CODE READER</span>
-                                    </li>
-                                </ul>
+                        <!-- ACCORDION ITEM 5b -->
+                        <div class="mp-accordion-item">
+                            <a class="mp-accordion-title collapsed" data-toggle="collapse" data-parent="#mp-accordion-x"
+                                href="#mp-accordion-item-5b" aria-expanded="false" aria-controls="mp-accordion-item-5b">
+                                <i class="fa fa-calendar"></i>
+                                <span>2009</span>
+                                <span class="badge badge-success">Glaxo Smith Kline</span>
+                                <span t="about.experience52Title"></span>
+                            </a>
+                            <div id="mp-accordion-item-5b" class="collapse" role="tabpanel">
+                                <div class="mp-accordion-content">
+                                    <ul class="list-unstyled">
+                                        <li>
+                                            <i class="fa fa-external-link"></i>
+                                            <a href="https://be.gsk.com/" target="new" style="color:black">
+                                                Glaxo Smith Kline
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-window-maximize"></i>
+                                            <span t="about.experience52Content"></span>
+                                        </li>
+                                        <li>
+                                            <span class="btn btn-outline-success btn-sm">C#</span>
+                                            <span class="btn btn-outline-warning btn-sm">BAR CODE READER</span>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- ACCORDION ITEM 5c -->
-                    <div class="mp-accordion-item">
-                        <a class="mp-accordion-title collapsed" data-toggle="collapse" data-parent="#mp-accordion-x"
-                            href="#mp-accordion-item-5c" aria-expanded="false" aria-controls="mp-accordion-item-5c">
-                            <i class="fa fa-calendar"></i>
-                            <span>2010</span>
-                            <span class="badge badge-success">Glaxo Smith Kline</span>
-                            <span t="about.experience53Title"></span>
-                        </a>
-                        <div id="mp-accordion-item-5c" class="collapse" role="tabpanel">
-                            <div class="mp-accordion-content">
-                                <ul class="list-unstyled">
-                                    <li>
-                                        <i class="fa fa-external-link"></i>
-                                        <a href="https://be.gsk.com/" target="new" style="color:black">
-                                            Glaxo Smith Kline
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-window-maximize"></i>
-                                        <span t="about.experience53Content"></span>
-                                    </li>
-                                    <li>
-                                        <span class="btn btn-outline-success btn-sm">EXCEL</span>
-                                        <span class="btn btn-outline-default btn-sm">VBA</span>
-                                    </li>
-                                </ul>
+                        <!-- ACCORDION ITEM 5c -->
+                        <div class="mp-accordion-item">
+                            <a class="mp-accordion-title collapsed" data-toggle="collapse" data-parent="#mp-accordion-x"
+                                href="#mp-accordion-item-5c" aria-expanded="false" aria-controls="mp-accordion-item-5c">
+                                <i class="fa fa-calendar"></i>
+                                <span>2010</span>
+                                <span class="badge badge-success">Glaxo Smith Kline</span>
+                                <span t="about.experience53Title"></span>
+                            </a>
+                            <div id="mp-accordion-item-5c" class="collapse" role="tabpanel">
+                                <div class="mp-accordion-content">
+                                    <ul class="list-unstyled">
+                                        <li>
+                                            <i class="fa fa-external-link"></i>
+                                            <a href="https://be.gsk.com/" target="new" style="color:black">
+                                                Glaxo Smith Kline
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-window-maximize"></i>
+                                            <span t="about.experience53Content"></span>
+                                        </li>
+                                        <li>
+                                            <span class="btn btn-outline-success btn-sm">EXCEL</span>
+                                            <span class="btn btn-outline-default btn-sm">VBA</span>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- ACCORDION ITEM 6a -->
-                    <div class="mp-accordion-item">
-                        <a class="mp-accordion-title collapsed" data-toggle="collapse" data-parent="#mp-accordion-x"
-                            href="#mp-accordion-item-6a" aria-expanded="false" aria-controls="mp-accordion-item-6a">
-                            <i class="fa fa-calendar"></i>
-                            <span>2004</span>
-                            <span class="badge badge-warning">Fortis Insurance Belgium</span>
-                            <span t="about.experience61Title"></span>
-                        </a>
-                        <div id="mp-accordion-item-6a" class="collapse" role="tabpanel">
-                            <div class="mp-accordion-content">
-                                <ul class="list-unstyled">
-                                    <li>
-                                        <i class="fa fa-external-link"></i>
-                                        <a href="https://www.aginsurance.be/" target="new" style="color:black">
-                                            Fortis Insurance Belgium
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-window-maximize"></i>
-                                        <span t="about.experience61Content"></span>
-                                    </li>
-                                    <li>
-                                        <span class="btn btn-outline-success btn-sm">VISUAL BASIC</span>
-                                    </li>
-                                </ul>
+                        <!-- ACCORDION ITEM 6a -->
+                        <div class="mp-accordion-item">
+                            <a class="mp-accordion-title collapsed" data-toggle="collapse" data-parent="#mp-accordion-x"
+                                href="#mp-accordion-item-6a" aria-expanded="false" aria-controls="mp-accordion-item-6a">
+                                <i class="fa fa-calendar"></i>
+                                <span>2004</span>
+                                <span class="badge badge-warning">Fortis Insurance Belgium</span>
+                                <span t="about.experience61Title"></span>
+                            </a>
+                            <div id="mp-accordion-item-6a" class="collapse" role="tabpanel">
+                                <div class="mp-accordion-content">
+                                    <ul class="list-unstyled">
+                                        <li>
+                                            <i class="fa fa-external-link"></i>
+                                            <a href="https://www.aginsurance.be/" target="new" style="color:black">
+                                                Fortis Insurance Belgium
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-window-maximize"></i>
+                                            <span t="about.experience61Content"></span>
+                                        </li>
+                                        <li>
+                                            <span class="btn btn-outline-success btn-sm">VISUAL BASIC</span>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- ACCORDION ITEM 6b -->
-                    <div class="mp-accordion-item">
-                        <a class="mp-accordion-title collapsed" data-toggle="collapse" data-parent="#mp-accordion-x"
-                            href="#mp-accordion-item-6b" aria-expanded="false" aria-controls="mp-accordion-item-6b">
-                            <i class="fa fa-calendar"></i>
-                            <span>2002</span>
-                            <span class="badge badge-warning">Fortis Insurance Belgium</span>
-                            <span t="about.experience62Title"></span>
-                        </a>
-                        <div id="mp-accordion-item-6b" class="collapse" role="tabpanel">
-                            <div class="mp-accordion-content">
-                                <ul class="list-unstyled">
-                                    <li>
-                                        <i class="fa fa-external-link"></i>
-                                        <a href="https://www.aginsurance.be/" target="new" style="color:black">
-                                            Fortis Insurance Belgium
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-window-maximize"></i>
-                                        <span t="about.experience62Content"></span>
-                                    </li>
-                                    <li>
-                                        <span class="btn btn-outline-warning btn-sm">ASP.NET</span>
-                                        <span class="btn btn-outline-danger btn-sm">INTERNET INFORMATION SERVICES</span>
-                                    </li>
-                                </ul>
+                        <!-- ACCORDION ITEM 6b -->
+                        <div class="mp-accordion-item">
+                            <a class="mp-accordion-title collapsed" data-toggle="collapse" data-parent="#mp-accordion-x"
+                                href="#mp-accordion-item-6b" aria-expanded="false" aria-controls="mp-accordion-item-6b">
+                                <i class="fa fa-calendar"></i>
+                                <span>2002</span>
+                                <span class="badge badge-warning">Fortis Insurance Belgium</span>
+                                <span t="about.experience62Title"></span>
+                            </a>
+                            <div id="mp-accordion-item-6b" class="collapse" role="tabpanel">
+                                <div class="mp-accordion-content">
+                                    <ul class="list-unstyled">
+                                        <li>
+                                            <i class="fa fa-external-link"></i>
+                                            <a href="https://www.aginsurance.be/" target="new" style="color:black">
+                                                Fortis Insurance Belgium
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-window-maximize"></i>
+                                            <span t="about.experience62Content"></span>
+                                        </li>
+                                        <li>
+                                            <span class="btn btn-outline-warning btn-sm">ASP.NET</span>
+                                            <span class="btn btn-outline-danger btn-sm">INTERNET INFORMATION
+                                                SERVICES</span>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- ACCORDION ITEM 6c -->
-                    <div class="mp-accordion-item">
-                        <a class="mp-accordion-title collapsed" data-toggle="collapse" data-parent="#mp-accordion-x"
-                            href="#mp-accordion-item-6c" aria-expanded="false" aria-controls="mp-accordion-item-6c">
-                            <i class="fa fa-calendar"></i>
-                            <span>2001</span>
-                            <span class="badge badge-warning">Fortis Insurance Belgium</span>
-                            <span t="about.experience63Title"></span>
-                        </a>
-                        <div id="mp-accordion-item-6c" class="collapse" role="tabpanel">
-                            <div class="mp-accordion-content">
-                                <ul class="list-unstyled">
-                                    <li>
-                                        <i class="fa fa-external-link"></i>
-                                        <a href="https://www.aginsurance.be/" target="new" style="color:black">
-                                            FORTIS INSURANCE BELGIUM
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-window-maximize"></i>
-                                        <span t="about.experience63Content"></span>
-                                    </li>
-                                    <li>
-                                        <span class="btn btn-outline-success btn-sm">VISUAL BASIC</span>
-                                    </li>
-                                </ul>
+                        <!-- ACCORDION ITEM 6c -->
+                        <div class="mp-accordion-item">
+                            <a class="mp-accordion-title collapsed" data-toggle="collapse" data-parent="#mp-accordion-x"
+                                href="#mp-accordion-item-6c" aria-expanded="false" aria-controls="mp-accordion-item-6c">
+                                <i class="fa fa-calendar"></i>
+                                <span>2001</span>
+                                <span class="badge badge-warning">Fortis Insurance Belgium</span>
+                                <span t="about.experience63Title"></span>
+                            </a>
+                            <div id="mp-accordion-item-6c" class="collapse" role="tabpanel">
+                                <div class="mp-accordion-content">
+                                    <ul class="list-unstyled">
+                                        <li>
+                                            <i class="fa fa-external-link"></i>
+                                            <a href="https://www.aginsurance.be/" target="new" style="color:black">
+                                                FORTIS INSURANCE BELGIUM
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-window-maximize"></i>
+                                            <span t="about.experience63Content"></span>
+                                        </li>
+                                        <li>
+                                            <span class="btn btn-outline-success btn-sm">VISUAL BASIC</span>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- ACCORDION ITEM 6d -->
-                    <div class="mp-accordion-item">
+                        <!-- ACCORDION ITEM 6d -->
+                        <div class="mp-accordion-item">
                             <a class="mp-accordion-title collapsed" data-toggle="collapse" data-parent="#mp-accordion-x"
                                 href="#mp-accordion-item-6d" aria-expanded="false" aria-controls="mp-accordion-item-6d">
                                 <i class="fa fa-calendar"></i>
@@ -686,296 +689,308 @@
                                 </div>
                             </div>
                         </div>
-                    <!-- ACCORDION ITEM 7 -->
-                    <div class="mp-accordion-item">
-                        <a class="mp-accordion-title collapsed" data-toggle="collapse" data-parent="#mp-accordion-x"
-                            href="#mp-accordion-item-7" aria-expanded="false" aria-controls="mp-accordion-item-7">
-                            <i class="fa fa-calendar"></i>
-                            <span>1999</span>
-                            <span class="badge badge-default">T-Plan</span>
-                            <span t="about.experience71Title"></span>
-                        </a>
-                        <div id="mp-accordion-item-7" class="collapse" role="tabpanel">
-                            <div class="mp-accordion-content">
-                                <ul class="list-unstyled">
-                                    <li>
-                                        <i class="fa fa-industry"></i>
-                                        T-Plan
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-window-maximize"></i>
-                                        <span t="about.experience71Content"></span>
-                                    </li>
-                                    <li>
-                                        <span class="btn btn-outline-success btn-sm">SQL SERVER</span>
-                                        <span class="btn btn-outline-default btn-sm">ACCESS</span>
-                                        <span class="btn btn-outline-warning btn-sm">MAPINFO</span>
-                                        <span class="btn btn-outline-danger btn-sm">AUTOCAD</span>
-                                    </li>
-                                </ul>
+                        <!-- ACCORDION ITEM 7 -->
+                        <div class="mp-accordion-item">
+                            <a class="mp-accordion-title collapsed" data-toggle="collapse" data-parent="#mp-accordion-x"
+                                href="#mp-accordion-item-7" aria-expanded="false" aria-controls="mp-accordion-item-7">
+                                <i class="fa fa-calendar"></i>
+                                <span>1999</span>
+                                <span class="badge badge-default">T-Plan</span>
+                                <span t="about.experience71Title"></span>
+                            </a>
+                            <div id="mp-accordion-item-7" class="collapse" role="tabpanel">
+                                <div class="mp-accordion-content">
+                                    <ul class="list-unstyled">
+                                        <li>
+                                            <i class="fa fa-industry"></i>
+                                            T-Plan
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-window-maximize"></i>
+                                            <span t="about.experience71Content"></span>
+                                        </li>
+                                        <li>
+                                            <span class="btn btn-outline-success btn-sm">SQL SERVER</span>
+                                            <span class="btn btn-outline-default btn-sm">ACCESS</span>
+                                            <span class="btn btn-outline-warning btn-sm">MAPINFO</span>
+                                            <span class="btn btn-outline-danger btn-sm">AUTOCAD</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ACCORDION ITEM 8a -->
+                        <div class="mp-accordion-item">
+                            <a class="mp-accordion-title collapsed" data-toggle="collapse" data-parent="#mp-accordion-x"
+                                href="#mp-accordion-item-8a" aria-expanded="false" aria-controls="mp-accordion-item-8a">
+                                <i class="fa fa-calendar"></i>
+                                <span>1999</span>
+                                <span class="badge badge-danger">Tott Systems</span>
+                                <span t="about.experience81Title"></span>
+                            </a>
+                            <div id="mp-accordion-item-8a" class="collapse" role="tabpanel">
+                                <div class="mp-accordion-content">
+                                    <ul class="list-unstyled">
+                                        <li>
+                                            <i class="fa fa-building"></i>
+                                            Tott Systems
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-window-maximize"></i>
+                                            <span t="about.experience81Content"></span>
+                                        </li>
+                                        <li>
+                                            <span class="btn btn-outline-warning btn-sm">VISUAL-BASIC</span>
+                                            <span class="btn btn-outline-default btn-sm">SQL SERVER</span>
+                                            <span class="btn btn-outline-danger btn-sm">CRYSTAL REPORTS</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ACCORDION ITEM 8b -->
+                        <div class="mp-accordion-item">
+                            <a class="mp-accordion-title collapsed" data-toggle="collapse" data-parent="#mp-accordion-x"
+                                href="#mp-accordion-item-8b" aria-expanded="false" aria-controls="mp-accordion-item-8b">
+                                <i class="fa fa-calendar"></i>
+                                <span>1999</span>
+                                <span class="badge badge-danger">Tott Systems</span>
+                                <span t="about.experience82Title"></span>
+                            </a>
+                            <div id="mp-accordion-item-8b" class="collapse" role="tabpanel">
+                                <div class="mp-accordion-content">
+                                    Logicel de gestion pour le transport de fret</h5>
+                                    <ul class="list-unstyled">
+                                        <li>
+                                            <i class="fa fa-building"></i>
+                                            Tott Systems
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-window-maximize"></i>
+                                            <span t="about.experience82Content"></span>
+                                        </li>
+                                        <li>
+                                            <span class="btn btn-outline-success btn-sm">VISUAL-BASIC</span>
+                                            <span class="btn btn-outline-default btn-sm">MS ACCESS</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ACCORDION ITEM 9 -->
+                        <div class="mp-accordion-item">
+                            <a class="mp-accordion-title collapsed" data-toggle="collapse" data-parent="#mp-accordion-x"
+                                href="#mp-accordion-item-9" aria-expanded="false" aria-controls="mp-accordion-item-9">
+                                <i class="fa fa-calendar"></i>
+                                <span>1999</span>
+                                <span class="badge badge-default">Sopres</span>
+                                <span t="about.experience91Title"></span>
+                            </a>
+                            <div id="mp-accordion-item-9" class="collapse" role="tabpanel">
+                                <div class="mp-accordion-content">
+                                    <ul class="list-unstyled">
+                                        <li>
+                                            <i class="fa fa-building"></i>
+                                            Sopres
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-window-maximize"></i>
+                                            <span t="about.experience91Content"></span>
+                                        </li>
+                                        <li>
+                                            <span class="btn btn-outline-success btn-sm">VISUAL-BASIC</span>
+                                            <span class="btn btn-outline-default btn-sm">MS ACCESS</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ACCORDION ITEM 10 -->
+                        <div class="mp-accordion-item">
+                            <a class="mp-accordion-title collapsed" data-toggle="collapse" data-parent="#mp-accordion-x"
+                                href="#mp-accordion-item-10" aria-expanded="false" aria-controls="mp-accordion-item-10">
+                                <i class="fa fa-calendar"></i>
+                                <span>1999</span>
+                                <span class="badge badge-info">Kraft Jacobs Suchard</span>
+                                <span t="about.experience100Title"></span>
+                            </a>
+                            <div id="mp-accordion-item-10" class="collapse" role="tabpanel">
+                                <div class="mp-accordion-content">
+                                    <ul class="list-unstyled">
+                                        <li>
+                                            <i class="fa fa-industry"></i>
+                                            Kraft Jacobs Suchard
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-window-maximize"></i>
+                                            <span t="about.experience100Content"></span>
+                                        </li>
+                                        <li>
+                                            <span class="btn btn-outline-success btn-sm">OUTLOOK</span>
+                                            <span class="btn btn-outline-default btn-sm">MACROS VBA</span>
+                                            <span class="btn btn-outline-warning btn-sm">VB SCRIPT</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ACCORDION ITEM 11 -->
+                        <div class="mp-accordion-item">
+                            <a class="mp-accordion-title collapsed" data-toggle="collapse" data-parent="#mp-accordion-x"
+                                href="#mp-accordion-item-11" aria-expanded="false" aria-controls="mp-accordion-item-11">
+                                <i class="fa fa-calendar"></i>
+                                <span>1998</span>
+                                <span class="badge badge-info">Coca-Cola</span>
+                                <span t="about.experience111Title"></span>
+                            </a>
+                            <div id="mp-accordion-item-11" class="collapse" role="tabpanel">
+                                <div class="mp-accordion-content">
+                                    <ul class="list-unstyled">
+                                        <li>
+                                            <i class="fa fa-external-link"></i>
+                                            <a href="https://fr.cocacolabelgium.be/" target="new" style="color:black">
+                                                Coca-Cola
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-window-maximize"></i>
+                                            <span t="about.experience111Content"></span>
+                                        </li>
+                                        <li>
+                                            <span class="btn btn-outline-success btn-sm">MS EXCEL</span>
+                                            <span class="btn btn-outline-warning btn-sm">MACROS VBA</span>
+                                            <span class="btn btn-outline-danger btn-sm">VB SCRIPT</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ACCORDION ITEM 12a -->
+                        <div class="mp-accordion-item">
+                            <a class="mp-accordion-title collapsed" data-toggle="collapse" data-parent="#mp-accordion-x"
+                                href="#mp-accordion-item-12a" aria-expanded="false"
+                                aria-controls="mp-accordion-item-12a">
+                                <i class="fa fa-calendar"></i>
+                                <span>1998</span>
+                                <span class="badge badge-danger">JPass International</span>
+                                <span t="about.experience121Title"></span>
+                            </a>
+                            <div id="mp-accordion-item-12a" class="collapse" role="tabpanel">
+                                <div class="mp-accordion-content">
+                                    <ul class="list-unstyled">
+                                        <li>
+                                            <i class="fa fa-building"></i>
+                                            JPass International
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-window-maximize"></i>
+                                            <span t="about.experience121Content"></span>
+                                        </li>
+                                        <li>
+                                            <span class="btn btn-outline-primary btn-sm">VISUAL-BASIC</span>
+                                            <span class="btn btn-outline-default btn-sm">MS ACCESS</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ACCORDION ITEM 12b -->
+                        <div class="mp-accordion-item">
+                            <a class="mp-accordion-title collapsed" data-toggle="collapse" data-parent="#mp-accordion-x"
+                                href="#mp-accordion-item-12b" aria-expanded="false"
+                                aria-controls="mp-accordion-item-12b">
+                                <i class="fa fa-calendar"></i>
+                                <span>1997</span>
+                                <span class="badge badge-danger">JPass International</span>
+                                <span t="about.experience122Title"></span>
+                            </a>
+                            <div id="mp-accordion-item-12b" class="collapse" role="tabpanel">
+                                <div class="mp-accordion-content">
+                                    <ul class="list-unstyled">
+                                        <li>
+                                            <i class="fa fa-building"></i>
+                                            JPass International
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-window-maximize"></i>
+                                            <span t="about.experience122Content"></span>
+                                        </li>
+                                        <li>
+                                            <span class="btn btn-outline-success btn-sm">POWERBUILDER</span>
+                                            <span class="btn btn-outline-info btn-sm">OMNIS</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ACCORDION ITEM 13a -->
+                        <div class="mp-accordion-item">
+                            <a class="mp-accordion-title collapsed" data-toggle="collapse" data-parent="#mp-accordion-x"
+                                href="#mp-accordion-item-13a" aria-expanded="false"
+                                aria-controls="mp-accordion-item-13a">
+                                <i class="fa fa-calendar"></i>
+                                <span>1996</span>
+                                <span class="badge badge-danger">Cotrase</span>
+                                <span t="about.experience131Title"></span>
+                            </a>
+                            <div id="mp-accordion-item-13a" class="collapse" role="tabpanel">
+                                <div class="mp-accordion-content">
+                                    <ul class="list-unstyled">
+                                        <li>
+                                            <i class="fa fa-building"></i>
+                                            Cotrase
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-window-maximize"></i>
+                                            <span t="about.experience131Content"></span>
+                                        </li>
+                                        <li>
+                                            <span class="btn btn-outline-primary btn-sm">VISUAL-BASIC</span>
+                                            <span class="btn btn-outline-default btn-sm">ACCESS</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ACCORDION ITEM 13b -->
+                        <div class="mp-accordion-item">
+                            <a class="mp-accordion-title collapsed" data-toggle="collapse" data-parent="#mp-accordion-x"
+                                href="#mp-accordion-item-13b" aria-expanded="false"
+                                aria-controls="mp-accordion-item-13b">
+                                <i class="fa fa-calendar"></i>
+                                <span>1996</span>
+                                <span class="badge badge-danger">Cotrase</span>
+                                <span t="about.experience132Title"></span>
+                            </a>
+                            <div id="mp-accordion-item-13b" class="collapse" role="tabpanel">
+                                <div class="mp-accordion-content">
+                                    <ul class="list-unstyled">
+                                        <li>
+                                            <i class="fa fa-building"></i>
+                                            Cotrase
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-window-maximize"></i>
+                                            <span t="about.experience132Content"></span>
+                                        </li>
+                                        <li>
+                                            <span class="btn btn-outline-primary btn-sm">VISUAL-BASIC</span>
+                                            <span class="btn btn-outline-default btn-sm">ACCESS</span>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <!-- ACCORDION ITEM 8a -->
-                    <div class="mp-accordion-item">
-                        <a class="mp-accordion-title collapsed" data-toggle="collapse" data-parent="#mp-accordion-x"
-                            href="#mp-accordion-item-8a" aria-expanded="false" aria-controls="mp-accordion-item-8a">
-                            <i class="fa fa-calendar"></i>
-                            <span>1999</span>
-                            <span class="badge badge-danger">Tott Systems</span>
-                            <span t="about.experience81Title"></span>
-                        </a>
-                        <div id="mp-accordion-item-8a" class="collapse" role="tabpanel">
-                            <div class="mp-accordion-content">
-                                <ul class="list-unstyled">
-                                    <li>
-                                        <i class="fa fa-building"></i>
-                                        Tott Systems
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-window-maximize"></i>
-                                        <span t="about.experience81Content"></span>
-                                    </li>
-                                    <li>
-                                        <span class="btn btn-outline-warning btn-sm">VISUAL-BASIC</span>
-                                        <span class="btn btn-outline-default btn-sm">SQL SERVER</span>
-                                        <span class="btn btn-outline-danger btn-sm">CRYSTAL REPORTS</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- ACCORDION ITEM 8b -->
-                    <div class="mp-accordion-item">
-                        <a class="mp-accordion-title collapsed" data-toggle="collapse" data-parent="#mp-accordion-x"
-                            href="#mp-accordion-item-8b" aria-expanded="false" aria-controls="mp-accordion-item-8b">
-                            <i class="fa fa-calendar"></i>
-                            <span>1999</span>
-                            <span class="badge badge-danger">Tott Systems</span>
-                            <span t="about.experience82Title"></span>
-                        </a>
-                        <div id="mp-accordion-item-8b" class="collapse" role="tabpanel">
-                            <div class="mp-accordion-content">
-                                Logicel de gestion pour le transport de fret</h5>
-                                <ul class="list-unstyled">
-                                    <li>
-                                        <i class="fa fa-building"></i>
-                                        Tott Systems
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-window-maximize"></i>
-                                        <span t="about.experience82Content"></span>
-                                    </li>
-                                    <li>
-                                        <span class="btn btn-outline-success btn-sm">VISUAL-BASIC</span>
-                                        <span class="btn btn-outline-default btn-sm">MS ACCESS</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- ACCORDION ITEM 9 -->
-                    <div class="mp-accordion-item">
-                        <a class="mp-accordion-title collapsed" data-toggle="collapse" data-parent="#mp-accordion-x"
-                            href="#mp-accordion-item-9" aria-expanded="false" aria-controls="mp-accordion-item-9">
-                            <i class="fa fa-calendar"></i>
-                            <span>1999</span>
-                            <span class="badge badge-default">Sopres</span>
-                            <span t="about.experience91Title"></span>
-                        </a>
-                        <div id="mp-accordion-item-9" class="collapse" role="tabpanel">
-                            <div class="mp-accordion-content">
-                                <ul class="list-unstyled">
-                                    <li>
-                                        <i class="fa fa-building"></i>
-                                        Sopres
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-window-maximize"></i>
-                                        <span t="about.experience91Content"></span>
-                                    </li>
-                                    <li>
-                                        <span class="btn btn-outline-success btn-sm">VISUAL-BASIC</span>
-                                        <span class="btn btn-outline-default btn-sm">MS ACCESS</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- ACCORDION ITEM 10 -->
-                    <div class="mp-accordion-item">
-                        <a class="mp-accordion-title collapsed" data-toggle="collapse" data-parent="#mp-accordion-x"
-                            href="#mp-accordion-item-10" aria-expanded="false" aria-controls="mp-accordion-item-10">
-                            <i class="fa fa-calendar"></i>
-                            <span>1999</span>
-                            <span class="badge badge-info">Kraft Jacobs Suchard</span>
-                            <span t="about.experience100Title"></span>
-                        </a>
-                        <div id="mp-accordion-item-10" class="collapse" role="tabpanel">
-                            <div class="mp-accordion-content">
-                                <ul class="list-unstyled">
-                                    <li>
-                                        <i class="fa fa-industry"></i>
-                                        Kraft Jacobs Suchard
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-window-maximize"></i>
-                                        <span t="about.experience100Content"></span>
-                                    </li>
-                                    <li>
-                                        <span class="btn btn-outline-success btn-sm">OUTLOOK</span>
-                                        <span class="btn btn-outline-default btn-sm">MACROS VBA</span>
-                                        <span class="btn btn-outline-warning btn-sm">VB SCRIPT</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- ACCORDION ITEM 11 -->
-                    <div class="mp-accordion-item">
-                        <a class="mp-accordion-title collapsed" data-toggle="collapse" data-parent="#mp-accordion-x"
-                            href="#mp-accordion-item-11" aria-expanded="false" aria-controls="mp-accordion-item-11">
-                            <i class="fa fa-calendar"></i>
-                            <span>1998</span>
-                            <span class="badge badge-info">Coca-Cola</span>
-                            <span t="about.experience111Title"></span>
-                        </a>
-                        <div id="mp-accordion-item-11" class="collapse" role="tabpanel">
-                            <div class="mp-accordion-content">
-                                <ul class="list-unstyled">
-                                    <li>
-                                        <i class="fa fa-external-link"></i>
-                                        <a href="https://fr.cocacolabelgium.be/" target="new" style="color:black">
-                                            Coca-Cola
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-window-maximize"></i>
-                                        <span t="about.experience111Content"></span>
-                                    </li>
-                                    <li>
-                                        <span class="btn btn-outline-success btn-sm">MS EXCEL</span>
-                                        <span class="btn btn-outline-warning btn-sm">MACROS VBA</span>
-                                        <span class="btn btn-outline-danger btn-sm">VB SCRIPT</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- ACCORDION ITEM 12a -->
-                    <div class="mp-accordion-item">
-                        <a class="mp-accordion-title collapsed" data-toggle="collapse" data-parent="#mp-accordion-x"
-                            href="#mp-accordion-item-12a" aria-expanded="false" aria-controls="mp-accordion-item-12a">
-                            <i class="fa fa-calendar"></i>
-                            <span>1998</span>
-                            <span class="badge badge-danger">JPass International</span>
-                            <span t="about.experience121Title"></span>
-                        </a>
-                        <div id="mp-accordion-item-12a" class="collapse" role="tabpanel">
-                            <div class="mp-accordion-content">
-                                <ul class="list-unstyled">
-                                    <li>
-                                        <i class="fa fa-building"></i>
-                                        JPass International
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-window-maximize"></i>
-                                        <span t="about.experience121Content"></span>
-                                    </li>
-                                    <li>
-                                        <span class="btn btn-outline-primary btn-sm">VISUAL-BASIC</span>
-                                        <span class="btn btn-outline-default btn-sm">MS ACCESS</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- ACCORDION ITEM 12b -->
-                    <div class="mp-accordion-item">
-                        <a class="mp-accordion-title collapsed" data-toggle="collapse" data-parent="#mp-accordion-x"
-                            href="#mp-accordion-item-12b" aria-expanded="false" aria-controls="mp-accordion-item-12b">
-                            <i class="fa fa-calendar"></i>
-                            <span>1997</span>
-                            <span class="badge badge-danger">JPass International</span>
-                            <span t="about.experience122Title"></span>
-                        </a>
-                        <div id="mp-accordion-item-12b" class="collapse" role="tabpanel">
-                            <div class="mp-accordion-content">
-                                <ul class="list-unstyled">
-                                    <li>
-                                        <i class="fa fa-building"></i>
-                                        JPass International
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-window-maximize"></i>
-                                        <span t="about.experience122Content"></span>
-                                    </li>
-                                    <li>
-                                        <span class="btn btn-outline-success btn-sm">POWERBUILDER</span>
-                                        <span class="btn btn-outline-info btn-sm">OMNIS</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- ACCORDION ITEM 13a -->
-                    <div class="mp-accordion-item">
-                        <a class="mp-accordion-title collapsed" data-toggle="collapse" data-parent="#mp-accordion-x"
-                            href="#mp-accordion-item-13a" aria-expanded="false" aria-controls="mp-accordion-item-13a">
-                            <i class="fa fa-calendar"></i>
-                            <span>1996</span>
-                            <span class="badge badge-danger">Cotrase</span>
-                            <span t="about.experience131Title"></span>
-                        </a>
-                        <div id="mp-accordion-item-13a" class="collapse" role="tabpanel">
-                            <div class="mp-accordion-content">
-                                <ul class="list-unstyled">
-                                    <li>
-                                        <i class="fa fa-building"></i>
-                                        Cotrase
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-window-maximize"></i>
-                                        <span t="about.experience131Content"></span>
-                                    </li>
-                                    <li>
-                                        <span class="btn btn-outline-primary btn-sm">VISUAL-BASIC</span>
-                                        <span class="btn btn-outline-default btn-sm">ACCESS</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- ACCORDION ITEM 13b -->
-                    <div class="mp-accordion-item">
-                        <a class="mp-accordion-title collapsed" data-toggle="collapse" data-parent="#mp-accordion-x"
-                            href="#mp-accordion-item-13b" aria-expanded="false" aria-controls="mp-accordion-item-13b">
-                            <i class="fa fa-calendar"></i>
-                            <span>1996</span>
-                            <span class="badge badge-danger">Cotrase</span>
-                            <span t="about.experience132Title"></span>
-                        </a>
-                        <div id="mp-accordion-item-13b" class="collapse" role="tabpanel">
-                            <div class="mp-accordion-content">
-                                <ul class="list-unstyled">
-                                    <li>
-                                        <i class="fa fa-building"></i>
-                                        Cotrase
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-window-maximize"></i>
-                                        <span t="about.experience132Content"></span>
-                                    </li>
-                                    <li>
-                                        <span class="btn btn-outline-primary btn-sm">VISUAL-BASIC</span>
-                                        <span class="btn btn-outline-default btn-sm">ACCESS</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
+
+                <!-- SHOW MORE BUTTON -->
+                <button type="button" class="btn btn-link btn-more" data-toggle="collapse" href="#collapseExperience"
+                    role="button">
+                    <span class="fa fa-plus-circle fa-lg" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="21 de plus"></span>
+                </button>
+
+
                 <h2 id="references" class="mt-5" t="about.references"></h2>
                 <p>
                     <span class="badge badge-warning">Fortis Insurance Belgium</span>
