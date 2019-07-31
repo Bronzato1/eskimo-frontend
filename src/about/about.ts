@@ -46,7 +46,6 @@ export class About {
         this.smoothScroll();
 
         $(document).ready(function () {
-            (<any>$('[data-toggle="tooltip"]')).tooltip();
             $('.btn-more').on('click', function () {
                 $(this).hide();
             });
