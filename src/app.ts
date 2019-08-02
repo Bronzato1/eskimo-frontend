@@ -1,20 +1,23 @@
-import { Router, RouterConfiguration } from 'aurelia-router';
+import { Router, RouterConfiguration, Redirect } from 'aurelia-router';
+import { Authentication } from 'services/authentication';
+import { autoinject } from 'aurelia-framework';
 
 export class App {
     configureRouter(config: RouterConfiguration, router: Router) {
         config.addPipelineStep('postcomplete', PostCompleteStep);
+        config.addPipelineStep('authorize', AuthorizeStep);
         config.map([
 
             { route: '', redirect: 'posts' },
 
             // B L O G
 
-            { route: 'posts',    name: 'posts',    moduleId: 'blog/posts' },
-            { route: 'postList', name: 'postList', moduleId: 'blog/post-list' },
-            { route: 'postEdit', name: 'postEdit', moduleId: 'blog/post-edit' },
+            { route: 'posts', name: 'posts', moduleId: 'blog/posts' },
+            { route: 'postList', name: 'postList', moduleId: 'blog/post-list', settings: { auth: true } },
+            { route: 'postEdit', name: 'postEdit', moduleId: 'blog/post-edit', settings: { auth: true } },
             { route: 'postView', name: 'postView', moduleId: 'blog/post-view' },
-            { route: 'categoryList', name: 'categoryList', moduleId: 'blog/category-list' },
-            { route: 'categoryEdit', name: 'categoryEdit', moduleId: 'blog/category-edit' },
+            { route: 'categoryList', name: 'categoryList', moduleId: 'blog/category-list', settings: { auth: true } },
+            { route: 'categoryEdit', name: 'categoryEdit', moduleId: 'blog/category-edit', settings: { auth: true } },
 
             // A B O U T
 
@@ -24,7 +27,7 @@ export class App {
             // A U T H E N T I C A T I O N
 
             { route: 'login', name: 'login', moduleId: 'login/login' },
-            { route: 'logout', name: 'logout', moduleId: 'logout/logout' },
+            { route: 'logout', name: 'logout', moduleId: 'logout/logout', settings: { auth: true } },
 
             // T E S T
 
@@ -43,7 +46,7 @@ export class App {
         ]);
         this.router = router;
     }
-    private router: Router;
+    private router;
     attached() {
         $(document).ready(function () {
             /* ADJUST MENU FOR MOBILES */
@@ -97,5 +100,30 @@ class PostCompleteStep {
             adjustPageTitle();
         });
 
+    }
+}
+
+@autoinject
+class AuthorizeStep {
+
+    constructor(private authentication: Authentication) {
+        
+    }
+
+    run(navigationInstruction, next) {
+
+        let currentUser = this.authentication.currentUser;
+        let isLoggedIn = currentUser != null;
+
+        // currently active route config
+        let currentRoute = navigationInstruction.config;
+
+        // settings object will be preserved during navigation
+        let loginRequired = currentRoute.settings && currentRoute.settings.auth === true;
+
+        if (isLoggedIn === false && loginRequired === true)
+            return next.cancel(new Redirect('login'));
+
+        return next();
     }
 }
