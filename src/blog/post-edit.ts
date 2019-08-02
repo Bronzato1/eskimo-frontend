@@ -280,7 +280,13 @@ export class PostEdit {
     private translateServerSide(from: string, to: string) {
         var content = (from == 'fr') ? this.post.frenchContent : this.post.englishContent;
         this.translator.translate(from, to, content).then((data) => {
-            this.post.englishContent = data;
+            if (to == 'fr')
+            {
+                this.post.frenchContent = data;
+            } else 
+            {
+                this.post.englishContent = data;
+            };
         }).catch((error) => {
             debugger;
         });
