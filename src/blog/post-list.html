@@ -78,7 +78,7 @@
                                             class="btn-view pull-right mr-2">
                                             <span class="fa fa-asterisk fa-2x"></span></a>
                                         <!-- 1 BOUTON POUR SUPPRIMER LE BILLET -->
-                                        <a href="#" class="btn-delete pull-right mr-2">
+                                        <a href="#" click.trigger="deletePost($this)" class="btn-delete pull-right mr-2">
                                             <span class="fa fa-times fa-2x"></span></a>
                                         <!-- 1 BOUTON POUR EDITER LE BILLET -->
                                         <a route-href="route: postEdit; params.bind: { id: id }"
