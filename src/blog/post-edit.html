@@ -25,10 +25,15 @@
             <span>Image</span>
         </button>
         <!-- 1 BOUTON POUR TRADUIRE -->
-        <button type="button" click.trigger="translate()" class="btn btn-eskimo pull-right mr-2">
-            <span class="fa fa-upload fa-lg  mr-2"></span>
-            <span>Translate</span>
-        </button>
+        <div class="dropdown">
+            <button class="btn btn-eskimo pull-right mr-2 dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Translate
+            </button>
+            <div class="dropdown-menu btn btn-eskimo" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item btn btn-eskimo" href="#" click.trigger="translateServerSide('fr', 'en')">FR ► EN</a>
+              <a class="dropdown-item btn btn-eskimo" href="#" click.trigger="translateServerSide('en', 'fr')">EN ► FR</a>
+            </div>
+          </div>
         <input id="fileChooser" type="file" name="images" files.bind="selectedFiles"
             style="position: absolute; left: 100px; top: -500px;">
         <div class="clearfix"></div>

@@ -4,6 +4,7 @@ import { PostGateway } from "../gateways/post-gateway";
 import { CategoryGateway } from "../gateways/category-gateway";
 import { autoinject, bindable } from "aurelia-framework";
 import { ValidationRules, ValidationController, ValidationControllerFactory, } from "aurelia-validation";
+import { HttpClient } from 'aurelia-fetch-client';
 import { DialogService } from 'aurelia-dialog';
 import { Router } from "aurelia-router";
 import { Post } from "../models/post-models";
@@ -19,7 +20,7 @@ import * as $ from 'jquery';
 @autoinject()
 export class PostEdit {
     @bindable datepicker;
-    constructor(postGateway: PostGateway, tagGateway: TagGateway, categoryGateway: CategoryGateway, router: Router, box: Box, dialogService: DialogService, i18n: I18N, validationController: ValidationControllerFactory, translator: Translator) {
+    constructor(postGateway: PostGateway, tagGateway: TagGateway, categoryGateway: CategoryGateway, router: Router, box: Box, dialogService: DialogService, i18n: I18N, validationController: ValidationControllerFactory, translator: Translator, httpClient: HttpClient) {
         this.postGateway = postGateway;
         this.tagGateway = tagGateway;
         this.categoryGateway = categoryGateway;
@@ -29,6 +30,7 @@ export class PostEdit {
         this.i18n = i18n;
         this.validationController = validationController.createForCurrentScope();
         this.translator = translator;
+        this.httpClient = httpClient;
     }
     private postGateway: PostGateway;
     private tagGateway: TagGateway;
@@ -44,37 +46,40 @@ export class PostEdit {
     private selectedFiles: any;
     private handlerQuickSaveFct;
     private currentLng: string = 'fr';
+    private httpClient: HttpClient;
     private get environment() {
         return environment;
     }
-    private froalaConfig = {
-        key: secret.froalaKey,
-        toolbarInline: false,
-        charCounterCount: false,
-        imageUploadURL: environment.backendUrl + 'api/froala/UploadImage',
-        fileUploadURL:  environment.backendUrl + 'api/froala/UploadFile',
-        imageManagerLoadURL: environment.backendUrl + 'api/froala/LoadImages',
-        imageManagerDeleteURL: environment.backendUrl + 'api/froala/DeleteImage',
-        imageManagerDeleteMethod: 'POST',
-        codeMirror: CodeMirror,
-        htmlUntouched: true,
-        //toolbarButtons: ['fullscreen', 'bold', 'italic', 'underline', 'strikeThrough', '|', 'fontFamily', 'fontSize', 'color', 'inlineClass', 'inlineStyle', 'paragraphStyle', 'lineHeight', '|', 'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', 'insertLink', 'insertImage', 'insertVideo', 'embedly', 'insertFile', 'insertTable', '|', 'emoticons', 'fontAwesome', 'insertHR', 'selectAll', 'clearFormatting', '|', 'html', '|', 'undo', 'redo', 'colorizeCode'],
-        toolbarButtons: ['fullscreen', 'bold', 'italic', 'underline', 'strikeThrough', '|', 'fontFamily', 'fontSize', 'color', 'inlineClass', 'inlineStyle', 'paragraphStyle', '|', 'paragraphFormat', 'align', 'formatOL', 'formatUL', 'quote', 'insertLink', 'insertImage', '|', 'insertHR', '|', 'html', '|', 'undo', 'redo', 'colorizeCode'],
-        codeBeautifierOptions: {
-            end_with_newline: true,
-            indent_inner_html: true,
-            extra_liners: "['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'pre', ul', 'ol', 'table', 'dl']",
-            brace_style: 'expand',
-            indent_char: ' ',
-            indent_size: 4,
-            wrap_line_length: 0
+    private froalaConfig =
+        {
+            key: secret.froalaKey,
+            toolbarInline: false,
+            charCounterCount: false,
+            imageUploadURL: environment.backendUrl + 'api/froala/UploadImage',
+            fileUploadURL: environment.backendUrl + 'api/froala/UploadFile',
+            imageManagerLoadURL: environment.backendUrl + 'api/froala/LoadImages',
+            imageManagerDeleteURL: environment.backendUrl + 'api/froala/DeleteImage',
+            imageManagerDeleteMethod: 'POST',
+            codeMirror: CodeMirror,
+            htmlUntouched: true,
+            //toolbarButtons: ['fullscreen', 'bold', 'italic', 'underline', 'strikeThrough', '|', 'fontFamily', 'fontSize', 'color', 'inlineClass', 'inlineStyle', 'paragraphStyle', 'lineHeight', '|', 'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', 'insertLink', 'insertImage', 'insertVideo', 'embedly', 'insertFile', 'insertTable', '|', 'emoticons', 'fontAwesome', 'insertHR', 'selectAll', 'clearFormatting', '|', 'html', '|', 'undo', 'redo', 'colorizeCode'],
+            toolbarButtons: ['fullscreen', 'bold', 'italic', 'underline', 'strikeThrough', '|', 'fontFamily', 'fontSize', 'color', 'inlineClass', 'inlineStyle', 'paragraphStyle', '|', 'paragraphFormat', 'align', 'formatOL', 'formatUL', 'quote', 'insertLink', 'insertImage', '|', 'insertHR', '|', 'html', '|', 'undo', 'redo', 'colorizeCode'],
+            codeBeautifierOptions: {
+                end_with_newline: true,
+                indent_inner_html: true,
+                extra_liners: "['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'pre', ul', 'ol', 'table', 'dl']",
+                brace_style: 'expand',
+                indent_char: ' ',
+                indent_size: 4,
+                wrap_line_length: 0
+            }
         }
-    }
-    private froalaEvents = {
-        'image.uploaded': this.imageUploaded,
-        'image.removed': this.imageRemoved,
-        'image.file.unlink': this.imageFileUnlink
-    }
+    private froalaEvents =
+        {
+            'image.uploaded': this.imageUploaded,
+            'image.removed': this.imageRemoved,
+            'image.file.unlink': this.imageFileUnlink
+        }
     private activate(params, config) {
         var self = this;
 
@@ -272,12 +277,38 @@ export class PostEdit {
     private setCurrentLng(lng) {
         this.currentLng = lng;
     }
-    private translate() {
-        this.translator.translate('fr', 'en', this.post.frenchContent).then((data) => {
+    private translateServerSide(from: string, to: string) {
+        var content = (from == 'fr') ? this.post.frenchContent : this.post.englishContent;
+        this.translator.translate(from, to, content).then((data) => {
             debugger;
             this.post.englishContent = data;
         }).catch((error) => {
             debugger;
         });
+    }
+    private async translateClientSide(from: string, to: string) {
+        const subscriptionKey = secret.translatorKey;
+        const baseUrl = 'https://api-eur.cognitive.microsofttranslator.com';
+        const body = [{ 'text': (from == 'fr') ? this.post.frenchContent : this.post.englishContent }];
+        const init: HeadersInit = { "Content-Type": "application/json" };
+        const headers = new Headers(init);
+        const response = await this.httpClient.fetch(`${baseUrl}/translate?api-version=3.0&to=${to}&textType=html&Subscription-Key=${subscriptionKey}`, {
+            method: 'POST',
+            headers: headers,
+            body: JSON.stringify(body)
+        });
+
+        if (response.ok) {
+            var data = await response.json();
+            var obj = (data.length>0) ? data[0] : null;
+            var translation = (obj.translations.length >0) ? obj.translations[0].text : null; 
+            if (to == 'fr')
+            {
+                this.post.frenchContent = translation;
+            } else 
+            {
+                this.post.englishContent = translation;
+            };
+        };
     }
 }
