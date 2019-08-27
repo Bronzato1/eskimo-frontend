@@ -6,7 +6,7 @@
                     <div class="col">
                         <input type="checkbox" model.bind="group.key" checked.bind="checkedGroupKeys"
                             change.delegate="checkAllChanged(group, $event.target.checked)" class="mr-3 align-middle"
-                            style="transform: scale(2);">
+                            style="transform: scale(2);" if.bind="showCheckbox=='true'">
                         <span t="${label}" t-params.bind="{count: group.items.length}"></span>
                     </div>
                     <div class="col text-right" if.bind="group.key">
@@ -17,7 +17,7 @@
         </div>
         <ul class="list-group list-group-flush">
             <li repeat.for="item of group.items | orderBy:orderBy"
-                class="text-primary list-group-item ${ item.isChecked ? 'bg-light' : '' }">
+                class="text-primary list-group-item ${ item.isChecked ? 'bg-light' : '' } ${ $odd==true ? 'odd-line' : 'even-line' }">
                 <template with.bind="item">
                     <template replaceable part="item">${$this}</template>
                 </template>

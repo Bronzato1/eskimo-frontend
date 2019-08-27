@@ -26,14 +26,17 @@
         </button>
         <!-- 1 BOUTON POUR TRADUIRE -->
         <div class="dropdown">
-            <button class="btn btn-eskimo pull-right mr-2 dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Translate
+            <button class="btn btn-eskimo pull-right mr-2 dropdown-toggle" type="button" id="dropdownMenuButton"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Translate
             </button>
             <div class="dropdown-menu btn btn-eskimo" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item btn btn-eskimo" href="#" click.trigger="translateServerSide('fr', 'en')">FR ► EN</a>
-              <a class="dropdown-item btn btn-eskimo" href="#" click.trigger="translateServerSide('en', 'fr')">EN ► FR</a>
+                <a class="dropdown-item btn btn-eskimo" href="#" click.trigger="translateServerSide('fr', 'en')">FR ►
+                    EN</a>
+                <a class="dropdown-item btn btn-eskimo" href="#" click.trigger="translateServerSide('en', 'fr')">EN ►
+                    FR</a>
             </div>
-          </div>
+        </div>
         <input id="fileChooser" type="file" name="images" files.bind="selectedFiles"
             style="position: absolute; left: 100px; top: -500px;">
         <div class="clearfix"></div>
@@ -74,13 +77,30 @@
                                     <div class="input-group" show.bind="post.id>0">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" style="min-width: 160px;"
-                                                t="postEdit.keywords"></span>
+                                                t="postEdit.tags"></span>
                                         </div>
                                         <tags-input tags.bind="post.tagNamesForFrench"
                                             on-added.call="onFrenchTagCreated(tagName)"
                                             on-deleted.call="onTagDeleted(tagName)"
                                             on-changed.call="onTagUpdated(tagOldName, tagNewName)">
                                         </tags-input>
+                                    </div>
+                                </div>
+                                <!-- ZONE DE LISTE POUR LE CHOIX DU MEDIA -->
+                                <div class="form-group mb-1" validation-errors.bind="mediaErrors"
+                                    class.bind="mediaErrors.length ? 'has-error' : ''">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" style="min-width: 160px;"
+                                                t="postEdit.media"></span>
+                                        </div>
+                                        <select value.bind="post.media & validate" change.trigger="overlay()" class="form-control custom-select"
+                                            style="max-width: 250px; border-left: 1px solid rgba(0, 0, 0, 0.3);">
+                                            <option model.bind="null" t="postEdit.choose"></option>
+                                            <option repeat.for="media of medias" model.bind="media.id">
+                                                ${ media.value }
+                                            </option>
+                                        </select>
                                     </div>
                                 </div>
                                 <!-- ZONE DE LISTE POUR LE CHOIX DE LA CATEGORIE -->
@@ -155,13 +175,30 @@
                                     <div class="input-group" show.bind="post.id>0">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" style="min-width: 160px;"
-                                                t="postEdit.keywords"></span>
+                                                t="postEdit.tags"></span>
                                         </div>
                                         <tags-input tags.bind="post.tagNamesForEnglish"
                                             on-added.call="onEnglishTagCreated(tagName)"
                                             on-deleted.call="onTagDeleted(tagName)"
                                             on-changed.call="onTagUpdated(tagOldName, tagNewName)">
                                         </tags-input>
+                                    </div>
+                                </div>
+                                <!-- ZONE DE LISTE POUR LE CHOIX DU MEDIA -->
+                                <div class="form-group mb-1" validation-errors.bind="mediaErrors"
+                                    class.bind="mediaErrors.length ? 'has-error' : ''">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" style="min-width: 160px;"
+                                                t="postEdit.media"></span>
+                                        </div>
+                                        <select value.bind="post.media & validate" class="form-control custom-select"
+                                            style="max-width: 250px; border-left: 1px solid rgba(0, 0, 0, 0.3);">
+                                            <option model.bind="null" t="postEdit.choose"></option>
+                                            <option repeat.for="media of medias" model.bind="media.id">
+                                                ${ media.value }
+                                            </option>
+                                        </select>
                                     </div>
                                 </div>
                                 <!-- ZONE DE LISTE POUR LE CHOIX DE LA CATEGORIE -->

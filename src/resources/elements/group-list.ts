@@ -13,6 +13,7 @@ export class GroupList {
   @bindable groupBy;
   @bindable orderBy;
   @bindable label;
+  @bindable showCheckbox;
   private i18n: I18N;
   private eventAggregator: EventAggregator;
   private checkedGroupKeys = [];

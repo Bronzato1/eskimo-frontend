@@ -3,7 +3,7 @@
         <div id="eskimo-sidebar-wrapper" class="d-flex align-items-start flex-column h-100 w-100">
             <!-- LOGO ( BIG SCREEN ) -->
             <div id="eskimo-logo-cell" class="w-100">
-                <a class="eskimo-logo-link" route-href="route:posts">
+                <a class="eskimo-logo-link" route-href="route:postsGridView">
                     <img src="images/logo.png" class="eskimo-logo" alt="eskimo" />
                 </a>
             </div>
@@ -11,7 +11,7 @@
             <div id="eskimo-sidebar-cell" class="w-100">
                 <!-- LOGO ( SMALL SCREEN ) -->
                 <div id="eskimo-logo-mobile">
-                    <a route-href="route:posts">
+                    <a route-href="route:postsGridView">
                         <img src="images/logo.png" class="eskimo-logo" alt="eskimo" />
                     </a>
                 </div>
@@ -30,30 +30,34 @@
                         <li>
                             <a href="#" t="sidebar.theBlog"></a>
                             <ul class="sub-menu">
-                                <li><a route-href="route:posts">Derniers articles</a></li>
-                                <li><a route-href="route:blog2">Catégorie
-                                        <span class="badge badge-blue">Technologie</span></a></li>
-                                <li><a route-href="route:blog3">Catégorie
-                                        <span class="badge badge-blueviolet">High tech</span></a></li>
-                                <li><a route-href="route:blog3">Mot-clé
-                                        <span class="badge badge-danger">Typescript</span></a></li>
+                                <li><a route-href="route:postsGridView">Derniers articles</a></li>
+                                <template repeat.for="category of categories">
+                                    <li><a route-href="route:postsGridView; params.bind: { category: category }">Catégorie
+                                            <span class="badge badge-${category.color}">${ (currentLanguage=='fr') ? category.frenchName : category.englishName }</span></a></li>
+                                </template>
                             </ul>
                         </li>
                         <li>
                             <a href="#" t="sidebar.about"></a>
                             <ul class="sub-menu">
-                                <li><a route-href="route:about; params.bind: { id: 'whoami' }"><span t="sidebar.whoAmI"></span></a></li>
-                                <li><a route-href="route:about; params.bind: { id: 'skills' }"><span t="sidebar.skills"></span></a></li>
-                                <li><a route-href="route:about; params.bind: { id: 'experience' }"><span t="sidebar.experience"></span></a></li>
-                                <li><a route-href="route:about; params.bind: { id: 'references' }"><span t="sidebar.references"></span></a></li>
-                                <li><a route-href="route:about; params.bind: { id: 'download' }"><span t="sidebar.download"></span></a></li>
-                                <li><a route-href="route:about; params.bind: { id: 'contact' }"><span t="sidebar.contact"></span></a></li>
+                                <li><a route-href="route:about; params.bind: { id: 'whoami' }"><span
+                                            t="sidebar.whoAmI"></span></a></li>
+                                <li><a route-href="route:about; params.bind: { id: 'skills' }"><span
+                                            t="sidebar.skills"></span></a></li>
+                                <li><a route-href="route:about; params.bind: { id: 'experience' }"><span
+                                            t="sidebar.experience"></span></a></li>
+                                <li><a route-href="route:about; params.bind: { id: 'references' }"><span
+                                            t="sidebar.references"></span></a></li>
+                                <li><a route-href="route:about; params.bind: { id: 'download' }"><span
+                                            t="sidebar.download"></span></a></li>
+                                <li><a route-href="route:about; params.bind: { id: 'contact' }"><span
+                                            t="sidebar.contact"></span></a></li>
                             </ul>
                         </li>
                         <li show.bind="currentUser!=null">
                             <a href="#" t="sidebar.adminAccess"></a>
                             <ul class="sub-menu">
-                                <li><a route-href="route:postList">Liste des billets</a></li>
+                                <li><a route-href="route:postsListAdmin">Liste des billets</a></li>
                                 <li><a route-href="route:categoryList">Liste des catégories</a></li>
                                 <li><a route-href="route:index2">Home / Demo 2</a></li>
                                 <li><a route-href="route:index3">Home / Demo 3</a></li>

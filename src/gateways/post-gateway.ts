@@ -28,8 +28,8 @@ export class PostGateway {
                 return dto.map(Post.fromObject);
             });
     }
-    getPostsByPage(page: number): Promise<Post[]> {
-        return this.httpClient.fetch(`api/post/getPostsByPage?page=${page}`)
+    getPostsByPage(mediaId: number, categoryId: number, tagId: number, page: number): Promise<Post[]> {
+        return this.httpClient.fetch(`api/post/getPostsByPage?mediaId=${mediaId}&categoryId=${categoryId}&tagId=${tagId}&page=${page}`)
             .then(response => response.json())
             .then(dto => {
                 return dto.map(Post.fromObject);

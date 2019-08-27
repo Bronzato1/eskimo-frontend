@@ -1,0 +1,42 @@
+<template>
+    <!-- SITE WRAPPER -->
+    <div id="eskimo-site-wrapper">
+        <!-- TOP HEADER -->
+        <!-- <top-header></top-header> -->
+        <!-- SLIDE PANEL RIGHT -->
+        <!-- <slide-panel></slide-panel> -->
+        <!-- MAIN CONTAINER -->
+        <main id="eskimo-main-container" class="no-padding">
+            <section class="au-animate">
+                <group-list
+                    items.bind="posts | filterBy:filter: (currentLanguage=='fr') ? 'frenchTitle' : 'englishTitle'"
+                    group-by="yearMonth" order-by="yearMonthDay" label="postList.post" show-checkbox="false">
+                    <template replace-part="item">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col">
+                                    <!-- 1 BADGE POUR LA CATEGORIE -->
+                                    <span class="badge badge-${category.color} text-monospace mt-1 mr-1 align-top">
+                                        ${ (currentLanguage=='fr') ? category.frenchName : category.englishName }
+                                    </span>
+                                    <!-- 1 BADGE POUR CHAQUE TAGS -->
+                                    <span class="badge badge-eskimo text-monospace mt-1 mr-1 align-top"
+                                        repeat.for="tag of filtered(tags, currentLanguage)">
+                                        ${tag.name}
+                                    </span>
+                                    <!-- LE TITRE DU BILLET -->
+                                    <a href="#" class="text-dark" click.trigger="viewPost($this)">
+                                        ${ (currentLanguage=='fr') ? frenchTitle : englishTitle }
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                    </template>
+                </group-list>
+            </section>
+
+        </main>
+    </div>
+
+</template>

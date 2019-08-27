@@ -1905,7 +1905,7 @@ textarea.form-control {
     padding: 0.4em 0.7em;
     color: #fff;
     font-weight: 700;
-    font-size: 0.75rem;
+    /* font-size: 0.75rem; */
     text-transform: uppercase;
     display: inline-block;
     margin-bottom: 0px;
@@ -1954,6 +1954,10 @@ textarea.form-control {
 
 .badge-blueviolet {
     background-color: blueviolet;
+}
+
+.badge-grayed {
+    background-color: #F2F2F2;
 }
 
 .badge-chartreuse {
@@ -2205,7 +2209,7 @@ video {
 
 #eskimo-sidebar .eskimo-logo-link {
     display: block;
-    padding: 60px 40px;
+    padding: 30px 60px;
     font-size: 3rem;
     color: #c12026;
     font-weight: 700;
@@ -2573,11 +2577,12 @@ video {
 #eskimo-main-container {
     position: relative;
     display: block;
-    padding: 80px 95px; /* REPOSITIONNEMENT 120px 95px; */
+    padding: 0 95px 80px 95px; /* REPOSITIONNEMENT 120px 95px; */
     overflow-x: hidden;
+    overflow-y: hidden;
 }
 
-.eskimo-page-title {
+/* .eskimo-page-title {
     margin-bottom: 60px;
     background:#c12026;
     padding:3rem 0 3rem 60px;
@@ -2586,15 +2591,32 @@ video {
     -moz-transition: opacity 0.2s ease-in-out;
     transition: opacity 0.2s ease-in-out;
     opacity: 0;
+} */
+
+.eskimo-page-title {
+    margin-bottom: 0px;
+    padding: 3rem 0 0 0;
+    -webkit-transition: opacity 0.2s ease-in-out;
+    -moz-transition: opacity 0.2s ease-in-out;
+    transition: opacity 0.2s ease-in-out;
+    opacity: 0;
 }
 
-.eskimo-page-title h1 {
+/* .eskimo-page-title h1 {
     position: relative;
     display: block;
     margin: 0px;
     text-transform: uppercase;
     border-bottom: 4px solid rgba(255, 255, 255, 0.1);
     color:#fff;
+} */
+
+.eskimo-page-title h1 {
+    position: relative;
+    display: block;
+    margin: 0px;
+    text-transform: uppercase;
+    color:black;
 }
 
 .eskimo-page-title span {
@@ -2637,7 +2659,7 @@ video {
     right: 0;
 }
 
-.eskimo-page-subtitle {
+/* .eskimo-page-subtitle {
     font-weight: 700;
     line-height: 1.5;
     display: block;
@@ -2646,6 +2668,17 @@ video {
     font-family: inherit;
     font-style: italic;
     color:#fff;
+} */
+
+.eskimo-page-subtitle {
+    font-weight: 700;
+    line-height: 1.5;
+    display: block;
+    margin: 15px 0 20px 0;
+    font-size: 1.45rem;
+    font-family: inherit;
+    font-style: italic;
+    color:black;
 }
 
 .eskimo-page-title-meta {
@@ -2660,13 +2693,18 @@ video {
     display: inline-block;
 }
 
-.eskimo-page-title-meta a,.eskimo-page-title-meta {
-    color: #fff;
+.eskimo-page-title-meta {
+    color: black;
+}
+
+.eskimo-page-title-meta a {
+    color: #ffcb0c;
 }
 
 .eskimo-page-title-meta a:hover {
     color: #ffcb0c;
 }
+
 
 .eskimo-author-meta:after,
 .eskimo-cat-meta:after,
@@ -2678,7 +2716,7 @@ video {
 
 .eskimo-meta-tags {
     display: block;
-    margin: 40px 0 0 0;
+    margin: 0 0 0 0;
 }
 
 .eskimo-meta-tags .badge {
@@ -2687,12 +2725,15 @@ video {
 }
 
 .eskimo-page-content {
+    margin-top: 60px;
     font-size: 1.15rem;
 }
 
 .eskimo-featured-img {
-    margin-bottom: 60px;
+    margin-top: 30px;
     background-color: #c12026;
+    position: relative;
+    width: 100%;
 }
 
 .eskimo-featured-img img {
@@ -2702,6 +2743,28 @@ video {
     display: block;
     box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
 }
+
+.eskimo-featured-img .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 1;
+}
+
+.eskimo-featured-img .overlay .icon {
+    color: white;
+    font-size: 10vw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+  }
 
 .eskimo-search-page-form {
     margin-bottom: 60px;
@@ -2990,6 +3053,17 @@ video {
     display: inline-block;
 }
 
+.card-featured-img .overlay .icon {
+    color: white;
+    font-size: 3vw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+}
+
 .card-author img {
     width: 24px;
     border-radius: 100%;
@@ -3255,7 +3329,8 @@ p.form-submit {
 }
 
 .eskimo-recent-entries ul,
-.eskimo-categories ul {
+.eskimo-categories ul,
+.eskimo-filters ul {
     list-style: none;
     padding: 0;
     margin: 0;
@@ -4256,6 +4331,9 @@ p.form-submit {
     html {
         font-size: 15px;
     }
+    header {
+        display: none;
+    }
     #eskimo-sidebar {
         position: relative;
         top: auto;
@@ -4263,7 +4341,6 @@ p.form-submit {
         right: auto;
         width: 100%;
         height: 100%;
-        /* REAJUSTEMENT margin-bottom: 60px; */
     }
     #eskimo-site-wrapper {
         padding-left: 0px;
@@ -4322,6 +4399,11 @@ p.form-submit {
 }
 
 @media only screen and (max-width: 991px) {
+
+    #top-header {
+        display: none;
+    }
+    
     h1,
     .h1 {
         font-size: 2.15rem;
@@ -4425,9 +4507,6 @@ p.form-submit {
     blockquote {
         margin: 2rem 0;
         font-size: 100%;
-    }
-    #eskimo-sidebar {
-        /* REAJUSTEMENT margin-bottom: 40px; */
     }
 
     #eskimo-sidebar .eskimo-logo-link {
@@ -4717,4 +4796,25 @@ ux-dialog-overlay.active {
 
 #mp-accordion-x ul li span.btn {
     margin: 3px 0;
+}
+
+.odd-line {
+    background-color: #FDFDFD;
+}
+
+.even-line {
+    background-color: #FFFFFF;
+}
+
+.grid-view,
+.list-view,
+.filter-view {
+    color: #efefef;
+    cursor: pointer;
+}
+
+.grid-view.active,
+.list-view.active  {
+    color: #ffcb0c;
+    cursor: default;
 }

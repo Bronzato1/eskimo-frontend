@@ -42,7 +42,7 @@
             <section class="au-animate">
                 <group-list
                     items.bind="posts | filterBy:filter: (currentLanguage=='fr') ? 'frenchTitle' : 'englishTitle'"
-                    group-by="yearMonth" order-by="yearMonthDay" label="postList.post">
+                    group-by="yearMonth" order-by="yearMonthDay" label="postList.post" show-checkbox="true">
                     <template replace-part="item">
                         <div class="container">
                             <div class="row">

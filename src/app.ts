@@ -1,19 +1,31 @@
 import { Router, RouterConfiguration, Redirect } from 'aurelia-router';
 import { Authentication } from 'services/authentication';
-import { autoinject } from 'aurelia-framework';
+import { Container, autoinject, inject } from 'aurelia-framework';
+import { SlidePanel } from './slide-panel';
+import { TopHeader } from './top-header';
 
+@autoinject
 export class App {
-    configureRouter(config: RouterConfiguration, router: Router) {
+    constructor(container: Container, slidePanel: SlidePanel, topHeader: TopHeader) {
+        this.container = container;
+        this.slidePanel = slidePanel;
+        this.topHeader = topHeader;
+    }
+    private container: Container;
+    private slidePanel: SlidePanel;
+    private topHeader: TopHeader;
+    configureRouter(config: RouterConfiguration) {
         config.addPipelineStep('postcomplete', PostCompleteStep);
         config.addPipelineStep('authorize', AuthorizeStep);
         config.map([
 
-            { route: '', redirect: 'posts' },
+            { route: '', redirect: 'postsListView' },
 
             // B L O G
 
-            { route: 'posts', name: 'posts', moduleId: 'blog/posts' },
-            { route: 'postList', name: 'postList', moduleId: 'blog/post-list', settings: { auth: true } },
+            { route: 'postsGridView', name: 'postsGridView', moduleId: 'blog/posts-grid-view' },
+            { route: 'postsListView', name: 'postsListView', moduleId: 'blog/posts-list-view' },
+            { route: 'postsListAdmin', name: 'postsListAdmin', moduleId: 'blog/posts-list-admin', settings: { auth: true } },
             { route: 'postEdit', name: 'postEdit', moduleId: 'blog/post-edit', settings: { auth: true } },
             { route: 'postView', name: 'postView', moduleId: 'blog/post-view' },
             { route: 'categoryList', name: 'categoryList', moduleId: 'blog/category-list', settings: { auth: true } },
@@ -44,9 +56,7 @@ export class App {
             { route: 'search', name: 'search', moduleId: 'pages/test/search' },
             { route: 'testFroala', name: 'testFroala', moduleId: 'pages/test/test-froala' }
         ]);
-        this.router = router;
     }
-    private router;
     attached() {
         $(document).ready(function () {
             /* ADJUST MENU FOR MOBILES */

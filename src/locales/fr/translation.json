@@ -17,6 +17,7 @@
         "description": "J'ai toujours recherché des opportunités et des défis qui ont du sens pour moi. J'ai de l'expérience dans la création d'applications Web mais aussi d'applications Windows. Contactez-moi si vous avez des questions !",
         "contactMe": "Contactez-moi",
         "recentPosts": "Articles récents",
+        "medias": "Médias",
         "categories": "Catégories",
         "tags": "Mots-clés"
     },
@@ -26,6 +27,7 @@
         "viewMorePosts": "Voir plus de billets"
     },
     "postList": {
+        "title": "Le blog",
         "filterList": "Filtrer la liste",
         "post": "{{count}} billet",
         "post_plural": "{{count}} billets",
@@ -37,8 +39,10 @@
         "import": "Importer"
     },
     "postView": {
+        "title": "Le blog",
         "by": "Par",
         "in": "Dans",
+        "on": "Le",
         "readingTime": "{{minutes}} min de lecture"
     },
     "postEdit": {
@@ -47,8 +51,9 @@
         "preview": "Apperçu",
         "choose": "Choisir",
         "postTitle": "Titre du billet",
+        "media": "Média",
         "category": "Catégorie",
-        "keywords": "Les mots clés",
+        "tags": "Les mots clés",
         "creationDate": "Date de création",
         "readingTime": "Temps de lecture",
         "requiredField": "Champ obligatoire",
@@ -74,6 +79,7 @@
         "requiredField": "Champ obligatoire"
     },
     "about": {
+        "title": "A propos",
         "aboutContent": "<p>Ces 20 dernières années ont été riches en expériences professionnelles. Que cela soit en parfaite autonomie, à distance ou intégré dans des équipes, je m'assure de toujours rester au courant des projets et des objectifs fixés tout en communiquant efficacement avec l'équipe. </p>",
         "skillsContent": "<p>Il parait qu'il faut franchir le cap des 10 ans pour devenir un epert dans son domaine. La technologie évolue constamment et tellement vite que même un expert reste constamment dans le challenge.</p>",
         "other": "Autre",

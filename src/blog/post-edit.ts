@@ -19,7 +19,25 @@ import * as $ from 'jquery';
 
 @autoinject()
 export class PostEdit {
+
     @bindable datepicker;
+    private postGateway: PostGateway;
+    private tagGateway: TagGateway;
+    private categoryGateway: CategoryGateway;
+    private router: Router;
+    private box: Box;
+    private translator: Translator;
+    private dialogService: DialogService;
+    private validationController: any;
+    private post: Post;
+    private categories = [];
+    private medias = [];
+    private i18n: I18N;
+    private selectedFiles: any;
+    private handlerQuickSaveFct;
+    private currentLng: string = 'fr';
+    private httpClient: HttpClient;
+
     constructor(postGateway: PostGateway, tagGateway: TagGateway, categoryGateway: CategoryGateway, router: Router, box: Box, dialogService: DialogService, i18n: I18N, validationController: ValidationControllerFactory, translator: Translator, httpClient: HttpClient) {
         this.postGateway = postGateway;
         this.tagGateway = tagGateway;
@@ -32,21 +50,6 @@ export class PostEdit {
         this.translator = translator;
         this.httpClient = httpClient;
     }
-    private postGateway: PostGateway;
-    private tagGateway: TagGateway;
-    private categoryGateway: CategoryGateway;
-    private router: Router;
-    private box: Box;
-    private translator: Translator;
-    private dialogService: DialogService;
-    private validationController: any;
-    private post: Post;
-    private categories = [];
-    private i18n: I18N;
-    private selectedFiles: any;
-    private handlerQuickSaveFct;
-    private currentLng: string = 'fr';
-    private httpClient: HttpClient;
     private get environment() {
         return environment;
     }
@@ -83,7 +86,10 @@ export class PostEdit {
     private activate(params, config) {
         var self = this;
 
-        return loadOrCreatheThePost().then(loadCategories).then(manageValidationRules);
+        return loadOrCreatheThePost()
+            .then(loadCategories)
+            .then(loadMedias)
+            .then(manageValidationRules);
 
         async function loadOrCreatheThePost() {
             if (params && params.id) {
@@ -103,6 +109,15 @@ export class PostEdit {
         async function loadCategories() {
             var categories = await self.categoryGateway.getAllCategories();
             self.categories = categories;
+        }
+
+        async function loadMedias() {
+            var medias = [
+                { id: 1, value: 'Text' },
+                { id: 2, value: 'Audio' },
+                { id: 3, value: 'Vidéo' }
+            ];
+            self.medias = medias;
         }
 
         async function manageValidationRules() {
@@ -125,6 +140,8 @@ export class PostEdit {
 
             await self.validationController.addObject(self.post);
         }
+
+
     }
     private imageUploaded(e, editor, response) {
         // Parse response to get image url.
@@ -178,6 +195,8 @@ export class PostEdit {
     private attached() {
         var self = this;
 
+        this.overlay();
+
         $(document).ready(() => {
             $('[autofocus]').focus();
             $('#fileChooser').change(function () {
@@ -220,14 +239,14 @@ export class PostEdit {
                 self.box.showNotification(msgSaved, title, buttonOk)
                     .whenClosed(() => {
                         if (!stayHere)
-                            self.router.navigate('postList');
+                            self.router.navigate('postsListAdmin');
                     });
             })
                 .catch(() => self.box.showError(msgError, title, [buttonOk]));
         }
     }
     private showPostList() {
-        this.router.navigateToRoute('postList');
+        this.router.navigateToRoute('postsListAdmin');
     }
     private viewPost() {
         this.router.navigateToRoute('postView', { id: this.post.id });
@@ -280,11 +299,9 @@ export class PostEdit {
     private translateServerSide(from: string, to: string) {
         var content = (from == 'fr') ? this.post.frenchContent : this.post.englishContent;
         this.translator.translate(from, to, content).then((data) => {
-            if (to == 'fr')
-            {
+            if (to == 'fr') {
                 this.post.frenchContent = data;
-            } else 
-            {
+            } else {
                 this.post.englishContent = data;
             };
         }).catch((error) => {
@@ -305,15 +322,52 @@ export class PostEdit {
 
         if (response.ok) {
             var data = await response.json();
-            var obj = (data.length>0) ? data[0] : null;
-            var translation = (obj.translations.length >0) ? obj.translations[0].text : null; 
-            if (to == 'fr')
-            {
+            var obj = (data.length > 0) ? data[0] : null;
+            var translation = (obj.translations.length > 0) ? obj.translations[0].text : null;
+            if (to == 'fr') {
                 this.post.frenchContent = translation;
-            } else 
-            {
+            } else {
                 this.post.englishContent = translation;
             };
         };
+    }
+    private overlay() {
+
+        var div: Element = document.getElementsByClassName('eskimo-featured-img')[0];
+
+        if (!div)
+            return;
+
+        var img: Element = div.getElementsByTagName('img')[0];
+        var overlay: Element = div.getElementsByClassName('overlay')[0];
+        var icon: Element = div.getElementsByClassName('icon')[0];
+        var i: Element = div.getElementsByTagName('i')[0];
+
+        if (!overlay) {
+
+            i = document.createElement("i");
+
+            icon = document.createElement("div");
+            icon.className = "icon";
+            icon.appendChild(i);
+
+            overlay = document.createElement("div");
+            overlay.className = "overlay";
+            overlay.appendChild(icon);
+        }
+
+        switch (this.post.media) {
+            case 1: // Text
+                break;
+            case 2: // Audio
+                i.className = "fa fa-microphone";
+                break;
+            case 3: /// Video
+                i.className = "fa fa-play";
+                break;
+            default:
+                return;
+        }
+        img.parentNode.insertBefore(overlay, img.nextSibling);
     }
 }

@@ -1,7 +1,7 @@
 import { Authentication } from '../services/authentication';
-import { autoinject } from 'aurelia-framework';
+import { autoinject, inject } from 'aurelia-framework';
 
-@autoinject()
+@inject(Authentication)
 export class Login {
     constructor(authentication: Authentication) {
         this.authentication = authentication;

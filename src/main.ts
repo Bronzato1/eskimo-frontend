@@ -74,8 +74,6 @@ export function configure(aurelia: Aurelia) {
         .globalResources([
             'resources/elements/scriptinjector',
             'resources/elements/reading-position',
-            'resources/elements/topicons',
-            'resources/elements/slide-panel',
             'resources/elements/fullscreen-search',
             'resources/elements/goto-top',
             'resources/elements/rrssb',

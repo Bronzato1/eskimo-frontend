@@ -1,21 +1,20 @@
 <template>
-
     <!-- READING POSITION INDICATOR -->
     <reading-position></reading-position>
-    <!-- TOP MENU ICONS -->
-    <topicons></topicons>
-    <!-- SLIDE PANEL RIGHT -->
-    <slide-panel></slide-panel>
     <!-- FULL SCREEN SEARCH -->
     <fullscreen-search></fullscreen-search>
     <!-- SITE WRAPPER -->
     <div id="eskimo-site-wrapper">
+        <!-- TOP HEADER -->
+        <!-- <top-header></top-header> -->
+        <!-- SLIDE PANEL RIGHT -->
+        <!-- <slide-panel></slide-panel> -->
         <!-- MAIN CONTAINER -->
         <main id="eskimo-main-container">
             <div class="container">
                 <div class="clearfix"></div>
                 <!-- SLIDER -->
-                <div class="eskimo-carousel-container eskimo-bg-loader">
+                <div if.bind="false" class="eskimo-carousel-container eskimo-bg-loader">
                     <div id="eskimo-post-slider" class="eskimo-slider">
                         <!-- FAVORITE SLIDES -->
                         <template repeat.for="post of favoritePosts" containerless>
@@ -51,7 +50,7 @@
                 </div>
                 <!-- BLOG POSTS -->
                 <template repeat.for="post of allPosts" containerless>
-                    <div class="card card-horizontal">
+                    <div class="card card-horizontal mt-5">
                         <div class="card-body">
                             <div class="card-horizontal-left">
                                 <div class="card-category">
@@ -78,7 +77,7 @@
                                 <div class="card-horizontal-meta">
                                     <div class="eskimo-author-meta">
                                         <span t="index.by"></span> <a class="author-meta"
-                                            route-href="route:author">Thierry</a>
+                                            route-href="route:about">Thierry</a>
                                     </div>
                                     <div class="eskimo-date-meta">
                                         <a href="single-post.html">
@@ -92,8 +91,14 @@
                                 </div>
                             </div>
                             <div class="card-horizontal-right" data-img="${ post.image }">
-                                <a class="card-featured-img"
-                                    route-href="route: postView; params.bind: { id: post.id }"></a>
+                                <a class="card-featured-img" route-href="route: postView; params.bind: { id: post.id }">
+                                    <div class="overlay" if.bind="post.media > 0">
+                                        <div class="icon">
+                                            <i class="fa fa-microphone fa-3x" if.bind="post.media == 2"></i>
+                                            <i class="fa fa-play fa-3x" if.bind="post.media == 3"></i>
+                                        </div>
+                                    </div>
+                                </a>
                             </div>
                         </div>
                     </div>

@@ -2,14 +2,13 @@
 
     <!-- READING POSITION INDICATOR -->
     <reading-position></reading-position>
-    <!-- TOP MENU ICONS -->
-    <topicons></topicons>
+
     <!-- SLIDE PANEL RIGHT -->
-    <slide-panel></slide-panel>
-    <!-- FULL SCREEN SEARCH -->
-    <fullscreen-search></fullscreen-search>
+    <!-- <slide-panel></slide-panel> -->
     <!-- SITE WRAPPER -->
     <div id="eskimo-site-wrapper">
+        <!-- TOP HEADER -->
+        <top-header></top-header>
         <!-- MAIN CONTAINER -->
         <main id="eskimo-main-container">
             <div class="container">
@@ -20,35 +19,40 @@
                     <div class="eskimo-page-title-meta">
                         <div class="eskimo-author-meta">
                             <label t="postView.by"></label>
-                            <a class="author-meta" route-href="route:author">Thierry</a>
+                            <a class="author-meta" route-href="route:about">Thierry</a>
                         </div>
-                        <div class="eskimo-cat-meta">
-                            <label t="postView.in"></label>
-                            <a route-href="route:category">${ (currentLanguage=='fr') ? post.category.frenchName :
-                                post.category.englishName }</a>
-                        </div>
-                        <div class="eskimo-date-meta">${post.creation| dateFormat: 'DD MMMM YYYY' : currentLanguage }
+                        <div class="eskimo-date-meta">
+                            <label t="postView.on"></label>
+                            ${post.creation| dateFormat: 'DD MMMM YYYY' : currentLanguage }
                         </div>
                         <div class="eskimo-reading-meta">
                             <label t="postView.readingTime" t-params.bind="{minutes: post.readingTime}"></label>
                         </div>
                     </div>
                 </div>
-                <!-- FEATURED IMAGE -->
-                <div class="eskimo-featured-img">
-                    <img src="${post.image}" alt="" />
-                    <!-- <img src="images/1200x600.png" alt="" /> -->
-                </div>
-                <!-- POST CONTENT -->
-                <div class="eskimo-page-content" innerhtml.bind="(currentLanguage=='fr') ? post.frenchContent : post.englishContent">
-                </div>
-                <div class="clearfix"></div>
                 <!-- TAGS -->
                 <div class="eskimo-meta-tags">
-                    <span class="badge badge-default" repeat.for="tag of filtered(post.tags, currentLanguage)">
+                    <!-- 1 BADGE POUR LA CATEGORIE -->
+                    <a route-href="route: postsGridView; params.bind: { categoryId: post.category.id }">
+                        <span class="badge badge-${post.category.color} text-monospace mt-1 mr-1 align-top">
+                            ${ (currentLanguage=='fr') ? post.category.frenchName : post.category.englishName }
+                        </span>
+                    </a>
+                    <!-- 1 BADGE POUR CHAQUE TAGS -->
+                    <span class="badge badge-default text-monospace"
+                        repeat.for="tag of filtered(post.tags, currentLanguage)">
                         <a route-href="route:tag">${tag.name}</a>
                     </span>
                 </div>
+                <!-- FEATURED IMAGE -->
+                <div if.bind="post.image" class="eskimo-featured-img">
+                    <img src="${post.image}" alt="" />
+                </div>
+                <!-- POST CONTENT -->
+                <div class="eskimo-page-content"
+                    innerhtml.bind="(currentLanguage=='fr') ? post.frenchContent : post.englishContent">
+                </div>
+                <div class="clearfix"></div>
                 <!-- SOCIAL SHARING -->
                 <rrssb></rrssb>
             </div>

@@ -17,6 +17,7 @@
         "description": "I've always sought out opportunities and challenges that are meaningful to me. I have experience building web applications but also Windows applications. Contact me if you have any questions !",
         "contactMe": "Contact me",
         "recentPosts": "Recent posts",
+        "medias": "Media",
         "categories": "Categories",
         "tags": "Tags"
     },
@@ -26,6 +27,7 @@
         "viewMorePosts": "View more posts"
     },
     "postList": {
+        "title": "The blog",
         "filterList": "Filter the list",
         "post": "{{count}} post",
         "post_plural": "{{count}} posts",
@@ -37,8 +39,10 @@
         "import": "Import"
     },
     "postView": {
+        "title": "The blog",
         "by": "By",
         "in": "In",
+        "on": "On",
         "readingTime": "{{minutes}} min read"
     },
     "postEdit": {
@@ -47,8 +51,9 @@
         "preview": "Preview",
         "choose": "Choose",
         "postTitle": "Post title",
+        "media": "Media",
         "category": "Category",
-        "keywords": "Keywords",
+        "tags": "Tags",
         "creationDate": "Creation date",
         "readingTime": "Reading time",
         "requiredField": "Required field",
@@ -74,6 +79,7 @@
         "requiredField": "Required field"
     },
     "about": {
+        "title": "About",
         "aboutContent": "<p>These last 20 years have been rich in professional experiences. From independent work, remotely to groups of about ten developers, I’ve always managed to stay on top of projects and communicate with a distributed team.</p>",
         "skillsContent": "<p>They say it takes 10 years to become a master in any skill. The field changes so much and so quickly that even a master may remain constantly challenged.</p>",
         "other": "Other",

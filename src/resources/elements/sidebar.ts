@@ -1,12 +1,16 @@
+import { Category } from './../../models/category-models';
+import { CategoryGateway } from './../../gateways/category-gateway';
 import { Authentication } from './../../services/authentication';
 import { I18N } from 'aurelia-i18n';
 import { autoinject, Container } from 'aurelia-framework';
 import { Router } from 'aurelia-router';
+import { runInThisContext } from 'vm';
 
 @autoinject()
 export class Sidebar {
     constructor(i18n: I18N) {
         this.i18n = i18n;
+        this.categoryGateway = Container.instance.get(CategoryGateway);
         this.i18n.setLocale('fr');
         this.router = Container.instance.get(Router);
         this.authentication = Container.instance.get(Authentication);
@@ -15,8 +19,13 @@ export class Sidebar {
     private i18n: I18N;
     private router: Router;
     private authentication: Authentication;
+    private categoryGateway: CategoryGateway;
+    private categories: Array<Category>;
     private get currentUser() {
         return this.authentication.currentUser;
+    }
+    private bind() {
+        this.categoryGateway.getAllCategories().then((categories) => this.categories = categories );
     }
     private attached() {
         $(document).ready(() => {
@@ -46,5 +55,8 @@ export class Sidebar {
     }
     private switchToEnglish() {
         this.i18n.setLocale('en');
+    }
+    private get currentLanguage() {
+        return this.i18n.getLocale();
     }
 }

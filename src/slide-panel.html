@@ -1,0 +1,79 @@
+<template>
+    <!-- SLIDE PANEL OVERLAY -->
+    <div id="eskimo-overlay"></div>
+    <!-- SLIDE PANEL -->
+    <div id="eskimo-panels">
+        <aside id="eskimo-panel" class="eskimo-panel">
+            <div class="eskimo-panel-inner">
+                <!-- CLOSE SLIDE PANEL BUTTON -->
+                <a href="#" class="eskimo-panel-close"><i class="fa fa-times"></i></a>
+                <!-- FILTER BY MEDIAS -->
+                <div class="eskimo-filters eskimo-widget">
+                    <h5 class="eskimo-title-with-border"><span t="slidePanel.medias"></span></h5>
+                    <ul>
+                        <li>
+                            <label>
+                                <input type="radio" value="" checked.bind="selectedMedia" class="mr-3"
+                                    style="transform: scale(1.5);"> Tous les médias
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" value="1" checked.bind="selectedMedia" class="mr-3"
+                                    style="transform: scale(1.5);"> Billet de blog
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" value="2" checked.bind="selectedMedia" class="mr-3"
+                                    style="transform: scale(1.5);"> Audio
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" value="3" checked.bind="selectedMedia" class="mr-3"
+                                    style="transform: scale(1.5);"> Vidéo
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+                <!-- FILTER BY CATEGORIES -->
+                <div class="eskimo-filters eskimo-widget">
+                    <h5 class="eskimo-title-with-border"><span t="slidePanel.categories"></span></h5>
+                    <ul>
+                        <li>
+                            <label>
+                                <input type="radio" value="" checked.bind="selectedCategory" class="mr-3"
+                                    style="transform: scale(1.5);"> Toutes les catégories
+                            </label>
+                        </li>
+                        <li repeat.for="category of categories">
+                            <label>
+                                <input type="radio" value.bind="category.id" checked.bind="selectedCategory" class="mr-3"
+                                    style="transform: scale(1.5);"> ${category.frenchName}
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+                <!-- FILTER BY TAGS -->
+                <div class="eskimo-filters eskimo-widget">
+                    <h5 class="eskimo-title-with-border"><span t="slidePanel.tags"></span></h5>
+                    <ul>
+                        <li>
+                            <label>
+                                <input type="radio" value="" checked.bind="selectedTag" class="mr-3"
+                                    style="transform: scale(1.5);"> Tous les mots-clés
+                            </label>
+                        </li>
+                        <li repeat.for="tag of tags">
+                            <label>
+                                <input type="radio" value.bind="tag.id" checked.bind="selectedTag" class="mr-3"
+                                    style="transform: scale(1.5);"> ${tag.name}
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+    </div>
+</template>

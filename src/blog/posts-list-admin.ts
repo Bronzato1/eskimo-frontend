@@ -8,7 +8,7 @@ import { EventAggregator } from 'aurelia-event-aggregator';
 import { I18N } from 'aurelia-i18n';
 
 @autoinject()
-export class PostList {
+export class PostsListAdmin {
     constructor(router: Router, postGateway: PostGateway, box: Box, eventAggregator: EventAggregator, i18n: I18N) {
         this.router = router;
         this.postGateway = postGateway;
@@ -74,7 +74,7 @@ export class PostList {
                 performTheDelete(this);
         });
 
-        async function performTheDelete(self: PostList) {
+        async function performTheDelete(self: PostsListAdmin) {
             await self.postGateway.deletePost(post.id);
             var pos = self.posts.findIndex(x => x.id == post.id);
             self.posts.splice(pos, 1);
@@ -96,7 +96,7 @@ export class PostList {
             }
         });
 
-        async function performTheDelete(self: PostList, post: Post) {
+        async function performTheDelete(self: PostsListAdmin, post: Post) {
             await self.postGateway.deletePost(post.id);
             var pos = self.posts.findIndex(x => x.id == post.id);
             self.posts.splice(pos, 1);

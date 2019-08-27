@@ -45,4 +45,16 @@ export class TagGateway {
         }
         return this.httpClient.fetch(`api/tag/deleteTag`, { method: 'POST', body: json(data) });
     }
+    getAllTags(): Promise<Tag[]> {
+        return this.httpClient.fetch(`api/tag`)
+            .then(response => response.json())
+            .then(dto => {
+                if (dto.length == 0) {
+                    return Promise.resolve([]);
+                }
+                else {
+                    return dto.map(Tag.fromObject);
+                }
+            });
+    }
 }
