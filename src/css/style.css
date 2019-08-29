@@ -2110,6 +2110,8 @@ object,
 embed,
 video {
     max-width: 100%;
+    -webkit-box-shadow: 0 30px 50px 0 rgba(1, 1, 1, .2);
+    box-shadow: 0 30px 50px 0 rgba(1, 1, 1, .2);
 }
 
 /* ================= TOP ICONS ================== */
@@ -2976,7 +2978,7 @@ video {
 }
 
 .card.card-horizontal {
-    margin-bottom: 60px;
+    margin-bottom: 20px;
 }
 
 .card-horizontal .card-body {
@@ -4130,7 +4132,7 @@ p.form-submit {
     margin: 0px -30px;
     min-width: 100%;
     display: block;
-    opacity: 0;
+    opacity: 1;
     -webkit-transition: opacity 0.2s linear;
     -moz-transition: opacity 0.2s linear;
     transition: opacity 0.2s linear;
@@ -4143,8 +4145,8 @@ p.form-submit {
 }
 
 .eskimo-masonry-grid .card-masonry {
-    padding: 0px 30px;
-    margin-bottom: 60px;
+    padding: 0px 10px;
+    margin-bottom: 20px;
 }
 
 .eskimo-masonry-grid.small-masonry {
@@ -4481,6 +4483,9 @@ p.form-submit {
     .eskimo-slider {
         margin-bottom:60px
     }
+    .card-featured-img .overlay .icon {
+        font-size: 4vw;
+    }
 }
 
 
@@ -4564,6 +4569,11 @@ p.form-submit {
     #eskimo-main-container {
         padding: 15px 0px 40px 0px;
     }
+
+    .eskimo-masonry-grid .card-masonry {
+        padding: 0px;
+    }
+
     .eskimo-masonry-grid .card-masonry,
     .card.card-horizontal {
         margin-bottom: 40px;

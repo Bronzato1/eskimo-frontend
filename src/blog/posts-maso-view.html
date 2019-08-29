@@ -1,0 +1,86 @@
+<template>
+    <!-- READING POSITION INDICATOR -->
+    <reading-position></reading-position>
+    <!-- FULL SCREEN SEARCH -->
+    <fullscreen-search></fullscreen-search>
+    <!-- SITE WRAPPER -->
+    <div id="eskimo-site-wrapper">
+        <!-- TOP HEADER -->
+        <compose view-model="top-header"></compose>
+        <!-- MAIN CONTAINER -->
+        <main id="eskimo-main-container" class="px-4">
+            <div class="container mt-4">
+                <div class="clearfix"></div>
+                <!-- BLOG POSTS -->
+                <div class="eskimo-masonry-grid">
+                    <div class="eskimo-three-columns" data-columns>
+                        <template repeat.for="post of allPosts" containerless>
+                            <div class="card-masonry">
+                                <div class="card">
+                                    <a class="card-featured-img position-relative"
+                                        route-href="route: postView; params.bind: { id: post.id }">
+                                        <img class="card-vertical-img" src="${post.image}" alt="" />
+                                        <div class="overlay" if.bind="post.media > 0">
+                                            <div class="icon">
+                                                <i class="fa fa-microphone fa-3x" if.bind="post.media == 2"></i>
+                                                <i class="fa fa-youtube-play fa-3x" if.bind="post.media == 3"></i>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <div class="card-border">
+                                        <div class="card-body">
+                                            <div class="card-category">
+                                                <a route-href="route: category">
+                                                    ${ (currentLanguage=='fr') ?
+                                                    post.category.frenchName :
+                                                    post.category.englishName }
+                                                </a>
+                                            </div>
+                                            <h3 class="card-title">
+                                                <a href="single-post.html">${post.frenchTitle}</a>
+                                            </h3>
+                                            <!-- <p innerhtml.bind="( currentLanguage=='fr') ? 
+                                            excerpt(post.frenchContent) : 
+                                            excerpt(post.englishContent)">
+                                            </p> -->
+                                        </div>
+                                        <div class="card-footer">
+                                            <div class="eskimo-author-meta">
+                                                <span t="index.by"></span>
+                                                <a class="author-meta" route-href="route:about">Thierry</a>
+                                            </div>
+                                            <div class="eskimo-date-meta">
+                                                <span t="index.on"></span>
+                                                <a href="single-post.html">
+                                                    ${post.creation| dateFormat: 'DD MMMM YYYY' : currentLanguage }
+                                                </a>
+                                            </div>
+                                            <div class="eskimo-reading-meta">
+                                                <label t="index.readingTime"
+                                                    t-params.bind="{minutes: post.readingTime}"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+                <!-- VIEW MORE BUTTON -->
+                <div class="eskimo-view-more" if.bind="loadedPages<totalPages">
+                    <a class="btn btn-default" href="#" click.trigger="loadMorePosts()" t="index.viewMorePosts"></a>
+                </div>
+            </div>
+        </main>
+        <!-- FOOTER -->
+        <footer-panel></footer-panel>
+    </div>
+    <!-- GO TO TOP BUTTON -->
+    <goto-top></goto-top>
+
+    <!-- JS FILES -->
+    <scriptinjector url="javascript/post-slider.js"></scriptinjector>
+    <scriptinjector url="javascript/post-carousel.js"></scriptinjector>
+    <scriptinjector url="javascript/featherlight.js"></scriptinjector>
+
+</template>

@@ -23,6 +23,10 @@ export class TopHeader {
     }
     private attached() {
         jQuery(document).ready(function () {
+            (<any>$('i,a')).tooltip();
+            $('[data-toggle="tooltip"]').on('click', function () {
+                (<any>$(this)).tooltip('hide');
+            })
             jQuery("body")
                 .find(".eskimo-panel-open")
                 .panelslider({ side: "right", clickClose: !0, duration: 400 });
@@ -41,5 +45,9 @@ export class TopHeader {
     private switchGridView() {
         var params = this.slidePanel.getRouteParameters();
         this.router.navigateToRoute('postsGridView', params);
+    }
+    private switchMasoView() {
+        var params = this.slidePanel.getRouteParameters();
+        this.router.navigateToRoute('postsMasoView', params);
     }
 }

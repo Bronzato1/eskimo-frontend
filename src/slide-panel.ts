@@ -65,7 +65,12 @@ export class SlidePanel {
         this.router.navigateToRoute(route, params);
     }
     public getRoute() {
-        return (this.currentViewMode == 'list') ? 'postsListView' : 'postsGridView';
+        switch (this.currentViewMode)
+        {
+            case 'list': return 'postsListView';
+            case 'grid': return 'postsGridView';
+            case 'maso': return 'postsMasoView';
+        }
     }
     public getRouteParameters() {
 

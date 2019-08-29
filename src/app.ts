@@ -25,6 +25,7 @@ export class App {
 
             { route: 'postsGridView', name: 'postsGridView', moduleId: 'blog/posts-grid-view' },
             { route: 'postsListView', name: 'postsListView', moduleId: 'blog/posts-list-view' },
+            { route: 'postsMasoView', name: 'postsMasoView', moduleId: 'blog/posts-maso-view' },
             { route: 'postsListAdmin', name: 'postsListAdmin', moduleId: 'blog/posts-list-admin', settings: { auth: true } },
             { route: 'postEdit', name: 'postEdit', moduleId: 'blog/post-edit', settings: { auth: true } },
             { route: 'postView', name: 'postView', moduleId: 'blog/post-view' },
@@ -92,7 +93,6 @@ class PostCompleteStep {
         $(document).ready(function () {
             $('#eskimo-main-menu').find('.eskimo-menu-ul > li:has(ul) > a').addClass("eskimo-menu-down");
             $('body').find('select').addClass('custom-select');
-            $('body').find('.eskimo-masonry-grid').css('opacity', '1');
         });
     }
 }

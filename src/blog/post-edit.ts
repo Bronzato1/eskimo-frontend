@@ -374,9 +374,19 @@ export class PostEdit {
         }
         img.parentNode.insertBefore(overlay, img.nextSibling);
     }
-    private loadThumbnailFromYoutube() {
+    private loadThumbnailFromYoutube_320_180() {
+        var id = this.post.youtubeVideoId;
+        this.post.image = `https://img.youtube.com/vi/${id}/mqdefault.jpg`;
+        this.imageVisibility = true;
+    }
+    private loadThumbnailFromYoutube_480_360() {
         var id = this.post.youtubeVideoId;
         this.post.image = `https://img.youtube.com/vi/${id}/hqdefault.jpg`;
+        this.imageVisibility = true;
+    }
+    private loadThumbnailFromYoutube_1280_720() {
+        var id = this.post.youtubeVideoId;
+        this.post.image = `https://img.youtube.com/vi/${id}/maxresdefault.jpg`;
         this.imageVisibility = true;
     }
     private openInYoutube() {

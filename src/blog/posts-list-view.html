@@ -4,7 +4,7 @@
         <!-- TOP HEADER -->
         <compose view-model="top-header"></compose>
         <!-- MAIN CONTAINER -->
-        <main id="eskimo-main-container" class="no-padding">
+        <main id="eskimo-main-container" class="no-padding mt-4">
             <section class="au-animate">
                 <group-list
                     items.bind="posts | filterBy:filter: (currentLanguage=='fr') ? 'frenchTitle' : 'englishTitle'"
