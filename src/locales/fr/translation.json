@@ -23,6 +23,7 @@
     },
     "index": {
         "by": "Par",
+        "on": "Le",
         "readingTime": "{{minutes}} min de lecture",
         "viewMorePosts": "Voir plus de billets"
     },
@@ -46,8 +47,8 @@
         "readingTime": "{{minutes}} min de lecture"
     },
     "postEdit": {
-        "save": "Enregistrer",
-        "showList": "Afficher la liste",
+        "save": "Sauver",
+        "showList": "Liste",
         "preview": "Apperçu",
         "choose": "Choisir",
         "postTitle": "Titre du billet",
@@ -71,7 +72,7 @@
     },
     "categoryEdit": {
         "save": "Enregistrer",
-        "showList": "Afficher la liste",
+        "showList": "Liste",
         "choose": "Choisir",
         "frenchName": "Nom en français",
         "englishName": "Nom en anglais",

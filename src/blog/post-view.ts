@@ -69,7 +69,7 @@ export class PostView {
                 i.className = "fa fa-microphone";
                 break;
             case 3: /// Video
-                i.className = "fa fa-play";
+                i.className = "fa fa-youtube-play";
                 break;
             default:
                 return;

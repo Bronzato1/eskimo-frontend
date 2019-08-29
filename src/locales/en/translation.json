@@ -23,6 +23,7 @@
     },
     "index": {
         "by": "By",
+        "on": "Le",
         "readingTime": "{{minutes}} min read",
         "viewMorePosts": "View more posts"
     },
@@ -47,7 +48,7 @@
     },
     "postEdit": {
         "save": "Save",
-        "showList": "ShowList",
+        "showList": "Show list",
         "preview": "Preview",
         "choose": "Choose",
         "postTitle": "Post title",

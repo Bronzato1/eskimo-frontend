@@ -89,27 +89,11 @@ class PostCompleteStep {
             $("html,body").scrollTop(0);
         }
 
-        /* CALCULATE PAGE TITLE NEGATIVE MARGIN */
-        var adjustPageTitle = function () {
-            // var coord = $('#eskimo-main-container > .container').offset();
-            // if (!coord) return;
-            // var distance = coord.left - 295;
-            // $('#eskimo-main-container').find('.eskimo-page-title').css('margin-right', -distance);
-            // $('#eskimo-main-container').find('.eskimo-page-title').css('padding-right', distance);
-            $('#eskimo-main-container').find('.eskimo-page-title').css('opacity', 1);
-        };
-
         $(document).ready(function () {
-            adjustPageTitle();
             $('#eskimo-main-menu').find('.eskimo-menu-ul > li:has(ul) > a').addClass("eskimo-menu-down");
             $('body').find('select').addClass('custom-select');
             $('body').find('.eskimo-masonry-grid').css('opacity', '1');
         });
-
-        $(window).on('resize orientationchange', function () {
-            adjustPageTitle();
-        });
-
     }
 }
 

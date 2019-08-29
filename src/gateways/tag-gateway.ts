@@ -38,10 +38,9 @@ export class TagGateway {
         }
         return this.httpClient.fetch(`api/tag/updateTag`, { method: 'POST', body: json(data) });
     }
-    tagDeleted(postId, tagName) {
+    tagDeleted(tagId) {
         var data = {
-            postId: postId,
-            tagName: tagName
+            tagId: tagId
         }
         return this.httpClient.fetch(`api/tag/deleteTag`, { method: 'POST', body: json(data) });
     }

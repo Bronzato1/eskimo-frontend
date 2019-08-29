@@ -37,6 +37,8 @@ export class PostEdit {
     private handlerQuickSaveFct;
     private currentLng: string = 'fr';
     private httpClient: HttpClient;
+    private imageVisibility: boolean;
+    private settingsVisibility: boolean
 
     constructor(postGateway: PostGateway, tagGateway: TagGateway, categoryGateway: CategoryGateway, router: Router, box: Box, dialogService: DialogService, i18n: I18N, validationController: ValidationControllerFactory, translator: Translator, httpClient: HttpClient) {
         this.postGateway = postGateway;
@@ -56,7 +58,7 @@ export class PostEdit {
     private froalaConfig =
         {
             key: secret.froalaKey,
-            toolbarInline: false,
+            toolbarInline: true,
             charCounterCount: false,
             imageUploadURL: environment.backendUrl + 'api/froala/UploadImage',
             fileUploadURL: environment.backendUrl + 'api/froala/UploadFile',
@@ -65,8 +67,9 @@ export class PostEdit {
             imageManagerDeleteMethod: 'POST',
             codeMirror: CodeMirror,
             htmlUntouched: true,
+            videoResponsive: false,
             //toolbarButtons: ['fullscreen', 'bold', 'italic', 'underline', 'strikeThrough', '|', 'fontFamily', 'fontSize', 'color', 'inlineClass', 'inlineStyle', 'paragraphStyle', 'lineHeight', '|', 'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', 'insertLink', 'insertImage', 'insertVideo', 'embedly', 'insertFile', 'insertTable', '|', 'emoticons', 'fontAwesome', 'insertHR', 'selectAll', 'clearFormatting', '|', 'html', '|', 'undo', 'redo', 'colorizeCode'],
-            toolbarButtons: ['fullscreen', 'bold', 'italic', 'underline', 'strikeThrough', '|', 'fontFamily', 'fontSize', 'color', 'inlineClass', 'inlineStyle', 'paragraphStyle', '|', 'paragraphFormat', 'align', 'formatOL', 'formatUL', 'quote', 'insertLink', 'insertImage', '|', 'insertHR', '|', 'html', '|', 'undo', 'redo', 'colorizeCode'],
+            toolbarButtons: ['fullscreen', 'bold', 'italic', 'underline', 'strikeThrough', '|', 'fontFamily', 'fontSize', 'color', 'inlineClass', 'inlineStyle', 'paragraphStyle', '|', 'paragraphFormat', 'align', 'formatOL', 'formatUL', 'quote', 'insertLink', 'insertImage', 'insertVideo', '|', 'insertHR', '|', 'html', '|', 'undo', 'redo', 'colorizeCode'],
             codeBeautifierOptions: {
                 end_with_newline: true,
                 indent_inner_html: true,
@@ -273,8 +276,8 @@ export class PostEdit {
         }
     }
     private onTagDeleted(tagName) {
-        var postId = this.post.id;
-        this.tagGateway.tagDeleted(postId, tagName);
+        var tagId = this.post.tags.find(x => x.name == tagName && x.language == this.currentLng).id;
+        this.tagGateway.tagDeleted(tagId);
     }
     private onTagUpdated(tagOldName, tagNewName) {
         var postId = this.post.id;
@@ -288,6 +291,7 @@ export class PostEdit {
         }
         this.postGateway.uploadImageResize1200x600(this.selectedFiles[0]).then(link => {
             this.post.image = environment.backendUrl + link;
+            this.imageVisibility = true;
         });
     }
     private get currentLanguage() {
@@ -363,11 +367,52 @@ export class PostEdit {
                 i.className = "fa fa-microphone";
                 break;
             case 3: /// Video
-                i.className = "fa fa-play";
+                i.className = "fa fa-youtube-play";
                 break;
             default:
                 return;
         }
         img.parentNode.insertBefore(overlay, img.nextSibling);
+    }
+    private loadThumbnailFromYoutube() {
+        var id = this.post.youtubeVideoId;
+        this.post.image = `https://img.youtube.com/vi/${id}/hqdefault.jpg`;
+        this.imageVisibility = true;
+    }
+    private openInYoutube() {
+        var id = this.post.youtubeVideoId;
+        var url = `https://www.youtube.com/watch?v=${id}`;
+        var win = window.open(url, '_blank');
+        win.focus();
+    }
+    private deleteImage() {
+
+        var self = this;
+
+        $.ajax({
+            // Request method.
+            method: "POST",
+
+            // Request URL.
+            url: environment.backendUrl + "api/froala/DeleteFile",
+
+            // Request params.
+            data: {
+                src: this.post.image
+            }
+        })
+            .done(function (data) {
+                console.log('file was deleted');
+                self.post.image = null;
+            })
+            .fail(function (err) {
+                console.log('file delete problem: ' + JSON.stringify(err));
+            })
+    }
+    private showHideImage() {
+        this.imageVisibility = !this.imageVisibility;
+    }
+    private showHideSettings() {
+        this.settingsVisibility = !this.settingsVisibility;
     }
 }

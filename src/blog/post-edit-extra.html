@@ -1,0 +1,72 @@
+<template bindable="post, medias, categories, openInYoutube">
+    <!-- ZONE DE LISTE POUR LE CHOIX DU MEDIA -->
+    <div class="form-group mb-1" validation-errors.bind="mediaErrors"
+        class.bind="mediaErrors.length ? 'has-error' : ''">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text" style="min-width: 160px;" t="postEdit.media"></span>
+            </div>
+            <select value.bind="post.media & validate" change.trigger="overlay()" class="form-control custom-select"
+                style="max-width: 250px; border-left: 1px solid rgba(0, 0, 0, 0.3);">
+                <option model.bind="null" t="postEdit.choose"></option>
+                <option repeat.for="media of medias" model.bind="media.id">
+                    ${ media.value }
+                </option>
+            </select>
+            <div class="input-group-prepend" if.bind="post.media==3">
+                <button class="btn dropdown-toggle btn-outline-primary ml-1" type="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">Actions</button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#" click.trigger="openInYoutube()">
+                        Ouvrir dans YouTube
+                    </a>
+                </div>
+            </div>
+            <input type="text" class="form-control" if.bind="post.media==3" value.bind="post.youtubeVideoId & validate"
+                placeholder="ID de la vidéo YouTube">
+        </div>
+    </div>
+    <!-- ZONE DE LISTE POUR LE CHOIX DE LA CATEGORIE -->
+    <div class="form-group mb-1" validation-errors.bind="categoryErrors"
+        class.bind="categoryErrors.length ? 'has-error' : ''">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text" style="min-width: 160px;" t="postEdit.category"></span>
+            </div>
+            <select value.bind="post.categoryId & validate" class="form-control custom-select"
+                style="max-width: 250px; border-left: 1px solid rgba(0, 0, 0, 0.3);">
+                <option model.bind="null" t="postEdit.choose"></option>
+                <option repeat.for="category of categories" model.bind="category.id">
+                    ${ category.frenchName }
+                </option>
+            </select>
+        </div>
+    </div>
+    <!-- ZONE DE TEXTE POUR L'EDITION DE LA DATE DE CREATION -->
+    <div class="form-group mb-1" validation-errors.bind="creationErrors"
+        class.bind="creationErrors.length ? 'has-error' : ''">
+        <div class="input-group" style="flex-wrap: nowrap;">
+            <div class="input-group-prepend">
+                <span class="input-group-text" style="min-width: 160px;" t="postEdit.creationDate"></span>
+            </div>
+            <abp-datetime-picker element.bind="datepicker" model.bind="post.creation & validate"
+                options.bind="{ format: 'DD/MM/YYYY', locale: 'fr' }" icon-base="font-awesome" with-date-icon="true"
+                style="width: 173px;">
+            </abp-datetime-picker>
+        </div>
+    </div>
+    <!-- ZONE DE TEXTE POUR L'EDITION DU TEMPS DE LECTURE -->
+    <div class="form-group mb-3" validation-errors.bind="readingTimeErrors"
+        class.bind="readingTimeErrors.length ? 'has-error' : ''">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text" style="min-width: 160px;" t="postEdit.readingTime"></span>
+            </div>
+            <input type="text" class="form-control reading-time-input" style="max-width: 60px;"
+                value.bind="post.readingTime & validate">
+            <div class="input-group-append">
+                <span class="input-group-text reading-time-span" t="postEdit.min"></span>
+            </div>
+        </div>
+    </div>
+</template>

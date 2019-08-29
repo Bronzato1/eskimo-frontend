@@ -2421,7 +2421,7 @@ video {
     display: none;
     max-width: 100%;
     overflow-y: auto;
-    width: 480px;
+    width: 360px;
     background-color: #fff;
     -webkit-box-shadow: 0 30px 50px 0 rgba(1, 1, 1, .2);
     box-shadow: 0 30px 50px 0 rgba(1, 1, 1, .2);
@@ -2444,7 +2444,7 @@ video {
     height: 100%;
     display: none;
     overflow: hidden !important;
-    background: rgba(250, 250, 250, 0.9);
+    background: rgba(250, 250, 250, 0.4);
 }
 
 .eskimo-panel-inner .eskimo-panel-close {
@@ -2599,7 +2599,7 @@ video {
     -webkit-transition: opacity 0.2s ease-in-out;
     -moz-transition: opacity 0.2s ease-in-out;
     transition: opacity 0.2s ease-in-out;
-    opacity: 0;
+    opacity: 1;
 }
 
 /* .eskimo-page-title h1 {
@@ -2731,7 +2731,7 @@ video {
 
 .eskimo-featured-img {
     margin-top: 30px;
-    background-color: #c12026;
+    /* background-color: #c12026; */
     position: relative;
     width: 100%;
 }
@@ -2757,7 +2757,7 @@ video {
 
 .eskimo-featured-img .overlay .icon {
     color: white;
-    font-size: 10vw;
+    font-size: 4vw;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -3019,7 +3019,7 @@ video {
 
 .card-horizontal-right {
     position: relative;
-    width: 38.2%;
+    width: 45%; /* 38.2%; */
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -3028,7 +3028,7 @@ video {
     background-repeat: no-repeat;
     background-position: center center;
     overflow: hidden;
-    background-color: #c12026;
+    /* background-color: #c12026; */
 }
 
 .card-horizontal-right a {
@@ -3055,7 +3055,7 @@ video {
 
 .card-featured-img .overlay .icon {
     color: white;
-    font-size: 3vw;
+    font-size: 1vw;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -4658,8 +4658,8 @@ a.light-shadow {
 }
 
 .list-group .list-group-item {
-    height: 50px;
-    padding: 0.50rem 1.25rem 0.75rem 1.25rem;
+    height: 45px;
+    padding: 0.50rem 1.25rem 0.50rem 1.25rem;
 }
 
 .floatingBar {

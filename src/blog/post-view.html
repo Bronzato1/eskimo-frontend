@@ -2,13 +2,11 @@
 
     <!-- READING POSITION INDICATOR -->
     <reading-position></reading-position>
-
-    <!-- SLIDE PANEL RIGHT -->
-    <!-- <slide-panel></slide-panel> -->
+    <!-- TOP HEADER -->
+    <compose view-model="../top-header"></compose>
     <!-- SITE WRAPPER -->
     <div id="eskimo-site-wrapper">
-        <!-- TOP HEADER -->
-        <top-header></top-header>
+
         <!-- MAIN CONTAINER -->
         <main id="eskimo-main-container">
             <div class="container">
@@ -45,7 +43,7 @@
                     </span>
                 </div>
                 <!-- FEATURED IMAGE -->
-                <div if.bind="post.image" class="eskimo-featured-img">
+                <div if.bind="post.image && post.media == 1" class="eskimo-featured-img">
                     <img src="${post.image}" alt="" />
                 </div>
                 <!-- POST CONTENT -->

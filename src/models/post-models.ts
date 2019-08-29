@@ -13,6 +13,7 @@ export class Post {
     public readingTime: number;
     public favorite: boolean;
     public media: number;
+    public youtubeVideoId: string;
     public isChecked: Boolean;
     public categoryId: number;
     public tags: Array<Tag>;

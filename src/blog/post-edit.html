@@ -1,155 +1,158 @@
 <template>
 
     <require from="environment"></require>
+    <require from="./post-edit-extra.html"></require>
 
     <!-- SITE WRAPPER -->
     <div id="eskimo-site-wrapper" class="mt-2">
-        <!-- 1 BOUTON POUR AFFICHER LA LISTE DES BILLETS -->
-        <button type="button" click.delegate="showPostList()" class="btn btn-eskimo pull-right mr-3">
-            <span class="fa fa-list fa-lg mr-2"></span>
-            <span t="postEdit.showList"></span>
-        </button>
-        <!-- 1 BOUTON POUR ENREGISTRER LES MODIFICATIONS -->
-        <button type="submit" ref="button" form="postForm" class="btn btn-eskimo pull-right mr-2">
-            <span class="fa fa-save fa-lg mr-2"></span>
-            <span t="postEdit.save"></span>
-        </button>
-        <!-- 1 BOUTON POUR AVOIR UN APPERCU DU BILLET -->
-        <button type="button" click.delegate="viewPost()" class="btn btn-eskimo pull-right mr-2" show.bind="post.id>0">
-            <span class="fa fa-eye fa-lg mr-2"></span>
-            <span t="postEdit.preview"></span>
-        </button>
-        <!-- 1 BOUTON POUR CHARGER UNE IMAGE -->
-        <button type="button" click.trigger="uploadImage()" class="btn btn-eskimo pull-right mr-2">
-            <span class="fa fa-upload fa-lg  mr-2"></span>
-            <span>Image</span>
-        </button>
-        <!-- 1 BOUTON POUR TRADUIRE -->
-        <div class="dropdown">
-            <button class="btn btn-eskimo pull-right mr-2 dropdown-toggle" type="button" id="dropdownMenuButton"
-                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Translate
-            </button>
-            <div class="dropdown-menu btn btn-eskimo" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item btn btn-eskimo" href="#" click.trigger="translateServerSide('fr', 'en')">FR ►
-                    EN</a>
-                <a class="dropdown-item btn btn-eskimo" href="#" click.trigger="translateServerSide('en', 'fr')">EN ►
-                    FR</a>
-            </div>
-        </div>
-        <input id="fileChooser" type="file" name="images" files.bind="selectedFiles"
-            style="position: absolute; left: 100px; top: -500px;">
-        <div class="clearfix"></div>
-        <section class="container au-animate mt-2">
 
+        <section class="container au-animate mt-2">
             <!-- MAIN CONTAINER -->
-            <main id="eskimo-main-container" class="p-4">
+            <main id="eskimo-main-container" class="pppx-4 py-2">
+                <!-- BOUTONS -->
+                <div class="pb-4">
+                    <!-- 1 BOUTON POUR LA VERSION FR -->
+                    <button type="button" click.trigger="setCurrentLng('fr')"
+                        class="btn pull-left ${ (currentLng=='fr') ? 'btn-eskimo':'btn-outline-primary'}">
+                        <span>FR</span>
+                    </button>
+                    <!-- 1 BOUTON POUR LA VERSION EN -->
+                    <button type="button" click.trigger="setCurrentLng('en')"
+                        class="btn pull-left ml-2 ${ (currentLng=='en') ? 'btn-eskimo' :'btn-outline-primary'}">
+                        <span>EN</span>
+                    </button>
+                    <!-- 1 BOUTON POUR AFFICHER LA LISTE DES BILLETS -->
+                    <button type="button" click.delegate="showPostList()" class="btn btn-eskimo pull-right">
+                        <span class="fa fa-list fa-lg mr-2"></span>
+                        <span t="postEdit.showList"></span>
+                    </button>
+                    <!-- 1 BOUTON POUR ENREGISTRER LES MODIFICATIONS -->
+                    <button type="submit" ref="button" form="postForm" class="btn btn-eskimo pull-right mr-2">
+                        <span class="fa fa-save fa-lg mr-2"></span>
+                        <span t="postEdit.save"></span>
+                    </button>
+                    <!-- 1 BOUTON POUR AVOIR UN APPERCU DU BILLET -->
+                    <button type="button" click.delegate="viewPost()" class="btn btn-eskimo pull-right mr-2"
+                        show.bind="post.id>0">
+                        <span class="fa fa-asterisk fa-lg mr-2"></span>
+                        <span t="postEdit.preview"></span>
+                    </button>
+                    <!-- 1 BOUTON POUR GERER L'IMAGE -->
+                    <div class="dropdown">
+                        <button class="btn btn-eskimo dropdown-toggle pull-right mr-2" type="button"
+                            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Image
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#" click.trigger="uploadImage()">
+                                Choisir une nouvelle image sur l'ordinateur</a>
+                            <a class="dropdown-item" href="#" click.trigger="loadThumbnailFromYoutube()">
+                                Récupérer l'image depuis YouTube</a>
+                            <a class="dropdown-item" href="#" click.trigger="deleteImage()">
+                                Supprimer l'image actuelle</a>
+                            <div role="separator" class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#" click.trigger="showHideImage()">Afficher/masquer
+                                l'image</a>
+                        </div>
+                    </div>
+                    <!-- 1 BOUTON POUR TRADUIRE -->
+                    <div class="dropdown">
+                        <button class="btn btn-eskimo dropdown-toggle pull-right mr-2" type="button"
+                            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Traduire
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#" click.trigger="translateServerSide('fr', 'en')">
+                                Français -> Anglais</a>
+                            <a class="dropdown-item" href="#" click.trigger="translateServerSide('en', 'fr')">
+                                Anglais -> Français</a>
+                        </div>
+                    </div>
+                    <!-- 1 BOUTON POUR AFFICHER/MASQUER LES PARAMETRES -->
+                    <button type="button" click.delegate="showHideSettings()" class="btn btn-eskimo pull-right mr-2">
+                        <span class="fa fa-eye fa-lg mr-2"></span>
+                        <span>Param</span>
+                    </button>
+                    <!-- SELECTION DU FICHIER IMAGE -->
+                    <input id="fileChooser" type="file" name="images" files.bind="selectedFiles"
+                        style="position: absolute; left: 100px; top: -500px;">
+                    <div class="clearfix"></div>
+                </div>
                 <form id="postForm" submit.trigger="savePost()">
+                    <!-- ... -->
+                    <div if.bind="!settingsVisibility" class="mb-4">
+                        <!-- PAGE TITLE -->
+                        <div class="eskimo-page-title pt-0">
+                            <h1><span>${ (currentLanguage=='fr') ? post.frenchTitle : post.englishTitle}</span></h1>
+                            <div class="eskimo-page-title-meta">
+                                <div class="eskimo-author-meta">
+                                    <label t="postView.by"></label>
+                                    <a class="author-meta" route-href="route:about">Thierry</a>
+                                </div>
+                                <div class="eskimo-date-meta">
+                                    <label t="postView.on"></label>
+                                    ${post.creation| dateFormat: 'DD MMMM YYYY' : currentLanguage }
+                                </div>
+                                <div class="eskimo-reading-meta">
+                                    <label t="postView.readingTime" t-params.bind="{minutes: post.readingTime}"></label>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- TAGS -->
+                        <div class="eskimo-meta-tags">
+                            <!-- 1 BADGE POUR LA CATEGORIE -->
+                            <a route-href="route: postsGridView; params.bind: { categoryId: post.category.id }">
+                                <span class="badge badge-${post.category.color} text-monospace mt-1 mr-1 align-top">
+                                    ${ (currentLanguage=='fr') ? post.category.frenchName : post.category.englishName }
+                                </span>
+                            </a>
+                            <!-- 1 BADGE POUR CHAQUE TAGS -->
+                            <span class="badge badge-default text-monospace"
+                                repeat.for="tag of filtered(post.tags, currentLanguage)">
+                                <a route-href="route:tag">${tag.name}</a>
+                            </span>
+                        </div>
+                    </div>
                     <!-- FEATURED IMAGE -->
-                    <div class="eskimo-featured-img" if.bind="post.image!=null">
+                    <div class="eskimo-featured-img mt-0 mb-4" if.bind="post.image!=null && imageVisibility">
                         <img src="${post.image}" alt="" />
                     </div>
                     <!-- POST CONTENT -->
-                    <div class="eskimo-page-content">
-                        <div class="mb-3">
-                            <a href="#" click.trigger="setCurrentLng('fr')"
-                                class="btn ${ (currentLng=='fr') ? 'btn-primary':'btn-outline-primary'} btn-lg">FRANCAIS</a>
-                            <a href="#" click.trigger="setCurrentLng('en')"
-                                class="btn ${ (currentLng=='en') ? 'btn-primary':'btn-outline-primary'} btn-lg">ANGLAIS</a>
-                        </div>
+                    <div class="eskimo-page-content mt-0">
                         <div>
                             <!-- FRENCH -->
                             <div show.bind="currentLng=='fr'">
-                                <!-- ZONE DE TEXTE POUR L'EDITION DU TITRE FRANCAIS -->
-                                <div class="form-group mb-1" validation-errors.bind="frenchTitleErrors"
-                                    class.bind="frenchTitleErrors.length ? 'has-error' : ''">
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text" style="min-width: 160px;"
-                                                t="postEdit.postTitle"></span>
-                                        </div>
-                                        <input type="text" class="form-control" value.bind="post.frenchTitle & validate"
-                                            placeholder="Le titre de votre billet">
-                                    </div>
-                                </div>
-                                <!-- ZONE DE TEXTE POUR L'AJOUT, MODIFICATION, SUPPRESSION DES TAGS -->
-                                <div class="form-group mb-1">
-                                    <div class="input-group" show.bind="post.id>0">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text" style="min-width: 160px;"
-                                                t="postEdit.tags"></span>
-                                        </div>
-                                        <tags-input tags.bind="post.tagNamesForFrench"
-                                            on-added.call="onFrenchTagCreated(tagName)"
-                                            on-deleted.call="onTagDeleted(tagName)"
-                                            on-changed.call="onTagUpdated(tagOldName, tagNewName)">
-                                        </tags-input>
-                                    </div>
-                                </div>
-                                <!-- ZONE DE LISTE POUR LE CHOIX DU MEDIA -->
-                                <div class="form-group mb-1" validation-errors.bind="mediaErrors"
-                                    class.bind="mediaErrors.length ? 'has-error' : ''">
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text" style="min-width: 160px;"
-                                                t="postEdit.media"></span>
-                                        </div>
-                                        <select value.bind="post.media & validate" change.trigger="overlay()" class="form-control custom-select"
-                                            style="max-width: 250px; border-left: 1px solid rgba(0, 0, 0, 0.3);">
-                                            <option model.bind="null" t="postEdit.choose"></option>
-                                            <option repeat.for="media of medias" model.bind="media.id">
-                                                ${ media.value }
-                                            </option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <!-- ZONE DE LISTE POUR LE CHOIX DE LA CATEGORIE -->
-                                <div class="form-group mb-1" validation-errors.bind="categoryErrors"
-                                    class.bind="categoryErrors.length ? 'has-error' : ''">
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text" style="min-width: 160px;"
-                                                t="postEdit.category"></span>
-                                        </div>
-                                        <select value.bind="post.categoryId & validate"
-                                            class="form-control custom-select"
-                                            style="max-width: 250px; border-left: 1px solid rgba(0, 0, 0, 0.3);">
-                                            <option model.bind="null" t="postEdit.choose"></option>
-                                            <option repeat.for="category of categories" model.bind="category.id">
-                                                ${ category.frenchName }
-                                            </option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <!-- ZONE DE TEXTE POUR L'EDITION DE LA DATE DE CREATION -->
-                                <div class="form-group mb-1" validation-errors.bind="creationErrors"
-                                    class.bind="creationErrors.length ? 'has-error' : ''">
-                                    <div class="input-group" style="flex-wrap: nowrap;">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text" style="min-width: 160px;"
-                                                t="postEdit.creationDate"></span>
-                                        </div>
-                                        <abp-datetime-picker element.bind="datepicker"
-                                            model.bind="post.creation & validate"
-                                            options.bind="{ format: 'DD/MM/YYYY', locale: 'fr' }"
-                                            icon-base="font-awesome" with-date-icon="true" style="width: 173px;">
-                                        </abp-datetime-picker>
-                                    </div>
-                                </div>
-                                <!-- ZONE DE TEXTE POUR L'EDITION DU TEMPS DE LECTURE -->
-                                <div class="form-group mb-3" validation-errors.bind="readingTimeErrors"
-                                    class.bind="readingTimeErrors.length ? 'has-error' : ''">
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text" style="min-width: 160px;"
-                                                t="postEdit.readingTime"></span>
-                                        </div>
-                                        <input type="text" class="form-control reading-time-input"
-                                            style="max-width: 60px;" value.bind="post.readingTime & validate">
-                                        <div class="input-group-append">
-                                            <span class="input-group-text reading-time-span" t="postEdit.min"></span>
+                                <div if.bind="settingsVisibility">
+                                    <!-- ZONE DE TEXTE POUR L'EDITION DU TITRE FRANCAIS -->
+                                    <div class="form-group mb-1" validation-errors.bind="frenchTitleErrors"
+                                        class.bind="frenchTitleErrors.length ? 'has-error' : ''">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" style="min-width: 160px;"
+                                                    t="postEdit.postTitle"></span>
+                                            </div>
+                                            <input type="text" class="form-control"
+                                                value.bind="post.frenchTitle & validate"
+                                                placeholder="Le titre de votre billet">
                                         </div>
                                     </div>
+                                    <!-- ZONE DE TEXTE POUR L'AJOUT, MODIFICATION, SUPPRESSION DES TAGS -->
+                                    <div class="form-group mb-1">
+                                        <div class="input-group" show.bind="post.id>0">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" style="min-width: 160px;"
+                                                    t="postEdit.tags"></span>
+                                            </div>
+                                            <tags-input tags.bind="post.tagNamesForFrench"
+                                                on-added.call="onFrenchTagCreated(tagName)"
+                                                on-deleted.call="onTagDeleted(tagName)"
+                                                on-changed.call="onTagUpdated(tagOldName, tagNewName)">
+                                            </tags-input>
+                                        </div>
+                                    </div>
+                                    <!-- PARAMETRES EN EXTRA -->
+                                    <post-edit-extra post.bind="post" medias.bind="medias" categories.bind="categories"
+                                        open-in-youtube.call="openInYoutube()"></post-edit-extra>
                                 </div>
                                 <!-- CONTENT FR -->
                                 <froala-editor value.two-way="post.frenchContent" config.bind="froalaConfig"
@@ -157,97 +160,37 @@
                             </div>
                             <!-- ENGLISH -->
                             <div show.bind="currentLng=='en'">
-                                <!-- ZONE DE TEXTE POUR L'EDITION DU TITRE ANGLAIS -->
-                                <div class="form-group mb-1" validation-errors.bind="englishTitleErrors"
-                                    class.bind="englishTitleErrors.length ? 'has-error' : ''">
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text" style="min-width: 160px;"
-                                                t="postEdit.postTitle"></span>
-                                        </div>
-                                        <input type="text" class="form-control"
-                                            value.bind="post.englishTitle & validate"
-                                            placeholder="Le titre de votre billet">
-                                    </div>
-                                </div>
-                                <!-- ZONE DE TEXTE POUR L'AJOUT, MODIFICATION, SUPPRESSION DES TAGS -->
-                                <div class="form-group mb-1">
-                                    <div class="input-group" show.bind="post.id>0">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text" style="min-width: 160px;"
-                                                t="postEdit.tags"></span>
-                                        </div>
-                                        <tags-input tags.bind="post.tagNamesForEnglish"
-                                            on-added.call="onEnglishTagCreated(tagName)"
-                                            on-deleted.call="onTagDeleted(tagName)"
-                                            on-changed.call="onTagUpdated(tagOldName, tagNewName)">
-                                        </tags-input>
-                                    </div>
-                                </div>
-                                <!-- ZONE DE LISTE POUR LE CHOIX DU MEDIA -->
-                                <div class="form-group mb-1" validation-errors.bind="mediaErrors"
-                                    class.bind="mediaErrors.length ? 'has-error' : ''">
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text" style="min-width: 160px;"
-                                                t="postEdit.media"></span>
-                                        </div>
-                                        <select value.bind="post.media & validate" class="form-control custom-select"
-                                            style="max-width: 250px; border-left: 1px solid rgba(0, 0, 0, 0.3);">
-                                            <option model.bind="null" t="postEdit.choose"></option>
-                                            <option repeat.for="media of medias" model.bind="media.id">
-                                                ${ media.value }
-                                            </option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <!-- ZONE DE LISTE POUR LE CHOIX DE LA CATEGORIE -->
-                                <div class="form-group mb-1" validation-errors.bind="categoryErrors"
-                                    class.bind="categoryErrors.length ? 'has-error' : ''">
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text" style="min-width: 160px;"
-                                                t="postEdit.category"></span>
-                                        </div>
-                                        <select value.bind="post.categoryId & validate"
-                                            class="form-control custom-select"
-                                            style="max-width: 250px; border-left: 1px solid rgba(0, 0, 0, 0.3);">
-                                            <option model.bind="null" t="postEdit.choose"></option>
-                                            <option repeat.for="category of categories" model.bind="category.id">
-                                                ${ category.englishName }
-                                            </option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <!-- ZONE DE TEXTE POUR L'EDITION DE LA DATE DE CREATION -->
-                                <div class="form-group mb-1" validation-errors.bind="creationErrors"
-                                    class.bind="creationErrors.length ? 'has-error' : ''">
-                                    <div class="input-group" style="flex-wrap: nowrap;">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text" style="min-width: 160px;"
-                                                t="postEdit.creationDate"></span>
-                                        </div>
-                                        <abp-datetime-picker element.bind="datepicker"
-                                            model.bind="post.creation & validate"
-                                            options.bind="{ format: 'DD/MM/YYYY', locale: 'fr' }"
-                                            icon-base="font-awesome" with-date-icon="true" style="width: 173px;">
-                                        </abp-datetime-picker>
-                                    </div>
-                                </div>
-                                <!-- ZONE DE TEXTE POUR L'EDITION DU TEMPS DE LECTURE -->
-                                <div class="form-group mb-3" validation-errors.bind="readingTimeErrors"
-                                    class.bind="readingTimeErrors.length ? 'has-error' : ''">
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text" style="min-width: 60px;"
-                                                t="postEdit.readingTime"></span>
-                                        </div>
-                                        <input type="text" class="form-control reading-time-input"
-                                            style="max-width: 60px;" value.bind="post.readingTime & validate">
-                                        <div class="input-group-append">
-                                            <span class="input-group-text reading-time-span" t="postEdit.min"></span>
+                                <div if.bind="settingsVisibility">
+                                    <!-- ZONE DE TEXTE POUR L'EDITION DU TITRE ANGLAIS -->
+                                    <div class="form-group mb-1" validation-errors.bind="englishTitleErrors"
+                                        class.bind="englishTitleErrors.length ? 'has-error' : ''">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" style="min-width: 160px;"
+                                                    t="postEdit.postTitle"></span>
+                                            </div>
+                                            <input type="text" class="form-control"
+                                                value.bind="post.englishTitle & validate"
+                                                placeholder="Le titre de votre billet">
                                         </div>
                                     </div>
+                                    <!-- ZONE DE TEXTE POUR L'AJOUT, MODIFICATION, SUPPRESSION DES TAGS -->
+                                    <div class="form-group mb-1">
+                                        <div class="input-group" show.bind="post.id>0">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" style="min-width: 160px;"
+                                                    t="postEdit.tags"></span>
+                                            </div>
+                                            <tags-input tags.bind="post.tagNamesForEnglish"
+                                                on-added.call="onEnglishTagCreated(tagName)"
+                                                on-deleted.call="onTagDeleted(tagName)"
+                                                on-changed.call="onTagUpdated(tagOldName, tagNewName)">
+                                            </tags-input>
+                                        </div>
+                                    </div>
+                                    <!-- PARAMETRES EN EXTRA -->
+                                    <post-edit-extra post.bind="post" medias.bind="medias" categories.bind="categories"
+                                        load-thumbnail-from-youtube.call="loadThumbnailFromYoutube()"></post-edit-extra>
                                 </div>
                                 <!-- CONTENT EN -->
                                 <froala-editor value.two-way="post.englishContent" config.bind="froalaConfig"
