@@ -24,7 +24,7 @@
     "index": {
         "by": "Par",
         "on": "Le",
-        "readingTime": "{{minutes}} min de lecture",
+        "readingTime": "{{minutes}} min",
         "viewMorePosts": "Voir plus de billets"
     },
     "postList": {
@@ -37,14 +37,15 @@
         "export": "Exporter {{count}} billet",
         "export_plural": "Exporter {{count}} billets",
         "add": "Ajouter",
-        "import": "Importer"
+        "import": "Importer",
+        "deleteAll": "Supprimer tout"
     },
     "postView": {
         "title": "Le blog",
         "by": "Par",
         "in": "Dans",
         "on": "Le",
-        "readingTime": "{{minutes}} min de lecture"
+        "readingTime": "{{minutes}} min"
     },
     "postEdit": {
         "save": "Sauver",
@@ -54,6 +55,7 @@
         "postTitle": "Titre du billet",
         "media": "Média",
         "category": "Catégorie",
+        "author": "Auteur",
         "tags": "Les mots clés",
         "creationDate": "Date de création",
         "readingTime": "Temps de lecture",
@@ -77,6 +79,22 @@
         "frenchName": "Nom en français",
         "englishName": "Nom en anglais",
         "color": "Couleur",
+        "requiredField": "Champ obligatoire"
+    },
+    "authorList": {
+        "filterList": "Filtrer la liste",
+        "author": "{{count}} auteur",
+        "author_plural": "{{count}} auteurs",
+        "delete": "Supprimer {{count}} auteur",
+        "delete_plural": "Supprimer {{count}} auteurs",
+        "add": "Ajouter"
+    },
+    "authorEdit": {
+        "save": "Enregistrer",
+        "showList": "Liste",
+        "choose": "Choisir",
+        "name": "Nom",
+        "url": "Url",
         "requiredField": "Champ obligatoire"
     },
     "about": {

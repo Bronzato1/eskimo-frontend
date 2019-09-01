@@ -2710,7 +2710,8 @@ video {
 
 .eskimo-author-meta:after,
 .eskimo-cat-meta:after,
-.eskimo-date-meta:after {
+.eskimo-date-meta:after,
+.eskimo-reading-meta:after {
     content: "/";
     opacity: 0.4;
     padding: 0 0.1rem;
@@ -2896,7 +2897,8 @@ video {
 
 .card img {
     max-width: 100%;
-    height: auto;
+    max-height: 180px;
+    height: fit-content;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.1);
 }
@@ -4326,6 +4328,9 @@ p.form-submit {
     #eskimo-social-cell,
     #eskimo-main-menu {
         display: block !important;
+    }
+    .container {
+        max-width: inherit;
     }
 }
 

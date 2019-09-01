@@ -2,12 +2,14 @@ import { Translator } from './../services/translator';
 import { TagGateway } from '../gateways/tag-gateway';
 import { PostGateway } from "../gateways/post-gateway";
 import { CategoryGateway } from "../gateways/category-gateway";
+import { AuthorGateway } from "../gateways/author-gateway";
 import { autoinject, bindable } from "aurelia-framework";
 import { ValidationRules, ValidationController, ValidationControllerFactory, } from "aurelia-validation";
 import { HttpClient } from 'aurelia-fetch-client';
 import { DialogService } from 'aurelia-dialog';
 import { Router } from "aurelia-router";
 import { Post } from "../models/post-models";
+import { Author } from "../models/author-models";
 import { Tag } from "../models/tag-models";
 import { Box } from "../dialogs/box";
 import { I18N } from "aurelia-i18n";
@@ -24,6 +26,7 @@ export class PostEdit {
     private postGateway: PostGateway;
     private tagGateway: TagGateway;
     private categoryGateway: CategoryGateway;
+    private authorGateway: AuthorGateway;
     private router: Router;
     private box: Box;
     private translator: Translator;
@@ -31,6 +34,7 @@ export class PostEdit {
     private validationController: any;
     private post: Post;
     private categories = [];
+    private authors = [];
     private medias = [];
     private i18n: I18N;
     private selectedFiles: any;
@@ -40,10 +44,11 @@ export class PostEdit {
     private imageVisibility: boolean;
     private settingsVisibility: boolean
 
-    constructor(postGateway: PostGateway, tagGateway: TagGateway, categoryGateway: CategoryGateway, router: Router, box: Box, dialogService: DialogService, i18n: I18N, validationController: ValidationControllerFactory, translator: Translator, httpClient: HttpClient) {
+    constructor(postGateway: PostGateway, tagGateway: TagGateway, categoryGateway: CategoryGateway, authorGateway: AuthorGateway, router: Router, box: Box, dialogService: DialogService, i18n: I18N, validationController: ValidationControllerFactory, translator: Translator, httpClient: HttpClient) {
         this.postGateway = postGateway;
         this.tagGateway = tagGateway;
         this.categoryGateway = categoryGateway;
+        this.authorGateway = authorGateway;
         this.router = router;
         this.box = box;
         this.dialogService = dialogService
@@ -58,7 +63,7 @@ export class PostEdit {
     private froalaConfig =
         {
             key: secret.froalaKey,
-            toolbarInline: true,
+            toolbarInline: false,
             charCounterCount: false,
             imageUploadURL: environment.backendUrl + 'api/froala/UploadImage',
             fileUploadURL: environment.backendUrl + 'api/froala/UploadFile',
@@ -91,6 +96,7 @@ export class PostEdit {
 
         return loadOrCreatheThePost()
             .then(loadCategories)
+            .then(loadAuthors)
             .then(loadMedias)
             .then(manageValidationRules);
 
@@ -112,6 +118,11 @@ export class PostEdit {
         async function loadCategories() {
             var categories = await self.categoryGateway.getAllCategories();
             self.categories = categories;
+        }
+
+        async function loadAuthors() {
+            var authors = await self.authorGateway.getAllAuthors();
+            self.authors = authors;
         }
 
         async function loadMedias() {
@@ -196,9 +207,12 @@ export class PostEdit {
             })
     }
     private attached() {
+
         var self = this;
 
         this.overlay();
+
+        this.settingsVisibility = !this.post.id; // NO ID -> CREATION MODE
 
         $(document).ready(() => {
             $('[autofocus]').focus();
@@ -301,12 +315,24 @@ export class PostEdit {
         this.currentLng = lng;
     }
     private translateServerSide(from: string, to: string) {
+        
         var content = (from == 'fr') ? this.post.frenchContent : this.post.englishContent;
         this.translator.translate(from, to, content).then((data) => {
             if (to == 'fr') {
                 this.post.frenchContent = data;
             } else {
                 this.post.englishContent = data;
+            };
+        }).catch((error) => {
+            debugger;
+        });
+
+        var title = (from == 'fr') ? this.post.frenchTitle : this.post.englishTitle;
+        this.translator.translate(from, to, title).then((data) => {
+            if (to == 'fr') {
+                this.post.frenchTitle = data;
+            } else {
+                this.post.englishTitle = data;
             };
         }).catch((error) => {
             debugger;
@@ -424,5 +450,14 @@ export class PostEdit {
     }
     private showHideSettings() {
         this.settingsVisibility = !this.settingsVisibility;
+    }
+    private navigateToAuthorUrl(author: Author) {
+        if (author.url.startsWith('http')) {
+            var url = author.url;
+            var win = window.open(url, '_blank');
+            win.focus();
+        } else {
+            this.router.navigateToRoute('about');
+        }
     }
 }

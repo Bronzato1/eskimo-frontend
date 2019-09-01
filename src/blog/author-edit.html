@@ -1,0 +1,57 @@
+<template>
+
+    <require from="environment"></require>
+
+    <!-- SITE WRAPPER -->
+    <div id="eskimo-site-wrapper" class="mt-2">
+
+        <button type="button" click.delegate="showAuthorList()" class="btn btn-eskimo pull-right mr-3">
+            <span class="fa fa-list fa-lg mr-2"></span>
+            <span t="authorEdit.showList"></span>
+        </button>
+
+        <button type="submit" ref="button" form="authorForm" class="btn btn-eskimo pull-right mr-2">
+            <span class="fa fa-save fa-lg mr-2"></span>
+            <span t="authorEdit.save"></span>
+        </button>
+
+        <div class="clearfix"></div>
+
+        <section class="container au-animate mt-2">
+            <form id="authorForm" submit.trigger="saveAuthor()">
+
+                <div class="form-group">
+
+                    <div class="row  mb-2">
+                        <div class="col-sm-12">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" style="min-width: 155px;"
+                                        t="authorEdit.name"></span>
+                                </div>
+                                <input type="text" class="form-control" value.bind="author.name"
+                                    t="[placeholder]authorEdit.requiredField">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row  mb-2">
+                            <div class="col-sm-12">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" style="min-width: 155px;"
+                                            t="authorEdit.url"></span>
+                                    </div>
+                                    <input type="text" class="form-control" value.bind="author.url"
+                                        t="[placeholder]authorEdit.requiredField">
+                                </div>
+                            </div>
+                        </div>
+
+                </div>
+            </form>
+        </section>
+
+    </div>
+
+</template>

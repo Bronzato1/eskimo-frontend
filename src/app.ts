@@ -31,6 +31,8 @@ export class App {
             { route: 'postView', name: 'postView', moduleId: 'blog/post-view' },
             { route: 'categoryList', name: 'categoryList', moduleId: 'blog/category-list', settings: { auth: true } },
             { route: 'categoryEdit', name: 'categoryEdit', moduleId: 'blog/category-edit', settings: { auth: true } },
+            { route: 'authorList', name: 'authorList', moduleId: 'blog/author-list', settings: { auth: true } },
+            { route: 'authorEdit', name: 'authorEdit', moduleId: 'blog/author-edit', settings: { auth: true } },
 
             // A B O U T
 

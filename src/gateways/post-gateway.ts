@@ -91,6 +91,15 @@ export class PostGateway {
             })
             .catch(error => console.log(error));
     }
+    deleteAll() {
+        this.httpClient.fetch(`api/post/deleteAll`, { method: 'POST' })
+            .then(response => response.json())
+            .then(data => {
+                var message = 'Suppression réussie de ' + data.countImages + ' images et ' + data.countPosts + 'billets.';
+                this.box.showNotification(message, 'Confirmation', 'Ok');
+            })
+            .catch(error => console.log(error));
+    }
     uploadImageResize1200x600(file): Promise<string> {
         let formData = new FormData();
         formData.append('file', file);

@@ -4,6 +4,7 @@ import { autoinject } from 'aurelia-dependency-injection';
 import { activationStrategy } from 'aurelia-router';
 import { Router } from "aurelia-router";
 import { Post } from 'models/post-models';
+import { Author } from 'models/author-models';
 import { PostGateway } from 'gateways/post-gateway';
 import { I18N } from 'aurelia-i18n';
 import { SlidePanel } from './../slide-panel';
@@ -107,5 +108,14 @@ export class PostsGridView {
             title += ' | Filtre sur <span class="badge badge-' + this.category.color + '"> ' + this.category.frenchName + '</span>';
 
         return title;
+    }
+    private navigateToAuthorUrl(author: Author) {
+        if (author.url.startsWith('http')) {
+            var url = author.url;
+            var win = window.open(url, '_blank');
+            win.focus();
+        } else {
+            this.router.navigateToRoute('about');
+        }
     }
 }

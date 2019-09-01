@@ -24,7 +24,7 @@
     "index": {
         "by": "By",
         "on": "Le",
-        "readingTime": "{{minutes}} min read",
+        "readingTime": "{{minutes}} min",
         "viewMorePosts": "View more posts"
     },
     "postList": {
@@ -37,14 +37,15 @@
         "export": "Export {{count}} post",
         "export_plural": "Export {{count}} posts",
         "add": "Add",
-        "import": "Import"
+        "import": "Import",
+        "deleteAll": "Delete all"
     },
     "postView": {
         "title": "The blog",
         "by": "By",
         "in": "In",
         "on": "On",
-        "readingTime": "{{minutes}} min read"
+        "readingTime": "{{minutes}} min"
     },
     "postEdit": {
         "save": "Save",
@@ -54,6 +55,7 @@
         "postTitle": "Post title",
         "media": "Media",
         "category": "Category",
+        "author": "Author",
         "tags": "Tags",
         "creationDate": "Creation date",
         "readingTime": "Reading time",
@@ -77,6 +79,22 @@
         "frenchName": "French name",
         "englishName": "English name",
         "color": "Color",
+        "requiredField": "Required field"
+    },
+    "authorList": {
+        "filterList": "Filter the list",
+        "author": "{{count}} author",
+        "author_plural": "{{count}} authors",
+        "delete": "Delete {{count}} author",
+        "delete_plural": "Delete {{count}} authors",
+        "add": "Add"
+    },
+    "authorEdit": {
+        "save": "Save",
+        "showList": "Show list",
+        "choose": "Choose",
+        "name": "Name",
+        "url": "url",
         "requiredField": "Required field"
     },
     "about": {

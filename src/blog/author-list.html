@@ -2,14 +2,13 @@
 
     <!-- SITE WRAPPER -->
     <div id="eskimo-site-wrapper">
-        
         <!-- MAIN CONTAINER -->
         <main id="eskimo-main-container" class="no-padding">
             <div class="container mt-3 mb-3">
                 <form>
-                    <button type="button" class="btn btn-eskimo" click.trigger="createNewCategory()">
+                    <button type="button" class="btn btn-eskimo" click.trigger="createNewAuthor()">
                         <span class="fa fa-plus fa-lg mr-2"></span>
-                        <span t="categoryList.add"></span>
+                        <span t="authorList.add"></span>
                     </button>
                     <div class="input-group pull-right" style="width: 140px;">
                         <input type="text" class="form-control" value.bind="filter & debounce"
@@ -22,16 +21,16 @@
                         </div>
                     </div>
                     <button type="button" class="btn btn-eskimo pull-right mr-2"
-                        click.trigger="deleteSelectedCategories()" if.bind="selectedCategories.length>0">
-                        <span class="fa fa-times fa-lg mr-2"></span><span t="categoryList.delete"
-                            t-params.bind="{count: selectedCategories.length}"></span>
+                        click.trigger="deleteSelectedAuthors()" if.bind="selectedAuthors.length>0">
+                        <span class="fa fa-times fa-lg mr-2"></span><span t="authorList.delete"
+                            t-params.bind="{count: selectedAuthors.length}"></span>
                     </button>
                 </form>
             </div>
 
             <section class="au-animate">
-                <group-list items.bind="categories | filterBy:filter:'frenchName':'englishName'" group-by=""
-                    label="categoryList.category" order-by="yearMonthDay">
+                <group-list items.bind="authors | filterBy:filter:'name'" group-by=""
+                    label="authorList.author" order-by="yearMonthDay">
                     <template replace-part="item">
                         <div class="container">
                             <div class="row">
@@ -40,21 +39,9 @@
                                     <input type="checkbox" value="true" checked.bind="isChecked"
                                         change.delegate="checkChange($event.target.checked, group.key, group.items)"
                                         id="gridCheck${id}" class="mr-3 align-middle" style="transform: scale(2);">
-                                    <!-- LE NOM DE LA CATEGORIE EN FRANCAIS -->
-                                    <a route-href="route: categoryEdit; params.bind: { id: id }" class="text-dark">
-                                        <span>${frenchName}</span>
-                                    </a>
-                                </div>
-                                <div class="col col-sm-3">
-                                    <!-- LE NOM DE LA CATEGORIE EN ANGLAIS -->
-                                    <a route-href="route: categoryEdit; params.bind: { id: id }" class="text-dark">
-                                        <span>${englishName}</span>
-                                    </a>
-                                </div>
-                                <div class="col col-sm-3">
-                                    <!-- LE CODE COULEUR -->
-                                    <a route-href="route: categoryEdit; params.bind: { id: id }" class="text-dark">
-                                        <span>${color}</span>
+                                    <!-- LE NOM DE L'AUTEUR -->
+                                    <a route-href="route: authorEdit; params.bind: { id: id }" class="text-dark">
+                                        <span>${name}</span>
                                     </a>
                                 </div>
                             </div>

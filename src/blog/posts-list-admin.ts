@@ -49,6 +49,9 @@ export class PostsListAdmin {
         }
         this.postGateway.importZip(this.zipFile);
     }
+    private deleteAll() {
+        this.postGateway.deleteAll();
+    }
     private clearAllPosts() {
         var message = 'Cette opération est irréversible. Etes-vous sur ?';
         var title = 'Suppression totale';

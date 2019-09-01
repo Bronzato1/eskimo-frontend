@@ -3,6 +3,7 @@ import { autoinject, bindable } from "aurelia-framework";
 import { I18N } from 'aurelia-i18n';
 import { Router } from "aurelia-router";
 import { Post } from "../models/post-models";
+import { Author } from "../models/author-models";
 import { Tag } from "../models/tag-models";
 
 @autoinject()
@@ -75,5 +76,14 @@ export class PostView {
                 return;
         }
         img.parentNode.insertBefore(overlay, img.nextSibling);
+    }
+    private navigateToAuthorUrl(author: Author) {
+        if (author.url.startsWith('http')) {
+            var url = author.url;
+            var win = window.open(url, '_blank');
+            win.focus();
+        } else {
+            this.router.navigateToRoute('about');
+        }
     }
 }

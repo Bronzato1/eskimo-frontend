@@ -5,10 +5,11 @@
 
     <!-- SITE WRAPPER -->
     <div id="eskimo-site-wrapper" class="mt-2">
-
         <section class="container au-animate mt-2">
+
             <!-- MAIN CONTAINER -->
             <main id="eskimo-main-container" class="pppx-4 py-2">
+
                 <!-- BOUTONS -->
                 <div class="pb-4">
                     <!-- 1 BOUTON POUR LA VERSION FR -->
@@ -49,13 +50,16 @@
                             <a class="dropdown-item" href="#" click.trigger="deleteImage()">
                                 Supprimer l'image actuelle</a>
                             <div role="separator" class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#" click.trigger="loadThumbnailFromYoutube_320_180()">
+                            <a class="dropdown-item" href="#" if.bind="post.media==3"
+                                click.trigger="loadThumbnailFromYoutube_320_180()">
                                 Récupérer l'image 320x180 depuis YouTube</a>
-                            <a class="dropdown-item" href="#" click.trigger="loadThumbnailFromYoutube_480_360()">
+                            <a class="dropdown-item" href="#" if.bind="post.media==3"
+                                click.trigger="loadThumbnailFromYoutube_480_360()">
                                 Récupérer l'image 480x360 depuis YouTube</a>
-                            <a class="dropdown-item" href="#" click.trigger="loadThumbnailFromYoutube_1280_720()">
+                            <a class="dropdown-item" href="#" if.bind="post.media==3"
+                                click.trigger="loadThumbnailFromYoutube_1280_720()">
                                 Récupérer l'image 1280x720 depuis YouTube</a>
-                            <div role="separator" class="dropdown-divider"></div>
+                            <div role="separator" if.bind="post.media==3" class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#" click.trigger="showHideImage()">Afficher/masquer
                                 l'image</a>
                         </div>
@@ -83,8 +87,11 @@
                         style="position: absolute; left: 100px; top: -500px;">
                     <div class="clearfix"></div>
                 </div>
+
+                <!-- FORM CONTENT -->
                 <form id="postForm" submit.trigger="savePost()">
-                    <!-- ... -->
+
+                    <!-- SHOW/HIDE SETTINGS -->
                     <div if.bind="!settingsVisibility" class="mb-4">
                         <!-- PAGE TITLE -->
                         <div class="eskimo-page-title pt-0">
@@ -92,7 +99,7 @@
                             <div class="eskimo-page-title-meta">
                                 <div class="eskimo-author-meta">
                                     <label t="postView.by"></label>
-                                    <a class="author-meta" route-href="route:about">Thierry</a>
+                                    <a class="author-meta" href="#" click.trigger="navigateToAuthorUrl(post.author)">${post.author.name}</a>
                                 </div>
                                 <div class="eskimo-date-meta">
                                     <label t="postView.on"></label>
@@ -118,10 +125,12 @@
                             </span>
                         </div>
                     </div>
+
                     <!-- FEATURED IMAGE -->
                     <div class="eskimo-featured-img mt-0 mb-4" if.bind="post.image!=null && imageVisibility">
                         <img src="${post.image}" alt="" />
                     </div>
+
                     <!-- POST CONTENT -->
                     <div class="eskimo-page-content mt-0">
                         <div>
@@ -157,7 +166,9 @@
                                     </div>
                                     <!-- PARAMETRES EN EXTRA -->
                                     <post-edit-extra post.bind="post" medias.bind="medias" categories.bind="categories"
-                                        open-in-youtube.call="openInYoutube()"></post-edit-extra>
+                                        authors.bind="authors" overlay.call="overlay()"
+                                        open-in-youtube.call="openInYoutube()">
+                                    </post-edit-extra>
                                 </div>
                                 <!-- CONTENT FR -->
                                 <froala-editor value.two-way="post.frenchContent" config.bind="froalaConfig"
@@ -195,6 +206,7 @@
                                     </div>
                                     <!-- PARAMETRES EN EXTRA -->
                                     <post-edit-extra post.bind="post" medias.bind="medias" categories.bind="categories"
+                                        authors.bind="authors"
                                         load-thumbnail-from-youtube.call="loadThumbnailFromYoutube()"></post-edit-extra>
                                 </div>
                                 <!-- CONTENT EN -->
@@ -204,7 +216,9 @@
                         </div>
                     </div>
                 </form>
+
             </main>
+
         </section>
     </div>
 

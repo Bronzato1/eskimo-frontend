@@ -58,14 +58,14 @@
                                         post.category.englishName }
                                     </a>
                                 </div>
-                                <h3 class="card-title">
+                                <h5 class="card-title">
                                     <a route-href="route: postView; params.bind: { id: post.id }">
                                         ${ (currentLanguage=='fr') ?
                                         post.frenchTitle :
                                         post.englishTitle
                                         }
                                     </a>
-                                </h3>
+                                </h5>
                                 <div if.bind="false" class="card-excerpt">
                                     <p innerhtml.bind="( currentLanguage=='fr') ? 
                                         excerpt(post.frenchContent) : 
@@ -75,28 +75,33 @@
                                 <div class="card-horizontal-meta">
                                     <div class="eskimo-author-meta">
                                         <span t="index.by"></span>
-                                        <a class="author-meta" route-href="route:about">Thierry</a>
+                                        <a class="author-meta" href="#"
+                                            click.trigger="navigateToAuthorUrl(post.author)">${post.author.name}</a>
                                     </div>
                                     <div class="eskimo-date-meta">
                                         <span t="index.on"></span>
                                         <a href="single-post.html">
-                                            ${post.creation| dateFormat: 'DD MMMM YYYY' : currentLanguage }
+                                            ${post.creation| dateFormat: 'DD MMM' : currentLanguage }
                                         </a>
                                     </div>
                                     <div class="eskimo-reading-meta">
                                         <label t="index.readingTime"
                                             t-params.bind="{minutes: post.readingTime}"></label>
                                     </div>
+                                    <div class="eskimo-media-meta">
+                                        <label if.bind="post.media==2">PODCAST</label>
+                                        <label if.bind="post.media==3">VIDEO</label>
+                                    </div>
                                 </div>
                             </div>
                             <div class="card-horizontal-right" data-img="${ post.image }">
                                 <a class="card-featured-img" route-href="route: postView; params.bind: { id: post.id }">
-                                    <div class="overlay" if.bind="post.media > 0">
+                                    <!-- <div class="overlay" if.bind="post.media > 0">
                                         <div class="icon">
                                             <i class="fa fa-microphone fa-3x" if.bind="post.media == 2"></i>
                                             <i class="fa fa-youtube-play fa-3x" if.bind="post.media == 3"></i>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </a>
                             </div>
                         </div>

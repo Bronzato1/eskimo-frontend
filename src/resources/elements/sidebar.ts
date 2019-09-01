@@ -1,5 +1,7 @@
 import { Category } from './../../models/category-models';
+import { Author } from './../../models/author-models';
 import { CategoryGateway } from './../../gateways/category-gateway';
+import { AuthorGateway } from './../../gateways/author-gateway';
 import { Authentication } from './../../services/authentication';
 import { I18N } from 'aurelia-i18n';
 import { autoinject, Container } from 'aurelia-framework';
@@ -11,6 +13,7 @@ export class Sidebar {
     constructor(i18n: I18N) {
         this.i18n = i18n;
         this.categoryGateway = Container.instance.get(CategoryGateway);
+        this.authorGateway = Container.instance.get(AuthorGateway);
         this.i18n.setLocale('fr');
         this.router = Container.instance.get(Router);
         this.authentication = Container.instance.get(Authentication);
@@ -20,12 +23,15 @@ export class Sidebar {
     private router: Router;
     private authentication: Authentication;
     private categoryGateway: CategoryGateway;
+    private authorGateway: AuthorGateway;
     private categories: Array<Category>;
+    private authors: Array<Author>;
     private get currentUser() {
         return this.authentication.currentUser;
     }
     private bind() {
         this.categoryGateway.getAllCategories().then((categories) => this.categories = categories );
+        this.authorGateway.getAllAuthors().then((authors) => this.authors = authors );
     }
     private attached() {
         $(document).ready(() => {

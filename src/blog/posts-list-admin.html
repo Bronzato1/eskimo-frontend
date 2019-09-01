@@ -13,6 +13,10 @@
                         <span class="fa fa-upload fa-lg mr-2"></span>
                         <span t="postList.import"></span>
                     </button>
+                    <button type="button" class="btn btn-eskimo mr-2" click.trigger="deleteAll()">
+                        <span class="fa fa-upload fa-lg mr-2"></span>
+                        <span t="postList.deleteAll"></span>
+                    </button>
                     <input id="fileChooser" type="file" name="images" accept=".zip" files.bind="zipFile"
                         style="position: absolute; left: 100px; top: -100px;">
                     <div class="input-group pull-right" style="width: 140px;">
