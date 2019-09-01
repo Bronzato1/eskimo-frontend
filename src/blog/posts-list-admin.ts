@@ -47,10 +47,18 @@ export class PostsListAdmin {
             $("#fileChooser").click();
             return;
         }
-        this.postGateway.importZip(this.zipFile);
+        this.postGateway.importZip(this.zipFile)
+            .then(() => {
+                this.postGateway.getPosts()
+                    .then(posts => {
+                        this.posts.splice(0);
+                        this.posts.push.apply(this.posts, posts);
+                    });
+            });
     }
     private deleteAll() {
-        this.postGateway.deleteAll();
+        this.postGateway.deleteAll()
+            .then(() => this.posts.splice(0));
     }
     private clearAllPosts() {
         var message = 'Cette opération est irréversible. Etes-vous sur ?';

@@ -1,24 +1,28 @@
 <template>
+    
     <!-- SITE WRAPPER -->
     <div id="eskimo-site-wrapper">
+
         <!-- MAIN CONTAINER -->
         <main id="eskimo-main-container" class="no-padding">
             <div class="container mt-3 mb-3">
+
+                <!-- LES BOUTONS -->
                 <form>
-                    <button type="button" class="btn btn-eskimo mr-2" click.trigger="createNewPost()">
-                        <span class="fa fa-plus fa-lg mr-2"></span>
-                        <span t="postList.add"></span>
-                    </button>
-                    <button type="button" class="btn btn-eskimo mr-2" click.trigger="importData()">
-                        <span class="fa fa-upload fa-lg mr-2"></span>
-                        <span t="postList.import"></span>
-                    </button>
-                    <button type="button" class="btn btn-eskimo mr-2" click.trigger="deleteAll()">
-                        <span class="fa fa-upload fa-lg mr-2"></span>
-                        <span t="postList.deleteAll"></span>
-                    </button>
+                    <!-- FILE CHOOSER -->
                     <input id="fileChooser" type="file" name="images" accept=".zip" files.bind="zipFile"
                         style="position: absolute; left: 100px; top: -100px;">
+                    <!-- BOUTON ... -->
+                    <button class="btn btn-link pull-right pr-0" type="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-ellipsis-v fa-2x"></i>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#" click.trigger="deleteAll()">
+                            <span t="postList.deleteAll"></span>
+                        </a>
+                    </div>
+                    <!-- ZONE DE FILTRE -->
                     <div class="input-group pull-right" style="width: 140px;">
                         <input type="text" class="form-control" value.bind="filter & debounce"
                             t="[placeholder]postList.filterList">
@@ -29,19 +33,33 @@
                             </button>
                         </div>
                     </div>
+                    <!-- AJOUTER -->
+                    <button type="button" class="btn btn-eskimo mr-2 pull-right" click.trigger="createNewPost()">
+                        <span class="fa fa-plus fa-lg mr-2"></span>
+                        <span t="postList.add"></span>
+                    </button>
+                    <!-- IMPORTER -->
+                    <button type="button" class="btn btn-eskimo mr-2 pull-right" click.trigger="importData()">
+                        <span class="fa fa-upload fa-lg mr-2"></span>
+                        <span t="postList.import"></span>
+                    </button>
+                    <!-- SUPPRIMER x BILLETS -->
                     <button type="button" class="btn btn-eskimo pull-right mr-2" click.trigger="deleteSelectedPosts()"
                         if.bind="selectedPosts.length>0">
                         <span class="fa fa-times fa-lg mr-2"></span>
                         <span t="postList.delete" t-params.bind="{count: selectedPosts.length}"></span>
                     </button>
+                    <!-- EXPORTER x BILLETS -->
                     <button type="button" class="btn btn-eskimo pull-right mr-2" click.trigger="exportSelectedPosts()"
                         if.bind="selectedPosts.length>0">
                         <span class="fa fa-download fa-lg mr-2"></span>
                         <span t="postList.export" t-params.bind="{count: selectedPosts.length}"></span>
                     </button>
                 </form>
+                <div class="clearfix"></div>
             </div>
 
+            <!-- LA LISTE -->
             <section class="au-animate">
                 <group-list
                     items.bind="posts | filterBy:filter: (currentLanguage=='fr') ? 'frenchTitle' : 'englishTitle'"

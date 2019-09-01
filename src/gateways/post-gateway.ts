@@ -78,10 +78,10 @@ export class PostGateway {
                 download(blob, fileName, 'application/octetstream');
             })
     }
-    importZip(file) {
+    importZip(file): Promise<any> {
         let formData = new FormData();
         formData.append('file', file[0]);
-        this.httpClient.fetch(`api/post/importZip`, { method: 'POST', body: formData })
+        return this.httpClient.fetch(`api/post/importZip`, { method: 'POST', body: formData })
             .then(response => response.json())
             .then(data => {
                 var message = 'Importation réussie de ' + data.countSucceed + ' éléments sur ' + (data.countSucceed + data.countError) + '.';
@@ -91,11 +91,11 @@ export class PostGateway {
             })
             .catch(error => console.log(error));
     }
-    deleteAll() {
-        this.httpClient.fetch(`api/post/deleteAll`, { method: 'POST' })
+    deleteAll(): Promise<any> {
+        return this.httpClient.fetch(`api/post/deleteAll`, { method: 'POST' })
             .then(response => response.json())
             .then(data => {
-                var message = 'Suppression réussie de ' + data.countImages + ' images et ' + data.countPosts + 'billets.';
+                var message = 'Suppression réussie de ' + data.countImages + ' images et ' + data.countPosts + ' billets.';
                 this.box.showNotification(message, 'Confirmation', 'Ok');
             })
             .catch(error => console.log(error));
