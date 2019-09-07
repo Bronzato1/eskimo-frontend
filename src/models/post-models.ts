@@ -15,6 +15,7 @@ export class Post {
     public media: number;
     public youtubeVideoId: string;
     public isChecked: Boolean;
+    public authorId: number;
     public categoryId: number;
     public tags: Array<Tag>;
     public tagNamesForFrench: string[] = [];

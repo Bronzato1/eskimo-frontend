@@ -10,16 +10,15 @@ import moment = require('moment');
 export class AuthorGateway {
     private httpClient: HttpClient;
     private box: Box;
-    constructor(httpClient: HttpClient, box: Box) {
-        this.httpClient = httpClient.configure(config => {
+    constructor(box: Box) {
+        this.httpClient = new HttpClient().configure(config => {
             this.box = box;
             config
                 .useStandardConfiguration()
                 .withBaseUrl(environment.backendUrl);
         });
     }
-    createAuthor(author: Author) {
-
+    createAuthor(author: Author): Promise<Author|void> {
         return this.httpClient.fetch(`api/author`, {
             method: 'post',
             body: json(author)
@@ -46,6 +45,13 @@ export class AuthorGateway {
         return this.httpClient.fetch(`api/author/${id}`)
             .then(response => response.json())
             .then(Author.fromObject);
+    }
+    getAuthorByName(name): Promise<Author|void> {
+        return this.httpClient.fetch(`api/author/getAuthorByName/${name}`)
+            .then(response => response.json())
+            .then(Author.fromObject)
+            .catch(error => console.log(error));
+
     }
     updateAuthor(id, author: Author): Promise<void> {
         return this.httpClient.fetch(`api/author/${id}`, { method: 'put', body: json(author) })

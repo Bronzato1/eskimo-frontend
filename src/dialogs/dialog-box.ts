@@ -22,6 +22,7 @@ export enum CustomDialogType {
     Warning,
     Notification,
     Edit,
+    Custom,
     Input
 }
 

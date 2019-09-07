@@ -1,0 +1,35 @@
+<template>
+    <ux-dialog>
+
+        <ux-dialog-header>
+            <h2>Import ${selectedEpisodesCount} episodes from Spreaker</h2>
+        </ux-dialog-header>
+
+        <ux-dialog-body>
+
+            <!-- ZONE DE LISTE POUR LE CHOIX DE LA CATEGORIE -->
+            <div class="form-group mb-1" validation-errors.bind="categoryErrors"
+                class.bind="categoryErrors.length ? 'has-error' : ''">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" style="min-width: 160px;">Category</span>
+                    </div>
+                    <select value.bind="categoryId & validate" class="form-control custom-select"
+                        style="max-width: 250px; border-left: 1px solid rgba(0, 0, 0, 0.3);">
+                        <option model.bind="null">Choose</option>
+                        <option repeat.for="category of categories" model.bind="category.id">
+                            ${ category.frenchName }
+                        </option>
+                    </select>
+                </div>
+            </div>
+
+        </ux-dialog-body>
+
+        <ux-dialog-footer>
+            <button click.trigger="cancel()">Cancel</button>
+            <button click.trigger="ok()">Ok</button>
+        </ux-dialog-footer>
+
+    </ux-dialog>
+</template>

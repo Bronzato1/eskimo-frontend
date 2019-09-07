@@ -30,7 +30,7 @@ export class PostView {
         }
     }
     private attached() {
-        this.overlay();
+        //this.overlay();
     }
     private get currentLanguage() {
         return this.i18n.getLocale();

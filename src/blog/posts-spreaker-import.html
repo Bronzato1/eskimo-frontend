@@ -1,0 +1,102 @@
+<template>
+
+    <require from="../resources/value-converters/hour-min-sec-format"></require>
+
+    <!-- SITE WRAPPER -->
+    <div id="eskimo-site-wrapper">
+
+        <!-- MAIN CONTAINER -->
+        <main id="eskimo-main-container" class="no-padding">
+            <div class="container mt-3 mb-3">
+
+                <!-- LES BOUTONS & FILTRE -->
+                <form submit.trigger="search()">
+
+                    <!-- BOUTON SELECT ALL -->
+                    <button type="button" class="btn btn-eskimo ml-2" click.trigger="selectAll()"
+                        if.bind="episodes.length>0">
+                        <span class="fa fa-check-square fa-lg mr-2"></span>
+                        <span>Select all</span>
+                    </button>
+
+                    <!-- BOUTON UNSELECT ALL -->
+                    <button type="button" class="btn btn-eskimo ml-2" click.trigger="unselectAll()"
+                        if.bind="episodes.length>0">
+                        <span class="fa fa-check-square fa-lg mr-2"></span>
+                        <span>Unselect all</span>
+                    </button>
+
+                    <!-- BOUTON IMPORTER -->
+                    <button type="button" class="btn btn-eskimo ml-2" click.trigger="importSelectionInDatabase()"
+                        if.bind="selectedEpisodes.length>0">
+                        <span class="fa fa-plus fa-lg mr-2"></span>
+                        <span>Import selection</span>
+                    </button>
+
+                    <!-- BOUTON CHERCHER -->
+                    <button type="button" class="btn btn-eskimo ml-2 pull-right" click.trigger="search()">
+                        <span class="fa fa-search fa-lg mr-2"></span>
+                        <span>Search</span>
+                    </button>
+
+                    <!-- ZONE DE RECHERCHE -->
+                    <div class="input-group pull-right" style="width: 200px;">
+                        <input type="text" class="form-control" value.bind="searchCriteria"
+                            t="[placeholder]postList.filterList">
+                        <div class="input-group-append">
+                            <button class="btn btn-eskimo" type="button" click.delegate="clear()">
+                                <i class="fa fa-times"></i>
+                                <span class="sr-only" t="contacts.clear"></span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="clearfix"></div>
+                </form>
+            </div>
+
+            <!-- LA LISTE -->
+            <section class="au-animate">
+                <div class="container">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col" colspan="2" class="text-right">Duration</th>
+                                <th scope="col">Title</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr repeat.for="episode of episodes">
+                                <td class="pr-0">
+                                    <!-- 1 CASE A COCHER POUR SELECTION -->
+                                    <input type="checkbox" value="true" checked.bind="episode.isChecked"
+                                        id="gridCheck${episode.episode_id}" class="mr-3 align-middle"
+                                        style="transform: scale(2);">
+                                </td>
+                                <td class="pl-0 text-right">
+                                    <!-- LA DUREE -->
+                                    ${episode.duration | hourMinuteSecondFormat}
+                                </td>
+                                <td class="text-nowrap">
+                                    <!-- LE TITRE -->
+                                    <a href="${episode.site_url}" target="new" class="text-dark">
+                                        ${episode.title}
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <div if.bind="nextUrl" class="col text-center mb-4">
+                <!-- LOAD MORE BUTTON -->
+                <button type="button" class="btn btn-eskimo" click.trigger="loadNextEpisodes()">
+                    <span class="fa fa-plus fa-lg mr-2"></span>
+                    <span>Charger plus d'éléments</span>
+                </button>
+            </div>
+
+        </main>
+    </div>
+</template>

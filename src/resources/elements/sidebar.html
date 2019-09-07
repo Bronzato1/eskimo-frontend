@@ -3,7 +3,7 @@
         <div id="eskimo-sidebar-wrapper" class="d-flex align-items-start flex-column h-100 w-100">
             <!-- LOGO ( BIG SCREEN ) -->
             <div id="eskimo-logo-cell" class="w-100">
-                <a class="eskimo-logo-link" route-href="route:postsGridView">
+                <a class="eskimo-logo-link" route-href="route:postsMasoView">
                     <img src="images/logo.png" class="eskimo-logo" alt="eskimo" />
                 </a>
             </div>
@@ -11,7 +11,7 @@
             <div id="eskimo-sidebar-cell" class="w-100">
                 <!-- LOGO ( SMALL SCREEN ) -->
                 <div id="eskimo-logo-mobile">
-                    <a route-href="route:postsGridView">
+                    <a route-href="route:postsMasoView">
                         <img src="images/logo.png" class="eskimo-logo" alt="eskimo" />
                     </a>
                 </div>
@@ -30,9 +30,9 @@
                         <li>
                             <a href="#" t="sidebar.theBlog"></a>
                             <ul class="sub-menu">
-                                <li><a route-href="route:postsGridView">Derniers articles</a></li>
+                                <li><a route-href="route:postsMasoView">Derniers articles</a></li>
                                 <template repeat.for="category of categories">
-                                    <li><a route-href="route:postsGridView; params.bind: { category: category }">Catégorie
+                                    <li><a route-href="route:postsMasoView; params.bind: { category: category }">Catégorie
                                             <span class="badge badge-${category.color}">${ (currentLanguage=='fr') ? category.frenchName : category.englishName }</span></a></li>
                                 </template>
                             </ul>
@@ -58,13 +58,9 @@
                             <a href="#" t="sidebar.adminAccess"></a>
                             <ul class="sub-menu">
                                 <li><a route-href="route:postsListAdmin">Liste des billets</a></li>
+                                <li><a route-href="route:postsSpreakerImport">Import Spreaker</a></li>
                                 <li><a route-href="route:categoryList">Liste des catégories</a></li>
                                 <li><a route-href="route:authorList">Liste des auteurs</a></li>
-                                <li><a route-href="route:index2">Home / Demo 2</a></li>
-                                <li><a route-href="route:index3">Home / Demo 3</a></li>
-                                <li><a route-href="route:about2">About / Demo 2</a></li>
-                                <li><a route-href="route:category">Category</a></li>
-                                <li><a route-href="route:otherFeatures">Other Features</a></li>
                             </ul>
                         </li>
                     </ul>

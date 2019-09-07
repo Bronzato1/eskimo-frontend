@@ -210,7 +210,7 @@ export class PostEdit {
 
         var self = this;
 
-        this.overlay();
+        //this.overlay();
 
         this.settingsVisibility = !this.post.id; // NO ID -> CREATION MODE
 

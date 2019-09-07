@@ -21,6 +21,9 @@ export class Box {
     public showEditDialog(viewModel, entityIdToEdit: number, title: string = null, dialogClass: string = null) {
         return this.dialogService.open({ viewModel: DialogBoxViewModel, model: { title: title, dialogType: CustomDialogType.Edit, editVm: viewModel, param1: -100, insideDialog: true } });        
     }
+    public showCustomDialog(viewModel, model) {
+        return this.dialogService.open({ viewModel: viewModel, model: model });        
+    }
     public showInput(message: string, title: string = null, buttons: string[] = null) {
         return this.dialogService.open({ viewModel: DialogBoxViewModel, model: { message: message, title: title, buttons: buttons, dialogType: CustomDialogType.Input } });
     }

@@ -13,8 +13,8 @@ import { stringify } from 'querystring';
 export class PostGateway {
     private httpClient: HttpClient;
     private box: Box;
-    constructor(httpClient: HttpClient, box: Box) {
-        this.httpClient = httpClient.configure(config => {
+    constructor(box: Box) {
+        this.httpClient = new HttpClient().configure(config => {
             this.box = box;
             config
                 .useStandardConfiguration()

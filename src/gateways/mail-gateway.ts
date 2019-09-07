@@ -6,8 +6,8 @@ import { promises } from 'fs';
 @autoinject()
 export class MailGateway {
     private httpClient: HttpClient;
-    constructor(httpClient: HttpClient) {
-        this.httpClient = httpClient.configure(config => {
+    constructor() {
+        this.httpClient = new HttpClient().configure(config => {
             config
                 .useStandardConfiguration()
                 .withBaseUrl(environment.backendUrl);

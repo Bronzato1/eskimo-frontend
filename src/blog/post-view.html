@@ -7,29 +7,17 @@
     <!-- SITE WRAPPER -->
     <div id="eskimo-site-wrapper">
 
+        <!-- FEATURED IMAGE FOR MOBILE -->
+        <div if.bind="post.image && post.media == 1 || post.media == 2" class="eskimo-featured-img eskimo-featured-img-mobile">
+            <img src="${post.image}" alt="" />
+        </div>
+
         <!-- MAIN CONTAINER -->
         <main id="eskimo-main-container">
             <div class="container">
                 <div class="clearfix"></div>
-                <!-- PAGE TITLE -->
-                <div class="eskimo-page-title">
-                    <h1><span>${ (currentLanguage=='fr') ? post.frenchTitle : post.englishTitle}</span></h1>
-                    <div class="eskimo-page-title-meta">
-                        <div class="eskimo-author-meta">
-                            <label t="postView.by"></label>
-                            <a class="author-meta" href="#" click.trigger="navigateToAuthorUrl(post.author)">${post.author.name}</a>
-                        </div>
-                        <div class="eskimo-date-meta">
-                            <label t="postView.on"></label>
-                            ${post.creation| dateFormat: 'DD MMMM YYYY' : currentLanguage }
-                        </div>
-                        <div class="eskimo-reading-meta">
-                            <label t="postView.readingTime" t-params.bind="{minutes: post.readingTime}"></label>
-                        </div>
-                    </div>
-                </div>
                 <!-- TAGS -->
-                <div class="eskimo-meta-tags">
+                <div class="eskimo-meta-tags mt-4">
                     <!-- 1 BADGE POUR LA CATEGORIE -->
                     <a route-href="route: postsGridView; params.bind: { categoryId: post.category.id }">
                         <span class="badge badge-${post.category.color} text-monospace mt-1 mr-1 align-top">
@@ -42,10 +30,29 @@
                         <a route-href="route:tag">${tag.name}</a>
                     </span>
                 </div>
-                <!-- FEATURED IMAGE -->
-                <div if.bind="post.image && post.media == 1" class="eskimo-featured-img">
-                    <img src="${post.image}" alt="" />
+                <!-- PAGE TITLE -->
+                <div class="eskimo-page-title">
+                    <h1><span>${ (currentLanguage=='fr') ? post.frenchTitle : post.englishTitle}</span></h1>
+                    <div class="eskimo-page-title-meta">
+                        <div class="eskimo-author-meta">
+                            <label t="postView.by"></label>
+                            <a class="author-meta" href="#"
+                                click.trigger="navigateToAuthorUrl(post.author)">${post.author.name}</a>
+                        </div>
+                        <div class="eskimo-date-meta">
+                            <label t="postView.on"></label>
+                            ${post.creation| dateFormat: 'DD MMMM YYYY' : currentLanguage }
+                        </div>
+                        <div class="eskimo-reading-meta">
+                            <label t="postView.readingTime" t-params.bind="{minutes: post.readingTime}"></label>
+                        </div>
+                    </div>
                 </div>
+                <!-- FEATURED IMAGE FOR DESKTOP -->
+                <div if.bind="post.image && post.media == 1" class="eskimo-featured-img eskimo-featured-img-desktop">
+                    <img src="${post.image}" alt="" style="height: 200px;" />
+                </div>
+
                 <!-- POST CONTENT -->
                 <div class="eskimo-page-content"
                     innerhtml.bind="(currentLanguage=='fr') ? post.frenchContent : post.englishContent">

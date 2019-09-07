@@ -27,13 +27,14 @@ export class App {
             { route: 'postsListView', name: 'postsListView', moduleId: 'blog/posts-list-view' },
             { route: 'postsMasoView', name: 'postsMasoView', moduleId: 'blog/posts-maso-view' },
             { route: 'postsListAdmin', name: 'postsListAdmin', moduleId: 'blog/posts-list-admin', settings: { auth: true } },
+            { route: 'postsSpreakerImport', name: 'postsSpreakerImport', moduleId: 'blog/posts-spreaker-import', settings: { auth: true } },
             { route: 'postEdit', name: 'postEdit', moduleId: 'blog/post-edit', settings: { auth: true } },
             { route: 'postView', name: 'postView', moduleId: 'blog/post-view' },
             { route: 'categoryList', name: 'categoryList', moduleId: 'blog/category-list', settings: { auth: true } },
             { route: 'categoryEdit', name: 'categoryEdit', moduleId: 'blog/category-edit', settings: { auth: true } },
             { route: 'authorList', name: 'authorList', moduleId: 'blog/author-list', settings: { auth: true } },
             { route: 'authorEdit', name: 'authorEdit', moduleId: 'blog/author-edit', settings: { auth: true } },
-
+            
             // A B O U T
 
             { route: 'about', name: 'about', moduleId: 'about/about' },
