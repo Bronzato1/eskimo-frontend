@@ -5,15 +5,27 @@
     <!-- SITE WRAPPER -->
     <div id="eskimo-site-wrapper" class="mt-2">
 
+        <!-- 1 BOUTON POUR REVENIR A LA LISTE -->
         <button type="button" click.delegate="showCategoryList()" class="btn btn-eskimo pull-right mr-3">
             <span class="fa fa-list fa-lg mr-2"></span>
             <span t="categoryEdit.showList"></span>
         </button>
 
+        <!-- 1 BOUTON POUR ENREGISTRER -->
         <button type="submit" ref="button" form="categoryForm" class="btn btn-eskimo pull-right mr-2">
             <span class="fa fa-save fa-lg mr-2"></span>
             <span t="categoryEdit.save"></span>
         </button>
+
+        <!-- 1 BOUTON POUR CHARGER UNE IMAGE -->
+        <button type="button" click.delegate="uploadImage()" class="btn btn-eskimo pull-right mr-2">
+            <span class="fa fa-image fa-lg mr-2"></span>
+            <span t="categoryEdit.image"></span>
+        </button>
+
+        <!-- SELECTION DU FICHIER IMAGE -->
+        <input id="fileChooser" type="file" name="images" files.bind="selectedFiles"
+            style="position: absolute; left: 100px; top: -500px;">
 
         <div class="clearfix"></div>
 
@@ -57,14 +69,20 @@
                                 </div>
                                 <select value.bind="category.color">
                                     <option model.bind="null" t="categoryEdit.choose"></option>
-                                    <option repeat.for="color of colors"
-                                        model.bind="color.code">
+                                    <option repeat.for="color of colors" model.bind="color.code">
                                         ${ (currentLanguage=='fr') ? color.frenchName : color.englishName }
                                     </option>
                                 </select>
                             </div>
                         </div>
                     </div>
+
+                    <div class="row  mb-2">
+                        <div class="col-sm-4">
+                            <img src="${category.image}" />
+                        </div>
+                    </div>
+
                 </div>
             </form>
         </section>

@@ -69,4 +69,26 @@ export class CategoryGateway {
                 console.log('Result ' + error.status + ': ' + error.statusText);
             });
     }
+    deleteImageCategory(file): Promise<string> {
+        let formData = new FormData();
+        formData.append('src', file);
+        return this.httpClient.fetch(`api/froala/DeleteImage`, {
+            method: 'post',
+            body: formData
+        }).then(response => response.json())
+            .then(data => {
+                return data;
+            });
+    }
+    uploadImageCategory(file): Promise<string> {
+        let formData = new FormData();
+        formData.append('file', file);
+        return this.httpClient.fetch(`api/froala/UploadImage`, {
+            method: 'post',
+            body: formData
+        }).then(response => response.json())
+            .then(data => {
+                return data.link;
+            });
+    }
 }

@@ -13,6 +13,23 @@ import * as $ from 'jquery';
 
 @autoinject()
 export class CategoryEdit {
+
+    private categoryGateway: CategoryGateway;
+    private router: Router;
+    private box: Box;
+    private dialogService: DialogService;
+    private category: Category;
+    private i18n: I18N;
+    private selectedFiles: any;
+    private colors = [
+        { code: 'blue', frenchName: 'Bleu', englishName: 'Blue' },
+        { code: 'red', frenchName: 'Rouge', englishName: 'Red' },
+        { code: 'green', frenchName: 'Vert', englishName: 'Green' },
+        { code: 'yellow', frenchName: 'Jaune', englishName: 'Jaune' },
+        { code: 'blueviolet', frenchName: 'Bleu violet', englishName: 'Blue violet' },
+        { code: 'chartreuse', frenchName: 'Chartreuse', englishName: 'Chartreuse' }
+    ];
+
     constructor(categoryGateway: CategoryGateway, router: Router, box: Box, dialogService: DialogService, i18n: I18N) {
         this.categoryGateway = categoryGateway;
         this.router = router;
@@ -20,19 +37,6 @@ export class CategoryEdit {
         this.dialogService = dialogService;
         this.i18n = i18n;
     }
-    private categoryGateway: CategoryGateway;
-    private router: Router;
-    private box: Box;
-    private dialogService: DialogService;
-    private category: Category;
-    private i18n: I18N;
-    private colors = [
-        { code: 'blue', frenchName: 'Bleu', englishName: 'Blue' },
-        { code: 'red', frenchName: 'Rouge', englishName: 'Red' },
-        { code: 'green', frenchName: 'Vert', englishName: 'Green' },
-        { code: 'blueviolet', frenchName: 'Bleu violet', englishName: 'Blue violet' },
-        { code: 'chartreuse', frenchName: 'Chartreuse', englishName: 'Chartreuse' }
-    ];
     private activate(params, config) {
         var self = this;
         if (params && params.id)
@@ -45,8 +49,15 @@ export class CategoryEdit {
         }
     }
     private attached() {
+
+        var self = this;
+
         $(document).ready(() => {
             $('[autofocus]').focus();
+        });
+
+        $('#fileChooser').change(function () {
+            self.uploadImage();
         });
     }
     private saveCategory() {
@@ -74,5 +85,14 @@ export class CategoryEdit {
     }
     private get currentLanguage() {
         return this.i18n.getLocale();
+    }
+    private uploadImage() {
+        if (!this.selectedFiles) {
+            $("#fileChooser").click();
+            return;
+        }
+        this.categoryGateway.uploadImageCategory(this.selectedFiles[0]).then(link => {
+            this.category.image = environment.backendUrl + link;
+        });
     }
 }

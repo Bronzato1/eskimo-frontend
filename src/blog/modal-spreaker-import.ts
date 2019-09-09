@@ -12,7 +12,7 @@ export class ModalSpreakerImport {
     private selectedEpisodesCount: number;
     private categoryGateway: CategoryGateway;
     private categories: Category[];
-    private categoryId;
+    private selectedCategory;
 
     constructor(controller: DialogController, categoryGateway: CategoryGateway, validationController: ValidationControllerFactory) {
         this.controller = controller;
@@ -35,7 +35,7 @@ export class ModalSpreakerImport {
         this.validationController.validate().then(result => {
             if (result.valid) {
                 var output = {
-                    categoryId: this.categoryId
+                    category: this.selectedCategory
                 };
                 this.controller.ok(output);
             }

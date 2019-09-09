@@ -79,6 +79,7 @@
         "frenchName": "Nom en français",
         "englishName": "Nom en anglais",
         "color": "Couleur",
+        "image": "Image",
         "requiredField": "Champ obligatoire"
     },
     "authorList": {

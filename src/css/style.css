@@ -1945,8 +1945,22 @@ textarea.form-control {
     background-color: #c12026;
 }
 
+.badge-black {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+}
+
+.badge-black a {
+    color: black;
+}
+
 .badge-blue {
     background-color: blue;
+}
+
+.badge-yellow {
+    background-color: rgb(247, 240, 33);
 }
 
 .badge-red {
@@ -2068,6 +2082,22 @@ textarea.form-control {
 }
 
 /* ================= RESPONSIVE IFRAME ================== */
+
+iframe {
+    filter: gray;
+  -webkit-filter: grayscale(1);
+  filter: grayscale(1);
+  -webkit-transition: filter 400ms ease;
+  -moz-transition: filter 400ms ease;
+  -o-transition: filter 400ms ease;
+  -ms-transition: filter 400ms ease;
+  transition: filter 400ms ease;
+}
+
+iframe:hover {
+    -webkit-filter: grayscale(0);
+    filter: none;
+}
 
 .eskimo-iframe-outer {
     display: block;
@@ -2602,7 +2632,7 @@ video {
 
 .eskimo-page-title {
     margin-bottom: 0px;
-    /* padding: 3rem 0 0 0; */
+    padding: 1rem 0 3rem 0;
     -webkit-transition: opacity 0.2s ease-in-out;
     -moz-transition: opacity 0.2s ease-in-out;
     transition: opacity 0.2s ease-in-out;
@@ -2645,7 +2675,7 @@ video {
     content: "";
     height: 4px;
     width: 100%;
-    background: #ffcb0c;
+    background: black;
     left: 0;
     bottom: -4px;
     position: absolute;
@@ -2693,11 +2723,11 @@ video {
     font-weight: 700;
     color: #c12026;
     display: block;
-    margin-top: 15px;
+    /* margin-top: 15px; */
 }
 
 .eskimo-page-title-meta div {
-    display: inline-block;
+    /* display: inline-block; */
 }
 
 .eskimo-page-title-meta {
@@ -2712,19 +2742,18 @@ video {
     color: #ffcb0c;
 }
 
-
 .eskimo-author-meta:after,
 .eskimo-cat-meta:after,
 .eskimo-date-meta:after,
 .eskimo-reading-meta:after {
-    content: "/";
+    /* content: "/";
     opacity: 0.4;
-    padding: 0 0.1rem;
+    padding: 0 0.1rem; */
 }
 
 .eskimo-meta-tags {
     display: block;
-    margin: 0 0 0 0;
+    margin: 0 0 5px 0;
 }
 
 .eskimo-meta-tags .badge {
@@ -2739,14 +2768,15 @@ video {
 
 .eskimo-featured-img {
     /* margin-top: 30px; */
+    margin-bottom: 30px;
     /* background-color: #c12026; */
     position: relative;
     width: 100%;
 }
 
 .eskimo-featured-img img {
-    min-height: 200px;
-    max-width: 100%;
+    /* min-height: 200px; */
+    /* max-width: 100%; */
     margin: 0;
     display: block;
     box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
@@ -2907,9 +2937,9 @@ video {
 }
 
 .card-masonry .card-title {
-    float: left;
+    /* float: left; */
     margin-bottom: 1rem;
-    width: calc(100% - 45px);
+    /* width: calc(100% - 45px); */
     text-overflow: ellipsis;
     overflow: hidden;
     display: -webkit-box;
@@ -2919,11 +2949,24 @@ video {
 
 .card img {
     max-width: 100%;
-    /* max-height: 127px; */
+    max-height: 127px;
     /* height: fit-content; */
     height: auto;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.1);
+    opacity: 0.4;
+    -webkit-transition: opacity 400ms ease;
+    -moz-transition: opacity 400ms ease;
+    -o-transition: opacity 400ms ease;
+    -ms-transition: opacity 400ms ease;
+    transition: opacity 400ms ease;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-bottom: none;
+}
+
+.card:hover img {
+    opacity: 1;
+    border-color: transparent;
 }
 
 .card-body {
@@ -4155,7 +4198,7 @@ p.form-submit {
     width: auto;
     height: auto;
     vertical-align: bottom;
-    margin: 0px -30px;
+    /* margin: 0px -30px; */
     min-width: 100%;
     display: block;
     opacity: 1;
@@ -4171,8 +4214,9 @@ p.form-submit {
 }
 
 .eskimo-masonry-grid .card-masonry {
-    padding: 0px 10px;
-    margin-bottom: 20px;
+    /* padding: 0px 10px; */
+    /* margin-bottom: 20px; */
+    margin: 4px 2px;
 }
 
 .eskimo-masonry-grid.small-masonry {
@@ -4280,9 +4324,6 @@ p.form-submit {
     .eskimo-two-columns[data-columns]::before {
         content: '1 .eskimo-column.size-1of1';
     }
-    .eskimo-featured-img-desktop {
-        display: none;
-    }
 }
 
 @media only screen and (max-width: 575px) {
@@ -4293,19 +4334,21 @@ p.form-submit {
         border-color: transparent;
     }
     .card img {
+        opacity: 1;
         max-height: 300px;
+        border: none;
     }
     #eskimo-main-container {
-        padding-top: 0px !important;
+        /* padding-top: 0px !important;
         padding-bottom: 0px !important;
         padding-left: 10px !important;
-        padding-right: 10px !important;
+        padding-right: 10px !important; */
     }
     .container {
-        margin-top: 0px !important;
+        /* margin-top: 0px !important;
         margin-bottom: 0px !important;
         margin-left: 0px !important;
-        margin-right: 0px !important;
+        margin-right: 0px !important; */
     }
     .card-masonry {
         margin-bottom: 10px !important;
@@ -4363,7 +4406,7 @@ p.form-submit {
         padding: 40px;
     }
     #eskimo-main-container {
-        padding: 60px 45px;  /* REPOSITIONNEMENT 60px 45px; */
+        padding: 20px 15px;  
     }
     #eskimo-footer {
         padding: 0 45px;
@@ -4379,7 +4422,7 @@ p.form-submit {
     }
 
     .eskimo-masonry-grid .card-masonry {
-        padding: 0px 20px;
+        /* padding: 0px 20px; */
         margin-bottom: 40px;
     }
 }
@@ -4469,7 +4512,7 @@ p.form-submit {
         padding-left:25px;
     }
     .eskimo-page-title {
-        padding:0rem !important;
+        /* padding:0rem !important; */
         margin-left:0px !important;
         margin-right:0px !important;
     }
@@ -4483,15 +4526,15 @@ p.form-submit {
     
     h1,
     .h1 {
-        font-size: 2rem;
+        font-size: 1.6rem;
     }
 
     h2,
     .h2 {
-        font-size: 1.9rem;
+        font-size: 1.4rem;
     }
     #eskimo-main-container {
-        padding: 0px; /* REAJUSTEMENT 60px 0px; */
+        /* padding: 0px; REAJUSTEMENT 60px 0px; */
     }
     .card-horizontal .card-body {
         display: flex;
@@ -4558,6 +4601,10 @@ p.form-submit {
     .eskimo-slider {
         margin-bottom:60px
     }
+    .card-featured-img img {
+        -webkit-box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2); 
+        box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
+    }
     .card-featured-img .overlay .icon {
         font-size: 4vw;
     }
@@ -4597,7 +4644,7 @@ p.form-submit {
         height: 250px
     }
     #eskimo-main-container {
-        padding: 40px 0px;
+        /* padding: 40px 0px; */
     }
     #eskimo-footer {
         padding: 0px;
@@ -4642,11 +4689,11 @@ p.form-submit {
         padding: 20px;
     }
     #eskimo-main-container {
-        padding: 15px 0px 40px 0px;
+        /* padding: 15px 0px 40px 0px; */
     }
 
     .eskimo-masonry-grid .card-masonry {
-        padding: 0px;
+        /* padding: 0px; */
     }
 
     .eskimo-masonry-grid .card-masonry,

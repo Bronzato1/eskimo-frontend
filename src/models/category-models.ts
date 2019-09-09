@@ -10,5 +10,6 @@ export class Category {
     public frenchName: string;
     public englishName: string;
     public color: string;
+    public image: string;
     public isChecked: Boolean;
 }

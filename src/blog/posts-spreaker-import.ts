@@ -87,12 +87,12 @@ export class PostsSpreakerImport {
                         post.media = 2;
                         post.readingTime = Math.trunc(elm.duration / 60000);
                         post.creation = elm.published_at;
-                        post.image = elm.image_original_url;
+                        post.image = response.output.category.image;
                         post.frenchTitle = elm.title;
                         post.englishTitle = elm.title;
                         post.frenchContent = `<iframe src="https://widget.spreaker.com/player?episode_id=${elm.episode_id}" width="100%" height="200px" frameborder="0"></iframe>`;
                         post.englishContent = post.frenchContent;
-                        post.categoryId = response.output.categoryId;
+                        post.categoryId = response.output.category.id;
                         post.authorId = (<Author>author).id;
 
                         var createdPost = await this.postGateway.createPost(post);

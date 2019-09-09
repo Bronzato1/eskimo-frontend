@@ -79,6 +79,7 @@
         "frenchName": "French name",
         "englishName": "English name",
         "color": "Color",
+        "image": "Image",
         "requiredField": "Required field"
     },
     "authorList": {
