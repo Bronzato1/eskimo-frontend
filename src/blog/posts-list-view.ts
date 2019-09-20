@@ -10,6 +10,20 @@ import { TopHeader } from './../top-header';
 
 @autoinject()
 export class PostsListView {
+
+    private router: Router;
+    private postGateway: PostGateway;
+    private posts: Array<Post> = [];
+    private categoryId: number;
+    private tagId: number;
+    private mediaId: number;
+    private filter: string;
+    private loadedPages: number;
+    private category: Category;
+    private i18n: I18N;
+    private slidePanel: SlidePanel;
+    private topHeader: TopHeader;
+    
     constructor(router: Router, postGateway: PostGateway, i18n: I18N, slidePanel: SlidePanel, topHeader: TopHeader) {
         this.router = router;
         this.postGateway = postGateway;
@@ -17,17 +31,7 @@ export class PostsListView {
         this.slidePanel = slidePanel;
         this.topHeader = topHeader;
     }
-    private router: Router;
-    private postGateway: PostGateway;
-    private posts: Array<Post> = [];
-    private categoryId: number;
-    private tagId: number;
-    private mediaId: number;
-    private loadedPages: number;
-    private category: Category;
-    private i18n: I18N;
-    private slidePanel: SlidePanel;
-    private topHeader: TopHeader;
+
     determineActivationStrategy() {
         return activationStrategy.replace;
     }
@@ -37,9 +41,10 @@ export class PostsListView {
         this.mediaId = this.slidePanel.selectedMedia = params.mediaId || '';
         this.categoryId =  this.slidePanel.selectedCategory = params.categoryId || '';
         this.tagId = this.slidePanel.selectedTag = params.tagId || '';
+        this.filter = this.slidePanel.currentFilter = params.filter || '';
         this.loadedPages = 1;
 
-        return this.postGateway.getPostsByPage(this.mediaId, this.categoryId, this.tagId, this.loadedPages)
+        return this.postGateway.getPostsByPage(this.mediaId, this.categoryId, this.tagId, this.filter, this.loadedPages)
             .then(posts => {
                 this.posts.splice(0);
                 this.posts.push.apply(this.posts, posts);
@@ -51,9 +56,9 @@ export class PostsListView {
     private get currentLanguage() {
         return this.i18n.getLocale();
     }
-    private get filter() {
-        return this.topHeader.filter;
-    }
+    // private get filter() {
+    //     return this.topHeader.filter;
+    // }
     private filtered(tags: Tag[], currentLanguage) {
         return tags.filter(x => x.language == currentLanguage);
     }

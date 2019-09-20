@@ -10,17 +10,13 @@ import { I18N } from 'aurelia-i18n';
 @autoinject()
 @singleton()
 export class SlidePanel {
-    constructor(router: Router, categoryGateway: CategoryGateway, tagGateway: TagGateway, i18n: I18N) {
-        this.router = router;
-        this.categoryGateway = categoryGateway;
-        this.tagGateway = tagGateway;
-        this.i18n = i18n;
-    }
+
     private router: Router;
     private categoryGateway: CategoryGateway;
     private tagGateway: TagGateway;
     private i18n: I18N;
     public currentViewMode;
+    public currentFilter;
     @observable
     public selectedMedia = '';
     @observable
@@ -29,6 +25,14 @@ export class SlidePanel {
     public selectedTag = '';
     private categories: Array<Category>;
     private tags: Array<Tag>;
+
+    constructor(router: Router, categoryGateway: CategoryGateway, tagGateway: TagGateway, i18n: I18N) {
+        this.router = router;
+        this.categoryGateway = categoryGateway;
+        this.tagGateway = tagGateway;
+        this.i18n = i18n;
+    }
+
     private bind() {
 
         var promise1 = this.categoryGateway.getAllCategories().then((categories) => this.categories = categories);
@@ -47,26 +51,16 @@ export class SlidePanel {
         return this.i18n.getLocale();
     }
     private selectedMediaChanged() {
-        if (!this.router) return;
-        var route = this.getRoute();
-        var params = this.getRouteParameters();
-        this.router.navigateToRoute(route, params);
+        this.reloadView();
     }
     private selectedCategoryChanged() {
-        if (!this.router) return;
-        var route = this.getRoute();
-        var params = this.getRouteParameters();
-        this.router.navigateToRoute(route, params);
+        this.reloadView();
     }
     private selectedTagChanged() {
-        if (!this.router) return;
-        var route = this.getRoute();
-        var params = this.getRouteParameters();
-        this.router.navigateToRoute(route, params);
+        this.reloadView();
     }
     public getRoute() {
-        switch (this.currentViewMode)
-        {
+        switch (this.currentViewMode) {
             case 'list': return 'postsListView';
             case 'grid': return 'postsGridView';
             case 'maso': return 'postsMasoView';
@@ -85,7 +79,16 @@ export class SlidePanel {
         if (this.selectedTag)
             jsondata['tagId'] = this.selectedTag;
 
+        if (this.currentFilter)
+            jsondata['filter'] = this.currentFilter;
+
         return jsondata;
+    }
+    public reloadView() {
+        if (!this.router) return;
+        var route = this.getRoute();
+        var params = this.getRouteParameters();
+        this.router.navigateToRoute(route, params);
     }
 }
 

@@ -3,9 +3,9 @@
         <div id="eskimo-site-wrapper">
             <div class="container d-inline-block mt-4 pr-4">
                 <form>
-                    <div sssshow.bind="showFilter" class="input-group pull-right" style="width: 140px; right: -5px;">
-                        <input type="text" class="form-control" value.bind="filter & debounce"
-                            t="[placeholder]postList.filterList">
+                    <div class="input-group pull-right" style="width: 140px; right: -5px;">
+                        <input type="text" class="form-control" value.bind="filter & debounce:500"
+                            t="[placeholder]postList.search" attach-focus="true">
                         <div class="input-group-append" if.bind="filter">
                             <button class="btn btn-eskimo" type="button" click.delegate="filter = ''">
                                 <i class="fa fa-times"></i>

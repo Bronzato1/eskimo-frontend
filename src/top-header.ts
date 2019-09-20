@@ -8,18 +8,18 @@ import { SlidePanel } from './slide-panel';
 @autoinject()
 @singleton()
 export class TopHeader {
+
+    @bindable filter;
+    private router: Router;
+    private slidePanel: SlidePanel;
+
     constructor(router: Router, slidePanel: SlidePanel) {
         this.router = router;
         this.slidePanel = slidePanel;
     }
-    @bindable filter;
-    private router: Router;
-    private slidePanel: SlidePanel;
+
     private get viewMode() {
         return this.slidePanel.currentViewMode;
-    }
-    private get showFilter() {
-        return this.slidePanel.currentViewMode == 'list';
     }
     private attached() {
         jQuery(document).ready(function () {
@@ -39,15 +39,19 @@ export class TopHeader {
         });
     }
     private switchListView() {
-        var params = this.slidePanel.getRouteParameters();
-        this.router.navigateToRoute('postsListView', params);
+        this.slidePanel.currentViewMode = 'list';
+        this.slidePanel.reloadView();
     }
     private switchGridView() {
-        var params = this.slidePanel.getRouteParameters();
-        this.router.navigateToRoute('postsGridView', params);
+        this.slidePanel.currentViewMode = 'gid';
+        this.slidePanel.reloadView();
     }
     private switchMasoView() {
-        var params = this.slidePanel.getRouteParameters();
-        this.router.navigateToRoute('postsMasoView', params);
+        this.slidePanel.currentViewMode = 'maso';
+        this.slidePanel.reloadView();
+    }
+    private filterChanged() {
+        this.slidePanel.currentFilter = this.filter;
+        this.slidePanel.reloadView();
     }
 }

@@ -77,7 +77,8 @@ export function configure(aurelia: Aurelia) {
             'resources/elements/fullscreen-search',
             'resources/elements/goto-top',
             'resources/elements/rrssb',
-            'resources/elements/footer-panel'
+            'resources/elements/footer-panel',
+            'resources/elements/gridder-video'
         ]);
 
     aurelia.use.developmentLogging(environment.debug ? 'debug' : 'warn');

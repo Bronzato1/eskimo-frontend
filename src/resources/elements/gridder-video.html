@@ -1,0 +1,60 @@
+<template>
+
+    <require from="../value-converters/hour-min-sec-format"></require>
+
+    <!-- Gridder navigation -->
+    <ul class="gridder">
+        <li repeat.for="category of categories" class="gridder-list gridder-list-youtube"
+            data-griddercontent="#content${category.id}">
+            <img src="${category.image}" />
+        </li>
+    </ul>
+
+    <!-- Gridder content -->
+    <div repeat.for="category of categories" id="content${category.id}" class="gridder-content">
+        <div class="header">
+            <div class="play-white-bgd"></div>
+            <i class="fa fa-play-circle"></i>
+            <i class="fa fa-heart"></i>
+            <i class="fa fa-comment"></i>
+            <i class="fa fa-share-alt"></i>
+            <span id="current-reading-item"></span>
+            <iframe id="player" type="text/html" allow="autoplay" allowfullscreen="allowfullscreen"
+                src="https://www.youtube.com/embed/12345?enablejsapi=1"
+                frameborder="0"></iframe>
+            <img class="bars" src="images/bars.png" />
+        </div>
+
+        <table class="table table-gridder-video">
+            <thead>
+                <tr>
+                    <td colspan="3">
+                        <span><b class="text-white">36 épisodes</b></span>
+                    </td>
+                    <td>
+                        <span><b class="text-white pull-right">2 heures, 35 minutes</b></span>
+                    </td>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr repeat.for="post of getPostsOfCategory(category)">
+                    <td>
+                        <i class="fa fa-play fa-sm" data-post-id="${post.id}" style="color: #ffc005;"></i>
+                    </td>
+                    <td>
+                        <img src="${post.image}" />
+                    </td>
+                    <td>
+                        <span class="">${post.frenchTitle}</span>
+                    </td>
+                    <td>
+                        <span class="pull-right">${post.readingTime * 1000 |
+                            hourMinuteSecondFormat}</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</template>

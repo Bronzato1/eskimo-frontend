@@ -86,4 +86,7 @@ export class PostView {
             this.router.navigateToRoute('about');
         }
     }
+    private get currentUrl() {
+        return window.location.href;
+    }
 }

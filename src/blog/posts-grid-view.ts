@@ -18,6 +18,7 @@ export class PostsGridView {
     private categoryId: number;
     private tagId: number;
     private mediaId: number;
+    private filter: string;
     private loadedPages: number;
     private category: Category;
     private totalPages: number;
@@ -40,6 +41,7 @@ export class PostsGridView {
         this.mediaId = this.slidePanel.selectedMedia = params.mediaId || '';
         this.categoryId =  this.slidePanel.selectedCategory = params.categoryId || '';
         this.tagId = this.slidePanel.selectedTag = params.tagId || '';
+        this.filter = this.slidePanel.currentFilter = params.filter || '';
         this.loadedPages = 1;
 
         var promise1 = this.loadPostsByPage();
@@ -56,7 +58,7 @@ export class PostsGridView {
     }
     private loadPostsByPage(): Promise<void | Post[]> {
 
-        return this.postGateway.getPostsByPage(this.mediaId, this.categoryId, this.tagId, this.loadedPages).then((posts) => {
+        return this.postGateway.getPostsByPage(this.mediaId, this.categoryId, this.tagId, this.filter, this.loadedPages).then((posts) => {
             this.allPosts.push.apply(this.allPosts, posts);
             setTimeout(this.adjustHorizontalCardImages, 100);
         });

@@ -6,15 +6,18 @@ import { Router } from "aurelia-router";
 import { Post } from 'models/post-models';
 import { Author } from 'models/author-models';
 import { PostGateway } from 'gateways/post-gateway';
+import { CategoryGateway } from 'gateways/category-gateway';
 import { I18N } from 'aurelia-i18n';
 import { SlidePanel } from '../slide-panel';
 import * as salvattore from 'salvattore';
+import * as $ from 'jquery';
 
 @autoinject()
-export class PostsMasonryView {
+export class PostsGoogView {
 
     private router: Router;
     private allPosts: Array<Post> = [];
+    private allCategories: Array<Post> = [];
     private favoritePosts: Array<Post> = [];
     private categoryId: number;
     private tagId: number;
@@ -24,12 +27,15 @@ export class PostsMasonryView {
     private category: Category;
     private totalPages: number;
     private postGateway: PostGateway;
+    private categoryGateway: CategoryGateway;
     private i18n: I18N;
     private slidePanel: SlidePanel;
+    private gridderVideoViewModel;
 
-    constructor(router: Router, postGateway: PostGateway, i18n: I18N, slidePanel: SlidePanel) {
+    constructor(router: Router, postGateway: PostGateway, categoryGateway: CategoryGateway, i18n: I18N, slidePanel: SlidePanel) {
         this.router = router;
         this.postGateway = postGateway;
+        this.categoryGateway = categoryGateway;
         this.i18n = i18n;
         this.slidePanel = slidePanel;
     }
@@ -48,13 +54,42 @@ export class PostsMasonryView {
         var promise1 = this.loadPostsByPage();
         var promise2 = this.loadPostsInFavorites();
         var promise3 = this.getTotalPostPages();
+        var promise4 = this.loadCategories();
 
-        return Promise.all([promise1, promise2, promise3]);
+        return Promise.all([promise1, promise2, promise3, promise4]);
     }
     private attached() {
         var self = this;
-        salvattore.init();
+
         $(document).ready(() => {
+
+            window.setTimeout(myCall, 400);
+
+            function myCall() {
+                // Call Gridder
+                (<any>$('.gridder')).gridderExpander({
+                    scroll: true,
+                    scrollOffset: 30,
+                    scrollTo: "listitem", // panel or listitem
+                    animationSpeed: 400,
+                    animationEasing: "easeInOutExpo",
+                    showNav: false,
+                    // nextText: "<i class='fa fa-arrow-right'></i>",
+                    // prevText: "<i class='fa fa-arrow-left'></i>",
+                    // closeText: "<i class='fa fa-times'></i>",
+                    onStart: function () {
+                        //Gridder Inititialized
+                    },
+                    onContent: function (elm) {
+                        //Gridder Content Loaded
+                        self.gridderVideoViewModel.onContent();
+                    },
+                    onClosed: function () {
+                        //Gridder Closed
+                        self.gridderVideoViewModel.onClosed();
+                    }
+                });
+            }
 
         });
     }
@@ -73,6 +108,11 @@ export class PostsMasonryView {
     private getTotalPostPages(): Promise<void | number> {
         return this.postGateway.getTotalPostPages().then((tot) => {
             this.totalPages = tot;
+        });
+    }
+    private loadCategories(): Promise<void | Post[]> {
+        return this.categoryGateway.getAllCategories().then((categories) => {
+            this.allCategories.push.apply(this.allCategories, categories);
         });
     }
     private get currentLanguage() {
@@ -120,5 +160,14 @@ export class PostsMasonryView {
         } else {
             this.router.navigateToRoute('about');
         }
+    }
+    private get allTexts() {
+        return this.allPosts.filter(x => x.media == 1);
+    }
+    private get allPodcasts() {
+        return this.allPosts.filter(x => x.media == 2);
+    }
+    private get allVideos() {
+        return this.allPosts.filter(x => x.media == 3);
     }
 }

@@ -42,7 +42,7 @@
                     <!-- ZONE DE RECHERCHE -->
                     <div class="input-group pull-right" style="width: 200px;">
                         <input type="text" class="form-control" value.bind="searchCriteria"
-                            t="[placeholder]postList.filterList">
+                            t="[placeholder]postList.search">
                         <div class="input-group-append">
                             <button class="btn btn-eskimo" type="button" click.delegate="clear()">
                                 <i class="fa fa-times"></i>
@@ -76,6 +76,10 @@
                                 <td class="pl-0 text-right">
                                     <!-- LA DUREE -->
                                     ${episode.duration | hourMinuteSecondFormat}
+                                </td>
+                                <td class="">
+                                    <!-- L'IMAGE' -->
+                                    <img src="${episode.image_url}" />
                                 </td>
                                 <td class="text-nowrap">
                                     <!-- LE TITRE -->

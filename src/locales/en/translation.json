@@ -29,7 +29,7 @@
     },
     "postList": {
         "title": "The blog",
-        "filterList": "Filter the list",
+        "search": "Search",
         "post": "{{count}} post",
         "post_plural": "{{count}} posts",
         "delete": "Delete {{count}} post",
@@ -65,7 +65,7 @@
         "browse": "Browse"
     },
     "categoryList": {
-        "filterList": "Filter the list",
+        "search": "Search",
         "category": "{{count}} category",
         "category_plural": "{{count}} categories",
         "delete": "Delete {{count}} category",
@@ -83,7 +83,7 @@
         "requiredField": "Required field"
     },
     "authorList": {
-        "filterList": "Filter the list",
+        "search": "Search",
         "author": "{{count}} author",
         "author_plural": "{{count}} authors",
         "delete": "Delete {{count}} author",

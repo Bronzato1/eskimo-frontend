@@ -1,0 +1,272 @@
+.gridder{
+    margin:0px;
+    padding:0px;
+    list-style-type:none;
+    font-size:0;
+}
+.gridder-list,
+.gridder-show{
+    font-size:16px;
+}
+.gridder-list{
+    display:inline-block;
+    vertical-align:top;
+}
+.gridder-show{
+    background-color: #191919;
+    display:block;
+    float:left;
+    width:100%;
+    height: 500px;
+    position:relative;
+    z-index: 999;
+}
+.gridder-content{
+    display:none;
+}
+.gridder-list-spreaker{
+    width:16%;
+}
+.gridder-list-youtube{
+    width:30%;
+}
+.gridder-list:nth-child(n){
+    margin-bottom:1%;
+    margin-right: 1%;
+}
+.gridder-list:nth-of-type(2n){
+    margin-right:1%;
+    margin-bottom:1%;
+}
+
+<!------------------------------->
+
+.gridder.hasSelectedItem .gridder-list{
+    filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
+    opacity:0.5;
+}
+.gridder.hasSelectedItem .gridder-list.selectedItem{
+    filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+    opacity:100;
+}
+.gridder-list .image{
+    background-color:#EEE;
+    background-image:url("../images/loading-spin.svg");
+    background-size:cover;
+    background-position:center;
+    height:250px;
+}
+@media only screen and (max-width: 768px){
+
+    .gridder-list:nth-child(n){
+        margin: 1% 1% 1% 0%;
+    }
+    .gridder-list:nth-of-type(2n){
+        margin: 1% 0% 1% 1%;
+    }
+
+    .gridder-list{
+        width:49%;
+    }
+    .gridder-list .image{
+        height:auto;
+    }
+}
+.gridder-show{
+    float:left;
+    display:block;
+    padding: 0 0 0 0;
+    margin-bottom:20px;
+    /* -webkit-box-shadow:inset 0px 0px 20px 5px rgba(0,0,0,0.16);
+    -moz-box-shadow:inset 0px 0px 20px 5px rgba(0,0,0,0.16);
+    box-shadow:inset 0px 0px 20px 5px rgba(0,0,0,0.16); */
+}
+.gridder-show .description{
+    position:absolute;
+    top:60px;
+    left:0px;
+    right:0px;
+    text-align:center;
+    font-family:Arial, serif;
+    font-weight:300;
+    font-size:16px;
+    width:100%;
+    line-height:170%;
+    color:#FFF;
+}
+.gridder-show .description h2{
+    display:inline-block;
+    background:#000;
+    color:#FFF;
+    padding:5px;
+    margin-bottom:5px;
+    font-size:60px;
+    font-weight:700;
+    font-family:'Open Sans', sans-serif;
+}
+.gridder-show .description h3{
+    display:inline-block;
+    background:#000;
+    color:#FFF;
+    padding:5px;
+    font-size:20px;
+    margin-bottom:5px;
+    font-weight:300;
+    font-family:'Open Sans', sans-serif;
+}
+@media only screen and (max-width: 768px){
+    .gridder-show{
+        /* padding:15px; */
+    }
+}
+.gridder-navigation{
+    z-index:1;
+    position:absolute;
+    top:0px;
+    left:0px;
+    padding:0px;
+    text-align:center;
+}
+.gridder-navigation a{
+    background: dimgrey;
+    display:inline-block;
+    padding:15px;
+    color: white;
+    text-decoration:none;
+    font-size:24px;
+    margin-right:0px;
+    transition:all .3s ease-in-out;
+}
+.gridder-navigation a:hover{
+    background: white;
+    color: dimgrey;
+}
+.gridder-navigation a.disabled{
+    opacity:0;
+}
+.gridder-expanded-content{
+    animation-name:fadeIn;
+    animation-duration:.3s;
+    animation-fill-mode:both;
+}
+
+@keyframes fadeIn{
+    0%{
+        opacity:0;
+    }
+    100%{
+        opacity:1;
+    }
+}
+
+.gridder-show .header {
+    position: relative;
+    height: 200px;
+    background-color: black;
+}
+.gridder-show .header #player{
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 200px;
+    width: 355px;
+    z-index: 9;
+}
+.gridder-show .header img.bars{
+    position: absolute;
+    bottom: 0;
+    left: 0
+}
+.gridder-show .header .play-white-bgd {
+    background-color: white; 
+    width: 40px; 
+    height: 40px; 
+    position: absolute; 
+    top: 25px;
+    left: 25px; 
+    z-index: 0
+}
+.gridder-show .header .fa-play-circle,
+.gridder-show .header .fa-pause-circle {
+    position: absolute; 
+    font-size: 5rem; 
+    padding: 4px 10px; 
+    color: #ffc005;
+    cursor: pointer;
+}
+.gridder-show .header .fa-heart {
+    cursor: pointer;
+    position: absolute; 
+    font-size: 1rem; 
+    top: 50px; 
+    left: 90px; 
+    color: white;
+}
+.gridder-show .header .fa-heart:hover {
+    color: #ffc005;
+}
+.gridder-show .header .fa-comment {
+    cursor: pointer;
+    position: absolute; 
+    font-size: 1rem; 
+    top: 48px; 
+    left: 130px; 
+    color: white;
+}
+.gridder-show .header .fa-comment:hover {
+    color: #ffc005;
+}
+.gridder-show .header .fa-share-alt {
+    cursor: pointer;
+    position: absolute; 
+    font-size: 1rem; 
+    top: 50px; 
+    left: 170px; 
+    color: white;
+    
+}
+.gridder-show .header .fa-share-alt:hover {
+    color: #ffc005;
+}
+.gridder-show .header #current-reading-item {
+    position: absolute; 
+    top: 10px; 
+    left: 90px;
+    color: white;
+}
+.gridder-show .table .fa-play,
+.gridder-show .table .fa-pause {
+    cursor: pointer;
+}
+
+.gridder-show .table.table-gridder-video {
+    border-top: 2px solid #ffc005;
+    margin-top: 0;
+}
+.gridder-show .table.table-gridder-video img {
+    width: 34px;
+    height: 27px;
+}
+.gridder-show .table.table-gridder-video tr td {
+    border-top: 1px solid #4c4c4c;
+    padding: 0.4rem;
+}
+.gridder-show .table.table-gridder-video tbody tr.active {
+    background-color: #000000;
+}
+.gridder-show .table.table-gridder-video tbody tr:hover {
+    background-color: #382a00;
+}
+.gridder-show .table.table-gridder-video tr td span {
+    color: #cccc;
+    font-size: 14px;
+    font-weight: 500;
+}
+.gridder-show .table.table-gridder-video tbody tr td:nth-child(1) {
+    width: 10px;
+    padding-left: 16px;
+    padding-right: 11px;
+}
+.gridder-show .table.table-gridder-video tbody tr td:nth-child(2) {
+    width: 40px;
+}

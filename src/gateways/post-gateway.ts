@@ -28,8 +28,8 @@ export class PostGateway {
                 return dto.map(Post.fromObject);
             });
     }
-    getPostsByPage(mediaId: number, categoryId: number, tagId: number, page: number): Promise<Post[]> {
-        return this.httpClient.fetch(`api/post/getPostsByPage?mediaId=${mediaId}&categoryId=${categoryId}&tagId=${tagId}&page=${page}`)
+    getPostsByPage(mediaId: number, categoryId: number, tagId: number, filter: string,  page: number): Promise<Post[]> {
+        return this.httpClient.fetch(`api/post/getPostsByPage?mediaId=${mediaId}&categoryId=${categoryId}&tagId=${tagId}&filter=${filter}&page=${page}`)
             .then(response => response.json())
             .then(dto => {
                 return dto.map(Post.fromObject);
@@ -100,10 +100,10 @@ export class PostGateway {
             })
             .catch(error => console.log(error));
     }
-    uploadImageResize1200x600(file): Promise<string> {
+    uploadImage(file): Promise<string> {
         let formData = new FormData();
         formData.append('file', file);
-        return this.httpClient.fetch(`api/froala/UploadImageResize1200x600`, {
+        return this.httpClient.fetch(`api/froala/UploadImage`, {
             method: 'post',
             body: formData
         }).then(response => response.json())

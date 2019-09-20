@@ -303,7 +303,7 @@ export class PostEdit {
             $("#fileChooser").click();
             return;
         }
-        this.postGateway.uploadImageResize1200x600(this.selectedFiles[0]).then(link => {
+        this.postGateway.uploadImage(this.selectedFiles[0]).then(link => {
             this.post.image = environment.backendUrl + link;
             this.imageVisibility = true;
         });

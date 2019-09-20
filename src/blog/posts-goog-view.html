@@ -1,0 +1,66 @@
+<template>
+
+    
+
+    <!-- FULL SCREEN SEARCH -->
+    <fullscreen-search></fullscreen-search>
+
+    <!-- SITE WRAPPER -->
+    <div id="eskimo-site-wrapper">
+
+        <!-- TOP HEADER -->
+        <compose view-model="top-header"></compose>
+
+        <!-- MAIN CONTAINER -->
+        <main id="eskimo-main-container" class="p-0">
+            <div class="container mt-4">
+                <div class="clearfix"></div>
+
+                <!-- PAGE TITLE -->
+                <div class="eskimo-page-title">
+                    <h1><span>Les podcasts</span></h1>
+                </div>
+
+                <!-- Gridder navigation -->
+                <ul class="gridder">
+
+                    <template repeat.for="post of allPodcasts" containerless>
+
+                        <li class="gridder-list gridder-list-spreaker" data-griddercontent="#content${post.id}">
+                            <img src="${post.image}" />
+                        </li>
+
+                    </template>
+
+                </ul>
+
+                <template repeat.for="post of allPodcasts" containerless>
+                    <!-- Gridder content -->
+                    <div id="content${post.id}" class="gridder-content">
+                        <div innerhtml.bind="(currentLanguage=='fr') ? post.frenchContent : post.englishContent">
+                        </div>
+                    </div>
+                </template>
+
+                <!-- PAGE TITLE -->
+                <div class="eskimo-page-title">
+                    <h1><span>Les vidéos</span></h1>
+                </div>
+
+                <gridder-video categories.bind="allCategories" posts.bind="allVideos" view-model.ref='gridderVideoViewModel'></gridder-video>
+
+
+            </div>
+        </main>
+
+        <!-- FOOTER -->
+        <footer-panel></footer-panel>
+    </div>
+
+    <!-- GO TO TOP BUTTON -->
+    <goto-top></goto-top>
+
+    <!-- JS FILES -->
+    <scriptinjector url="javascript/jquery.gridder.js"></scriptinjector>
+
+</template>

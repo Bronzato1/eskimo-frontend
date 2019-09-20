@@ -14,7 +14,6 @@
                 <!-- PAGE TITLE -->
                 <div class="eskimo-page-title">
                     <h1><span>${ (currentLanguage=='fr') ? post.frenchTitle : post.englishTitle}</span></h1>
-
                 </div>
                 <div class="row">
                     <div class="col-sm-5">
@@ -61,7 +60,7 @@
                 </div>
                 <div class="clearfix"></div>
                 <!-- SOCIAL SHARING -->
-                <rrssb></rrssb>
+                <rrssb title.bind="post.frenchTitle" link.bind="currentUrl" image.bind="post.image"></rrssb>
             </div>
         </main>
     </div>

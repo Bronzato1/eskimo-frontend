@@ -7,7 +7,7 @@
         <ul class="rrssb-buttons">
             <!-- EMAIL -->
             <li class="rrssb-email">
-                <a href="mailto:?Subject=Your%20Subject%20Here">
+                <a href="mailto:?Subject=${title}&body=${link}">
                     <span class="rrssb-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                             <path
@@ -19,7 +19,7 @@
             </li>
             <!-- FACEBOOK -->
             <li class="rrssb-facebook">
-                <a href="https://www.facebook.com/sharer/sharer.php?u=http://eskimo.egemenerd.com/html/single-post.html"
+                <a href="https://www.facebook.com/sharer/sharer.php?u=${link}"
                     class="popup">
                     <span class="rrssb-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 29">
@@ -32,7 +32,7 @@
             </li>
             <!-- TWITTER -->
             <li class="rrssb-twitter">
-                <a href="https://twitter.com/intent/tweet?text=http://eskimo.egemenerd.com/html/single-post.html"
+                <a href="https://twitter.com/intent/tweet?text=${link}"
                     class="popup">
                     <span class="rrssb-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28">
@@ -45,7 +45,7 @@
             </li>
             <!-- LINKEDIN -->
             <li class="rrssb-linkedin">
-                <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http://eskimo.egemenerd.com/html/single-post.html"
+                <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=${link}"
                     class="popup">
                     <span class="rrssb-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28">
@@ -59,7 +59,7 @@
             <!-- TUMBLR -->
             <li class="rrssb-tumblr">
                 <a
-                    href="http://tumblr.com/share/link?url=http://eskimo.egemenerd.com/html/single-post.html&amp;name=Title%20Here">
+                    href="http://tumblr.com/share/link?url=${link}&amp;name=${title}">
                     <span class="rrssb-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28">
                             <path
@@ -71,7 +71,7 @@
             </li>
             <!-- PINTEREST -->
             <li class="rrssb-pinterest">
-                <a href="http://pinterest.com/pin/create/button/?url=http://eskimo.egemenerd.com/html/single-post.html&amp;media=http://eskimo.egemenerd.com/wp-content/uploads/2018/05/blog19.jpg&amp;description=Description%20Here"
+                <a href="http://pinterest.com/pin/create/button/?url=${link}&amp;media=${image}&amp;description=${title}"
                     class="popup">
                     <span class="rrssb-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28">

@@ -1,8 +1,5 @@
 <template>
 
-    <!-- READING POSITION INDICATOR -->
-    <reading-position></reading-position>
-
     <!-- FULL SCREEN SEARCH -->
     <fullscreen-search></fullscreen-search>
 
@@ -13,18 +10,25 @@
         <compose view-model="top-header"></compose>
 
         <!-- MAIN CONTAINER -->
-        <main id="eskimo-main-container" class="">
+        <main id="eskimo-main-container" class="p-0">
             <div class="container mt-4">
                 <div class="clearfix"></div>
 
+                <!-- TITLE -->
+                <div class="col-12 p-2">
+                    <h5 class="eskimo-title-with-border"><span>Xxxxx jsdhgf jsdfg sjhfg dsjhfg sjdfhg sj ffgfcbvc,bv cnb
+                        </span></h5>
+                </div>
+
                 <!-- BLOG POSTS -->
                 <div class="eskimo-masonry-grid">
-                    <div class="eskimo-four-columns" data-columns>
+                    <div class="eskimo-three-columns" data-columns>
                         <template repeat.for="post of allPosts" containerless>
                             <div class="card-masonry">
                                 <div class="card">
                                     <a class="card-featured-img position-relative"
-                                        route-href="route: postView; params.bind: { id: post.id }" style="overflow: inherit;">
+                                        route-href="route: postView; params.bind: { id: post.id }"
+                                        style="overflow: inherit;">
                                         <img class="card-vertical-img" src="${post.image}" alt="" />
                                         <!-- <div class="overlay" if.bind="post.media > 0">
                                             <div class="icon">
@@ -33,17 +37,15 @@
                                             </div>
                                         </div> -->
                                     </a>
-                                    <div class="card-border">
+                                    <div class="ccccccard-border">
                                         <div class="card-body">
-                                            <!-- <div class="card-category">
-                                                <a route-href="route: category">
-                                                    ${ (currentLanguage=='fr') ?
-                                                    post.category.frenchName :
-                                                    post.category.englishName }
-                                                </a>
-                                            </div> -->
+                                            <!-- <span class="badge badge-highlight text-monospace">
+                                                ${ (currentLanguage=='fr') ? post.category.frenchName :
+                                                post.category.englishName }
+                                            </span> -->
                                             <span class="card-title">
-                                                <a route-href="route: postView; params.bind: { id: post.id }">${post.frenchTitle}</a>
+                                                <a
+                                                    route-href="route: postView; params.bind: { id: post.id }">${post.frenchTitle}</a>
                                             </span>
                                             <!-- <i if.bind="post.media == 1" class="fa fa-align-left fa-lg pull-right"></i>
                                             <i if.bind="post.media == 2" class="fa fa-microphone fa-lg pull-right"></i>
@@ -85,7 +87,7 @@
                 <div class="eskimo-view-more" if.bind="loadedPages<totalPages">
                     <a class="btn btn-default" href="#" click.trigger="loadMorePosts()" t="index.viewMorePosts"></a>
                 </div>
-                
+
             </div>
         </main>
 
@@ -97,8 +99,8 @@
     <goto-top></goto-top>
 
     <!-- JS FILES -->
-    <scriptinjector url="javascript/post-slider.js"></scriptinjector>
-    <scriptinjector url="javascript/post-carousel.js"></scriptinjector>
-    <scriptinjector url="javascript/featherlight.js"></scriptinjector>
+    <!-- <scriptinjector url="javascript/post-slider.js"></scriptinjector> -->
+    <!-- <scriptinjector url="javascript/post-carousel.js" ></scriptinjector> -->
+    <!-- <scriptinjector url="javascript/featherlight.js"></scriptinjector> -->
 
 </template>

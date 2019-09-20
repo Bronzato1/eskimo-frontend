@@ -29,7 +29,7 @@
     },
     "postList": {
         "title": "Le blog",
-        "filterList": "Filtrer la liste",
+        "search": "Chercher",
         "post": "{{count}} billet",
         "post_plural": "{{count}} billets",
         "delete": "Supprimer {{count}} billet",
@@ -65,7 +65,7 @@
         "browse": "Parcourir"
     },
     "categoryList": {
-        "filterList": "Filtrer la liste",
+        "search": "Chercher",
         "category": "{{count}} catégorie",
         "category_plural": "{{count}} catégories",
         "delete": "Supprimer {{count}} catégorie",
@@ -83,7 +83,7 @@
         "requiredField": "Champ obligatoire"
     },
     "authorList": {
-        "filterList": "Filtrer la liste",
+        "search": "Chercher",
         "author": "{{count}} auteur",
         "author_plural": "{{count}} auteurs",
         "delete": "Supprimer {{count}} auteur",
